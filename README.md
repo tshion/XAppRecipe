@@ -2,6 +2,19 @@
 Android 開発で自分がよく使うボイラーテンプレートを整備していくリポジトリ
 
 
+## プロジェクト構成
+プロジェクト名 | プロジェクトID | 概要
+--- | --- | --- | ---
+Baser | [baser](./baser) | 共通ライブラリ
+JavaRecipe | [javaRecipe](./javarecipe) | Java 実装レシピ
+KotlinRecipe | [ktRecipe](./ktrecipe) | Kotlin 実装レシピ
+
+
+## 開発環境の整備メモ
+* ソースコード整形ルールは[AOSP の整形ルール](https://github.com/aosp-mirror/platform_development/blob/master/ide/intellij/codestyles/AndroidStyle.xml) を適用してください
+    * [Android Contributors (AOSP) のJavaコードスタイルをAndroid Studioに設定する](https://qiita.com/kafumi/items/637439abaeed348550f0) を参考に設定してください
+
+
 ## 開発メモ
 * gitignore の設定はVSCode 拡張機能[gitignore](https://marketplace.visualstudio.com/items?itemName=codezombiech.gitignore) をベースに設定した
     * Android
