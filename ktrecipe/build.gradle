@@ -7,11 +7,13 @@ apply plugin: 'kotlin-android-extensions'
 def VERSION_MAJOR = 0
 def VERSION_MINOR = 0
 def VERSION_REVISION = 1
+def VERSION_NAME = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
 
 
 android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.ext.compileSdkVersion
+    flavorDimensions "ktrecipe"
 
 
     defaultConfig {
@@ -19,7 +21,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 10000 * VERSION_MAJOR + 100 * VERSION_MINOR + VERSION_REVISION
-        versionName "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+        versionName VERSION_NAME
     }
 
 
@@ -36,6 +38,28 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    productFlavors {
+        // 開発環境
+        dev {
+            dimension "ktrecipe"
+            versionName "dev-${VERSION_NAME}"
+        }
+
+
+        // ステージング環境
+        stg {
+            dimension "ktrecipe"
+            versionName "stg-${VERSION_NAME}"
+        }
+
+
+        // 本番環境
+        prod {
+            dimension "ktrecipe"
         }
     }
 }
