@@ -91,4 +91,7 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
+
+    // LeakCanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
 }

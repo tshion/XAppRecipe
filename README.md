@@ -32,3 +32,7 @@ KotlinRecipe | [ktRecipe](./ktrecipe) | Kotlin 実装レシピ
 * バージョニングは[セマンティックバージョニング](https://semver.org/lang/ja) に沿ってつけてください
     * 各プロジェクトのbuild.config の上の方でバージョン指定できます
     * マイナー、リビジョンはそれぞれ0 <= version <= 99 の範囲で指定できます
+
+
+## プロジェクト共通利用しているライブラリ
+* [LeakCanary](https://github.com/square/leakcanary)

@@ -90,6 +90,9 @@ dependencies {
     // AndroidX
     implementation "androidx.appcompat:appcompat:${appcompatVersion}"
 
+    // LeakCanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
+
     // Lightweight Stream API
     implementation 'com.annimon:stream:1.2.1'
 }
