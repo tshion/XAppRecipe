@@ -251,7 +251,7 @@ $RECYCLE.BIN/
 ### Project Local Rule ###
 ##########################
 # Singing
-#singingProd.properties
+singingProd.properties
 
 # VSCode Java Pack
 .classpath
