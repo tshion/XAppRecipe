@@ -3,9 +3,12 @@ Android 開発で自分がよく使うボイラーテンプレートを整備し
 
 
 ## プロジェクト構成
+下記のプロジェクトで構成されている。
+それぞれにREADME があるので、そちらも確認してください。
+
 プロジェクト名 | プロジェクトID | 概要
---- | --- | --- | ---
-Baser | [baser](./baser) | 共通ライブラリ
+--- | --- | ---
+Baser | [baser](./baser) | 共通で使えそうなボイラーテンプレート集
 JavaRecipe | [javaRecipe](./javarecipe) | Java 実装レシピ
 KotlinRecipe | [ktRecipe](./ktrecipe) | Kotlin 実装レシピ
 
@@ -24,3 +27,6 @@ KotlinRecipe | [ktRecipe](./ktrecipe) | Kotlin 実装レシピ
     * Visual Studio Code
     * Windows
     * プロジェクトでの設定
+* バージョニングは[セマンティックバージョニング](https://semver.org/lang/ja) に沿ってつけてください
+    * 各プロジェクトのbuild.config の上の方でバージョン指定できます
+    * マイナー、リビジョンはそれぞれ0 <= version <= 99 の範囲で指定できます
