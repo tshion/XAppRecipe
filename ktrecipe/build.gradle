@@ -9,6 +9,10 @@ def VERSION_MINOR = 0
 def VERSION_REVISION = 1
 def VERSION_NAME = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
 
+// 本番アプリ署名情報
+def singingProd = new Properties()
+singingProd.load(new FileInputStream(rootProject.file("singingProd.properties")))
+
 
 android {
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -25,6 +29,17 @@ android {
     }
 
 
+    signingConfigs {
+        // 本番アプリ署名情報設定
+        production {
+            keyAlias singingProd['keyAlias']
+            keyPassword singingProd['keyPassword']
+            storeFile file(singingProd['storeFile'])
+            storePassword singingProd['storePassword']
+        }
+    }
+
+
     buildTypes {
         // 開発時用ビルド
         debug {
@@ -38,6 +53,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.production
         }
     }
 
