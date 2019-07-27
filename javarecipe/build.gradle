@@ -47,6 +47,7 @@ android {
         debug {
             applicationIdSuffix ".debug"
             minifyEnabled false
+            multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             versionNameSuffix "-debug"
         }
@@ -54,6 +55,7 @@ android {
         // リリース向け最適化ビルド
         release {
             minifyEnabled true
+            multiDexEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.production
         }
