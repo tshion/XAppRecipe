@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
+// バージョン
+def VERSION_MAJOR = 0
+def VERSION_MINOR = 0
+def VERSION_REVISION = 1
+def VERSION_NAME = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+
+// 本番アプリ署名情報
+def singingProd = new Properties()
+singingProd.load(new FileInputStream(rootProject.file("singingProd.properties")))
+
+
+android {
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    flavorDimensions "ktrecipe"
+
+
+    defaultConfig {
+        applicationId "work.shion.ktrecipe"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 10000 * VERSION_MAJOR + 100 * VERSION_MINOR + VERSION_REVISION
+        versionName VERSION_NAME
+    }
+
+
+    signingConfigs {
+        // 本番アプリ署名情報設定
+        production {
+            keyAlias singingProd['keyAlias']
+            keyPassword singingProd['keyPassword']
+            storeFile file(singingProd['storeFile'])
+            storePassword singingProd['storePassword']
+        }
+    }
+
+
+    buildTypes {
+        // 開発時用ビルド
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            versionNameSuffix "-debug"
+        }
+
+        // リリース向け最適化ビルド
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.production
+        }
+    }
+
+
+    productFlavors {
+        // 開発環境
+        dev {
+            dimension "ktrecipe"
+            versionName "dev-${VERSION_NAME}"
+        }
+
+
+        // ステージング環境
+        stg {
+            dimension "ktrecipe"
+            versionName "stg-${VERSION_NAME}"
+        }
+
+
+        // 本番環境
+        prod {
+            dimension "ktrecipe"
+        }
+    }
+}
+
+
+dependencies {
+    // Local Project
+    implementation project(":baser")
+
+    // AndroidX
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
+    implementation "androidx.core:core-ktx:${ktxVersion}"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
+}
