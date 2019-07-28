@@ -91,6 +91,12 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${appcompatVersion}"
     implementation "androidx.core:core-ktx:${ktxVersion}"
 
+    // Jetpack Navigation
+    implementation "android.arch.navigation:navigation-fragment:${navigationFragmentVersion}"
+    implementation "android.arch.navigation:navigation-fragment-ktx:${navigationFragmentVersion}"
+    implementation "android.arch.navigation:navigation-ui:${navigationUiVersion}"
+    implementation "android.arch.navigation:navigation-ui-ktx:${navigationUiVersion}"
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
 
