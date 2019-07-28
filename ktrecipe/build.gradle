@@ -102,4 +102,7 @@ dependencies {
 
     // LeakCanary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
+
+    // Material Design
+    implementation "com.google.android.material:material:${materialDesignVersion}"
 }
