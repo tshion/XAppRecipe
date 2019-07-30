@@ -1,9 +1,11 @@
 package work.shion.javarecipe;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
+
 import work.shion.baser.stetho.IStethoAttacher;
-import work.shion.strictmode.IStrictModeAttacher;
+import work.shion.baser.strictmode.IStrictModeAttacher;
 
 /**
  * デバッグ用アプリ状態の管理
