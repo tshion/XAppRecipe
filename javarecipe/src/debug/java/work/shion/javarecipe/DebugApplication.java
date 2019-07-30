@@ -1,7 +1,10 @@
 package work.shion.javarecipe;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
+
+import work.shion.baser.nativeui.IWebViewJavaAttacher;
 import work.shion.baser.stetho.IStethoAttacher;
 import work.shion.strictmode.IStrictModeAttacher;
 
@@ -9,7 +12,7 @@ import work.shion.strictmode.IStrictModeAttacher;
  * デバッグ用アプリ状態の管理
  */
 public class DebugApplication extends MainApplication
-        implements IStethoAttacher, IStrictModeAttacher {
+        implements IStethoAttacher, IStrictModeAttacher, IWebViewJavaAttacher {
 
     @Override
     public void onCreate() {
@@ -21,6 +24,9 @@ public class DebugApplication extends MainApplication
         // StrictMode の有効化
         setupThreadPolicy();
         setupVmPolicy();
+
+        // WebView 設定
+        IWebViewJavaAttacher.super.attachDebugger();
     }
 
 

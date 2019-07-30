@@ -1,5 +1,6 @@
 package work.shion.ktrecipe
 
+import work.shion.baser.nativeui.IWebViewAttacher
 import work.shion.baser.stetho.IStethoAttacher
 import work.shion.strictmode.IStrictModeAttacher
 
@@ -8,7 +9,7 @@ import work.shion.strictmode.IStrictModeAttacher
  * デバッグ用アプリ状態の管理
  */
 class DebugApplication : MainApplication(),
-    IStethoAttacher, IStrictModeAttacher {
+        IStethoAttacher, IStrictModeAttacher, IWebViewAttacher {
 
     override fun onCreate() {
         super.onCreate()
@@ -19,5 +20,8 @@ class DebugApplication : MainApplication(),
         // StrictMode の有効化
         setupThreadPolicy()
         setupVmPolicy()
+
+        // WebView 設定
+        super<IWebViewAttacher>.attachDebugger()
     }
 }
