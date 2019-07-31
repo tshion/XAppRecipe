@@ -24,4 +24,9 @@ interface IWebViewAttacher {
         (target.parent as? ViewGroup)?.removeView(target)
         target.destroy()
     }
+
+    /**
+     * WebView 設定ビルダーの新規生成
+     */
+    fun newBuilder() = WebViewBuilder()
 }
