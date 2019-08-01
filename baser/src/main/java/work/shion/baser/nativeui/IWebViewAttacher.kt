@@ -29,4 +29,9 @@ interface IWebViewAttacher {
      * WebView 設定ビルダーの新規生成
      */
     fun newBuilder() = WebViewBuilder()
+
+    /**
+     * WebChromeClient 設定ビルダーの新規生成
+     */
+    fun newChromeClientBuilder() = WebChromeClientBuilder()
 }
