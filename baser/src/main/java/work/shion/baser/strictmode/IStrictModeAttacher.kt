@@ -1,4 +1,4 @@
-package work.shion.strictmode
+package work.shion.baser.strictmode
 
 import android.os.StrictMode
 
@@ -12,10 +12,10 @@ interface IStrictModeAttacher {
      */
     fun setupThreadPolicy() {
         StrictMode.ThreadPolicy.Builder()
-            .detectAll()
-            .penaltyLog()
-            .build()
-            .also { policy -> StrictMode.setThreadPolicy(policy) }
+                .detectAll()
+                .penaltyLog()
+                .build()
+                .also { policy -> StrictMode.setThreadPolicy(policy) }
     }
 
     /**
@@ -23,9 +23,9 @@ interface IStrictModeAttacher {
      */
     fun setupVmPolicy() {
         StrictMode.VmPolicy.Builder()
-            .detectAll()
-            .penaltyLog()
-            .build()
-            .also { policy -> StrictMode.setVmPolicy(policy) }
+                .detectAll()
+                .penaltyLog()
+                .build()
+                .also { policy -> StrictMode.setVmPolicy(policy) }
     }
 }
