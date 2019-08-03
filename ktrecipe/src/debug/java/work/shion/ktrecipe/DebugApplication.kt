@@ -1,6 +1,6 @@
 package work.shion.ktrecipe
 
-import work.shion.baser.nativeui.IWebViewAttacher
+import work.shion.baser.nativeui.webview.IWebViewAttacher
 import work.shion.baser.stetho.IStethoAttacher
 import work.shion.strictmode.IStrictModeAttacher
 

@@ -1,4 +1,4 @@
-package work.shion.baser.nativeui
+package work.shion.baser.nativeui.webview
 
 import android.annotation.TargetApi
 import android.graphics.Bitmap

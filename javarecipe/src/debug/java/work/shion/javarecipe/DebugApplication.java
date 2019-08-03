@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import work.shion.baser.nativeui.IWebViewJavaAttacher;
+import work.shion.baser.nativeui.webview.IWebViewJavaAttacher;
 import work.shion.baser.stetho.IStethoAttacher;
 import work.shion.strictmode.IStrictModeAttacher;
 

@@ -1,4 +1,4 @@
-package work.shion.baser.nativeui
+package work.shion.baser.nativeui.webview
 
 import android.graphics.Bitmap
 import android.net.Uri
