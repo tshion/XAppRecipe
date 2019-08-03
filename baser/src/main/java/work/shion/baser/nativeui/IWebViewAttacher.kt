@@ -19,7 +19,7 @@ interface IWebViewAttacher {
     /**
      * WebView の破棄
      */
-    fun destory(target: WebView) {
+    fun destroy(target: WebView) {
         target.stopLoading()
         (target.parent as? ViewGroup)?.removeView(target)
         target.destroy()
