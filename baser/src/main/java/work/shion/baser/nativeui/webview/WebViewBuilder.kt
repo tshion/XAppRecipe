@@ -2,9 +2,11 @@ package work.shion.baser.nativeui.webview
 
 import android.annotation.TargetApi
 import android.os.Build
+import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebSettings.*
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.annotation.IntDef
 import androidx.annotation.RequiresApi
 
@@ -70,12 +72,17 @@ class WebViewBuilder internal constructor() {
     private var mTextZoom: Int? = null
     private var mUserAgentString: String? = null
     private var mUseWideViewPort: Boolean? = null
+    private var mWebChromeClient: WebChromeClient? = null
+    private var mWebViewClient: WebViewClient? = null
 
 
     /**
      * 指定のWebView に設定を反映する
      */
     fun into(target: WebView) = target.apply {
+        if (mWebChromeClient != null) webChromeClient = mWebChromeClient
+        if (mWebViewClient != null) webViewClient = mWebViewClient
+
         with(settings) {
             allowContentAccess = mAllowContentAccess ?: allowContentAccess
             allowFileAccess = mAllowFileAccess ?: allowFileAccess
@@ -385,4 +392,16 @@ class WebViewBuilder internal constructor() {
      * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebSettings#setUseWideViewPort">Android Developers</a>
      */
     fun setUseWideViewPort(value: Boolean?) = this.apply { mUseWideViewPort = value }
+
+    /**
+     * @see android.webkit.WebView.setWebChromeClient
+     * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebView#setWebChromeClient">Android Developers</a>
+     */
+    fun setWebChromeClient(client: WebChromeClient?) = this.apply { mWebChromeClient = client }
+
+    /**
+     * @see android.webkit.WebView.setWebViewClient
+     * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebView#setWebViewClient">Android Developers</a>
+     */
+    fun setWebViewClient(client: WebViewClient?) = this.apply { mWebViewClient = client }
 }
