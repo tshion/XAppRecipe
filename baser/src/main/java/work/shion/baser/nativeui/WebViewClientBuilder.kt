@@ -7,6 +7,7 @@ import android.net.http.SslError
 import android.os.Message
 import android.view.KeyEvent
 import android.webkit.*
+import androidx.annotation.RequiresApi
 
 
 /**
@@ -28,7 +29,6 @@ class WebViewClientBuilder internal constructor() {
     private var mOnRenderProcessGone: ((view: WebView?, detail: RenderProcessGoneDetail?) -> Boolean)? = null
     private var mOnSafeBrowsingHit: ((view: WebView?, request: WebResourceRequest?, threatType: Int, callback: SafeBrowsingResponse?) -> Unit)? = null
     private var mOnScaleChanged: ((view: WebView?, oldScale: Float, newScale: Float) -> Unit)? = null
-    private var mOnUnhandledKeyEvent: ((view: WebView?, event: KeyEvent?) -> Unit)? = null
     private var mShouldInterceptRequest: ((view: WebView?, request: WebResourceRequest?) -> WebResourceResponse?)? = null
     private var mShouldOverrideKeyEvent: ((view: WebView?, event: KeyEvent?) -> Boolean)? = null
     private var mShouldOverrideUrlLoading: ((view: WebView?, request: WebResourceRequest?) -> Boolean)? = null
@@ -52,6 +52,7 @@ class WebViewClientBuilder internal constructor() {
             mOnLoadResource?.invoke(view, url) ?: super.onLoadResource(view, url)
         }
 
+        @TargetApi(23)
         override fun onPageCommitVisible(view: WebView?, url: String?) {
             mOnPageCommitVisible?.invoke(view, url) ?: super.onPageCommitVisible(view, url)
         }
@@ -89,6 +90,7 @@ class WebViewClientBuilder internal constructor() {
                     ?: super.onReceivedHttpAuthRequest(view, handler, host, realm)
         }
 
+        @TargetApi(23)
         override fun onReceivedHttpError(view: WebView?, request: WebResourceRequest?, errorResponse: WebResourceResponse?) {
             mOnReceivedHttpError?.invoke(view, request, errorResponse)
                     ?: super.onReceivedHttpError(view, request, errorResponse)
@@ -104,10 +106,12 @@ class WebViewClientBuilder internal constructor() {
                     ?: super.onReceivedSslError(view, handler, error)
         }
 
+        @TargetApi(26)
         override fun onRenderProcessGone(view: WebView?, detail: RenderProcessGoneDetail?) =
                 mOnRenderProcessGone?.invoke(view, detail)
                         ?: super.onRenderProcessGone(view, detail)
 
+        @TargetApi(27)
         override fun onSafeBrowsingHit(view: WebView?, request: WebResourceRequest?, threatType: Int, callback: SafeBrowsingResponse?) {
             mOnSafeBrowsingHit?.invoke(view, request, threatType, callback)
                     ?: super.onSafeBrowsingHit(view, request, threatType, callback)
@@ -118,11 +122,6 @@ class WebViewClientBuilder internal constructor() {
                     ?: super.onScaleChanged(view, oldScale, newScale)
         }
 
-        override fun onUnhandledKeyEvent(view: WebView?, event: KeyEvent?) {
-            mOnUnhandledKeyEvent?.invoke(view, event) ?: super.onUnhandledKeyEvent(view, event)
-        }
-
-        override fun shouldInterceptRequest(view: WebView?, url: String?) = shouldInterceptRequest(view, newWebResourceRequest(url))
         override fun shouldInterceptRequest(view: WebView?, request: WebResourceRequest?) =
                 mShouldInterceptRequest?.invoke(view, request)
                         ?: super.shouldInterceptRequest(view, request)
@@ -131,7 +130,11 @@ class WebViewClientBuilder internal constructor() {
                 mShouldOverrideKeyEvent?.invoke(view, event)
                         ?: super.shouldOverrideKeyEvent(view, event)
 
-        override fun shouldOverrideUrlLoading(view: WebView?, url: String?) = shouldOverrideUrlLoading(view, newWebResourceRequest(url))
+        override fun shouldOverrideUrlLoading(view: WebView?, url: String?) =
+                mShouldOverrideUrlLoading?.invoke(view, newWebResourceRequest(url))
+                        ?: super.shouldOverrideUrlLoading(view, url)
+
+        @TargetApi(24)
         override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?) =
                 mShouldOverrideUrlLoading?.invoke(view, request)
                         ?: super.shouldOverrideUrlLoading(view, request)
@@ -159,6 +162,7 @@ class WebViewClientBuilder internal constructor() {
      * @see android.webkit.WebViewClient.onPageCommitVisible
      * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebViewClient.html#onPageCommitVisible">Android Developers</a>
      */
+    @RequiresApi(23)
     fun setOnPageCommitVisible(fx: ((view: WebView?, url: String?) -> Unit)?) = this.apply { mOnPageCommitVisible = fx }
 
     /**
@@ -195,6 +199,7 @@ class WebViewClientBuilder internal constructor() {
      * @see android.webkit.WebViewClient.onReceivedHttpError
      * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebViewClient.html#onReceivedHttpError">Android Developers</a>
      */
+    @RequiresApi(23)
     fun setOnReceivedHttpError(fx: ((view: WebView?, request: WebResourceRequest?, errorResponse: WebResourceResponse?) -> Unit)?) = this.apply { mOnReceivedHttpError = fx }
 
     /**
@@ -213,12 +218,14 @@ class WebViewClientBuilder internal constructor() {
      * @see android.webkit.WebViewClient.onRenderProcessGone
      * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebViewClient.html#onRenderProcessGone">Android Developers</a>
      */
+    @RequiresApi(26)
     fun setOnRenderProcessGone(fx: ((view: WebView?, detail: RenderProcessGoneDetail?) -> Boolean)?) = this.apply { mOnRenderProcessGone = fx }
 
     /**
      * @see android.webkit.WebViewClient.onSafeBrowsingHit
      * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebViewClient.html#onSafeBrowsingHit">Android Developers</a>
      */
+    @RequiresApi(27)
     fun setOnSafeBrowsingHit(fx: ((view: WebView?, request: WebResourceRequest?, threatType: Int, callback: SafeBrowsingResponse?) -> Unit)?) = this.apply { mOnSafeBrowsingHit = fx }
 
     /**
@@ -226,12 +233,6 @@ class WebViewClientBuilder internal constructor() {
      * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebViewClient.html#onScaleChanged">Android Developers</a>
      */
     fun setOnScaleChanged(fx: ((view: WebView?, oldScale: Float, newScale: Float) -> Unit)?) = this.apply { mOnScaleChanged = fx }
-
-    /**
-     * @see android.webkit.WebViewClient.onUnhandledKeyEvent
-     * @see <a href="https://developer.android.com/reference/kotlin/android/webkit/WebViewClient.html#onUnhandledKeyEvent">Android Developers</a>
-     */
-    fun setOnUnhandledKeyEvent(fx: ((view: WebView?, event: KeyEvent?) -> Unit)?) = this.apply { mOnUnhandledKeyEvent = fx }
 
     /**
      * @see android.webkit.WebViewClient.shouldInterceptRequest
