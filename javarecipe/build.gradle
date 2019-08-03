@@ -92,9 +92,16 @@ dependencies {
     // AndroidX
     implementation "androidx.appcompat:appcompat:${appcompatVersion}"
 
+    // Jetpack Navigation
+    implementation "android.arch.navigation:navigation-fragment:${navigationFragmentVersion}"
+    implementation "android.arch.navigation:navigation-ui:${navigationUiVersion}"
+
     // LeakCanary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
 
     // Lightweight Stream API
     implementation 'com.annimon:stream:1.2.1'
+
+    // Material Design
+    implementation "com.google.android.material:material:${materialDesignVersion}"
 }
