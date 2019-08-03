@@ -34,6 +34,9 @@ ext {
     appcompatVersion = "1.0.2"
     ktxVersion = "1.0.2"
     leakCanaryVersion = "2.0-alpha-2"
+    materialDesignVersion = "1.0.0"
+    navigationFragmentVersion = "1.0.0"
+    navigationUiVersion = "1.0.0"
 }
 
 
