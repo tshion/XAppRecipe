@@ -8,12 +8,24 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.entrypoint_fragment_tutorial.*
 import work.shion.ktrecipe.R
+import work.shion.ktrecipe.pages.entrypoint.contracts.TutorialPresenterContract
+import work.shion.ktrecipe.pages.entrypoint.contracts.TutorialViewContract
+import work.shion.ktrecipe.pages.entrypoint.presenters.TutorialPresenter
+import java.lang.ref.WeakReference
 
 
 /**
  * チュートリアル表示用Fragment
  */
-class TutorialFragment : Fragment() {
+class TutorialFragment : Fragment(),
+        TutorialViewContract {
+
+    private val presenter: TutorialPresenterContract by lazy {
+        TutorialPresenter(
+                viewer = WeakReference(this)
+        )
+    }
+
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -53,11 +65,19 @@ class TutorialFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         entrypoint_fragment_tutorial_button.setOnClickListener {
-            val target = activity ?: return@setOnClickListener
-            Navigation.findNavController(
-                    target,
-                    R.id.entrypoint_navigation_host_main
-            ).navigate(R.id.entrypoint_action_any_to_tab)
+            presenter.callTabPage()
         }
+    }
+
+
+    /**
+     * Tab ページに遷移
+     */
+    override fun goTabPage() {
+        val target = activity ?: return
+        Navigation.findNavController(
+                target,
+                R.id.entrypoint_navigation_host_main
+        ).navigate(R.id.entrypoint_action_any_to_tab)
     }
 }
