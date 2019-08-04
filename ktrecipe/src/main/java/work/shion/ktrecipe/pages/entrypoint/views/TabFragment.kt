@@ -8,12 +8,24 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.entrypoint_fragment_tab.*
 import work.shion.ktrecipe.R
+import work.shion.ktrecipe.pages.entrypoint.contracts.TabPresenterContract
+import work.shion.ktrecipe.pages.entrypoint.contracts.TabViewContract
+import work.shion.ktrecipe.pages.entrypoint.presenters.TabPresenter
+import java.lang.ref.WeakReference
 
 
 /**
  * タブ表示用Fragment
  */
-class TabFragment : Fragment() {
+class TabFragment : Fragment(),
+        TabViewContract {
+
+    private val presenter: TabPresenterContract by lazy {
+        TabPresenter(
+                viewer = WeakReference(this)
+        )
+    }
+
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -54,22 +66,30 @@ class TabFragment : Fragment() {
 
         // BottomNavigation の設定
         entrypoint_fragment_tab_bottom_navigation.setOnNavigationItemSelectedListener { item ->
-            val hostId = R.id.entrypoint_fragment_tab_navigation_host
-            val target = activity ?: return@setOnNavigationItemSelectedListener false
-
-            when (item.itemId) {
-                R.id.entrypoint_menu_tab_1st -> {
-                    Navigation.findNavController(target, hostId)
-                            .navigate(R.id.entrypoint_action_any_to_tab_1st)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.entrypoint_menu_tab_2nd -> {
-                    Navigation.findNavController(target, hostId)
-                            .navigate(R.id.entrypoint_action_any_to_tab_2nd)
-                    return@setOnNavigationItemSelectedListener true
-                }
-            }
-            false
+            presenter.onNavigationItemSelected(item)
         }
+    }
+
+
+    /**
+     * Tab1st ページに遷移
+     */
+    override fun goTab1st() {
+        val target = activity ?: return
+        Navigation.findNavController(
+                target,
+                R.id.entrypoint_fragment_tab_navigation_host
+        ).navigate(R.id.entrypoint_action_any_to_tab_1st)
+    }
+
+    /**
+     * Tab2nd ページに遷移
+     */
+    override fun goTab2nd() {
+        val target = activity ?: return
+        Navigation.findNavController(
+                target,
+                R.id.entrypoint_fragment_tab_navigation_host
+        ).navigate(R.id.entrypoint_action_any_to_tab_2nd)
     }
 }
