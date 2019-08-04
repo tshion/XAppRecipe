@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/htmlWhite"
-    tools:context=".entrypoint.MainActivity">
+    tools:context=".pages.entrypoint.views.MainActivity">
 
     <Button
         android:id="@+id/entrypoint_fragment_tutorial_button"

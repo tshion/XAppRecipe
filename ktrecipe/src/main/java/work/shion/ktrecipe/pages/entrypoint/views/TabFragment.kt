@@ -1,4 +1,4 @@
-package work.shion.ktrecipe.entrypoint
+package work.shion.ktrecipe.pages.entrypoint.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.entrypoint_fragment_tutorial.*
+import kotlinx.android.synthetic.main.entrypoint_fragment_tab.*
 import work.shion.ktrecipe.R
 
 
 /**
- * チュートリアル表示用Fragment
+ * タブ表示用Fragment
  */
-class TutorialFragment : Fragment() {
+class TabFragment : Fragment() {
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -36,7 +36,7 @@ class TutorialFragment : Fragment() {
      * @return Return the View for the fragment's UI, or null.
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.entrypoint_fragment_tutorial, container, false)
+        return inflater.inflate(R.layout.entrypoint_fragment_tab, container, false)
     }
 
     /**
@@ -52,12 +52,24 @@ class TutorialFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        entrypoint_fragment_tutorial_button.setOnClickListener {
-            val target = activity ?: return@setOnClickListener
-            Navigation.findNavController(
-                    target,
-                    R.id.entrypoint_navigation_host_main
-            ).navigate(R.id.entrypoint_action_any_to_tab)
+        // BottomNavigation の設定
+        entrypoint_fragment_tab_bottom_navigation.setOnNavigationItemSelectedListener { item ->
+            val hostId = R.id.entrypoint_fragment_tab_navigation_host
+            val target = activity ?: return@setOnNavigationItemSelectedListener false
+
+            when (item.itemId) {
+                R.id.entrypoint_menu_tab_1st -> {
+                    Navigation.findNavController(target, hostId)
+                            .navigate(R.id.entrypoint_action_any_to_tab_1st)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.entrypoint_menu_tab_2nd -> {
+                    Navigation.findNavController(target, hostId)
+                            .navigate(R.id.entrypoint_action_any_to_tab_2nd)
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            false
         }
     }
 }

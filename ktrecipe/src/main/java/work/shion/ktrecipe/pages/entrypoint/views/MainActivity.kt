@@ -1,4 +1,4 @@
-package work.shion.ktrecipe.entrypoint
+package work.shion.ktrecipe.pages.entrypoint.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

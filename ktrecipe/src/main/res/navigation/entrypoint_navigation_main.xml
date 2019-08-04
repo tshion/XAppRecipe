@@ -8,13 +8,13 @@
 
     <fragment
         android:id="@+id/entrypoint_fragment_tab"
-        android:name="work.shion.ktrecipe.entrypoint.TabFragment"
+        android:name="work.shion.ktrecipe.pages.entrypoint.views.TabFragment"
         android:label="entrypoint_fragment_tab"
         tools:layout="@layout/entrypoint_fragment_tab"/>
 
     <fragment
         android:id="@+id/entrypoint_fragment_tutorial"
-        android:name="work.shion.ktrecipe.entrypoint.TutorialFragment"
+        android:name="work.shion.ktrecipe.pages.entrypoint.views.TutorialFragment"
         android:label="entrypoint_fragment_tutorial"
         tools:layout="@layout/entrypoint_fragment_tutorial"/>
 
