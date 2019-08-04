@@ -28,6 +28,10 @@ class TabPresenter(
                 viewer.goTab2nd()
                 return true
             }
+            R.id.entrypoint_menu_tab_web -> {
+                viewer.goWebPage()
+                return true
+            }
             else -> false
         }
     }

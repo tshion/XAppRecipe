@@ -11,6 +11,7 @@ import work.shion.ktrecipe.R
 import work.shion.ktrecipe.pages.entrypoint.contracts.TabPresenterContract
 import work.shion.ktrecipe.pages.entrypoint.contracts.TabViewContract
 import work.shion.ktrecipe.pages.entrypoint.presenters.TabPresenter
+import work.shion.ktrecipe.pages.websample.views.MainActivity
 import java.lang.ref.WeakReference
 
 
@@ -91,5 +92,13 @@ class TabFragment : Fragment(),
                 target,
                 R.id.entrypoint_fragment_tab_navigation_host
         ).navigate(R.id.entrypoint_action_any_to_tab_2nd)
+    }
+
+    /**
+     * Web ページに遷移
+     */
+    override fun goWebPage() {
+        val target = activity ?: return
+        MainActivity.start(target)
     }
 }

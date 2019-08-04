@@ -15,4 +15,9 @@ interface TabViewContract {
      * Tab2nd ページに遷移
      */
     fun goTab2nd()
+    
+    /**
+     * Web ページに遷移
+     */
+    fun goWebPage()
 }
