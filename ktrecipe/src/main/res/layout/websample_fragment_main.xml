@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pages.entrypoint.views.MainActivity">
+    tools:context=".pages.websample.views.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="タブコンテンツその２"/>
+    <WebView
+        android:id="@+id/websample_fragment_main_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </FrameLayout>

@@ -7,10 +7,14 @@
     android:background="@color/htmlWhite"
     tools:context=".pages.entrypoint.views.MainActivity">
 
-    <Button
-        android:id="@+id/entrypoint_fragment_tutorial_button"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="TabFragment に遷移する"/>
+        android:text="アプリ起動時の重たい処理"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 </FrameLayout>

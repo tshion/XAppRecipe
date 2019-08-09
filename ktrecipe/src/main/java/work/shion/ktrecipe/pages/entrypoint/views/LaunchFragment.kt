@@ -1,4 +1,4 @@
-package work.shion.ktrecipe.entrypoint
+package work.shion.ktrecipe.pages.entrypoint.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,9 @@ import work.shion.ktrecipe.R
 
 
 /**
- * タブコンテンツその１用のFragment
+ * 起動時の表示用Fragment
  */
-class Tab1stPageFragment : Fragment() {
+class LaunchFragment : Fragment() {
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -34,6 +34,6 @@ class Tab1stPageFragment : Fragment() {
      * @return Return the View for the fragment's UI, or null.
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.entrypoint_fragment_tab_1st, container, false)
+        return inflater.inflate(R.layout.entrypoint_fragment_launch, container, false)
     }
 }
