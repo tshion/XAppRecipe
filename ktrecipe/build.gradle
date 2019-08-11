@@ -29,6 +29,11 @@ android {
         targetSdkVersion 29
         versionCode 10000 * VERSION_MAJOR + 100 * VERSION_MINOR + VERSION_REVISION
         versionName VERSION_NAME
+
+
+        // JewelSaviorAPI の基本URL
+        buildConfigField "String", "URL_JewelSaviorAPI",
+                "\"https://tentashion.github.io/JewelSaviorCollection/\""
     }
 
 
