@@ -17,6 +17,9 @@ singingProd.load(new FileInputStream(rootProject.file("singingProd.properties"))
 android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.ext.compileSdkVersion
+    dataBinding {
+        enabled = true
+    }
     flavorDimensions "ktrecipe"
 
 
