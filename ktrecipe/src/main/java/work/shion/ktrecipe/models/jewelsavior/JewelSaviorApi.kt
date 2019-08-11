@@ -9,9 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import work.shion.baser.square.attachStetho
 import work.shion.ktrecipe.BuildConfig
 import work.shion.ktrecipe.models.jewelsavior.entities.*
-import work.shion.ktrecipe.models.jewelsavior.entities.GetCategoryIndexItemResponse
-import work.shion.ktrecipe.models.jewelsavior.entities.GetCategoryItemResponse
-import work.shion.ktrecipe.models.jewelsavior.entities.GetSpeechItemResponse
 
 /**
  * JewelSavior を扱うWebAPI
@@ -37,51 +34,51 @@ class JewelSaviorApi(
      * カテゴリー情報の取得
      */
     fun getCategoryDetail(index: Int) = api.fetchCategoryDetail(index)
-            .flattenAsFlowable { response -> response }
-            .map { item: GetCategoryItemResponse ->
-                val base = Uri.parse(BuildConfig.URL_JewelSaviorAPI)
-                        .buildUpon()
-                        .appendPath("image")
-                        .build()
-                val cardUrl = if (!TextUtils.isEmpty(item.imageId)) base.buildUpon().appendPath("card").appendPath("${item.imageId}.webp").toString() else null
-                val iconUrl = if (!TextUtils.isEmpty(item.imageId)) base.buildUpon().appendPath("icon").appendPath("${item.imageId}.webp").toString() else null
+            .map { response ->
+                val baseUrl = Uri.parse(BuildConfig.URL_JewelSaviorAPI)
+                val cardUrl = baseUrl.buildUpon().appendPath("image").appendPath("card").build()
+                val iconUrl = baseUrl.buildUpon().appendPath("image").appendPath("icon").build()
 
-                CategoryEntity(
-                        cardUrl = cardUrl,
-                        categoryIndex = index,
-                        charaId = item.charaId,
-                        charaName = item.charaName,
-                        charaNameRead = item.charaNameRead,
-                        iconUrl = iconUrl
-                )
+                response.map { item: GetCategoryItemResponse ->
+                    val hasImageId = !TextUtils.isEmpty(item.imageId)
+                    val imageName = "${item.imageId}.webp"
+
+                    CategoryEntity(
+                            cardUrl = if (hasImageId) cardUrl.buildUpon().appendPath(imageName).toString() else null,
+                            categoryIndex = index,
+                            charaId = item.charaId,
+                            charaName = item.charaName,
+                            charaNameRead = item.charaNameRead,
+                            iconUrl = if (hasImageId) iconUrl.buildUpon().appendPath(imageName).toString() else null
+                    )
+                }
             }
-            .reduce(arrayListOf<CategoryEntity>(), { list, item -> list.apply { add(item) } })
 
     /**
      * カテゴリー一覧情報の取得
      */
     fun getCategoryIndex() = api.fetchCategoryIndex()
-            .flattenAsFlowable { response -> response }
-            .map { item: GetCategoryIndexItemResponse ->
-                CategoryIndexEntity(
-                        index = item.index,
-                        title = item.title
-                )
+            .map { response ->
+                response.map { item: GetCategoryIndexItemResponse ->
+                    CategoryIndexEntity(
+                            index = item.index,
+                            title = item.title
+                    )
+                }
             }
-            .reduce(arrayListOf<CategoryIndexEntity>(), { list, item -> list.apply { add(item) } })
 
     /**
      * 台詞情報の取得
      */
     fun getSpeech(charaId: String) = api.fetchSpeech(charaId)
-            .flattenAsFlowable { response -> response }
-            .map { item: GetSpeechItemResponse ->
-                SpeechEntity(
-                        charaId = item.charaId,
-                        charaName = item.charaName,
-                        text = item.text,
-                        typeNote = item.typeNote
-                )
+            .map { response ->
+                response.map { item: GetSpeechItemResponse ->
+                    SpeechEntity(
+                            charaId = item.charaId,
+                            charaName = item.charaName,
+                            text = item.text,
+                            typeNote = item.typeNote
+                    )
+                }
             }
-            .reduce(arrayListOf<SpeechEntity>(), { list, item -> list.apply { add(item) } })
 }
