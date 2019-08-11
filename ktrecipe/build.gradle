@@ -106,6 +106,9 @@ dependencies {
     // Material Design
     implementation "com.google.android.material:material:${materialDesignVersion}"
 
+    // Picasso
+    implementation "com.squareup.picasso:picasso:${picassoVersion}"
+
     // Retrofit
     implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"

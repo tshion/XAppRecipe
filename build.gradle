@@ -37,6 +37,7 @@ ext {
     materialDesignVersion = "1.0.0"
     navigationFragmentVersion = "1.0.0"
     navigationUiVersion = "1.0.0"
+    picassoVersion = "2.71828"
     retrofitVersion = "2.5.0"
     rxdroidVersion = "2.1.1"
     rxjavaVersion = "2.2.11"
