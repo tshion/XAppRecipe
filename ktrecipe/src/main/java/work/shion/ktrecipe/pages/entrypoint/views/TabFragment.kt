@@ -73,6 +73,17 @@ class TabFragment : Fragment(),
 
 
     /**
+     * ギャラリーに遷移
+     */
+    override fun goGallery() {
+        val target = activity ?: return
+        work.shion.ktrecipe.pages.image_detail.views.MainActivity.start(
+                fromActivity = target,
+                imageUrl = "https://tentashion.github.io/JewelSaviorCollection/image/card/f001.webp"
+        )
+    }
+
+    /**
      * Tab1st ページに遷移
      */
     override fun goTab1st() {

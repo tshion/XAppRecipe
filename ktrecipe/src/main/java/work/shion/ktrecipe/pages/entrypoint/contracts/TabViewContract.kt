@@ -7,6 +7,11 @@ package work.shion.ktrecipe.pages.entrypoint.contracts
 interface TabViewContract {
 
     /**
+     * ギャラリーに遷移
+     */
+    fun goGallery()
+
+    /**
      * Tab1st ページに遷移
      */
     fun goTab1st()
@@ -15,7 +20,7 @@ interface TabViewContract {
      * Tab2nd ページに遷移
      */
     fun goTab2nd()
-    
+
     /**
      * Web ページに遷移
      */

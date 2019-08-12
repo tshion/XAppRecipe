@@ -23,6 +23,11 @@
         </activity>
 
         <activity
+            android:name=".pages.image_detail.views.MainActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"/>
+
+        <activity
             android:name=".pages.websample.views.MainActivity"
             android:exported="false"
             android:theme="@style/AppTheme"/>

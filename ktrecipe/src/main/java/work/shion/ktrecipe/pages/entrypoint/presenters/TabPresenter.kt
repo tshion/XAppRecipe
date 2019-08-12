@@ -20,6 +20,10 @@ class TabPresenter(
     override fun onNavigationItemSelected(selected: MenuItem): Boolean {
         val viewer = viewer.get() ?: return false
         return when (selected.itemId) {
+            R.id.entrypoint_menu_gallery -> {
+                viewer.goGallery()
+                return true
+            }
             R.id.entrypoint_menu_tab_1st -> {
                 viewer.goTab1st()
                 return true
