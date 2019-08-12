@@ -4,6 +4,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import work.shion.ktrecipe.models.jewelsavior.JewelSaviorApi
+import work.shion.ktrecipe.pages.entrypoint.GalleryIndexItemEntity
 import work.shion.ktrecipe.pages.entrypoint.contracts.GalleryPresenterContract
 import work.shion.ktrecipe.pages.entrypoint.contracts.GalleryViewContract
 import work.shion.ktrecipe.pages.entrypoint.viewmodels.GalleryIndexItemViewModel
@@ -40,16 +41,19 @@ class GalleryPresenter(
                 .subscribeOn(Schedulers.computation())
                 .map { list ->
                     list.map { item ->
-                        GalleryIndexItemViewModel().also { vm ->
-                            vm.cardUrl.set(item.cardUrl)
-                            vm.iconUrl.set(item.iconUrl)
-                            vm.title.set(item.charaName)
-                        }
+                        GalleryIndexItemEntity(
+                                cardUrl = item.cardUrl,
+                                iconUrl = item.iconUrl,
+                                title = item.charaName
+                        )
                     }
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { result ->
-                    viewer.get()?.replaceAdapterData(result)
+                    viewer.get()?.apply {
+                        hideProgress()
+                        replaceAdapterData(result)
+                    }
                 }
     }
 }

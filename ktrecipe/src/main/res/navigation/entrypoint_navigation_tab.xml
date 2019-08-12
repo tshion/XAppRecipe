@@ -18,6 +18,12 @@
         android:label="entrypoint_fragment_tab_2nd"
         tools:layout="@layout/entrypoint_fragment_tab_2nd"/>
 
+    <fragment
+        android:id="@+id/entrypoint_fragment_tab_gallery"
+        android:name="work.shion.ktrecipe.pages.entrypoint.views.TabGalleryFragment"
+        android:label="entrypoint_fragment_tab_gallery"
+        tools:layout="@layout/entrypoint_fragment_tab_gallery"/>
+
 
     <action
         android:id="@+id/entrypoint_action_any_to_tab_1st"
@@ -26,4 +32,8 @@
     <action
         android:id="@+id/entrypoint_action_any_to_tab_2nd"
         app:destination="@id/entrypoint_fragment_tab_2nd"/>
+
+    <action
+        android:id="@+id/entrypoint_action_any_to_tab_gallery"
+        app:destination="@id/entrypoint_fragment_tab_gallery"/>
 </navigation>

@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModelProviders
 import work.shion.ktrecipe.MainApplication
 import work.shion.ktrecipe.R
 import work.shion.ktrecipe.databinding.EntrypointFragmentGalleryBinding
+import work.shion.ktrecipe.pages.entrypoint.GalleryIndexItemEntity
 import work.shion.ktrecipe.pages.entrypoint.contracts.GalleryViewContract
 import work.shion.ktrecipe.pages.entrypoint.presenters.GalleryPresenter
-import work.shion.ktrecipe.pages.entrypoint.viewmodels.GalleryIndexItemViewModel
 import work.shion.ktrecipe.pages.entrypoint.viewmodels.GalleryViewModel
 import work.shion.ktrecipe.pages.image_detail.views.MainActivity
 import java.lang.ref.WeakReference
@@ -76,7 +76,7 @@ class GalleryFragment : Fragment(),
         binding.viewModel?.isShowProgress?.set(false)
     }
 
-    override fun replaceAdapterData(data: List<GalleryIndexItemViewModel>) {
+    override fun replaceAdapterData(data: List<GalleryIndexItemEntity>) {
         binding.adapter?.setDisplayData(data)
         binding.viewModel?.hasResult?.set(data.isNotEmpty())
     }

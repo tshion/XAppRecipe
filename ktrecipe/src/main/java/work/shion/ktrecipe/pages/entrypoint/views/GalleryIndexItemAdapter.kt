@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import work.shion.ktrecipe.R
 import work.shion.ktrecipe.databinding.EntrypointItemGalleryIndexBinding
+import work.shion.ktrecipe.pages.entrypoint.GalleryIndexItemEntity
 import work.shion.ktrecipe.pages.entrypoint.contracts.GalleryIndexItemPresenterContract
 import work.shion.ktrecipe.pages.entrypoint.viewmodels.GalleryIndexItemViewModel
 
@@ -16,7 +17,7 @@ class GalleryIndexItemAdapter(
         private val presenter: GalleryIndexItemPresenterContract
 ) : RecyclerView.Adapter<GalleryIndexItemViewHolder>() {
     /** 表示データ */
-    private var displayData: List<GalleryIndexItemViewModel>? = null
+    private var displayData: List<GalleryIndexItemEntity>? = null
 
 
     /**
@@ -31,7 +32,11 @@ class GalleryIndexItemAdapter(
         val target = displayData?.getOrNull(position) ?: return
         holder.binding.apply {
             presenter = this@GalleryIndexItemAdapter.presenter
-            viewmodel = target
+            viewmodel = GalleryIndexItemViewModel().apply {
+                cardUrl.set(target.cardUrl)
+                iconUrl.set(target.iconUrl)
+                title.set(target.title)
+            }
             notifyChange()
             executePendingBindings()
         }
@@ -54,7 +59,7 @@ class GalleryIndexItemAdapter(
     /**
      * 表示データの設定
      */
-    fun setDisplayData(data: List<GalleryIndexItemViewModel>) {
+    fun setDisplayData(data: List<GalleryIndexItemEntity>) {
         displayData = data
         notifyDataSetChanged()
     }

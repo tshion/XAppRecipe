@@ -25,12 +25,12 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="160dp"
             android:onClick="@{() -> presenter.callDetail(viewmodel.cardUrl)}">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:contentDescription="@{viewmodel.title}"
                 app:imageUrl="@{viewmodel.iconUrl}"
                 tools:adjustViewBounds="true"

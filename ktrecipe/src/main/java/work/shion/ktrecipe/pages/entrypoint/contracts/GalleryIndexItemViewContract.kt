@@ -1,6 +1,6 @@
 package work.shion.ktrecipe.pages.entrypoint.contracts
 
-import work.shion.ktrecipe.pages.entrypoint.viewmodels.GalleryIndexItemViewModel
+import work.shion.ktrecipe.pages.entrypoint.GalleryIndexItemEntity
 
 /**
  * 画像一覧項目の表示定義
@@ -13,5 +13,5 @@ interface GalleryIndexItemViewContract {
      */
     fun goDetail(url: String?)
 
-    fun replaceAdapterData(data: List<GalleryIndexItemViewModel>)
+    fun replaceAdapterData(data: List<GalleryIndexItemEntity>)
 }

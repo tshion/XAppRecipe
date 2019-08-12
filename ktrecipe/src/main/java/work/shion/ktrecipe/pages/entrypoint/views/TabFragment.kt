@@ -77,10 +77,10 @@ class TabFragment : Fragment(),
      */
     override fun goGallery() {
         val target = activity ?: return
-        work.shion.ktrecipe.pages.image_detail.views.MainActivity.start(
-                fromActivity = target,
-                imageUrl = "https://tentashion.github.io/JewelSaviorCollection/image/card/f001.webp"
-        )
+        Navigation.findNavController(
+                target,
+                R.id.entrypoint_fragment_tab_navigation_host
+        ).navigate(R.id.entrypoint_action_any_to_tab_gallery)
     }
 
     /**
