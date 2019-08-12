@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="adapter"
+            type="work.shion.ktrecipe.pages.entrypoint.views.GalleryIndexItemAdapter"/>
+
+        <variable
+            name="viewModel"
+            type="work.shion.ktrecipe.pages.entrypoint.viewmodels.GalleryViewModel"/>
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- データがない場合 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Found!"/>
+        </LinearLayout>
+
+        <!-- データ表示領域 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adapter="@{adapter}"
+            android:background="#A1B2BD"
+            android:visibility="@{viewModel.hasResult ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/entrypoint_item_gallery_index"/>
+
+        <!-- プログレス -->
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTintMode="src_atop"
+            android:visibility="@{viewModel.isShowProgress ? View.VISIBLE: View.GONE}"
+            tools:visibility="gone"/>
+    </FrameLayout>
+</layout>

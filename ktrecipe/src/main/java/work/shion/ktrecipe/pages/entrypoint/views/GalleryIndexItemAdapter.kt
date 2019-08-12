@@ -16,7 +16,7 @@ class GalleryIndexItemAdapter(
         private val presenter: GalleryIndexItemPresenterContract
 ) : RecyclerView.Adapter<GalleryIndexItemViewHolder>() {
     /** 表示データ */
-    private var displayData: ArrayList<GalleryIndexItemViewModel>? = null
+    private var displayData: List<GalleryIndexItemViewModel>? = null
 
 
     /**
@@ -54,7 +54,7 @@ class GalleryIndexItemAdapter(
     /**
      * 表示データの設定
      */
-    fun setDisplayData(data: ArrayList<GalleryIndexItemViewModel>) {
+    fun setDisplayData(data: List<GalleryIndexItemViewModel>) {
         displayData = data
         notifyDataSetChanged()
     }
