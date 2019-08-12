@@ -100,7 +100,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${appcompatVersion}"
     implementation "androidx.core:core-ktx:${ktxVersion}"
 
-    // Jetpack Navigation
+    // Jetpack
+    implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "android.arch.navigation:navigation-fragment:${navigationFragmentVersion}"
     implementation "android.arch.navigation:navigation-fragment-ktx:${navigationFragmentVersion}"
     implementation "android.arch.navigation:navigation-ui:${navigationUiVersion}"

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
 import work.shion.ktrecipe.R
 import work.shion.ktrecipe.databinding.ImageDetailActivityMainBinding
 import work.shion.ktrecipe.pages.image_detail.contracts.MainViewContract
@@ -37,19 +38,26 @@ class MainActivity : AppCompatActivity(),
     }
 
 
+    private val presenter by lazy {
+        MainPresenter(
+                viewer = WeakReference(this)
+        )
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val presenter = MainPresenter(WeakReference(this))
 
         val binding = DataBindingUtil.setContentView<ImageDetailActivityMainBinding>(
                 this,
                 R.layout.image_detail_activity_main
         )
         binding.presenter = presenter
-        binding.viewmodel = MainViewModel(
-                imageUrl = intent.getStringExtra(KEY_URL)
-        )
+        binding.viewmodel = ViewModelProviders.of(this)
+                .get(MainViewModel::class.java)
+                .apply {
+                    imageUrl.set(intent.getStringExtra(KEY_URL))
+                }
     }
 
 
