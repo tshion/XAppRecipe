@@ -1,6 +1,8 @@
 package work.shion.ktrecipe.pages.websample.presenters
 
-import work.shion.baser.nativeui.webview.IWebViewAttacher
+import work.shion.baser.android.WebChromeClientBuilder
+import work.shion.baser.android.WebViewBuilder
+import work.shion.baser.android.WebViewClientBuilder
 import work.shion.ktrecipe.pages.websample.contracts.MainPresenterContract
 import work.shion.ktrecipe.pages.websample.contracts.MainViewContract
 import java.lang.ref.WeakReference
@@ -11,16 +13,16 @@ import java.lang.ref.WeakReference
  */
 class MainPresenter(
         private val viewer: WeakReference<MainViewContract>
-) : MainPresenterContract, IWebViewAttacher {
+) : MainPresenterContract {
 
     /**
      * 最初のWeb ページ呼び出し
      */
     override fun callFirstWebPage() {
-        viewer.get()?.setupWebView(super<IWebViewAttacher>.newBuilder()
+        viewer.get()?.setupWebView(WebViewBuilder()
                 .setJavaScriptEnabled(true)
                 .setUserAgentString("偽装されたUserAgent")
-                .setWebChromeClient(super<IWebViewAttacher>.newChromeClientBuilder()
+                .setWebChromeClient(WebChromeClientBuilder()
                         .setOnJsAlert { view, url, message, result ->
                             val viewer = viewer.get() ?: return@setOnJsAlert false
                             if (!message.isNullOrEmpty()) {
@@ -33,7 +35,7 @@ class MainPresenter(
                         }
                         .build()
                 )
-                .setWebViewClient(super<IWebViewAttacher>.newViewClientBuilder()
+                .setWebViewClient(WebViewClientBuilder()
                         .setShouldOverrideUrlLoading { view, request ->
                             val viewer = viewer.get() ?: return@setShouldOverrideUrlLoading true
                             when (request?.url?.scheme?.equals("file", ignoreCase = true)) {

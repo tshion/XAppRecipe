@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.websample_fragment_main.*
 import work.shion.baser.android.throwAway
 import work.shion.baser.android.WebViewBuilder
-import work.shion.baser.nativeui.webview.IWebViewAttacher
 import work.shion.ktrecipe.R
 import work.shion.ktrecipe.pages.websample.contracts.MainViewContract
 import work.shion.ktrecipe.pages.websample.presenters.MainPresenter
@@ -19,7 +18,7 @@ import java.lang.ref.WeakReference
  * メインコンテンツ表示用Activity
  */
 class MainActivity : AppCompatActivity(),
-        MainViewContract, IWebViewAttacher {
+        MainViewContract {
 
     companion object {
         /**

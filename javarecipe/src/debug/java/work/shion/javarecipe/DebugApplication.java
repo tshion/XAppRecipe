@@ -1,6 +1,7 @@
 package work.shion.javarecipe;
 
-import work.shion.baser.nativeui.webview.IWebViewJavaAttacher;
+import android.webkit.WebView;
+
 import work.shion.baser.stetho.IStethoJavaAttacher;
 import work.shion.baser.strictmode.IStrictModeJavaAttacher;
 
@@ -9,7 +10,7 @@ import work.shion.baser.strictmode.IStrictModeJavaAttacher;
  * デバッグ用アプリ状態の管理
  */
 public class DebugApplication extends MainApplication
-        implements IStethoJavaAttacher, IStrictModeJavaAttacher, IWebViewJavaAttacher {
+        implements IStethoJavaAttacher, IStrictModeJavaAttacher {
 
     @Override
     public void onCreate() {
@@ -23,6 +24,6 @@ public class DebugApplication extends MainApplication
         setupVmPolicy();
 
         // WebView 設定
-        IWebViewJavaAttacher.super.attachDebugger();
+        WebView.setWebContentsDebuggingEnabled(true);
     }
 }
