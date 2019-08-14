@@ -1,4 +1,4 @@
-package work.shion.baser.nativeui.webview
+package work.shion.baser.android
 
 import android.annotation.TargetApi
 import android.graphics.Bitmap
@@ -13,7 +13,7 @@ import androidx.annotation.RequiresApi
 /**
  * WebViewClient 設定ビルダー
  */
-class WebViewClientBuilder internal constructor() {
+class WebViewClientBuilder {
     private var mDoUpdateVisitedHistory: ((view: WebView?, url: String?, isReload: Boolean) -> Unit)? = null
     private var mOnFormResubmission: ((view: WebView?, dontResend: Message?, resend: Message?) -> Unit)? = null
     private var mOnLoadResource: ((view: WebView?, url: String?) -> Unit)? = null

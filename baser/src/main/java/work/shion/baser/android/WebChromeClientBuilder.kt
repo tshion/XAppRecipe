@@ -1,4 +1,4 @@
-package work.shion.baser.nativeui.webview
+package work.shion.baser.android
 
 import android.graphics.Bitmap
 import android.net.Uri
@@ -10,7 +10,7 @@ import android.webkit.*
 /**
  * WebChromeClient 設定ビルダー
  */
-class WebChromeClientBuilder internal constructor() {
+class WebChromeClientBuilder {
     private var mGetDefaultVideoPoster: (() -> Bitmap?)? = null
     private var mGetVideoLoadingProgressView: (() -> View?)? = null
     private var mGetVisitedHistory: ((callback: ValueCallback<Array<String>>?) -> Unit)? = null

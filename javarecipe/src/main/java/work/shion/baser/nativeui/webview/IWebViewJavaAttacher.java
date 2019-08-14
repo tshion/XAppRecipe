@@ -4,6 +4,10 @@ import android.webkit.WebView;
 
 import org.jetbrains.annotations.NotNull;
 
+import work.shion.baser.android.WebChromeClientBuilder;
+import work.shion.baser.android.WebViewBuilder;
+import work.shion.baser.android.WebViewClientBuilder;
+
 
 /**
  * WebView の機能付与のJava ラッパー

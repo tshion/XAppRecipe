@@ -6,8 +6,8 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.websample_fragment_main.*
+import work.shion.baser.android.WebViewBuilder
 import work.shion.baser.nativeui.webview.IWebViewAttacher
-import work.shion.baser.nativeui.webview.WebViewBuilder
 import work.shion.ktrecipe.R
 import work.shion.ktrecipe.pages.websample.contracts.MainViewContract
 import work.shion.ktrecipe.pages.websample.presenters.MainPresenter
