@@ -1,4 +1,4 @@
-package work.shion.baser.nativeui.webview
+package work.shion.baser.android
 
 import android.annotation.TargetApi
 import android.os.Build
@@ -14,7 +14,7 @@ import androidx.annotation.RequiresApi
 /**
  * WebView 設定ビルダー
  */
-class WebViewBuilder internal constructor() {
+class WebViewBuilder {
     @IntDef(LOAD_CACHE_ELSE_NETWORK, LOAD_CACHE_ONLY, LOAD_DEFAULT, LOAD_NO_CACHE)
     annotation class CacheModeType
 
