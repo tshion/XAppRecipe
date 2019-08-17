@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference
 /**
  * メインコンテンツの挙動実装
  */
-class MainPresenter(
+internal class MainPresenter(
         private val model: MainModel,
         private val viewer: WeakReference<MainViewContract>
 ) : MainPresenterContract {

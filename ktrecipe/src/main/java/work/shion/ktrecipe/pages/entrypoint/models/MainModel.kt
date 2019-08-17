@@ -7,7 +7,7 @@ import kotlin.random.Random
 /**
  * メインコンテンツ用のビジネスロジック実装
  */
-class MainModel {
+internal class MainModel {
 
     /**
      * 乱数の取得

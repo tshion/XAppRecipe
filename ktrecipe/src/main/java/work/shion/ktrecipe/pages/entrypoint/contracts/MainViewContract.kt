@@ -4,7 +4,7 @@ package work.shion.ktrecipe.pages.entrypoint.contracts
 /**
  * メインコンテンツの表示定義
  */
-interface MainViewContract {
+internal interface MainViewContract {
 
     /**
      * Tab ページに遷移

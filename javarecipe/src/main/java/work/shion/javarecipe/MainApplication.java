@@ -31,8 +31,12 @@ public class MainApplication extends Application
     public Timber.Tree getProductTree() {
         return new Timber.Tree() {
             @Override
-            protected void log(int priority, @Nullable String tag, @NotNull String message,
-                    @Nullable Throwable t) {
+            protected void log(
+                    int priority,
+                    @Nullable String tag,
+                    @NotNull String message,
+                    @Nullable Throwable t
+            ) {
             }
         };
     }

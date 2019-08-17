@@ -6,7 +6,7 @@ import android.view.MenuItem
 /**
  * タブの挙動定義
  */
-interface TabPresenterContract {
+internal interface TabPresenterContract {
 
     /**
      * NavigationItem 選択時

@@ -4,6 +4,7 @@ import android.app.Application
 import timber.log.Timber
 import work.shion.baser.timber.ITimberAttacher
 
+
 /**
  * アプリ状態の管理
  */

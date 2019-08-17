@@ -29,6 +29,6 @@ public class TutorialPresenter implements TutorialPresenterContract {
     @Override
     public void callTabPage() {
         Optional.ofNullable(viewer.get())
-                .ifPresent(viewer -> viewer.goTabPage());
+                .ifPresent(TutorialViewContract::goTabPage);
     }
 }

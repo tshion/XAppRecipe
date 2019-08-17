@@ -7,7 +7,7 @@ import work.shion.baser.android.WebViewBuilder
 /**
  * メインコンテンツの表示定義
  */
-interface MainViewContract {
+internal interface MainViewContract {
 
     /**
      * 外部ブラウザに遷移

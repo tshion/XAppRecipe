@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference
 /**
  * チュートリアルの挙動実装
  */
-class TutorialPresenter(
+internal class TutorialPresenter(
         private val viewer: WeakReference<TutorialViewContract>
 ) : TutorialPresenterContract {
 

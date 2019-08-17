@@ -2,14 +2,11 @@ package work.shion.javarecipe.pages.entrypoint.views;
 
 import android.os.Bundle;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 
 import java.lang.ref.WeakReference;
-import java.util.Date;
-import java.util.Random;
 
 import work.shion.javarecipe.R;
 import work.shion.javarecipe.pages.entrypoint.contracts.MainPresenterContract;
