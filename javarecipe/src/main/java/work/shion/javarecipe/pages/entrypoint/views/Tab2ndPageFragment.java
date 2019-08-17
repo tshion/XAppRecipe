@@ -1,4 +1,4 @@
-package work.shion.javarecipe.entrypoint;
+package work.shion.javarecipe.pages.entrypoint.views;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,15 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import work.shion.javarecipe.R;
 
 
 /**
- * チュートリアル表示用Fragment
+ * タブコンテンツその２用のFragment
  */
-public class TutorialFragment extends Fragment {
+public class Tab2ndPageFragment extends Fragment {
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -44,34 +43,6 @@ public class TutorialFragment extends Fragment {
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState
     ) {
-        return inflater.inflate(R.layout.entrypoint_fragment_tutorial, container, false);
-    }
-
-    /**
-     * Called immediately after {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}
-     * has returned, but before any saved state has been restored in to the view.
-     * This gives subclasses a chance to initialize themselves once
-     * they know their view hierarchy has been completely created.  The fragment's
-     * view hierarchy is not however attached to its parent at this point.
-     *
-     * @param view               The View returned by {@link #onCreateView(LayoutInflater,
-     *                           ViewGroup, Bundle)}.
-     * @param savedInstanceState If non-null, this fragment is being re-constructed
-     */
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        View button = view.findViewById(R.id.entrypoint_fragment_tutorial_button);
-        button.setOnClickListener(v -> {
-            if (getActivity() == null) {
-                return;
-            }
-
-            Navigation.findNavController(
-                    getActivity(),
-                    R.id.entrypoint_navigation_host_main
-            ).navigate(R.id.entrypoint_action_any_to_tab);
-        });
+        return inflater.inflate(R.layout.entrypoint_fragment_tab_2nd, container, false);
     }
 }

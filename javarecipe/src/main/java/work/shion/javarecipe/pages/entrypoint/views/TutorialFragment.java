@@ -1,25 +1,22 @@
-package work.shion.javarecipe.entrypoint;
+package work.shion.javarecipe.pages.entrypoint.views;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import work.shion.javarecipe.R;
 
 
 /**
- * タブ表示用Fragment
+ * チュートリアル表示用Fragment
  */
-public class TabFragment extends Fragment {
+public class TutorialFragment extends Fragment {
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -47,7 +44,7 @@ public class TabFragment extends Fragment {
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState
     ) {
-        return inflater.inflate(R.layout.entrypoint_fragment_tab, container, false);
+        return inflater.inflate(R.layout.entrypoint_fragment_tutorial, container, false);
     }
 
     /**
@@ -65,28 +62,16 @@ public class TabFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // BottomNavigation の設定
-        BottomNavigationView bottomNavigation = view.findViewById(
-                R.id.entrypoint_fragment_tab_bottom_navigation
-        );
-        bottomNavigation.setOnNavigationItemSelectedListener(menuItem -> {
-            final @IdRes int hostId = R.id.entrypoint_fragment_tab_navigation_host;
+        View button = view.findViewById(R.id.entrypoint_fragment_tutorial_button);
+        button.setOnClickListener(v -> {
             if (getActivity() == null) {
-                return false;
+                return;
             }
 
-            switch (menuItem.getItemId()) {
-                case R.id.entrypoint_menu_tab_1st:
-                    Navigation.findNavController(getActivity(), hostId)
-                            .navigate(R.id.entrypoint_action_any_to_tab_1st);
-                    return true;
-                case R.id.entrypoint_menu_tab_2nd:
-                    Navigation.findNavController(getActivity(), hostId)
-                            .navigate(R.id.entrypoint_action_any_to_tab_2nd);
-                    return true;
-                default:
-                    return false;
-            }
+            Navigation.findNavController(
+                    getActivity(),
+                    R.id.entrypoint_navigation_host_main
+            ).navigate(R.id.entrypoint_action_any_to_tab);
         });
     }
 }

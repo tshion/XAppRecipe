@@ -8,13 +8,13 @@
 
     <fragment
         android:id="@+id/entrypoint_fragment_tab_1st"
-        android:name="work.shion.javarecipe.entrypoint.Tab1stPageFragment"
+        android:name="work.shion.javarecipe.pages.entrypoint.views.Tab1stPageFragment"
         android:label="entrypoint_fragment_tab_1st"
         tools:layout="@layout/entrypoint_fragment_tab_1st"/>
 
     <fragment
         android:id="@+id/entrypoint_fragment_tab_2nd"
-        android:name="work.shion.javarecipe.entrypoint.Tab2ndPageFragment"
+        android:name="work.shion.javarecipe.pages.entrypoint.views.Tab2ndPageFragment"
         android:label="entrypoint_fragment_tab_2nd"
         tools:layout="@layout/entrypoint_fragment_tab_2nd"/>
 

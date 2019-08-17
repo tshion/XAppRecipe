@@ -1,4 +1,4 @@
-package work.shion.javarecipe.entrypoint;
+package work.shion.javarecipe.pages.entrypoint.views;
 
 import android.os.Bundle;
 
