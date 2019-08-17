@@ -32,6 +32,7 @@ ext {
     compileSdkVersion = 29
 
     appcompatVersion = "1.0.2"
+    hyperionVersion = "0.9.27"
     ktxVersion = "1.0.2"
     leakCanaryVersion = "2.0-alpha-2"
     materialDesignVersion = "1.0.0"

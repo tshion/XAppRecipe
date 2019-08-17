@@ -35,4 +35,5 @@ KotlinRecipe | [ktRecipe](./ktrecipe) | Kotlin 実装レシピ
 
 
 ## プロジェクト共通利用しているライブラリ
+* [Hyperion Android](https://github.com/willowtreeapps/Hyperion-Android)
 * [LeakCanary](https://github.com/square/leakcanary)
