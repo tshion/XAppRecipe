@@ -1,7 +1,7 @@
 package work.shion.ktrecipe.pages.websample.contracts
 
 import android.net.Uri
-import work.shion.baser.nativeui.webview.WebViewBuilder
+import work.shion.baser.android.WebViewBuilder
 
 
 /**

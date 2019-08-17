@@ -6,8 +6,8 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.websample_fragment_main.*
-import work.shion.baser.nativeui.webview.IWebViewAttacher
-import work.shion.baser.nativeui.webview.WebViewBuilder
+import work.shion.baser.android.throwAway
+import work.shion.baser.android.WebViewBuilder
 import work.shion.ktrecipe.R
 import work.shion.ktrecipe.pages.websample.contracts.MainViewContract
 import work.shion.ktrecipe.pages.websample.presenters.MainPresenter
@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference
  * メインコンテンツ表示用Activity
  */
 class MainActivity : AppCompatActivity(),
-        MainViewContract, IWebViewAttacher {
+        MainViewContract {
 
     companion object {
         /**
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onDestroy() {
-        super<IWebViewAttacher>.destroy(websample_fragment_main_webview)
+        websample_fragment_main_webview.throwAway()
         super.onDestroy()
     }
 
