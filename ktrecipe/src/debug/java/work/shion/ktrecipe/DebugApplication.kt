@@ -1,15 +1,15 @@
 package work.shion.ktrecipe
 
-import work.shion.baser.nativeui.webview.IWebViewAttacher
+import android.webkit.WebView
+import work.shion.baser.android.IStrictModeAttacher
 import work.shion.baser.stetho.IStethoAttacher
-import work.shion.baser.strictmode.IStrictModeAttacher
 
 
 /**
  * デバッグ用アプリ状態の管理
  */
 class DebugApplication : MainApplication(),
-        IStethoAttacher, IStrictModeAttacher, IWebViewAttacher {
+        IStethoAttacher, IStrictModeAttacher {
 
     override fun onCreate() {
         super.onCreate()
@@ -22,6 +22,6 @@ class DebugApplication : MainApplication(),
         setupVmPolicy()
 
         // WebView 設定
-        super<IWebViewAttacher>.attachDebugger()
+        WebView.setWebContentsDebuggingEnabled(true)
     }
 }

@@ -1,13 +1,13 @@
 package work.shion.ktrecipe.pages.websample.contracts
 
 import android.net.Uri
-import work.shion.baser.nativeui.webview.WebViewBuilder
+import work.shion.baser.android.WebViewBuilder
 
 
 /**
  * メインコンテンツの表示定義
  */
-interface MainViewContract {
+internal interface MainViewContract {
 
     /**
      * 外部ブラウザに遷移

@@ -17,9 +17,9 @@ interface IStethoAttacher {
      */
     fun attachStetho(appContext: Context) {
         Stetho.newInitializerBuilder(appContext)
-            .enableDumpapp(Stetho.defaultDumperPluginsProvider(appContext))
-            .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(appContext))
-            .build()
-            .also { builder -> Stetho.initialize(builder) }
+                .enableDumpapp(Stetho.defaultDumperPluginsProvider(appContext))
+                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(appContext))
+                .build()
+                .also { builder -> Stetho.initialize(builder) }
     }
 }

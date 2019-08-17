@@ -4,7 +4,7 @@ package work.shion.ktrecipe.pages.entrypoint.contracts
 /**
  * タブの表示定義
  */
-interface TabViewContract {
+internal interface TabViewContract {
 
     /**
      * ギャラリーに遷移

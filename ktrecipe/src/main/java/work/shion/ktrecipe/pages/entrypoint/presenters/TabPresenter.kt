@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference
 /**
  * タブの挙動実装
  */
-class TabPresenter(
+internal class TabPresenter(
         private val viewer: WeakReference<TabViewContract>
 ) : TabPresenterContract {
 

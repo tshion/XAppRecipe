@@ -32,28 +32,6 @@ class MessageDialog : DialogFragment() {
     }
 
 
-    /**
-     * Override to build your own custom Dialog container.  This is typically
-     * used to show an MessageDialog instead of a generic Dialog; when doing so,
-     * [.onCreateView] does not need
-     * to be implemented since the MessageDialog takes care of its own content.
-     *
-     *
-     * This method will be called after [.onCreate] and
-     * before [.onCreateView].  The
-     * default implementation simply instantiates and returns a [Dialog]
-     * class.
-     *
-     *
-     * *Note: DialogFragment own the [ Dialog.setOnCancelListener][Dialog.setOnCancelListener] and [ Dialog.setOnDismissListener][Dialog.setOnDismissListener] callbacks.  You must not set them yourself.*
-     * To find out about these events, override [.onCancel]
-     * and [.onDismiss].
-     *
-     * @param savedInstanceState The last saved instance state of the Fragment,
-     * or null if this is a freshly created Fragment.
-     *
-     * @return Return a new Dialog instance to be displayed by the Fragment.
-     */
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(context!!).apply {
             setMessage(arguments?.getString(ARGS_MESSAGE, "読み込み失敗"))

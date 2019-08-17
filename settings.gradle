@@ -1,1 +1,1 @@
-include ':baser', ':javarecipe', ':ktrecipe'
+include ':baser', ':commonrecipe', ':javarecipe', ':ktrecipe'
