@@ -117,4 +117,7 @@ dependencies {
 
     // Material Design
     implementation "com.google.android.material:material:${materialDesignVersion}"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:${timberVersion}"
 }
