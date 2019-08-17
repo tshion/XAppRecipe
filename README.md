@@ -36,3 +36,4 @@ KotlinRecipe | [ktRecipe](./ktrecipe) | Kotlin 実装レシピ
 
 ## プロジェクト共通利用しているライブラリ
 * [LeakCanary](https://github.com/square/leakcanary)
+* [Timber](https://github.com/JakeWharton/timber)

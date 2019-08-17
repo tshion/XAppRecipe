@@ -37,6 +37,7 @@ ext {
     materialDesignVersion = "1.0.0"
     navigationFragmentVersion = "1.0.0"
     navigationUiVersion = "1.0.0"
+    timberVersion = "4.7.1"
 }
 
 
