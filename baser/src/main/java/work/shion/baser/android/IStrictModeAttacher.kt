@@ -1,12 +1,14 @@
-package work.shion.baser.strictmode
+package work.shion.baser.android
 
 import android.os.StrictMode
+
 
 /**
  * StrictMode の機能付与
  * @see <a href="https://developer.android.com/reference/android/os/StrictMode">StrictMode</a>
  */
 interface IStrictModeAttacher {
+
     /**
      * ThreadPolicy のセットアップ
      */

@@ -9,6 +9,7 @@ Android 開発で自分がよく使うボイラーテンプレートを整備し
 プロジェクト名 | プロジェクトID | 概要
 --- | --- | ---
 Baser | [baser](./baser) | 共通で使えそうなボイラーテンプレート集
+CommonRecipe | [commonRecipe](./commonrecipe) | Java, Kotlin の実装レシピで使う共通実装
 JavaRecipe | [javaRecipe](./javarecipe) | Java 実装レシピ
 KotlinRecipe | [ktRecipe](./ktrecipe) | Kotlin 実装レシピ
 

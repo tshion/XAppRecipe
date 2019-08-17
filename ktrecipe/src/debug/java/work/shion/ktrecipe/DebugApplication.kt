@@ -1,8 +1,8 @@
 package work.shion.ktrecipe
 
 import android.webkit.WebView
+import work.shion.baser.android.IStrictModeAttacher
 import work.shion.baser.stetho.IStethoAttacher
-import work.shion.baser.strictmode.IStrictModeAttacher
 
 
 /**

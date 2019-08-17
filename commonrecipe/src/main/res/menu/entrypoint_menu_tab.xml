@@ -8,11 +8,11 @@
 
     <item
         android:id="@+id/entrypoint_menu_tab_2nd"
-        android:icon="@mipmap/leak_canary_icon"
+        android:icon="@mipmap/ic_launcher"
         android:title="その２"/>
 
     <item
         android:id="@+id/entrypoint_menu_tab_web"
-        android:icon="@mipmap/leak_canary_icon"
+        android:icon="@mipmap/ic_launcher"
         android:title="WEB"/>
 </menu>
