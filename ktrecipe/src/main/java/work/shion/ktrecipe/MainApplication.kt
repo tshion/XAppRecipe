@@ -8,7 +8,7 @@ import work.shion.baser.timber.ITimberAttacher
  * アプリ状態の管理
  */
 open class MainApplication : Application(),
-    ITimberAttacher {
+        ITimberAttacher {
 
     override fun onCreate() {
         super.onCreate()

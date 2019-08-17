@@ -18,14 +18,14 @@ interface ITimberAttacher {
      * @param isDevelopment 開発設定かどうか
      */
     fun setupTimber(
-        isDevelopment: Boolean
+            isDevelopment: Boolean
     ) {
         Timber.plant(
-            if (isDevelopment) {
-                Timber.DebugTree()
-            } else {
-                getProductTree()
-            }
+                if (isDevelopment) {
+                    Timber.DebugTree()
+                } else {
+                    getProductTree()
+                }
         )
     }
 }
