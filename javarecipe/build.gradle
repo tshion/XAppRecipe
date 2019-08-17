@@ -88,6 +88,7 @@ android {
 dependencies {
     // Local Project
     implementation project(":baser")
+    implementation project(":commonrecipe")
 
     // AndroidX
     implementation "androidx.appcompat:appcompat:${appcompatVersion}"
@@ -105,7 +106,7 @@ dependencies {
     debugImplementation "com.willowtreeapps.hyperion:hyperion-shared-preferences:${hyperionVersion}"
     debugImplementation "com.willowtreeapps.hyperion:hyperion-timber:${hyperionVersion}"
 
-    // Jetpack Navigation
+    // Jetpack
     implementation "android.arch.navigation:navigation-fragment:${navigationFragmentVersion}"
     implementation "android.arch.navigation:navigation-ui:${navigationUiVersion}"
 
