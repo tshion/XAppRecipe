@@ -1,4 +1,4 @@
-package work.shion.baser.strictmode;
+package work.shion.baser.android;
 
 
 /**

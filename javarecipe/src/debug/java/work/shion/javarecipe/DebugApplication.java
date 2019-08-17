@@ -2,8 +2,8 @@ package work.shion.javarecipe;
 
 import android.webkit.WebView;
 
+import work.shion.baser.android.IStrictModeJavaAttacher;
 import work.shion.baser.stetho.IStethoJavaAttacher;
-import work.shion.baser.strictmode.IStrictModeJavaAttacher;
 
 
 /**
