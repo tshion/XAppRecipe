@@ -1,25 +1,33 @@
-package work.shion.javarecipe.entrypoint;
+package work.shion.javarecipe.pages.entrypoint.views;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.lang.ref.WeakReference;
 
 import work.shion.javarecipe.R;
+import work.shion.javarecipe.pages.entrypoint.contracts.TutorialPresenterContract;
+import work.shion.javarecipe.pages.entrypoint.contracts.TutorialViewContract;
+import work.shion.javarecipe.pages.entrypoint.presenters.TutorialPresenter;
 
 
 /**
- * タブ表示用Fragment
+ * チュートリアル表示用Fragment
  */
-public class TabFragment extends Fragment {
+public class TutorialFragment extends Fragment
+        implements TutorialViewContract {
+
+    private final TutorialPresenterContract presenter = new TutorialPresenter(
+            new WeakReference<>(this)
+    );
+
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -47,7 +55,7 @@ public class TabFragment extends Fragment {
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState
     ) {
-        return inflater.inflate(R.layout.entrypoint_fragment_tab, container, false);
+        return inflater.inflate(R.layout.entrypoint_fragment_tutorial, container, false);
     }
 
     /**
@@ -65,28 +73,25 @@ public class TabFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // BottomNavigation の設定
-        BottomNavigationView bottomNavigation = view.findViewById(
-                R.id.entrypoint_fragment_tab_bottom_navigation
-        );
-        bottomNavigation.setOnNavigationItemSelectedListener(menuItem -> {
-            final @IdRes int hostId = R.id.entrypoint_fragment_tab_navigation_host;
-            if (getActivity() == null) {
-                return false;
-            }
-
-            switch (menuItem.getItemId()) {
-                case R.id.entrypoint_menu_tab_1st:
-                    Navigation.findNavController(getActivity(), hostId)
-                            .navigate(R.id.entrypoint_action_any_to_tab_1st);
-                    return true;
-                case R.id.entrypoint_menu_tab_2nd:
-                    Navigation.findNavController(getActivity(), hostId)
-                            .navigate(R.id.entrypoint_action_any_to_tab_2nd);
-                    return true;
-                default:
-                    return false;
-            }
+        View button = view.findViewById(R.id.entrypoint_fragment_tutorial_button);
+        button.setOnClickListener(v -> {
+            presenter.callTabPage();
         });
+    }
+
+
+    /**
+     * Tab ページに遷移
+     */
+    @Override
+    public void goTabPage() {
+        if (getActivity() == null) {
+            return;
+        }
+
+        Navigation.findNavController(
+                getActivity(),
+                R.id.entrypoint_navigation_host_main
+        ).navigate(R.id.entrypoint_action_any_to_tab);
     }
 }

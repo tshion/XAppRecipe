@@ -4,17 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/entrypoint_navigation_main"
-    app:startDestination="@id/entrypoint_fragment_tab">
+    app:startDestination="@id/entrypoint_fragment_launch">
+
+    <fragment
+        android:id="@+id/entrypoint_fragment_launch"
+        android:name="work.shion.javarecipe.pages.entrypoint.views.LaunchFragment"
+        android:label="entrypoint_fragment_launch"
+        tools:layout="@layout/entrypoint_fragment_launch"/>
 
     <fragment
         android:id="@+id/entrypoint_fragment_tab"
-        android:name="work.shion.javarecipe.entrypoint.TabFragment"
+        android:name="work.shion.javarecipe.pages.entrypoint.views.TabFragment"
         android:label="entrypoint_fragment_tab"
         tools:layout="@layout/entrypoint_fragment_tab"/>
 
     <fragment
         android:id="@+id/entrypoint_fragment_tutorial"
-        android:name="work.shion.javarecipe.entrypoint.TutorialFragment"
+        android:name="work.shion.javarecipe.pages.entrypoint.views.TutorialFragment"
         android:label="entrypoint_fragment_tutorial"
         tools:layout="@layout/entrypoint_fragment_tutorial"/>
 

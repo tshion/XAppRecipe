@@ -1,22 +1,39 @@
-package work.shion.javarecipe.entrypoint;
+package work.shion.javarecipe.pages.entrypoint.views;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.Navigation;
 
+import com.annimon.stream.Optional;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.lang.ref.WeakReference;
+
 import work.shion.javarecipe.R;
+import work.shion.javarecipe.pages.entrypoint.contracts.TabPresenterContract;
+import work.shion.javarecipe.pages.entrypoint.contracts.TabViewContract;
+import work.shion.javarecipe.pages.entrypoint.presenters.TabPresenter;
+import work.shion.javarecipe.pages.websample.views.MainActivity;
 
 
 /**
- * チュートリアル表示用Fragment
+ * タブ表示用Fragment
  */
-public class TutorialFragment extends Fragment {
+public class TabFragment extends Fragment
+        implements TabViewContract {
+
+    private final TabPresenterContract presenter = new TabPresenter(
+            new WeakReference<>(this)
+    );
+
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -44,7 +61,7 @@ public class TutorialFragment extends Fragment {
             @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState
     ) {
-        return inflater.inflate(R.layout.entrypoint_fragment_tutorial, container, false);
+        return inflater.inflate(R.layout.entrypoint_fragment_tab, container, false);
     }
 
     /**
@@ -62,16 +79,52 @@ public class TutorialFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        View button = view.findViewById(R.id.entrypoint_fragment_tutorial_button);
-        button.setOnClickListener(v -> {
-            if (getActivity() == null) {
-                return;
-            }
+        // BottomNavigation の設定
+        BottomNavigationView bottomNavigation = view.findViewById(
+                R.id.entrypoint_fragment_tab_bottom_navigation
+        );
+        bottomNavigation.setOnNavigationItemSelectedListener(presenter::onNavigationItemSelected);
+    }
 
-            Navigation.findNavController(
-                    getActivity(),
-                    R.id.entrypoint_navigation_host_main
-            ).navigate(R.id.entrypoint_action_any_to_tab);
-        });
+
+    /**
+     * Tab1st ページに遷移
+     */
+    @Override
+    public void goTab1st() {
+        FragmentActivity target = getActivity();
+        if (target == null) {
+            return;
+        }
+
+        Navigation.findNavController(
+                target,
+                R.id.entrypoint_fragment_tab_navigation_host
+        ).navigate(R.id.entrypoint_action_any_to_tab_1st);
+    }
+
+    /**
+     * Tab2nd ページに遷移
+     */
+    @Override
+    public void goTab2nd() {
+        FragmentActivity target = getActivity();
+        if (target == null) {
+            return;
+        }
+
+        Navigation.findNavController(
+                target,
+                R.id.entrypoint_fragment_tab_navigation_host
+        ).navigate(R.id.entrypoint_action_any_to_tab_2nd);
+    }
+
+    /**
+     * Web ページに遷移
+     */
+    @Override
+    public void goWebPage() {
+        Optional.ofNullable(getActivity())
+                .ifPresent(MainActivity::start);
     }
 }
