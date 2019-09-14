@@ -31,10 +31,10 @@ ext {
     buildToolsVersion = "29.0.1"
     compileSdkVersion = 29
 
-    appcompatVersion = "1.0.2"
+    appcompatVersion = "1.1.0"
     hyperionVersion = "0.9.27"
-    ktxVersion = "1.0.2"
-    leakCanaryVersion = "2.0-alpha-2"
+    ktxVersion = "1.1.0"
+    leakCanaryVersion = "2.0-beta-3"
     materialDesignVersion = "1.0.0"
     navigationFragmentVersion = "1.0.0"
     navigationUiVersion = "1.0.0"
