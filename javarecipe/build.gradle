@@ -90,35 +90,15 @@ dependencies {
     implementation project(":baser")
     implementation project(":commonrecipe")
 
-    // AndroidX
-    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
-
-    // Hyperion
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-core:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-attr:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-build-config:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-crash:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-disk:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-geiger-counter:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-measurement:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-phoenix:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-recorder:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-shared-preferences:${hyperionVersion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-timber:${hyperionVersion}"
-
-    // Jetpack
-    implementation "android.arch.navigation:navigation-fragment:${navigationFragmentVersion}"
-    implementation "android.arch.navigation:navigation-ui:${navigationUiVersion}"
-
-    // LeakCanary
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
+    // Debug Tools
+    debugImplementation debugTools
 
     // Lightweight Stream API
     implementation 'com.annimon:stream:1.2.1'
 
-    // Material Design
-    implementation "com.google.android.material:material:${materialDesignVersion}"
-
     // Timber
-    implementation "com.jakewharton.timber:timber:${timberVersion}"
+    implementation timber
+
+    // UI
+    implementation ui
 }

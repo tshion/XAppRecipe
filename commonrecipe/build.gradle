@@ -36,13 +36,12 @@ dependencies {
     // Local Project
     implementation project(":baser")
 
-    // AndroidX
-    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
-    implementation "androidx.core:core-ktx:${ktxVersion}"
-
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
+    implementation ktlib
 
     // Timber
-    implementation "com.jakewharton.timber:timber:${timberVersion}"
+    implementation timber
+
+    // UI
+    implementation uiktx
 }
