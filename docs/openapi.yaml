@@ -1,0 +1,7 @@
+openapi: 3.0.0
+info:
+    title: AndroidRecipe 用WebAPI
+    description: |
+        ## UML
+        * [ToDo関連フロー](../uml/ToDo関連フロー.png)
+    version: 0.0.1

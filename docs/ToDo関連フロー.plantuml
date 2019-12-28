@@ -1,0 +1,114 @@
+@startuml ToDo関連フロー
+title ToDo 関連フロー
+
+actor ユーザー as user
+box アプリ
+    participant NativeUI as ui
+    participant Presenter as presenter
+    participant Repository as model
+    participant Storage as db
+end box
+participant WebAPI as api
+
+
+user -> ui : 画面表示要求
+activate ui
+ui -> presenter : 画面表示直前
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    GET /v1/todo
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+==追加==
+user -> ui : 追加要求
+activate ui
+note right of user
+    ToDo 内容
+end note
+ui -> presenter
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    POST /v1/todo
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+==編集==
+user -> ui : 編集要求
+activate ui
+note right of user
+    ToDo 内容
+end note
+ui -> presenter
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    PUT /v1/todo
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+==削除==
+user -> ui : 削除要求
+activate ui
+note right of user
+    ToDo 特定情報
+end note
+ui -> presenter
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    DELETE /v1/todo
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+@enduml
