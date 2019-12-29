@@ -11,7 +11,14 @@ def VERSION_NAME = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
 
 android {
     buildToolsVersion build_tools_version
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     compileSdkVersion compile_sdk_version
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
 
     defaultConfig {
         applicationId "work.shion.androidrecipe"
@@ -23,20 +30,16 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-
-    testImplementation 'junit:junit:4.12'
-
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation baseLibrary
+    implementation baseUiLibrary
+    debugImplementation debugTools
+    testImplementation testLibrary
+    androidTestImplementation testUiLibrary
 }
