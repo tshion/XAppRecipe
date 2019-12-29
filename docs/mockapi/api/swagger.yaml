@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: AndroidRecipe 用WebAPI
+  description: |
+    ## UML
+    * [ToDo関連フロー](../uml/ToDo関連フロー.png)
+  version: 0.0.1
+servers:
+- url: http://localhost:8080
+  description: モックサーバーへの接続
+paths:
+  /v1/todo:
+    get:
+      summary: 登録したToDo 一覧の取得
+      operationId: v1TodoGET
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+              example:
+                items:
+                - id: 1
+                  isFinish: false
+                  title: やることその１
+                - id: 2
+                  isFinish: true
+                  title: やることその２
+      x-swagger-router-controller: Default
+    post:
+      summary: ToDo 新規登録
+      operationId: v1TodoPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ToDo'
+            example:
+              title: やること名
+        required: true
+      responses:
+        "200":
+          description: 成功
+      x-swagger-router-controller: Default
+  /v1/todo/{id}:
+    put:
+      summary: ToDo 編集
+      operationId: v1TodoIdPUT
+      parameters:
+      - name: id
+        in: path
+        description: 識別番号
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ToDo'
+            example:
+              isFinish: false
+              title: やること名
+        required: true
+      responses:
+        "200":
+          description: 成功
+      x-swagger-router-controller: Default
+    delete:
+      summary: ToDo 削除
+      operationId: v1TodoIdDELETE
+      parameters:
+      - name: id
+        in: path
+        description: 識別番号
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 成功
+      x-swagger-router-controller: Default
+components:
+  schemas:
+    ToDo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 識別番号
+        isFinish:
+          type: boolean
+          description: 完了フラグ
+        title:
+          type: string
+          description: ToDo タイトル
+      example:
+        id: id
+        isFinish: true
+        title: title
+    inline_response_200:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToDo'
+      example:
+        items:
+        - id: id
+          isFinish: true
+          title: title
+        - id: id
+          isFinish: true
+          title: title
