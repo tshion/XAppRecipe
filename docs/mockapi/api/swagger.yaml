@@ -22,10 +22,10 @@ paths:
                 $ref: '#/components/schemas/inline_response_200'
               example:
                 items:
-                - id: 1
+                - id: "1"
                   isFinish: false
                   title: やることその１
-                - id: 2
+                - id: "2"
                   isFinish: true
                   title: やることその２
       x-swagger-router-controller: Default

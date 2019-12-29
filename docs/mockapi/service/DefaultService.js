@@ -11,13 +11,13 @@ exports.v1TodoGET = function() {
     var examples = {};
     examples['application/json'] = {
   "items" : [ {
-    "id" : "id",
-    "isFinish" : true,
-    "title" : "title"
+    "id" : "1",
+    "isFinish" : false,
+    "title" : "やることその１"
   }, {
-    "id" : "id",
+    "id" : "2",
     "isFinish" : true,
-    "title" : "title"
+    "title" : "やることその２"
   } ]
 };
     if (Object.keys(examples).length > 0) {
