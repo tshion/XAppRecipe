@@ -32,12 +32,24 @@ deactivate presenter
 ui --> user
 deactivate ui
 
+...
+
+user -> ui : 別アプリ起動など
+activate ui
+ui -> presenter : 画面非活性後
+activate presenter
+presenter -> presenter : 通信処理のキャンセル
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
 
 ==追加==
 user -> ui : 追加要求
 activate ui
 note right of user
-    ToDo 内容
+   やること名
 end note
 ui -> presenter
 activate presenter
@@ -47,6 +59,8 @@ model -> api
 activate api
 note right of api
     POST /v1/todo
+
+    title: やること名
 end note
 ...
 api --> model
@@ -63,7 +77,8 @@ deactivate ui
 user -> ui : 編集要求
 activate ui
 note right of user
-    ToDo 内容
+    完了したかどうか
+    やること名
 end note
 ui -> presenter
 activate presenter
@@ -72,7 +87,11 @@ activate model
 model -> api
 activate api
 note right of api
-    PUT /v1/todo
+    PUT /v1/todo/{id}
+
+    id: 識別番号
+    isFinish: 完了したかどうか
+    title: やること名
 end note
 ...
 api --> model
@@ -89,7 +108,7 @@ deactivate ui
 user -> ui : 削除要求
 activate ui
 note right of user
-    ToDo 特定情報
+    ToDo 識別番号
 end note
 ui -> presenter
 activate presenter
@@ -98,7 +117,9 @@ activate model
 model -> api
 activate api
 note right of api
-    DELETE /v1/todo
+    DELETE /v1/todo/{id}
+
+    id: 識別番号
 end note
 ...
 api --> model

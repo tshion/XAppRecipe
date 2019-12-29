@@ -1,2 +1,2 @@
 # AndroidRecipe
-* [仕様](./docs/swaggerui/index.html)
+* [仕様](https://tentashion.github.io/AndroidRecipe/swaggerui/index.html)

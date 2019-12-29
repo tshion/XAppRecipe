@@ -4,5 +4,142 @@
     "title": "AndroidRecipe 用WebAPI",
     "description": "## UML\n* [ToDo関連フロー](../uml/ToDo関連フロー.png)\n",
     "version": "0.0.1"
+  },
+  "paths": {
+    "/v1/todo": {
+      "get": {
+        "summary": "登録したToDo 一覧の取得",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ToDo"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "items": [
+                    {
+                      "id": 1,
+                      "isFinish": false,
+                      "title": "やることその１"
+                    },
+                    {
+                      "id": 2,
+                      "isFinish": true,
+                      "title": "やることその２"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "ToDo 新規登録",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ToDo"
+              },
+              "example": {
+                "title": "やること名"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功"
+          }
+        }
+      }
+    },
+    "/v1/todo/{id}": {
+      "put": {
+        "summary": "ToDo 編集",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "識別番号",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ToDo"
+              },
+              "example": {
+                "isFinish": false,
+                "title": "やること名"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功"
+          }
+        }
+      },
+      "delete": {
+        "summary": "ToDo 削除",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "識別番号",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ToDo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "識別番号"
+          },
+          "isFinish": {
+            "type": "boolean",
+            "description": "完了フラグ"
+          },
+          "title": {
+            "type": "string",
+            "description": "ToDo タイトル"
+          }
+        }
+      }
+    }
   }
 }
