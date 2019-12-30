@@ -1,5 +1,6 @@
 package work.shion.androidrecipe.repositories.api_v1
 
+import android.os.Build
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
@@ -14,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * 通信部分のお試し環境
  */
-@Config(sdk = [28])
+@Config(sdk = [Build.VERSION_CODES.P])
 @Ignore("お試し環境のため")
 @RunWith(AndroidJUnit4::class)
 class APIEndpointPlayground {

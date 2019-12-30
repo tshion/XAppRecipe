@@ -28,9 +28,6 @@ buildscript {
                 // Kotlin
                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}",
 
-                // OkHttp
-                "com.squareup.okhttp3:okhttp:${okhttp_version}",
-
                 // Retrofit
                 "com.squareup.retrofit2:retrofit:${retrofit_version}",
                 "com.squareup.retrofit2:converter-gson:${retrofit_version}",
