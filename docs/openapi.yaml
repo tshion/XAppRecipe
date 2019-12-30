@@ -3,7 +3,7 @@ info:
     title: AndroidRecipe 用WebAPI
     description: |
         ## UML
-        * [ToDo関連フロー](../uml/ToDo関連フロー.png)
+        * [ToDo関連フロー](https://tentashion.github.io/AndroidRecipe/uml/ToDo%E9%96%A2%E9%80%A3%E3%83%95%E3%83%AD%E3%83%BC.png)
     version: 0.0.1
 
 servers:
@@ -29,10 +29,10 @@ paths:
                             example:
                                 items:
                                     - id: "1"
-                                      isFinish: false
+                                      is_finish: false
                                       title: やることその１
                                     - id: "2"
-                                      isFinish: true
+                                      is_finish: true
                                       title: やることその２
         post:
             summary: ToDo 新規登録
@@ -64,7 +64,7 @@ paths:
                         schema:
                             $ref: "#/components/schemas/ToDo"
                         example:
-                            isFinish: false
+                            is_finish: false
                             title: やること名
             responses:
                 "200":
@@ -90,7 +90,7 @@ components:
                 id:
                     type: string
                     description: 識別番号
-                isFinish:
+                is_finish:
                     type: boolean
                     description: 完了フラグ
                 title:

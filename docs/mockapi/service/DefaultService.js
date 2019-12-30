@@ -12,12 +12,19 @@ exports.v1TodoGET = function() {
     examples['application/json'] = {
   "items" : [ {
     "id" : "1",
-    "isFinish" : false,
+    "is_finish" : false,
     "title" : "やることその１"
   }, {
     "id" : "2",
-    "isFinish" : true,
+    "is_finish" : true,
     "title" : "やることその２"
+  }, {
+  }, {
+    "id" : "4",
+    "title" : "やることその４"
+  }, {
+    "id" : "5",
+    "is_finish" : true
   } ]
 };
     if (Object.keys(examples).length > 0) {

@@ -90,7 +90,7 @@ note right of api
     PUT /v1/todo/{id}
 
     id: 識別番号
-    isFinish: 完了したかどうか
+    is_finish: 完了したかどうか
     title: やること名
 end note
 ...
