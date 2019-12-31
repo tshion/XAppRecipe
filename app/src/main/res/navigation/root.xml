@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navroot"
+    app:startDestination="@id/navroot_launch">
+
+    <fragment
+        android:id="@+id/navroot_launch"
+        android:name="work.shion.androidrecipe.pages.launcher.MainFragment"
+        tools:layout="@layout/launcher" />
+</navigation>
