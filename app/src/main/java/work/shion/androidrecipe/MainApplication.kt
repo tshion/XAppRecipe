@@ -17,5 +17,7 @@ open class MainApplication : Application() {
                 }
             }
         })
+
+        ModelProvider.init()
     }
 }
