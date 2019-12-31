@@ -36,7 +36,7 @@ class APIEndpointPlayground {
     @Test
     fun editToDo() = runBlocking {
         try {
-            val id = 1
+            val id = "1"
             val request = EditToDoRequest(
                     isFinish = true,
                     title = "何か編集したToDo"
@@ -74,7 +74,7 @@ class APIEndpointPlayground {
     @Test
     fun removeToDo() = runBlocking {
         try {
-            val id = 1
+            val id = "1"
             api.removeToDo(id)
             val a = 0
         } catch (ex: Exception) {

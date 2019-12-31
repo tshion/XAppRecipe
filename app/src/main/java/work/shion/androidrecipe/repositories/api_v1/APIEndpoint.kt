@@ -13,7 +13,7 @@ interface APIEndpoint {
      */
     @PUT("v1/todo/{id}")
     suspend fun editToDo(
-            @Path("id") id: Int,
+            @Path("id") id: String,
             @Body request: EditToDoRequest
     )
 
@@ -36,6 +36,6 @@ interface APIEndpoint {
      */
     @DELETE("v1/todo/{id}")
     suspend fun removeToDo(
-            @Path("id") id: Int
+            @Path("id") id: String
     )
 }

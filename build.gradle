@@ -71,6 +71,7 @@ buildscript {
 
                 // OkHttp
                 "com.squareup.okhttp3:logging-interceptor:${okhttp_version}",
+                "com.squareup.okhttp3:mockwebserver:${okhttp_version}",
 
                 // Robolectric
                 "org.robolectric:robolectric:${robolectric_version}",
