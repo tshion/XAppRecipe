@@ -22,7 +22,7 @@ object ModelProvider {
                 .let {
                     Retrofit.Builder()
                             .addConverterFactory(GsonConverterFactory.create())
-                            .baseUrl("http://localhost:8080")
+                            .baseUrl(BuildConfig.APIEndpoint)
                             .client(it)
                             .build()
                 }

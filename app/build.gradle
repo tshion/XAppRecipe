@@ -19,6 +19,7 @@ android {
     dataBinding {
         enabled = true
     }
+    flavorDimensions "app"
     testOptions {
         unitTests.includeAndroidResources = true
     }
@@ -35,6 +36,14 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        devlocal {
+            dimension "app"
+
+            buildConfigField "String", "APIEndpoint",
+                "\"http://domain or ip:8080\""
         }
     }
 }
