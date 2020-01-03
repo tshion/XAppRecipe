@@ -9,4 +9,18 @@
         android:id="@+id/navroot_launch"
         android:name="work.shion.androidrecipe.pages.launcher.MainFragment"
         tools:layout="@layout/launcher" />
+
+    <fragment
+        android:id="@+id/navroot_todo_list"
+        android:name="work.shion.androidrecipe.pages.todo_list.MainFragment"
+        tools:layout="@layout/todo_list" />
+
+
+    <action
+        android:id="@+id/navact_launch"
+        app:destination="@id/navroot_launch" />
+
+    <action
+        android:id="@+id/navact_todo_list"
+        app:destination="@id/navroot_todo_list" />
 </navigation>
