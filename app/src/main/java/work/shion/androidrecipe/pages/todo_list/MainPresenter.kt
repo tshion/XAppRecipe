@@ -12,7 +12,7 @@ class MainPresenter(
 ) : IMainPresenter {
 
     private val job = SupervisorJob()
-    private val scope = CoroutineScope(Dispatchers.Default + job)
+    private val scope = CoroutineScope(Dispatchers.Main + job)
 
 
     override fun cancelTask() {
@@ -29,9 +29,12 @@ class MainPresenter(
 
     override fun load() {
         scope.launch {
-            val list = todoUseCase.load()
-            withContext(Dispatchers.Main) {
-                viewer.get()?.setList(list)
+            runCatching {
+                todoUseCase.load()
+            }.onSuccess {
+                viewer.get()?.setList(it)
+            }.onFailure {
+                viewer.get()?.showError(it)
             }
         }
     }

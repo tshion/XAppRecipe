@@ -57,8 +57,7 @@ class MainFragment : Fragment(), IMainViewer {
         binding.adapter?.setItems(list)
     }
 
-    override fun showError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showError(error: Throwable) {
     }
 
     override fun showLoading() {

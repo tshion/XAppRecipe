@@ -8,7 +8,7 @@ interface IMainViewer {
 
     fun setList(list: List<ToDoEntity>)
 
-    fun showError()
+    fun showError(error: Throwable)
 
     fun showLoading()
 
