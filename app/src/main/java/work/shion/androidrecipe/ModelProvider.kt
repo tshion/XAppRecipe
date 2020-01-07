@@ -2,7 +2,7 @@ package work.shion.androidrecipe
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import work.shion.androidrecipe.repositories.ToDoRepository
 import work.shion.androidrecipe.repositories.api_v1.APIEndpoint
 import work.shion.androidrecipe.usecases.IToDoUseCase
@@ -21,7 +21,7 @@ object ModelProvider {
                 .build()
                 .let {
                     Retrofit.Builder()
-                            .addConverterFactory(GsonConverterFactory.create())
+                            .addConverterFactory(MoshiConverterFactory.create())
                             .baseUrl(BuildConfig.APIEndpoint)
                             .client(it)
                             .build()

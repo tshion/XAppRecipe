@@ -3,7 +3,7 @@ package work.shion.androidrecipe.repositories
 import android.os.Build
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth
-import com.google.gson.Gson
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import work.shion.androidrecipe.entities.ToDoEntity
 import work.shion.androidrecipe.repositories.api_v1.APIEndpoint
 import work.shion.androidrecipe.repositories.api_v1.GetToDoResponse
@@ -28,7 +28,7 @@ class ToDoRepositoryTest {
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create())
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)
@@ -57,24 +57,24 @@ class ToDoRepositoryTest {
     @Test
     fun fetch() = mockedServer(
             { server ->
-                val gson = Gson()
+                val adapter = Moshi.Builder().build().adapter(GetToDoResponse::class.java)
                 server.enqueue(MockResponse().apply {
-                    setBody(gson.toJson(GetToDoResponse(null)))
+                    setBody(adapter.toJson(GetToDoResponse(null)))
                     setResponseCode(200)
                 })
                 server.enqueue(MockResponse().apply {
-                    setBody(gson.toJson(GetToDoResponse(arrayListOf())))
+                    setBody(adapter.toJson(GetToDoResponse(arrayListOf())))
                     setResponseCode(200)
                 })
                 server.enqueue(MockResponse().apply {
-                    setBody(gson.toJson(GetToDoResponse(arrayListOf(
+                    setBody(adapter.toJson(GetToDoResponse(arrayListOf(
                             ToDo(null, false, "タイトル１"),
                             ToDo("2", false, "タイトル２")
                     ))))
                     setResponseCode(200)
                 })
                 server.enqueue(MockResponse().apply {
-                    setBody(gson.toJson(GetToDoResponse(arrayListOf(
+                    setBody(adapter.toJson(GetToDoResponse(arrayListOf(
                             ToDo(null, false, "タイトル１"),
                             ToDo("2", false, "タイトル２"),
                             ToDo("3", null, null)
@@ -82,7 +82,7 @@ class ToDoRepositoryTest {
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create())
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)
@@ -104,7 +104,7 @@ class ToDoRepositoryTest {
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create())
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)
@@ -129,7 +129,7 @@ class ToDoRepositoryTest {
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create())
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)

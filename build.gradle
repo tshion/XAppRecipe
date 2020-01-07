@@ -33,7 +33,7 @@ buildscript {
 
                 // Retrofit
                 "com.squareup.retrofit2:retrofit:${retrofit_version}",
-                "com.squareup.retrofit2:converter-gson:${retrofit_version}",
+                "com.squareup.retrofit2:converter-moshi:${retrofit_version}",
 
                 // Timber
                 "com.jakewharton.timber:timber:${timber_version}",

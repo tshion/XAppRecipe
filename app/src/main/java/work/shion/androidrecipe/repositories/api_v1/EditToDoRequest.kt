@@ -1,6 +1,6 @@
 package work.shion.androidrecipe.repositories.api_v1
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 /**
  * ToDo編集のリクエストパラメータ
@@ -10,6 +10,6 @@ import com.google.gson.annotations.SerializedName
  * * [Open API](https://tentashion.github.io/AndroidRecipe/swaggerui/index.html)
  */
 data class EditToDoRequest(
-        @SerializedName("is_finish") val isFinish: Boolean,
+        @Json(name = "is_finish") val isFinish: Boolean,
         val title: String
 )

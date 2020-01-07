@@ -10,7 +10,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
  * 通信部分のお試し環境
@@ -25,7 +25,7 @@ class APIEndpointPlayground {
             .build()
             .let {
                 Retrofit.Builder()
-                        .addConverterFactory(GsonConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create())
                         .baseUrl("http://localhost:8080")
                         .client(it)
                         .build()

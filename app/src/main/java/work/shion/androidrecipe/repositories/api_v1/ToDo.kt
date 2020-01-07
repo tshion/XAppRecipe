@@ -1,6 +1,6 @@
 package work.shion.androidrecipe.repositories.api_v1
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 /**
  * ToDoデータ
@@ -12,6 +12,6 @@ import com.google.gson.annotations.SerializedName
  */
 data class ToDo(
         val id: String?,
-        @SerializedName("is_finish") val isFinish: Boolean?,
+        @Json(name = "is_finish") val isFinish: Boolean?,
         val title: String?
 )
