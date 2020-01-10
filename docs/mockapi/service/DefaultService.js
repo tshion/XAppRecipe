@@ -13,18 +13,21 @@ exports.v1TodoGET = function() {
   "items" : [ {
     "id" : "1",
     "is_finish" : false,
-    "title" : "やることその１"
+    "title" : "やることその１",
+    "update_date" : "2000-01-23T04:56:07.000+00:00"
   }, {
     "id" : "2",
     "is_finish" : true,
-    "title" : "やることその２"
-  }, {
+    "title" : "やることその２",
+    "update_date" : "2000-01-23T04:56:07.000+00:00"
   }, {
     "id" : "4",
-    "title" : "やることその４"
+    "title" : "やることその４",
+    "update_date" : "2000-01-23T04:56:07.000+00:00"
   }, {
     "id" : "5",
-    "is_finish" : true
+    "is_finish" : true,
+    "update_date" : "2000-01-23T04:56:07.000+00:00"
   } ]
 };
     if (Object.keys(examples).length > 0) {

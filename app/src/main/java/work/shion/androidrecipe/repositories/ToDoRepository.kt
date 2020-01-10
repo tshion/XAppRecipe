@@ -34,7 +34,8 @@ class ToDoRepository(
                     ToDoEntity(
                             id = item.id!!,
                             isFinish = item.isFinish ?: false,
-                            title = item.title ?: "(未設定)"
+                            title = item.title ?: "(未設定)",
+                            updateDate = item.updateDate
                     )
                 }
                 ?: listOf()

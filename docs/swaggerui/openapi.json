@@ -36,12 +36,14 @@
                     {
                       "id": "1",
                       "is_finish": false,
-                      "title": "やることその１"
+                      "title": "やることその１",
+                      "update_date": "2020-01-10T23:57:49+09:00"
                     },
                     {
                       "id": "2",
                       "is_finish": true,
-                      "title": "やることその２"
+                      "title": "やることその２",
+                      "update_date": "2020-01-10T23:57:49+09:00"
                     }
                   ]
                 }
@@ -143,6 +145,11 @@
           "title": {
             "type": "string",
             "description": "ToDo タイトル"
+          },
+          "update_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "更新日時"
           }
         }
       }

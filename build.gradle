@@ -18,6 +18,7 @@ buildscript {
         def leakcanary_version = "2.0"
         def material_version = "1.0.0"
         def mockito_kt_version = "2.2.0"
+        def moshi_version = "1.9.2"
         def okhttp_version = "4.2.2"
         def retrofit_version = "2.7.0"
         def robolectric_version = "4.3.1"
@@ -30,6 +31,10 @@ buildscript {
 
                 // Kotlin
                 "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}",
+
+                // Moshi
+                "com.squareup.moshi:moshi-adapters:${moshi_version}",
+                "com.squareup.moshi:moshi-kotlin:${moshi_version}",
 
                 // Retrofit
                 "com.squareup.retrofit2:retrofit:${retrofit_version}",

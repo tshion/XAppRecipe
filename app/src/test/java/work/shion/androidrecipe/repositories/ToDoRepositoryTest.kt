@@ -4,6 +4,8 @@ import android.os.Build
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -16,10 +18,17 @@ import work.shion.androidrecipe.entities.ToDoEntity
 import work.shion.androidrecipe.repositories.api_v1.APIEndpoint
 import work.shion.androidrecipe.repositories.api_v1.GetToDoResponse
 import work.shion.androidrecipe.repositories.api_v1.ToDo
+import java.util.*
 
 @Config(sdk = [Build.VERSION_CODES.P])
 @RunWith(AndroidJUnit4::class)
 class ToDoRepositoryTest {
+
+    private val moshi = Moshi.Builder()
+            .add(Date::class.java, Rfc3339DateJsonAdapter())
+            .add(KotlinJsonAdapterFactory())
+            .build()
+
 
     @Test
     fun edit() = mockedServer(
@@ -28,7 +37,7 @@ class ToDoRepositoryTest {
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(MoshiConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create(moshi))
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)
@@ -40,7 +49,8 @@ class ToDoRepositoryTest {
                 target.edit(ToDoEntity(
                         id = "1",
                         isFinish = false,
-                        title = "タイトル"
+                        title = "タイトル",
+                        updateDate = Date()
                 ))
             }.isSuccess).isTrue()
 
@@ -48,7 +58,8 @@ class ToDoRepositoryTest {
                 target.edit(ToDoEntity(
                         id = null,
                         isFinish = false,
-                        title = "タイトル"
+                        title = "タイトル",
+                        updateDate = Date()
                 ))
             }.isSuccess).isFalse()
         }
@@ -57,7 +68,7 @@ class ToDoRepositoryTest {
     @Test
     fun fetch() = mockedServer(
             { server ->
-                val adapter = Moshi.Builder().build().adapter(GetToDoResponse::class.java)
+                val adapter = moshi.adapter(GetToDoResponse::class.java)
                 server.enqueue(MockResponse().apply {
                     setBody(adapter.toJson(GetToDoResponse(null)))
                     setResponseCode(200)
@@ -68,21 +79,21 @@ class ToDoRepositoryTest {
                 })
                 server.enqueue(MockResponse().apply {
                     setBody(adapter.toJson(GetToDoResponse(arrayListOf(
-                            ToDo(null, false, "タイトル１"),
-                            ToDo("2", false, "タイトル２")
+                            ToDo(null, false, "タイトル１", Date()),
+                            ToDo("2", false, "タイトル２", Date())
                     ))))
                     setResponseCode(200)
                 })
                 server.enqueue(MockResponse().apply {
                     setBody(adapter.toJson(GetToDoResponse(arrayListOf(
-                            ToDo(null, false, "タイトル１"),
-                            ToDo("2", false, "タイトル２"),
-                            ToDo("3", null, null)
+                            ToDo(null, false, "タイトル１", Date()),
+                            ToDo("2", false, "タイトル２", Date()),
+                            ToDo("3", null, null, Date())
                     ))))
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(MoshiConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create(moshi))
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)
@@ -104,7 +115,7 @@ class ToDoRepositoryTest {
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(MoshiConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create(moshi))
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)
@@ -116,7 +127,8 @@ class ToDoRepositoryTest {
                 target.register(ToDoEntity(
                         id = null,
                         isFinish = false,
-                        title = "タイトル"
+                        title = "タイトル",
+                        updateDate = Date()
                 ))
             }.isSuccess).isTrue()
         }
@@ -129,7 +141,7 @@ class ToDoRepositoryTest {
                     setResponseCode(200)
                 })
                 Retrofit.Builder()
-                        .addConverterFactory(MoshiConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create(moshi))
                         .baseUrl(server.url("/"))
                         .build()
                         .create(APIEndpoint::class.java)
@@ -141,7 +153,8 @@ class ToDoRepositoryTest {
                 target.remove(ToDoEntity(
                         id = "1",
                         isFinish = false,
-                        title = "タイトル"
+                        title = "タイトル",
+                        updateDate = Date()
                 ))
             }.isSuccess).isTrue()
 
@@ -149,7 +162,8 @@ class ToDoRepositoryTest {
                 target.remove(ToDoEntity(
                         id = null,
                         isFinish = false,
-                        title = "タイトル"
+                        title = "タイトル",
+                        updateDate = Date()
                 ))
             }.isSuccess).isFalse()
         }

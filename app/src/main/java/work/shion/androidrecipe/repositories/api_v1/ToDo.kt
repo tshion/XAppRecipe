@@ -1,6 +1,7 @@
 package work.shion.androidrecipe.repositories.api_v1
 
 import com.squareup.moshi.Json
+import java.util.*
 
 /**
  * ToDoデータ
@@ -13,5 +14,6 @@ import com.squareup.moshi.Json
 data class ToDo(
         val id: String?,
         @Json(name = "is_finish") val isFinish: Boolean?,
-        val title: String?
+        val title: String?,
+        @Json(name = "update_date") val updateDate: Date
 )

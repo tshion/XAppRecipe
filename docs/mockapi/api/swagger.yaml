@@ -25,9 +25,11 @@ paths:
                 - id: "1"
                   is_finish: false
                   title: やることその１
+                  update_date: 2020-01-10T23:57:49+09:00
                 - id: "2"
                   is_finish: true
                   title: やることその２
+                  update_date: 2020-01-10T23:57:49+09:00
       x-swagger-router-controller: Default
     post:
       summary: ToDo 新規登録
@@ -100,10 +102,15 @@ components:
         title:
           type: string
           description: ToDo タイトル
+        update_date:
+          type: string
+          description: 更新日時
+          format: date-time
       example:
         is_finish: true
         id: id
         title: title
+        update_date: 2000-01-23T04:56:07.000+00:00
     inline_response_200:
       type: object
       properties:
@@ -116,6 +123,8 @@ components:
         - is_finish: true
           id: id
           title: title
+          update_date: 2000-01-23T04:56:07.000+00:00
         - is_finish: true
           id: id
           title: title
+          update_date: 2000-01-23T04:56:07.000+00:00

@@ -2,6 +2,9 @@ package work.shion.androidrecipe.repositories.api_v1
 
 import android.os.Build
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,6 +14,7 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.*
 
 /**
  * 通信部分のお試し環境
@@ -20,12 +24,17 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @RunWith(AndroidJUnit4::class)
 class APIEndpointPlayground {
 
+    private val moshi = Moshi.Builder()
+            .add(Date::class.java, Rfc3339DateJsonAdapter())
+            .add(KotlinJsonAdapterFactory())
+            .build()
+
     private val api = OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor())
             .build()
             .let {
                 Retrofit.Builder()
-                        .addConverterFactory(MoshiConverterFactory.create())
+                        .addConverterFactory(MoshiConverterFactory.create(moshi))
                         .baseUrl("http://localhost:8080")
                         .client(it)
                         .build()
