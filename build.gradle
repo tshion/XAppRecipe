@@ -61,21 +61,7 @@ buildscript {
                 "com.google.android.material:material:${material_version}",
         ]
         debugTools = [
-                // Hyperion
-                "com.willowtreeapps.hyperion:hyperion-core:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-attr:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-build-config:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-crash:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-disk:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-geiger-counter:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-measurement:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-phoenix:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-recorder:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-shared-preferences:${hyperion_version}",
-                "com.willowtreeapps.hyperion:hyperion-timber:${hyperion_version}",
-
-                // LeakCanary
-                "com.squareup.leakcanary:leakcanary-android:${leakcanary_version}",
+                "work.shion.androidpreparation:debugger:0.1.0.alpha-0",
         ]
         testLibrary = [
                 // AndroidX
@@ -108,6 +94,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://dl.bintray.com/shion/maven'
+    }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
@@ -121,6 +110,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://dl.bintray.com/shion/maven'
+        }
     }
 }
 
