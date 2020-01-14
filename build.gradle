@@ -61,7 +61,7 @@ buildscript {
                 "com.google.android.material:material:${material_version}",
         ]
         debugTools = [
-                "work.shion.androidpreparation:debugger:0.1.0.alpha-0",
+                "work.shion.androidpreparation:debugger:0.1.1.alpha",
         ]
         testLibrary = [
                 // AndroidX

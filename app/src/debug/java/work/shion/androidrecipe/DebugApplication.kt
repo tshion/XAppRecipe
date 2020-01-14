@@ -1,22 +1,16 @@
 package work.shion.androidrecipe
 
-import android.os.StrictMode
+import work.shion.androidpreparation.debugger.IStethoAttacher
+import work.shion.androidpreparation.debugger.IStrictModeAttacher
 
-class DebugApplication : MainApplication() {
+class DebugApplication : MainApplication(),
+        IStethoAttacher, IStrictModeAttacher {
 
     override fun onCreate() {
         super.onCreate()
 
-        // StrictMode の有効化
-        StrictMode.ThreadPolicy.Builder()
-                .detectAll()
-                .penaltyLog()
-                .build()
-                .also { policy -> StrictMode.setThreadPolicy(policy) }
-        StrictMode.VmPolicy.Builder()
-                .detectAll()
-                .penaltyLog()
-                .build()
-                .also { policy -> StrictMode.setVmPolicy(policy) }
+        setupThreadPolicy()
+        setupVmPolicy()
+        super<IStethoAttacher>.setup(this)
     }
 }
