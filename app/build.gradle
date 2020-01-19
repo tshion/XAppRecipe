@@ -55,6 +55,6 @@ dependencies {
     testImplementation testLibrary
     androidTestImplementation testUiLibrary
 
-    implementation "work.shion.androidpreparation:baser:0.2.0.alpha"
+    implementation "work.shion.androidpreparation:baser:0.2.1.alpha"
     implementation "work.shion.androidpreparation:views:0.2.0.alpha"
 }
