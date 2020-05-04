@@ -1,0 +1,8 @@
+{
+  "appId": "work.shion.xapprecipe",
+  "appName": "XAppRecipe",
+  "bundledWebRuntime": true,
+  "npmClient": "yarn",
+  "webDir": "www",
+  "cordova": {}
+}
