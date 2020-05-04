@@ -8,9 +8,11 @@
         "eamodio.gitlens",
         "editorconfig.editorconfig",
         "github.vscode-pull-request-github",
+        "jebbs.plantuml",
         "ms-vscode.vscode-typescript-tslint-plugin",
         "msjsdiag.debugger-for-chrome",
         "pflannery.vscode-versionlens",
+        "redhat.vscode-yaml",
         "visualstudioexptteam.vscodeintellicode"
     ],
     // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
