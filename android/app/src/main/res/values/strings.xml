@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="app_name">XAppRecipe</string>
+  <string name="title_activity_main">XAppRecipe</string>
+  <string name="package_name">work.shion.xapprecipe</string>
+  <string name="custom_url_scheme">work.shion.xapprecipe</string>
+</resources>

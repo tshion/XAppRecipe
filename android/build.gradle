@@ -1,0 +1,39 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+  ext {
+    compile_sdk_version = 29
+    min_sdk_version = 21
+
+    ver_droidx_appcompat = "1.1.0"
+    ver_kotlin = "1.3.72"
+    ver_prep_debugger = "1.0.0"
+    ver_prep_views = "0.2.0.alpha"
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.6.3'
+    classpath 'com.google.gms:google-services:4.3.3'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${ver_kotlin}"
+  }
+  repositories {
+    google()
+    jcenter()
+    maven {
+      url 'https://dl.bintray.com/shion/maven'
+    }
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    maven {
+      url 'https://dl.bintray.com/shion/maven'
+    }
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}

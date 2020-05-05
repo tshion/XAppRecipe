@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+// アプリバージョン
+def appver_major = 1
+def appver_minor = 0
+def appver_revision = 0
+version = "${appver_major}.${appver_minor}.${appver_revision}"
+
+android {
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  compileSdkVersion compile_sdk_version
+  dataBinding {
+    enabled = true
+  }
+  defaultConfig {
+    applicationId "work.shion.xapprecipe"
+    minSdkVersion min_sdk_version
+    targetSdkVersion compile_sdk_version
+    versionCode 10000 * appver_major + 100 * appver_minor + appver_revision
+    versionName version
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+}
+
+repositories {
+  flatDir {
+    dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+  }
+}
+
+dependencies {
+  implementation project(':capacitor-android')
+  implementation project(':capacitor-cordova-android-plugins')
+
+  // AndroidX
+  implementation "androidx.appcompat:appcompat:${ver_droidx_appcompat}"
+
+  // AndroidPreparation
+  debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
+  implementation "work.shion.androidpreparation:views:${ver_prep_views}"
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+  def servicesJSON = file('google-services.json')
+  if (servicesJSON.text) {
+    apply plugin: 'com.google.gms.google-services'
+  }
+} catch (Exception e) {
+  logger.warn("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}
