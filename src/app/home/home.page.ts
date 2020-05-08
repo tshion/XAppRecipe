@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Plugins } from '@capacitor/core';
+import { Platform } from '@ionic/angular';
+
+const { XAppRecipePlugin } = Plugins;
 
 @Component({
   selector: 'app-home',
@@ -7,6 +11,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private platform: Platform
+  ) {
+  }
 
+
+  callNative() {
+    const isCapacitor = this.platform.is('capacitor');
+    if (isCapacitor && this.platform.is('android')) {
+      XAppRecipePlugin.launch();
+    }
+  }
 }

@@ -50,8 +50,11 @@
 
         <data android:scheme="@string/custom_url_scheme" />
       </intent-filter>
-
     </activity>
+
+    <activity
+      android:name=".NativeRootActivity"
+      android:exported="false" />
 
     <provider
       android:name="androidx.core.content.FileProvider"
