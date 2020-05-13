@@ -2,12 +2,12 @@ name: XAppRecipe
 options:
   deploymentLanguage: Japan
   postGenCommand: pod install
+settings:
+  PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
 targets:
   App:
     deploymentTarget: "12.0"
     platform: iOS
-    settings:
-      PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
     sources:
       - App
       - path: public
