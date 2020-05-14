@@ -13,3 +13,13 @@ targets:
       - path: public
         type: folder
     type: application
+  AppTests:
+    dependencies:
+      - target: App
+    platform: iOS
+    settings:
+      INFOPLIST_FILE: AppTests/info.plist
+      TEST_HOST: $(BUILT_PRODUCTS_DIR)/App.app/App
+    sources:
+      - AppTests
+    type: bundle.unit-test
