@@ -27,7 +27,7 @@ else
 fi
 # XcodeGen のインストール
 if ! type "xcodegen" > /dev/null; then
-    echo '`poxcodegend` not found. Install XcodeGen'
+    echo '`xcodegen` not found. Install XcodeGen'
     brew install xcodegen
 else
     echo 'Skip installing XcodeGen'
