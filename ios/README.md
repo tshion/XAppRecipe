@@ -2,6 +2,7 @@
 ## Quick Start
 * ```bash``` or ```zsh```
 * ```brew``` (by [Homebrew])
+* ```fastlane``` (by [fastlane])
 * ```ionic``` (by [IonicCLI])
 * ```make```
 
@@ -20,6 +21,7 @@ If you want to know the detail, please check [Makefile].
 Want to do | Commands
 --- | ---
 First setup | ```make init```
+Run tests | ```make tests```
 Setup commands | ```make setup-commands```
 Setup Xcode projects | ```make``` or ```make setup-xcode```
 
@@ -30,6 +32,7 @@ Setup Xcode projects | ```make``` or ```make setup-xcode```
 * [Xcode project settings](./App/project.yml)
 
 
+[fastlane]: https://fastlane.tools/
 [Homebrew]: https://brew.sh/
 [IonicCLI]: https://ionicframework.com/
 [Makefile]: ./Makefile

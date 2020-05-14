@@ -25,6 +25,13 @@ if ! type "pod" > /dev/null; then
 else
     echo 'Skip installing CocoaPods'
 fi
+# Fastlane のセットアップ
+if ! type "fastlane" > /dev/null; then
+    echo '`fastlane` not found. Install fastlane'
+    brew install fastlane
+else
+    echo "Skip installing Fastlane"
+fi
 # XcodeGen のインストール
 if ! type "xcodegen" > /dev/null; then
     echo '`xcodegen` not found. Install XcodeGen'

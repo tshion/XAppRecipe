@@ -18,3 +18,7 @@ setup-command:
 # Xcode プロジェクトの生成
 setup-xcode: $(PATH_XCODE_PROJECT)
 	xcodegen generate --spec $^/project.yml
+
+# Xcode テストの実行
+tests:
+	fastlane tests
