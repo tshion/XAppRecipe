@@ -13,6 +13,15 @@ targets:
       - path: public
         type: folder
     type: application
+  AppPreview:
+    deploymentTarget: "13.0"
+    platform: iOS
+    sources:
+      - App
+      - path: public
+        type: folder
+      - AppPreview
+    type: application
   AppTests:
     dependencies:
       - target: App
