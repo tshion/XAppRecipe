@@ -4,24 +4,27 @@ options:
   postGenCommand: pod install
 settings:
   PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
+targetTemplates:
+  appbase:
+    platform: iOS
+    sources:
+      - App
+      - path: public
+        type: folder
+    type: application
+
+
 targets:
   App:
+    templates:
+      - appbase
     deploymentTarget: "12.0"
-    platform: iOS
-    sources:
-      - App
-      - path: public
-        type: folder
-    type: application
   AppPreview:
+    templates:
+      - appbase
     deploymentTarget: "13.0"
-    platform: iOS
     sources:
-      - App
-      - path: public
-        type: folder
       - AppPreview
-    type: application
   AppTests:
     dependencies:
       - target: App
