@@ -1,7 +1,6 @@
 name: XAppRecipe
 options:
   deploymentLanguage: Japan
-  postGenCommand: pod install
 settings:
   PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
 targetTemplates:

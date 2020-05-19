@@ -8,17 +8,14 @@ PATH_XCODE_PROJECT := App
 
 # 開発環境のセットアップ
 init:
-	@make setup-command
+	sh scripts/setup-command.sh
 	@make setup-xcode
-
-# 依存コマンドのセットアップ
-setup-command:
-	sh setup-command.sh
 
 # Xcode プロジェクトの生成
 setup-xcode: $(PATH_XCODE_PROJECT)
-	xcodegen generate --spec $^/project.yml
+	mint run xcodegen generate --spec $^/project.yml
+	bundle exec pod install --project-directory=$^
 
 # Xcode テストの実行
 tests:
-	fastlane tests
+	bundle exec fastlane tests

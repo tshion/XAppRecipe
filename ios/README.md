@@ -1,8 +1,9 @@
 # XAppRecipe(iOS)
 ## Quick Start
 * ```bash``` or ```zsh```
-* ```brew``` (by [Homebrew])
-* ```fastlane``` (by [fastlane])
+* ```bundle```
+* ```git```
+* ```gem``` (by [RubyGems])
 * ```ionic``` (by [IonicCLI])
 * ```make```
 
@@ -22,18 +23,34 @@ Want to do | Commands
 --- | ---
 First setup | ```make init```
 Run tests | ```make tests```
-Setup commands | ```make setup-commands```
 Setup Xcode projects | ```make``` or ```make setup-xcode```
 
-### Settings
-* [CocoaPods settings](./App/Podfile)
-* [Command settings][Makefile]
-* [Prerequire command settings](./setup-command.sh)
-* [Xcode project settings](./App/project.yml)
+### Tool Manager & Settings
+I use [Mint] and [RubyGems].
+Defined a ```make``` command to put these managers.
+
+#### [Mint]
+* [Mintfile](./Mintfile)
+* [XcodeGen]
+  * [project.yaml](./App/project.yml)
+
+#### [RubyGems]
+* [CocoaPods]
+  * [Podfile](./App/Podfile)
+* [fastlane]
+  * [Fastfile](./fastlane/Fastfile)
+* [Gemfile](./Gemfile)
+
+#### Others
+* [Makefile][Makefile]
+* [Prerequire command settings](./scripts/setup-command.sh)
 
 
+[CocoaPods]: https://cocoapods.org/
 [fastlane]: https://fastlane.tools/
-[Homebrew]: https://brew.sh/
 [IonicCLI]: https://ionicframework.com/
 [Makefile]: ./Makefile
+[Mint]: https://github.com/yonaskolb/Mint
 [Node]: https://nodejs.org/
+[RubyGems]: https://rubygems.org/
+[XcodeGen]: https://github.com/yonaskolb/XcodeGen
