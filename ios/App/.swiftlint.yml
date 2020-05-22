@@ -1,0 +1,18 @@
+disabled_rules:
+  - identifier_name
+  - line_length
+  - todo
+  - trailing_comma
+  - trailing_newline
+  #- trailing_whitespace
+  - vertical_whitespace
+opt_in_rules:
+  - closure_end_indentation
+  - file_header
+excluded:
+  - Carthage
+  - Pods
+  - public
+file_header:
+  forbidden_pattern: .
+  severity: error
