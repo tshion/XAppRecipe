@@ -30,7 +30,10 @@ I use [Mint] and [RubyGems].
 Defined a ```make``` command to put these managers.
 
 #### [Mint]
+* [LicensePlist]
 * [Mintfile](./Mintfile)
+* [SwiftFormat]
+* [SwiftLint]
 * [XcodeGen]
   * [project.yaml](./App/project.yml)
 
@@ -49,8 +52,11 @@ Defined a ```make``` command to put these managers.
 [CocoaPods]: https://cocoapods.org/
 [fastlane]: https://fastlane.tools/
 [IonicCLI]: https://ionicframework.com/
+[LicensePlist]: https://github.com/mono0926/LicensePlist
 [Makefile]: ./Makefile
 [Mint]: https://github.com/yonaskolb/Mint
 [Node]: https://nodejs.org/
 [RubyGems]: https://rubygems.org/
+[SwiftFormat]: https://github.com/nicklockwood/SwiftFormat
+[SwiftLint]: https://github.com/realm/SwiftLint
 [XcodeGen]: https://github.com/yonaskolb/XcodeGen
