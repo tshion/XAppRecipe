@@ -15,6 +15,7 @@ init:
 setup-xcode: $(PATH_XCODE_PROJECT)
 	mint run xcodegen generate --spec $^/project.yml
 	bundle exec pod install --project-directory=$^
+	mint run LicensePlist --output-path App/App/Settings.bundle --pods-path App/Pods
 
 # Xcode テストの実行
 tests:
