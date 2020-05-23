@@ -22,7 +22,7 @@ platform :ios do
   lane :tests do
     run_tests(
       scheme: "App",
-      workspace: "App/XAppRecipe.xcworkspace",
+      workspace: "XAppRecipe.xcworkspace",
     )
   end
 end

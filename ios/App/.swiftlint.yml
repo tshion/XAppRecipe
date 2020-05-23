@@ -4,15 +4,17 @@ disabled_rules:
   - todo
   - trailing_comma
   - trailing_newline
-  #- trailing_whitespace
   - vertical_whitespace
 opt_in_rules:
   - closure_end_indentation
   - file_header
 excluded:
   - Carthage
+  - fastlane
   - Pods
   - public
+  - scripts
+  - vendor
 file_header:
   forbidden_pattern: .
   severity: error

@@ -1,9 +1,8 @@
 # XAppRecipe(iOS)
 ## Quick Start
 * ```bash``` or ```zsh```
-* ```bundle```
+* ```bundle``` (by [Bundler])
 * ```git```
-* ```gem``` (by [RubyGems])
 * ```ionic``` (by [IonicCLI])
 * ```make```
 
@@ -35,7 +34,7 @@ Defined a ```make``` command to put these managers.
 * [SwiftFormat]
 * [SwiftLint]
 * [XcodeGen]
-  * [project.yaml](./App/project.yml)
+  * [project.yml](./App/project.yml)
 
 #### [RubyGems]
 * [CocoaPods]
@@ -49,6 +48,7 @@ Defined a ```make``` command to put these managers.
 * [Prerequire command settings](./scripts/setup-command.sh)
 
 
+[Bundler]: https://bundler.io/
 [CocoaPods]: https://cocoapods.org/
 [fastlane]: https://fastlane.tools/
 [IonicCLI]: https://ionicframework.com/

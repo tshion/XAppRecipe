@@ -2,6 +2,9 @@
   "appId": "work.shion.xapprecipe",
   "appName": "XAppRecipe",
   "bundledWebRuntime": true,
+  "ios": {
+    "minVersion": "12.0"
+  },
   "npmClient": "yarn",
   "webDir": "www",
   "cordova": {}

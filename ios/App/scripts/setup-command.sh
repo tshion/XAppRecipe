@@ -11,13 +11,14 @@ else
 fi
 
 
-# RubyGems の確認
-if ! type "gem" > /dev/null; then
-    echo "Require RubyGem"
+# Bundler の確認
+if ! type "bundle" > /dev/null; then
+    echo "Require Bundler"
     exit 1
 fi
 
 # Gemfile から依存関係を復元
+bundle config set path 'vendor/bundle'
 bundle install
 
 

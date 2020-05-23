@@ -10,10 +10,3 @@ xcuserdata
 
 # Cordova plugins for Capacitor
 capacitor-cordova-ios-plugins
-
-# LicensePlist
-App/**/com.mono0926.LicensePlist**
-
-# XcodeGen
-App/*.xcodeproj
-App/*.xcworkspace
