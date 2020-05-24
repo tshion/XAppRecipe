@@ -14,8 +14,8 @@ If you can use above commands, please run these commands.
 4. ```ionic capacitor open ios```
 
 
-## Commands
-### Features
+## Memo
+### Commands
 If you want to know the detail, please check [Makefile].
 
 Want to do | Commands
@@ -24,24 +24,28 @@ First setup | ```make init```
 Run tests | ```make tests```
 Setup Xcode projects | ```make``` or ```make setup-xcode```
 
+### Targets
+Target | Description
+--- | ---
+App | Main target
+AppPreview | Xcode Previews settings for App
+AppTests | Unit test for App
+
 ### Tool Manager & Settings
 I use [Mint] and [RubyGems].
 Defined a ```make``` command to put these managers.
 
-#### [Mint]
+#### [Mint] ([Mintfile](./App/Mintfile))
 * [LicensePlist]
-* [Mintfile](./Mintfile)
 * [SwiftFormat]
 * [SwiftLint]
-* [XcodeGen]
-  * [project.yml](./App/project.yml)
+* [XcodeGen] ([project.yml](./App/project.yml))
 
-#### [RubyGems]
-* [CocoaPods]
-  * [Podfile](./App/Podfile)
-* [fastlane]
-  * [Fastfile](./fastlane/Fastfile)
-* [Gemfile](./Gemfile)
+#### [RubyGems] ([Gemfile](./App/Gemfile))
+* [CocoaPods] ([Podfile](./App/Podfile))
+  * [Capacitor](https://cocoapods.org/pods/Capacitor)
+  * [CapacitorCordova](https://cocoapods.org/pods/CapacitorCordova)
+* [fastlane] ([Fastfile](./App/fastlane/Fastfile))
 
 #### Others
 * [Makefile][Makefile]
