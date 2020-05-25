@@ -45,6 +45,7 @@ Defined a ```make``` command to put these managers.
 * [CocoaPods] ([Podfile](./App/Podfile))
   * [Capacitor](https://cocoapods.org/pods/Capacitor)
   * [CapacitorCordova](https://cocoapods.org/pods/CapacitorCordova)
+  * [Hyperion-iOS](https://github.com/willowtreeapps/Hyperion-iOS)
 * [fastlane] ([Fastfile](./App/fastlane/Fastfile))
 
 #### Others

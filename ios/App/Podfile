@@ -10,16 +10,28 @@ def capacitor_pods
   # Automatic Capacitor Pod dependencies, do not delete
   pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
-
+  
   # Do not delete
 end
+
+def hyperion
+  pod 'HyperioniOS/Core', '1.1.0', :configurations => ['Debug']
+
+  pod 'HyperioniOS/AttributesInspector', '1.1.0', :configurations => ['Debug']
+  pod 'HyperioniOS/Measurements', '1.1.0', :configurations => ['Debug']
+  pod 'HyperioniOS/SlowAnimations', '1.1.0', :configurations => ['Debug']
+end
+
+
 
 target 'App' do
   capacitor_pods
   # Add your Pods here
+  hyperion
 end
 
 target 'AppPreview' do
   capacitor_pods
   # Add your Pods here
+  hyperion
 end
