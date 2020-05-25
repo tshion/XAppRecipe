@@ -5,9 +5,9 @@ init:
 
 # Xcode プロジェクトの生成
 setup-xcode:
+	mint run LicensePlist --output-path App/Settings.bundle
 	mint run xcodegen generate
 	bundle exec pod install
-	mint run LicensePlist --output-path App/Settings.bundle
 
 # Xcode テストの実行
 tests:
