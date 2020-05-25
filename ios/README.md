@@ -49,7 +49,8 @@ Defined a ```make``` command to put these managers.
 
 #### Others
 * [Makefile][Makefile]
-* [Prerequire command settings](./scripts/setup-command.sh)
+  * [App/Makefile](./App/Makefile)
+* [Prerequire command settings](./App/scripts/setup-command.sh)
 
 
 [Bundler]: https://bundler.io/
