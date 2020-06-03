@@ -1,29 +1,27 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "defaultProject": "app",
-  "newProjectRoot": "projects",
+  "newProjectRoot": ".",
   "projects": {
-    "app": {
-      "root": "",
-      "sourceRoot": "src",
+    "mainapp": {
       "projectType": "application",
+      "root": "mainapp",
+      "sourceRoot": "mainapp/src",
       "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "outputPath": "dist/mainapp",
+            "index": "mainapp/src/index.html",
+            "main": "mainapp/src/main.ts",
+            "polyfills": "mainapp/src/polyfills.ts",
+            "tsConfig": "mainapp/tsconfig.app.json",
             "aot": true,
-            "outputPath": "www",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "mainapp/src/assets",
                 "output": "assets"
               },
               {
@@ -34,10 +32,10 @@
             ],
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "input": "mainapp/src/theme/variables.scss"
               },
               {
-                "input": "src/global.scss"
+                "input": "mainapp/src/global.scss"
               }
             ],
             "scripts": []
@@ -46,8 +44,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "mainapp/src/environments/environment.ts",
+                  "with": "mainapp/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -67,7 +65,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             },
@@ -85,11 +84,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "mainapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production"
+              "browserTarget": "mainapp:build:production"
             },
             "ci": {
               "progress": false
@@ -99,30 +98,30 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "mainapp:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "styles": [],
-            "scripts": [],
+            "main": "mainapp/src/test.ts",
+            "polyfills": "mainapp/src/polyfills.ts",
+            "tsConfig": "mainapp/tsconfig.spec.json",
+            "karmaConfig": "mainapp/karma.conf.js",
             "assets": [
               {
                 "glob": "favicon.ico",
-                "input": "src/",
+                "input": "mainapp/src/",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "mainapp/src/assets",
                 "output": "/assets"
               }
-            ]
+            ],
+            "styles": [],
+            "scripts": []
           },
           "configurations": {
             "ci": {
@@ -135,64 +134,67 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "mainapp/tsconfig.app.json",
+              "mainapp/tsconfig.spec.json",
+              "mainapp/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "app:serve"
+            "protractorConfig": "mainapp/e2e/protractor.conf.js",
+            "devServerTarget": "mainapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "app:serve:production"
+              "devServerTarget": "mainapp:serve:production"
             },
             "ci": {
-              "devServerTarget": "app:serve:ci"
-            }
-          }
-        },
-        "ionic-cordova-build": {
-          "builder": "@ionic/angular-toolkit:cordova-build",
-          "options": {
-            "browserTarget": "app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "app:build:production"
+              "devServerTarget": "mainapp:serve:ci"
             }
           }
         },
         "ionic-cordova-serve": {
           "builder": "@ionic/angular-toolkit:cordova-serve",
           "options": {
-            "cordovaBuildTarget": "app:ionic-cordova-build",
-            "devServerTarget": "app:serve"
+            "cordovaBuildTarget": "mainapp:ionic-cordova-build",
+            "devServerTarget": "mainapp:serve"
           },
           "configurations": {
             "production": {
-              "cordovaBuildTarget": "app:ionic-cordova-build:production",
-              "devServerTarget": "app:serve:production"
+              "cordovaBuildTarget": "mainapp:ionic-cordova-build:production",
+              "devServerTarget": "mainapp:serve:production"
             }
           }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "mainapp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mainapp:build:production"
+            }
+          }
+        }
+      },
+      "cli": {
+        "defaultCollection": "@ionic/angular-toolkit"
+      },
+      "schematics": {
+        "@ionic/angular-toolkit:component": {
+          "styleext": "scss"
+        },
+        "@ionic/angular-toolkit:page": {
+          "styleext": "scss"
         }
       }
     }
   },
-  "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
-  },
-  "schematics": {
-    "@ionic/angular-toolkit:component": {
-      "styleext": "scss"
-    },
-    "@ionic/angular-toolkit:page": {
-      "styleext": "scss"
-    }
-  }
+  "defaultProject": "mainapp"
 }

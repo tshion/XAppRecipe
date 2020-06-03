@@ -408,7 +408,7 @@ DerivedData/
 /ios/**/capacitor.config.json
 /platforms
 /plugins
-!/src/assets/icon
+!/mainapp/src/assets/icon
 /www
 
 # VSCode Java Pack

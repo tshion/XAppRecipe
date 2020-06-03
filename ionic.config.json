@@ -1,7 +1,12 @@
 {
-  "name": "XAppRecipe",
-  "integrations": {
-    "capacitor": {}
+  "projects": {
+    "mainapp": {
+      "name": "XAppRecipe",
+      "integrations": {
+        "capacitor": {}
+      },
+      "type": "angular"
+    }
   },
-  "type": "angular"
+  "defaultProject": "mainapp"
 }

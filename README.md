@@ -7,11 +7,9 @@ Path | Description
 --- | ---
 android/ | android capacitor project root
 docs/ | documents
-e2e/ | web(angualr) test project root
 electron/ | electron capacitor project root
 [ios/](./ios) | ios capacitor project root
-src/ | web(angular) project root
-
+mainapp | web(angular) project root
 
 
 ## Links

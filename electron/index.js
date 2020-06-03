@@ -28,7 +28,7 @@ const menuTemplateDev = [
   },
 ];
 
-async function createWindow () {
+async function createWindow() {
   // Define our main window size
   mainWindow = new BrowserWindow({
     height: 920,
@@ -49,7 +49,7 @@ async function createWindow () {
     mainWindow.webContents.openDevTools();
   }
 
-  if(useSplashScreen) {
+  if (useSplashScreen) {
     splashScreen = new CapacitorSplashScreen(mainWindow);
     splashScreen.init();
   } else {
