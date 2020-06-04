@@ -1,35 +1,35 @@
-name: ios
+# name: ios
 
-on:
-  push:
-    branches: [ master ]
+# on:
+#   push:
+#     branches: [ master ]
 
-jobs:
-  build:
-    runs-on: macos-10.15
-    steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.2
-      - name: Setup Ionic CLI
-        run: yarn global add @ionic/cli
-      - name: Load code
-        uses: actions/checkout@v2.2.0
-      - name: Check path
-        run: |
-            pwd
-            ls
-      - name: Setup Node packages
-        run: yarn install
-      - name: Sync build data
-        run: ionic capacitor sync ios
-      - name: Check path
-        run: |
-            pwd
-            ls
-        working-directory: ./ios
-      - name: Setup iOS project
-        run: make init
-        working-directory: ./ios
-      - name: Run build
-        run: make build
-        working-directory: ./ios
+# jobs:
+#   build:
+#     runs-on: macos-10.15
+#     steps:
+#       - name: Setup Node.js environment
+#         uses: actions/setup-node@v1.4.2
+#       - name: Setup Ionic CLI
+#         run: yarn global add @ionic/cli
+#       - name: Load code
+#         uses: actions/checkout@v2.2.0
+#       - name: Check path
+#         run: |
+#             pwd
+#             ls
+#       - name: Setup Node packages
+#         run: yarn install
+#       - name: Sync build data
+#         run: ionic capacitor sync ios
+#       - name: Check path
+#         run: |
+#             pwd
+#             ls
+#         working-directory: ./ios
+#       - name: Setup iOS project
+#         run: make init
+#         working-directory: ./ios
+#       - name: Run build
+#         run: make build
+#         working-directory: ./ios
