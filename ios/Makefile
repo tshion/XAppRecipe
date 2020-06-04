@@ -6,6 +6,10 @@ default: setup-xcode
 PATH_XCODE_PROJECT := App
 
 
+# iOS ビルド
+build: $(PATH_XCODE_PROJECT)
+	cd $<; $(MAKE) build
+
 # 開発環境のセットアップ
 init: $(PATH_XCODE_PROJECT)
 	cd $<; $(MAKE) init

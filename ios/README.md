@@ -18,11 +18,12 @@ If you can use above commands, please run these commands.
 ### Commands
 If you want to know the detail, please check [Makefile].
 
-Want to do | Commands
---- | ---
-First setup | ```make init```
-Run tests | ```make tests```
-Setup Xcode projects | ```make``` or ```make setup-xcode```
+Want to do | Commands | Note
+--- | --- | ---
+Build Project | ```make build``` | This command doesn't work
+First setup | ```make init``` |  |
+Run tests | ```make tests``` |  |
+Setup Xcode projects | ```make``` or ```make setup-xcode``` |  |
 
 ### Targets
 Target | Description

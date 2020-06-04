@@ -1,3 +1,7 @@
+# iOS ビルド
+build:
+	bundle exec fastlane build
+
 # 開発環境のセットアップ
 init:
 	sh scripts/setup-command.sh
