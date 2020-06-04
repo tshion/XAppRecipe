@@ -22,13 +22,14 @@ jobs:
         run: yarn install
       - name: Sync build data
         run: ionic capacitor sync ios
-      - name: Change iOS directory
-        run: cd ios
       - name: Check path
         run: |
             pwd
             ls
+        working-directory: ./ios
       - name: Setup iOS project
         run: make init
+        working-directory: ./ios
       - name: Run build
         run: make build
+        working-directory: ./ios
