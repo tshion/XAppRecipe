@@ -14,10 +14,14 @@ jobs:
         run: yarn global add @ionic/cli
       - name: Setup Node packages
         run: yarn install
+      - name: Check path
+        run: ls
       - name: Sync build data
         run: ionic capacitor sync ios
       - name: Change iOS directory
         run: cd ios
+      - name: Check path
+        run: ls
       - name: Setup iOS project
         run: make init
       - name: Run build
