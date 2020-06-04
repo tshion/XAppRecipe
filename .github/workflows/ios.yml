@@ -12,16 +12,22 @@ jobs:
         uses: actions/setup-node@v1.4.2
       - name: Setup Ionic CLI
         run: yarn global add @ionic/cli
+      - name: Load code
+        uses: actions/checkout@v2.2.0
+      - name: Check path
+        run: |
+            pwd
+            ls
       - name: Setup Node packages
         run: yarn install
-      - name: Check path
-        run: ls
       - name: Sync build data
         run: ionic capacitor sync ios
       - name: Change iOS directory
         run: cd ios
       - name: Check path
-        run: ls
+        run: |
+            pwd
+            ls
       - name: Setup iOS project
         run: make init
       - name: Run build
