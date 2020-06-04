@@ -1,0 +1,24 @@
+name: ios
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-10.15
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.2
+      - name: Setup Ionic CLI
+        run: yarn global add @ionic/cli
+      - name: Setup Node packages
+        run: yarn install
+      - name: Sync build data
+        run: ionic capacitor sync ios
+      - name: Change iOS directory
+        run: cd ios
+      - name: Setup iOS project
+        run: make init
+      - name: Run build
+        run: make build
