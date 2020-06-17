@@ -57,6 +57,10 @@ dependencies {
   // AndroidPreparation
   debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
   implementation "work.shion.androidpreparation:views:${ver_prep_views}"
+
+  // Kotlin
+  implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 apply from: 'capacitor.build.gradle'
