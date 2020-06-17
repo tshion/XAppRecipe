@@ -7,9 +7,12 @@ apply plugin: 'kotlin-kapt'
 def appver_major = 1
 def appver_minor = 0
 def appver_revision = 0
-version = "${appver_major}.${appver_minor}.${appver_revision}"
 
 android {
+  buildFeatures {
+    dataBinding = true
+  }
+  buildToolsVersion rootProject.ext.build_tools_version
   buildTypes {
     release {
       minifyEnabled true
@@ -21,15 +24,12 @@ android {
     targetCompatibility JavaVersion.VERSION_1_8
   }
   compileSdkVersion compile_sdk_version
-  dataBinding {
-    enabled = true
-  }
   defaultConfig {
     applicationId "work.shion.xapprecipe"
     minSdkVersion min_sdk_version
     targetSdkVersion compile_sdk_version
     versionCode 10000 * appver_major + 100 * appver_minor + appver_revision
-    versionName version
+    versionName "${appver_major}.${appver_minor}.${appver_revision}"
   }
   kotlinOptions {
     jvmTarget = '1.8'
