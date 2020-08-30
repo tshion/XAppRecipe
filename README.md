@@ -7,7 +7,6 @@ Path | Description
 --- | ---
 android/ | android capacitor project root
 docs/ | documents
-electron/ | electron capacitor project root
 [ios/](./ios) | ios capacitor project root
 mainapp | web(angular) project root
 

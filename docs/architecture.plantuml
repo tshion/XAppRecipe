@@ -2,7 +2,6 @@
 
 actor User as user
 node "Android Native" as android
-node "Electron"
 node "Ionic + Capacitor" as base
 node "iOS Native" as ios
 
@@ -10,7 +9,6 @@ node "iOS Native" as ios
 
 user -> base
 base -up-> android
-base -> Electron
 base -down-> ios
 
 @enduml

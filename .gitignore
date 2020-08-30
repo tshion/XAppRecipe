@@ -404,7 +404,6 @@ DerivedData/
 ### Projects ###
 ################
 /android/**/capacitor.config.json
-/electron/**/capacitor.config.json
 /ios/**/capacitor.config.json
 /platforms
 /plugins
