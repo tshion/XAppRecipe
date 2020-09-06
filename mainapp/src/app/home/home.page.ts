@@ -18,8 +18,11 @@ export class HomePage {
 
 
   callNative() {
-    const isCapacitor = this.platform.is('capacitor');
-    if (isCapacitor && this.platform.is('android')) {
+    if (!this.platform.is('capacitor')) {
+      return;
+    } else if (this.platform.is('android')) {
+      XAppRecipePlugin.launch();
+    } else if (this.platform.is('ios')) {
       XAppRecipePlugin.launch();
     }
   }
