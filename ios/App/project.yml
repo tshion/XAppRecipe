@@ -7,11 +7,11 @@ targetTemplates:
   appbase:
     platform: iOS
     preBuildScripts:
-      - path: scripts/lint.sh
-        name: Run Lint
-    postBuildScripts:
       - path: scripts/format.sh
         name: Run Format
+    postBuildScripts:
+      - path: scripts/lint.sh
+        name: Run Lint
     sources:
       - App
       - path: public
