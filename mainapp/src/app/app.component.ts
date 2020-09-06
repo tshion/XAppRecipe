@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-
+import { Plugins } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
+
+const { SplashScreen } = Plugins;
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      SplashScreen.hide();
     });
   }
 }

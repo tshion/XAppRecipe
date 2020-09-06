@@ -8,6 +8,9 @@
   "npmClient": "yarn",
   "webDir": "dist/mainapp",
   "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
   },
   "cordova": {}
 }
