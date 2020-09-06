@@ -9,6 +9,7 @@ public class XAppRecipePlugin: CAPPlugin {
                 return
             }
 
+            nextPage.modalPresentationStyle = .fullScreen
             self.bridge.viewController.present(nextPage, animated: true, completion: nil)
             call.success()
         }
