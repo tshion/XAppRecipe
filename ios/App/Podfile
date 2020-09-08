@@ -27,6 +27,7 @@ end
 
 def ui
   pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/Buttons+Theming'
 end
 
 
@@ -34,10 +35,12 @@ target 'App' do
   capacitor_pods
   # Add your Pods here
   hyperion
+  ui
 end
 
 target 'AppPreview' do
   capacitor_pods
   # Add your Pods here
   hyperion
+  ui
 end
