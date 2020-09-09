@@ -1,6 +1,9 @@
+import MaterialComponents.MaterialButtons
 import UIKit
 
 class NativeRootViewController: UIViewController {
+    @IBOutlet weak var buttonClose: MDCButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
