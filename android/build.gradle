@@ -6,8 +6,16 @@ buildscript {
     min_sdk_version = 21
 
     ver_desugar_jdk = "1.0.10"
+    ver_droidx_annotation = "1.1.0"
     ver_droidx_appcompat = "1.2.0"
+    ver_droidx_collection = "1.1.0"
+    ver_droidx_constraint = "2.0.1"
+    ver_droidx_core = "1.3.1"
+    ver_droidx_fragment = "1.2.5"
+    ver_droidx_recyclerview = "1.1.0"
+    ver_droidx_viewpager2 = "1.0.0"
     ver_kotlin = "1.4.10"
+    ver_material = "1.2.1"
     ver_prep_debugger = "1.0.0"
     ver_prep_views = "0.2.0.alpha"
   }
