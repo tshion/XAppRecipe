@@ -7,7 +7,7 @@ buildscript {
 
     ver_desugar_jdk = "1.0.10"
     ver_droidx_appcompat = "1.2.0"
-    ver_kotlin = "1.4.0"
+    ver_kotlin = "1.4.10"
     ver_prep_debugger = "1.0.0"
     ver_prep_views = "0.2.0.alpha"
   }
