@@ -75,6 +75,10 @@ dependencies {
   implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
+  // Kotlin Coroutines
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${ver_kotlin_coroutines}"
+
   // Material Design
   implementation "com.google.android.material:material:${ver_material}"
 }

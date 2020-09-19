@@ -16,6 +16,7 @@ buildscript {
     ver_droidx_recyclerview = "1.1.0"
     ver_droidx_viewpager2 = "1.0.0"
     ver_kotlin = "1.4.10"
+    ver_kotlin_coroutines = "1.3.9"
     ver_material = "1.2.1"
     ver_prep_debugger = "1.0.0"
     ver_prep_views = "0.2.0.alpha"
