@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+// AndroidX Navigation
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+
 // アプリバージョン
 def appver_major = 1
 def appver_minor = 0
@@ -58,6 +62,8 @@ dependencies {
   implementation "androidx.constraintlayout:constraintlayout:${ver_droidx_constraint}"
   implementation "androidx.core:core-ktx:${ver_droidx_core}"
   implementation "androidx.fragment:fragment-ktx:${ver_droidx_fragment}"
+  implementation "androidx.navigation:navigation-fragment-ktx:${ver_droidx_navigation}"
+  implementation "androidx.navigation:navigation-ui-ktx:${ver_droidx_navigation}"
   implementation "androidx.recyclerview:recyclerview:${ver_droidx_recyclerview}"
   implementation "androidx.viewpager2:viewpager2:${ver_droidx_viewpager2}"
 
