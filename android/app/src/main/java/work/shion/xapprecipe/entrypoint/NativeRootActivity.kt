@@ -1,9 +1,10 @@
-package work.shion.xapprecipe
+package work.shion.xapprecipe.entrypoint
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import work.shion.xapprecipe.R
 
 /**
  * ネイティブ側のルート

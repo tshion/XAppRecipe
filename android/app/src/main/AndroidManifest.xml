@@ -31,7 +31,7 @@
     android:theme="@style/AppTheme">
 
     <activity
-      android:name="work.shion.xapprecipe.entrypoint.MainActivity"
+      android:name="work.shion.xapprecipe.MainActivity"
       android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
       android:label="@string/title_activity_main"
       android:launchMode="singleTask"
@@ -53,7 +53,7 @@
     </activity>
 
     <activity
-      android:name=".NativeRootActivity"
+      android:name=".entrypoint.NativeRootActivity"
       android:exported="false" />
 
     <provider
