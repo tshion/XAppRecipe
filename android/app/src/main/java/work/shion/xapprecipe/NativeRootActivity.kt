@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * ネイティブ側のルート
  */
+@Deprecated("画面分割するため")
 class NativeRootActivity : AppCompatActivity() {
 
   companion object {

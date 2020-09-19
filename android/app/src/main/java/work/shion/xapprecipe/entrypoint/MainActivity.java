@@ -1,4 +1,4 @@
-package work.shion.xapprecipe;
+package work.shion.xapprecipe.entrypoint;
 
 import android.os.Bundle;
 
@@ -6,6 +6,8 @@ import com.getcapacitor.BridgeActivity;
 import com.getcapacitor.Plugin;
 
 import java.util.ArrayList;
+
+import work.shion.xapprecipe.XAppRecipePlugin;
 
 public class MainActivity extends BridgeActivity {
   @Override
