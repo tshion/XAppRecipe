@@ -1,17 +1,21 @@
 # XAppRecipe(iOS)
-## Quick Start
+## Quick Start(**macOS only**)
 * ```bash``` or ```zsh```
 * ```bundle``` (by [Bundler])
 * ```git```
-* ```ionic``` (by [IonicCLI])
+* [Node.js]
+  * ```ionic``` (by [IonicCLI])
+  * ```yarn```
 * ```make```
+* [Xcode]
 
 If you can use above commands, please run these commands.
 
-1. ```ionic build```
-2. ```ionic capacitor sync```
-3. ```make init```
-4. ```ionic capacitor open ios```
+1. ```yarn install```
+2. ```ionic build```
+3. ```ionic capacitor sync```
+4. ```make init```
+5. ```ionic capacitor open ios```
 
 
 ## Memo
@@ -62,8 +66,9 @@ Defined a ```make``` command to put these managers.
 [LicensePlist]: https://github.com/mono0926/LicensePlist
 [Makefile]: ./Makefile
 [Mint]: https://github.com/yonaskolb/Mint
-[Node]: https://nodejs.org/
+[Node.js]: https://nodejs.org/
 [RubyGems]: https://rubygems.org/
 [SwiftFormat]: https://github.com/nicklockwood/SwiftFormat
 [SwiftLint]: https://github.com/realm/SwiftLint
+[Xcode]: https://developer.apple.com/documentation/xcode-release-notes
 [XcodeGen]: https://github.com/yonaskolb/XcodeGen

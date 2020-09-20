@@ -1,0 +1,40 @@
+@startuml architecture
+
+Actor User
+
+package "app" {
+  [Activity or Fragment] as View
+  [Presenter or ViewModel] as What
+  [XML]
+}
+
+package "appcore" {
+  [Entity]
+  [UseCase]
+  [Validator]
+}
+
+package "appdata" {
+  [APIClient]
+  [Repository]
+  [Storage]
+}
+
+interface "Web API" as api
+
+
+
+UseCase <-right-> Validator
+UseCase <-down-> Repository
+UseCase <-down-> What
+
+Repository <-down-> APIClient
+Repository <-left-> Storage
+APIClient <-down-> api
+
+View <-right-> XML
+What <-down-> View
+What <.> XML: DataBinding
+XML <-down-> User
+
+@enduml

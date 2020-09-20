@@ -20,6 +20,10 @@
 ### このプロジェクトのみかも(他は知らん)
 各プラットフォームのCONTRIBUTING をご確認くださいませ。
 
+* [Android](./android/CONTRIBUTING.md)
+* [iOS](./iOS/CONTRIBUTING.md)
+* [WEB](./mainapp/CONTRIBUTING.md)
+
 
 
 ## レビュー観点
@@ -31,6 +35,10 @@
 → あれもこれもやりすぎると、レビューがしづらいのとどういう効果が出るのかが予測しづらくなるため
 
 プラットフォーム毎にローカルルールがいくつかあるので、README も併せてご確認くださいませ。
+
+* [Android](./android/README.md)
+* [iOS](./iOS/README.md)
+* [WEB](./mainapp/README.md)
 
 
 

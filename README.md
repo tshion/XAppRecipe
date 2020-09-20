@@ -5,10 +5,10 @@ This is recipes of cross-platform application.
 
 Path | Description
 --- | ---
-android/ | android capacitor project root
+[android/](./android) | android capacitor project root
 docs/ | documents
 [ios/](./ios) | ios capacitor project root
-mainapp | web(angular) project root
+[mainapp/](./mainapp) | web(angular) project root
 
 
 
