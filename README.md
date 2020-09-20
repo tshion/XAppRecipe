@@ -11,6 +11,12 @@ docs/ | documents
 mainapp | web(angular) project root
 
 
+
+## Memo
+* [CONTRIBUTING](./CONTRIBUTING.md)
+
+
+
 ## Links
 ### Blogs
 * [自分好みのIonic 5 の初期構成をスクリプト化してみた](https://mokumokulog.netlify.app/tech/20200504040451)
