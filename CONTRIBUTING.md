@@ -18,11 +18,20 @@
 → とはいえ捕まらないこともあるので、その時は別の課題をするなどのタイムマネジメントを考えてみてね
 
 ### このプロジェクトのみかも(他は知らん)
-各プラットフォームのCONTRIBUTING をご確認くださいませ。
+* チャレンジする場合は下記の手順を踏んでください
+    1. GitHub Issue に対応したブランチを```develop``` から切る<br />
+    → ブランチ名は```feature/(課題番号)``` としてください<br />
+    → 例 GitHub: ```feature/#????```
+    2. 課題に記載されている達成条件を満たすように実装していきます
+    3. 1日の終わりに出来たところまでをDraft Pull Request として作成します<br />
+    → ```develop``` ブランチに対してプルリクを出します<br />
+    → もしあれば作成後に```Linked issues``` にGitHub Issue を紐付けます
+    4. 作業が完了したら、Draft 状態を解除し、実装管理者に連絡してください
 
-* [Android](./android/CONTRIBUTING.md)
-* [iOS](./iOS/CONTRIBUTING.md)
-* [WEB](./mainapp/CONTRIBUTING.md)
+その他のルールは各プラットフォームのCONTRIBUTING をご確認くださいませ。
+* [Android](./android/docs/CONTRIBUTING.md)
+* [iOS](./iOS/docs/CONTRIBUTING.md)
+* [WEB](./docs/CONTRIBUTING.md)
 
 
 
@@ -34,8 +43,7 @@
 * 課題で扱う範囲以内の修正かどうか<br />
 → あれもこれもやりすぎると、レビューがしづらいのとどういう効果が出るのかが予測しづらくなるため
 
-プラットフォーム毎にローカルルールがいくつかあるので、README も併せてご確認くださいませ。
-
+その他のルールは各プラットフォームのREADME をご確認くださいませ。
 * [Android](./android/README.md)
 * [iOS](./iOS/README.md)
 * [WEB](./mainapp/README.md)

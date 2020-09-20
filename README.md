@@ -1,7 +1,7 @@
 # XAppRecipe
-This is recipes of cross-platform application.
+This is recipes of cross-platform mobile application.
 
-![Architecture](./docs/uml/architecture.png)
+![Architecture](./docs/architecture.png)
 
 Path | Description
 --- | ---
@@ -14,6 +14,9 @@ docs/ | documents
 
 ## Memo
 * [CONTRIBUTING](./CONTRIBUTING.md)
+  * [Android Local Rule](./android/docs/CONTRIBUTING.md)
+  * [iOS Local Rule](./ios/docs/CONTRIBUTING.md)
+  * [WEB Local Rule](./docs/CONTRIBUTING.md)
 
 
 
