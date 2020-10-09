@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+  <color name="app_accent">#E15A28</color>
+  <color name="app_base">#A1B2BD</color>
+  <color name="app_main">#111122</color>
+  <color name="app_main_dark">#000011</color>
+  <color name="app_text">#000000</color>
+  <color name="app_text_other">#FFFFFF</color>
+  <color name="app_text_weak">#444444</color>
+  <color name="app_transparent_dark">#44000000</color>
+
+
   <!-- 余白関連 -->
   <dimen name="app_space_1">8dp</dimen>
   <dimen name="app_space_2">16dp</dimen>
