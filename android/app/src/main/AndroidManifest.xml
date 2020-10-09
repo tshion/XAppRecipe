@@ -52,9 +52,16 @@
       </intent-filter>
     </activity>
 
+    <!-- Native 実装のエントリーポイント -->
+    <activity
+      android:name=".entrypoint.MainActivity"
+      android:exported="false"
+      android:screenOrientation="portrait" />
+
     <activity
       android:name=".entrypoint.NativeRootActivity"
       android:exported="false" />
+
 
     <provider
       android:name="androidx.core.content.FileProvider"
