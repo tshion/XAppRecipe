@@ -34,9 +34,9 @@
 
 
   <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorAccent">@color/app_accent</item>
+    <item name="colorPrimary">@color/app_main</item>
+    <item name="colorPrimaryDark">@color/app_main_dark</item>
   </style>
 
   <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">
