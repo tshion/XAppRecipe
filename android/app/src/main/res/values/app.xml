@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+  <!-- 余白関連 -->
+  <dimen name="app_space_1">8dp</dimen>
+  <dimen name="app_space_2">16dp</dimen>
+  <dimen name="app_space_3">24dp</dimen>
+  <dimen name="app_space_4">32dp</dimen>
+  <dimen name="app_space_5">40dp</dimen>
+
+  <!-- 文字サイズ -->
+  <dimen name="app_text">14sp</dimen>
+  <dimen name="app_text_large_1">16sp</dimen>
+  <dimen name="app_text_large_2">18sp</dimen>
+  <dimen name="app_text_large_3">20sp</dimen>
+  <dimen name="app_text_small_1">12sp</dimen>
+  <dimen name="app_text_small_2">10sp</dimen>
+
+
   <string name="app_name">XAppRecipe</string>
   <string name="custom_url_scheme">@string/package_name</string>
   <string name="package_name">work.shion.xapprecipe</string>
