@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+  <string name="app_name">XAppRecipe</string>
+  <string name="custom_url_scheme">@string/package_name</string>
+  <string name="package_name">work.shion.xapprecipe</string>
+  <string name="title_activity_main">XAppRecipe</string>
+
+
   <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
