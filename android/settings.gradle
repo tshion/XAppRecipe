@@ -1,5 +1,6 @@
 include ':app'
 include ':app_core'
+include ':app_data'
 
 include ':capacitor-cordova-android-plugins'
 project(':capacitor-cordova-android-plugins').projectDir = new File('./capacitor-cordova-android-plugins/')
