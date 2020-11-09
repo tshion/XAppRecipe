@@ -54,6 +54,10 @@ dependencies {
   // Java 8+
   coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${ver_desugar_jdk}"
 
+  // Local Project
+  implementation project(":app_core")
+  implementation project(":app_data")
+
 
   // AndroidX
   implementation "androidx.annotation:annotation:${ver_droidx_annotation}"
