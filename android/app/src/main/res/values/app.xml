@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
   <!-- アプリ配色ルール -->
   <color name="app_accent">#E15A28</color>
@@ -39,19 +39,18 @@
   <string name="package_name">work.shion.xapprecipe</string>
 
 
-  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    <item name="colorAccent">@color/app_accent</item>
+  <!-- アプリ基本テーマ -->
+  <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Primary brand color. -->
     <item name="colorPrimary">@color/app_main</item>
-    <item name="colorPrimaryDark">@color/app_main_dark</item>
+    <item name="colorPrimaryVariant">@color/app_main</item>
+    <item name="colorOnPrimary">@color/app_text_contrast</item>
+    <!-- Status bar color. -->
+    <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
   </style>
 
-  <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">
-    <item name="windowActionBar">false</item>
-    <item name="windowNoTitle">true</item>
-    <item name="android:background">@null</item>
-  </style>
-
-  <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
+  <!-- アプリ起動テーマ -->
+  <style name="AppTheme.Launch" parent="AppTheme">
     <item name="android:background">@drawable/splash</item>
   </style>
 </resources>

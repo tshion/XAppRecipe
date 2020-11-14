@@ -34,7 +34,7 @@
       android:name="work.shion.xapprecipe.MainActivity"
       android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
       android:launchMode="singleTask"
-      android:theme="@style/AppTheme.NoActionBarLaunch">
+      android:theme="@style/AppTheme.Launch">
 
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
