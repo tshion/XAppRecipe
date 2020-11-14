@@ -26,12 +26,12 @@
   <dimen name="app_space_5">40dp</dimen>
 
   <!-- 文字サイズ -->
-  <dimen name="app_text">14sp</dimen>
-  <dimen name="app_text_large_1">16sp</dimen>
-  <dimen name="app_text_large_2">18sp</dimen>
-  <dimen name="app_text_large_3">20sp</dimen>
-  <dimen name="app_text_small_1">12sp</dimen>
-  <dimen name="app_text_small_2">10sp</dimen>
+  <dimen name="app_text_large_xx">20sp</dimen>
+  <dimen name="app_text_large_x">18sp</dimen>
+  <dimen name="app_text_large">16sp</dimen>
+  <dimen name="app_text_normal">14sp</dimen>
+  <dimen name="app_text_small">12sp</dimen>
+  <dimen name="app_text_small_x">10sp</dimen>
 
 
   <string name="app_name">XAppRecipe</string>
