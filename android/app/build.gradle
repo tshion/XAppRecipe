@@ -10,11 +10,6 @@ plugins {
   id "androidx.navigation.safeargs.kotlin"
 }
 
-// アプリバージョン
-def appver_major = 1
-def appver_minor = 0
-def appver_revision = 0
-
 android {
   buildFeatures {
     dataBinding = true
@@ -36,8 +31,8 @@ android {
     applicationId "work.shion.xapprecipe"
     minSdkVersion min_sdk_version
     targetSdkVersion compile_sdk_version
-    versionCode 10000 * appver_major + 100 * appver_minor + appver_revision
-    versionName "${appver_major}.${appver_minor}.${appver_revision}"
+    versionCode appver_code
+    versionName appver_name
   }
   kotlinOptions {
     jvmTarget = '1.8'
