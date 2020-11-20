@@ -1,11 +1,14 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins {
+  id 'com.android.application'
 
-// AndroidX Navigation
-apply plugin: "androidx.navigation.safeargs.kotlin"
+  // Kotlin
+  id 'kotlin-android'
+  id 'kotlin-android-extensions'
+  id 'kotlin-kapt'
 
+  // AndroidX Navigation
+  id "androidx.navigation.safeargs.kotlin"
+}
 
 // アプリバージョン
 def appver_major = 1
