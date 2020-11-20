@@ -16,6 +16,10 @@ android {
   }
   buildToolsVersion rootProject.ext.build_tools_version
   buildTypes {
+    debug {
+      applicationIdSuffix ".debug"
+      versionNameSuffix "-debug"
+    }
     release {
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
