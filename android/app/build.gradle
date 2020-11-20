@@ -14,7 +14,7 @@ android {
   buildFeatures {
     dataBinding = true
   }
-  buildToolsVersion rootProject.ext.build_tools_version
+  buildToolsVersion build_tools_version
   buildTypes {
     debug {
       applicationIdSuffix ".debug"
@@ -82,7 +82,7 @@ dependencies {
 
   // Kotlin
   implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib"
 }
 
 apply from: 'capacitor.build.gradle'

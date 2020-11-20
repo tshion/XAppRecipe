@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-  buildToolsVersion rootProject.ext.build_tools_version
+  buildToolsVersion build_tools_version
   compileOptions {
     coreLibraryDesugaringEnabled true
     sourceCompatibility JavaVersion.VERSION_1_8
