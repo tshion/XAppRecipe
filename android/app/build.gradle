@@ -38,8 +38,19 @@ android {
     versionCode appver_code
     versionName appver_name
   }
+  flavorDimensions "mode"
   kotlinOptions {
     jvmTarget = '1.8'
+  }
+  productFlavors {
+    dev {
+      dimension "mode"
+      versionName "dev-${appver_name}"
+    }
+
+    prd {
+      dimension "mode"
+    }
   }
 }
 
