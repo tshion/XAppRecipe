@@ -7,13 +7,8 @@ plugins {
   id 'kotlin-kapt'
 }
 
-// アプリバージョン
-def appver_major = 1
-def appver_minor = 0
-def appver_revision = 0
-
 android {
-  buildToolsVersion rootProject.ext.build_tools_version
+  buildToolsVersion build_tools_version
   compileOptions {
     coreLibraryDesugaringEnabled true
     sourceCompatibility JavaVersion.VERSION_1_8
@@ -25,8 +20,8 @@ android {
     minSdkVersion min_sdk_version
     targetSdkVersion compile_sdk_version
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    versionCode 10000 * appver_major + 100 * appver_minor + appver_revision
-    versionName "${appver_major}.${appver_minor}.${appver_revision}"
+    versionCode appver_code
+    versionName appver_name
   }
   kotlinOptions {
     jvmTarget = '1.8'
@@ -40,15 +35,10 @@ dependencies {
   // Local Project
   implementation project(":app_core")
 
-
-  // AndroidX
-  implementation "androidx.core:core-ktx:${ver_droidx_core}"
+  // 共通設定
+  implementation KotlinCoroutines
 
   // Kotlin
   implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
   implementation "org.jetbrains.kotlin:kotlin-stdlib"
-
-  // Kotlin Coroutines
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${ver_kotlin_coroutines}"
 }

@@ -1,25 +1,45 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
   ext {
+    // アプリバージョン
+    def appver_major = 1
+    def appver_minor = 0
+    def appver_revision = 0
+    appver_code = 10000 * appver_major + 100 * appver_minor + appver_revision
+    appver_name = "${appver_major}.${appver_minor}.${appver_revision}"
+
     build_tools_version = "30.0.2"
-    compile_sdk_version = 29
+    compile_sdk_version = 30
     min_sdk_version = 21
 
-    ver_desugar_jdk = "1.0.10"
-    ver_droidx_annotation = "1.1.0"
-    ver_droidx_appcompat = "1.2.0"
-    ver_droidx_collection = "1.1.0"
-    ver_droidx_constraint = "2.0.2"
-    ver_droidx_core = "1.3.2"
-    ver_droidx_fragment = "1.2.5"
-    ver_droidx_navigation = "2.3.0"
-    ver_droidx_recyclerview = "1.1.0"
-    ver_droidx_viewpager2 = "1.0.0"
+    // ライブラリバージョン
+    ver_desugar_jdk = "1.1.0"
+    def ver_droidx_constraint = "2.0.4"
+    def ver_droidx_core = "1.3.2"
+    def ver_droidx_fragment = "1.2.5"
+    ver_droidx_navigation = "2.3.1"
     ver_kotlin = "1.4.10"
-    ver_kotlin_coroutines = "1.3.9"
-    ver_material = "1.2.1"
-    ver_prep_debugger = "1.0.0"
+    def ver_kotlin_coroutines = "1.4.1"
+    def ver_material = "1.2.1"
+    ver_prep_debugger = "1.0.4"
     ver_prep_views = "0.2.0.alpha"
+
+
+    BaseUi = [
+      // AndroidX
+      "androidx.constraintlayout:constraintlayout:${ver_droidx_constraint}",
+      "androidx.core:core-ktx:${ver_droidx_core}",
+      "androidx.fragment:fragment-ktx:${ver_droidx_fragment}",
+      "androidx.navigation:navigation-fragment-ktx:${ver_droidx_navigation}",
+      "androidx.navigation:navigation-ui-ktx:${ver_droidx_navigation}",
+
+      // Material Design
+      "com.google.android.material:material:${ver_material}",
+    ]
+    KotlinCoroutines = [
+      "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}",
+      "org.jetbrains.kotlinx:kotlinx-coroutines-core:${ver_kotlin_coroutines}",
+    ]
   }
 
   dependencies {
@@ -27,7 +47,7 @@ buildscript {
     classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${ver_droidx_navigation}"
 
     // Gradle Plugin
-    classpath 'com.android.tools.build:gradle:4.0.2'
+    classpath 'com.android.tools.build:gradle:4.1.1'
 
     // Google Services
     classpath 'com.google.gms:google-services:4.3.4'
