@@ -1,10 +1,11 @@
 # Editor configuration, see https://editorconfig.org
 root = true
 
+# 共通
 [*]
 charset = utf-8
-indent_style = space
 indent_size = 2
+indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
@@ -15,9 +16,27 @@ insert_final_newline = false
 max_line_length = off
 trim_trailing_whitespace = false
 
-[*.ts]
-quote_type = single
-
 [Makefile]
 indent_style = tab
+
+
+
+# Android
+[*.{gradle,java,kt}]
+curly_bracket_next_line = false   # idea
+indent_brace_style = K&R          # idea
 indent_size = 4
+max_line_length = 100
+spaces_around_brackets = true     # idea
+spaces_around_operators = true    # idea
+wildcard_import_limit = 1000      # idea
+
+
+
+# iOS
+
+
+
+# WEB
+[*.{js,ts}]
+quote_type = single
