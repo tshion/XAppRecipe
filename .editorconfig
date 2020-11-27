@@ -31,6 +31,9 @@ spaces_around_brackets = true     # idea
 spaces_around_operators = true    # idea
 wildcard_import_limit = 1000      # idea
 
+[android/**.xml]
+indent_size = 4
+
 
 
 # iOS
