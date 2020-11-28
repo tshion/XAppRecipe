@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.contracts.DialogResultContract
@@ -31,6 +32,7 @@ class LaunchErrorDialog : DialogFragment() {
     }
 
 
+    private val args by navArgs<LaunchErrorDialogArgs>()
     private var listener: DialogResultContract? = null
 
 
@@ -46,7 +48,9 @@ class LaunchErrorDialog : DialogFragment() {
             .setMessage(R.string.templates_launch_error_dialog_message)
             .setPositiveButton(R.string.templates_launch_error_dialog_positive) { _, _ ->
                 listener?.onDialogResult(
-                    targetRequestCode,
+                    args.requestCode.let {
+                        if (0 < it) it else targetRequestCode
+                    },
                     RESULT_OK,
                     null
                 )

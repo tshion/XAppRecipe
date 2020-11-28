@@ -2,10 +2,12 @@ package work.shion.xapprecipe.entrypoint
 
 import android.app.Activity
 import android.content.Intent
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
+import java.lang.ref.WeakReference
 
 /**
  * Native 実装のエントリーポイント
@@ -21,6 +23,24 @@ class MainActivity : AppCompatActivity(R.layout.entrypoint), MainViewContract {
             Intent(from, MainActivity::class.java)
                 .also { from.startActivity(it) }
         }
+    }
+
+
+    private val viewModel by viewModels<MainViewModel> {
+        MainViewModelFactory(
+            viewer = WeakReference(this)
+        )
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.judgePage()
+    }
+
+    override fun onStop() {
+        viewModel.cancelTasks()
+        super.onStop()
     }
 
 
@@ -43,7 +63,7 @@ class MainActivity : AppCompatActivity(R.layout.entrypoint), MainViewContract {
         when (requestCode) {
             REQUEST_LAUNCH_ERROR_DIALOG -> {
                 if (resultCode == RESULT_OK) {
-                } else {
+                    viewModel.judgePage()
                 }
             }
         }
