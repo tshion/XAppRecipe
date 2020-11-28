@@ -17,6 +17,9 @@ class LaunchErrorDialog : DialogFragment() {
 
     companion object {
 
+        val TAG: String = LaunchErrorDialog::class.java.simpleName
+
+
         @Deprecated("JetPack Navigation からの呼び出しを検討してください")
         @JvmStatic
         fun newInstance(
@@ -38,7 +41,7 @@ class LaunchErrorDialog : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return MaterialAlertDialogBuilder(requireContext())
+        return MaterialAlertDialogBuilder(requireContext(), R.style.TemplatesLaunchErrorDialog)
             .setCancelable(false)
             .setMessage(R.string.templates_launch_error_dialog_message)
             .setPositiveButton(R.string.templates_launch_error_dialog_positive) { _, _ ->
