@@ -80,6 +80,14 @@ dependencies {
     debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
     implementation "work.shion.androidpreparation:views:${ver_prep_views}"
 
+    // Hyperion
+    devImplementation "com.willowtreeapps.hyperion:hyperion-core:${ver_hyperion}"
+    debugImplementation "com.willowtreeapps.hyperion:hyperion-plugin:${ver_hyperion}"
+    devImplementation "com.willowtreeapps.hyperion:hyperion-plugin:${ver_hyperion}"
+
+    // Google
+    kapt "com.google.auto.service:auto-service:${ver_auto_service}"
+
     // Kotlin
     implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
     implementation "org.jetbrains.kotlin:kotlin-stdlib"

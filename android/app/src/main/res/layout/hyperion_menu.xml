@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:minHeight="@dimen/hyperion_menu_height_min">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/hyperion_menu_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/hyperion_menu_space_horizontal"
+        android:layout_marginEnd="@dimen/hyperion_menu_space_horizontal"
+        android:textSize="@dimen/hyperion_menu_text" />
+</FrameLayout>
