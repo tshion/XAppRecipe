@@ -17,12 +17,12 @@ import work.shion.xapprecipe.R
  *     android:layout_width="match_parent"
  *     android:layout_height="match_parent">
  *
- *     <!-- ブログレスサークルの下にあるコンテンツ -->
+ *     <!-- ローディング表示の下にあるコンテンツ -->
  *     <View
  *         android:layout_width="match_parent"
  *         android:layout_height="match_parent" />
  *
- *     <!-- プログレスサークル -->
+ *     <!-- ローディング表示 -->
  *     <(package).atoms.CircleLoadingOverlay
  *         android:layout_width="match_parent"
  *         android:layout_height="match_parent"
