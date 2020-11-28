@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_entrypoint"
+    app:startDestination="@id/loading">
+
+    <!-- 起動失敗ダイアログ -->
+    <dialog
+        android:id="@+id/launch_error_dialog"
+        android:name="work.shion.xapprecipe.templates.LaunchErrorDialog">
+
+        <argument
+            android:name="requestCode"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </dialog>
+
+
+    <!-- 全面ローディング -->
+    <fragment
+        android:id="@+id/loading"
+        android:name="work.shion.xapprecipe.pages.LoadingFragment"
+        tools:layout="@layout/atoms_circle_loading_overlay" />
+
+    <!-- トップ -->
+    <fragment
+        android:id="@+id/top"
+        android:name="work.shion.xapprecipe.pages.top.MainFragment"
+        tools:layout="@layout/pages_top" />
+
+    <!-- チュートリアル -->
+    <fragment
+        android:id="@+id/tutorial"
+        android:name="work.shion.xapprecipe.pages.tutorial.MainFragment"
+        tools:layout="@layout/pages_tutorial" />
+
+
+    <!-- 起動失敗ダイアログへ遷移 -->
+    <action
+        android:id="@+id/navact_show_launch_error_dialog"
+        app:destination="@id/launch_error_dialog" />
+
+    <!-- トップへ遷移 -->
+    <action
+        android:id="@+id/navact_to_top"
+        app:destination="@id/top"
+        app:popUpTo="@id/nav_entrypoint" />
+
+    <!-- チュートリアルへ遷移 -->
+    <action
+        android:id="@+id/navact_to_tutorial"
+        app:destination="@id/tutorial"
+        app:popUpTo="@id/nav_entrypoint" />
+</navigation>
