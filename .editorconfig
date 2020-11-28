@@ -37,6 +37,12 @@ indent_size = 4
 
 
 # iOS
+[ios/**.(h,m,swift)]
+curly_bracket_next_line = false   # idea
+indent_brace_style = K&R          # idea
+indent_size = 4
+spaces_around_brackets = true     # idea
+spaces_around_operators = true    # idea
 
 
 
