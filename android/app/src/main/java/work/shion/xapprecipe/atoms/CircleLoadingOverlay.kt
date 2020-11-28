@@ -31,14 +31,14 @@ import work.shion.xapprecipe.R
  * ```
  */
 class CircleLoadingOverlay @JvmOverloads constructor(
-  context: Context,
-  attrs: AttributeSet? = null,
-  @AttrRes defStyleAttr: Int = 0,
-  @StyleRes defStyleRes: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    @AttrRes defStyleAttr: Int = 0,
+    @StyleRes defStyleRes: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-  init {
-    View.inflate(context, R.layout.atoms_circle_loading_overlay, this)
-    setBackgroundResource(R.color.atoms_circle_loading_overlay_background)
-  }
+    init {
+        View.inflate(context, R.layout.atoms_circle_loading_overlay, this)
+        setBackgroundResource(R.color.atoms_circle_loading_overlay_background)
+    }
 }

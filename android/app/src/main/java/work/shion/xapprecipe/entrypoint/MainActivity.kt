@@ -10,11 +10,11 @@ import work.shion.xapprecipe.R
  */
 class MainActivity : AppCompatActivity(R.layout.entrypoint) {
 
-  companion object {
+    companion object {
 
-    fun launch(from: Activity) {
-      Intent(from, MainActivity::class.java)
-        .also { from.startActivity(it) }
+        fun launch(from: Activity) {
+            Intent(from, MainActivity::class.java)
+                .also { from.startActivity(it) }
+        }
     }
-  }
 }

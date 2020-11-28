@@ -16,14 +16,14 @@ import work.shion.xapprecipe.R
  * ```
  */
 class PositiveButton(
-  context: Context,
-  attrs: AttributeSet?,
+    context: Context,
+    attrs: AttributeSet?,
 ) : MaterialButton(context, attrs, R.attr.materialButtonStyle) {
 
-  init {
-    ContextCompat.getColor(context, R.color.app_accent)
-      .also { setBackgroundColor(it) }
-    ContextCompat.getColor(context, R.color.app_text_contrast)
-      .also { setTextColor(it) }
-  }
+    init {
+        ContextCompat.getColor(context, R.color.app_accent)
+            .also { setBackgroundColor(it) }
+        ContextCompat.getColor(context, R.color.app_text_contrast)
+            .also { setTextColor(it) }
+    }
 }

@@ -12,12 +12,12 @@ import work.shion.xapprecipe.entrypoint.MainActivity as NativeEntryPoint
 @NativePlugin()
 class XAppRecipePlugin : Plugin() {
 
-  @PluginMethod()
-  fun launch(call: PluginCall) {
-    bridge?.executeOnMainThread {
-      bridge?.activity
-        ?.also { NativeEntryPoint.launch(it) }
-      call.success()
+    @PluginMethod()
+    fun launch(call: PluginCall) {
+        bridge?.executeOnMainThread {
+            bridge?.activity
+                ?.also { NativeEntryPoint.launch(it) }
+            call.success()
+        }
     }
-  }
 }

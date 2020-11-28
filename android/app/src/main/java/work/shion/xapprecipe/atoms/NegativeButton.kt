@@ -16,15 +16,15 @@ import work.shion.xapprecipe.R
  * ```
  */
 class NegativeButton(
-  context: Context,
-  attrs: AttributeSet?,
+    context: Context,
+    attrs: AttributeSet?,
 ) : MaterialButton(context, attrs, R.attr.materialButtonOutlinedStyle) {
 
-  init {
-    ContextCompat.getColor(context, R.color.atoms_negative_button_background)
-      .also { setBackgroundColor(it) }
-    setStrokeColorResource(R.color.app_accent)
-    ContextCompat.getColor(context, R.color.app_text)
-      .also { setTextColor(it) }
-  }
+    init {
+        ContextCompat.getColor(context, R.color.atoms_negative_button_background)
+            .also { setBackgroundColor(it) }
+        setStrokeColorResource(R.color.app_accent)
+        ContextCompat.getColor(context, R.color.app_text)
+            .also { setTextColor(it) }
+    }
 }

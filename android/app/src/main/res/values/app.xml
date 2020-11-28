@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-  <!-- アプリ配色ルール -->
-  <color name="app_accent">#E15A28</color>
-  <color name="app_base">#A1B2BD</color>
-  <color name="app_main">#111122</color>
-  <color name="app_main_dark">#000011</color>
+    <!-- アプリ配色ルール -->
+    <color name="app_accent">#E15A28</color>
+    <color name="app_base">#A1B2BD</color>
+    <color name="app_main">#111122</color>
+    <color name="app_main_dark">#000011</color>
 
-  <!-- 文字色 -->
-  <color name="app_text">#000000</color>
-  <color name="app_text_accent">@color/app_accent</color>
-  <color name="app_text_contrast">#FFFFFF</color>
-  <color name="app_text_weak">#444444</color>
+    <!-- 文字色 -->
+    <color name="app_text">#000000</color>
+    <color name="app_text_accent">@color/app_accent</color>
+    <color name="app_text_contrast">#FFFFFF</color>
+    <color name="app_text_weak">#444444</color>
 
-  <!-- 透過色 -->
-  <color name="app_transparent">#00000000</color>
-  <color name="app_transparent_dark">#44000000</color>
-
-
-  <!-- 余白関連 -->
-  <dimen name="app_space_1">8dp</dimen>
-  <dimen name="app_space_2">16dp</dimen>
-  <dimen name="app_space_3">24dp</dimen>
-  <dimen name="app_space_4">32dp</dimen>
-  <dimen name="app_space_5">40dp</dimen>
-
-  <!-- 文字サイズ -->
-  <dimen name="app_text_large_xx">20sp</dimen>
-  <dimen name="app_text_large_x">18sp</dimen>
-  <dimen name="app_text_large">16sp</dimen>
-  <dimen name="app_text_normal">14sp</dimen>
-  <dimen name="app_text_small">12sp</dimen>
-  <dimen name="app_text_small_x">10sp</dimen>
+    <!-- 透過色 -->
+    <color name="app_transparent">#00000000</color>
+    <color name="app_transparent_dark">#44000000</color>
 
 
-  <string name="app_name">XAppRecipe</string>
-  <string name="custom_url_scheme">@string/package_name</string>
-  <string name="package_name">work.shion.xapprecipe</string>
+    <!-- 余白関連 -->
+    <dimen name="app_space_1">8dp</dimen>
+    <dimen name="app_space_2">16dp</dimen>
+    <dimen name="app_space_3">24dp</dimen>
+    <dimen name="app_space_4">32dp</dimen>
+    <dimen name="app_space_5">40dp</dimen>
+
+    <!-- 文字サイズ -->
+    <dimen name="app_text_large_xx">20sp</dimen>
+    <dimen name="app_text_large_x">18sp</dimen>
+    <dimen name="app_text_large">16sp</dimen>
+    <dimen name="app_text_normal">14sp</dimen>
+    <dimen name="app_text_small">12sp</dimen>
+    <dimen name="app_text_small_x">10sp</dimen>
 
 
-  <!-- アプリ基本テーマ -->
-  <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-    <!-- Primary brand color. -->
-    <item name="colorPrimary">@color/app_main</item>
-    <item name="colorPrimaryVariant">@color/app_main</item>
-    <item name="colorOnPrimary">@color/app_text_contrast</item>
-    <!-- Status bar color. -->
-    <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-  </style>
+    <string name="app_name">XAppRecipe</string>
+    <string name="custom_url_scheme">@string/package_name</string>
+    <string name="package_name">work.shion.xapprecipe</string>
 
-  <!-- アプリ起動テーマ -->
-  <style name="AppTheme.Launch" parent="AppTheme">
-    <item name="android:background">@drawable/splash</item>
-  </style>
+
+    <!-- アプリ基本テーマ -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/app_main</item>
+        <item name="colorPrimaryVariant">@color/app_main</item>
+        <item name="colorOnPrimary">@color/app_text_contrast</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- アプリ起動テーマ -->
+    <style name="AppTheme.Launch" parent="AppTheme">
+        <item name="android:background">@drawable/splash</item>
+    </style>
 </resources>

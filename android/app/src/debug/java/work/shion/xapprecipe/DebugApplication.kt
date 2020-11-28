@@ -4,8 +4,8 @@ import work.shion.androidpreparation.debugger.IDebugger
 
 class DebugApplication : MainApplication(), IDebugger {
 
-  override fun onCreate() {
-    super.onCreate()
-    setup(applicationContext)
-  }
+    override fun onCreate() {
+        super.onCreate()
+        setup(applicationContext)
+    }
 }

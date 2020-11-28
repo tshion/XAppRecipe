@@ -1,97 +1,97 @@
 plugins {
-  id 'com.android.application'
+    id 'com.android.application'
 
-  // Kotlin
-  id 'kotlin-android'
-  id 'kotlin-android-extensions'
-  id 'kotlin-kapt'
+    // Kotlin
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 
-  // AndroidX Navigation
-  id "androidx.navigation.safeargs.kotlin"
+    // AndroidX Navigation
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
-  buildFeatures {
-    dataBinding = true
-  }
-  buildToolsVersion build_tools_version
-  buildTypes {
-    debug {
-      applicationIdSuffix ".debug"
-      versionNameSuffix "-debug"
+    buildFeatures {
+        dataBinding = true
     }
-    release {
-      minifyEnabled true
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-      shrinkResources true
+    buildToolsVersion build_tools_version
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources true
+        }
     }
-  }
-  compileOptions {
-    coreLibraryDesugaringEnabled true
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-  compileSdkVersion compile_sdk_version
-  defaultConfig {
-    applicationId "work.shion.xapprecipe"
-    minSdkVersion min_sdk_version
-    targetSdkVersion compile_sdk_version
-    versionCode appver_code
-    versionName appver_name
-  }
-  flavorDimensions "mode"
-  kotlinOptions {
-    jvmTarget = '1.8'
-  }
-  productFlavors {
-    dev {
-      dimension "mode"
-      versionName "dev-${appver_name}"
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+    compileSdkVersion compile_sdk_version
+    defaultConfig {
+        applicationId "work.shion.xapprecipe"
+        minSdkVersion min_sdk_version
+        targetSdkVersion compile_sdk_version
+        versionCode appver_code
+        versionName appver_name
+    }
+    flavorDimensions "mode"
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    productFlavors {
+        dev {
+            dimension "mode"
+            versionName "dev-${appver_name}"
+        }
 
-    prd {
-      dimension "mode"
+        prd {
+            dimension "mode"
+        }
     }
-  }
 }
 
 repositories {
-  flatDir {
-    dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
-  }
+    flatDir {
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
 }
 
 dependencies {
-  implementation project(':capacitor-android')
-  implementation project(':capacitor-cordova-android-plugins')
+    implementation project(':capacitor-android')
+    implementation project(':capacitor-cordova-android-plugins')
 
-  // Java 8+
-  coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${ver_desugar_jdk}"
+    // Java 8+
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${ver_desugar_jdk}"
 
-  // Local Project
-  implementation project(":app_core")
-  implementation project(":app_data")
+    // Local Project
+    implementation project(":app_core")
+    implementation project(":app_data")
 
-  // 共通設定
-  implementation BaseUi
-  implementation KotlinCoroutines
+    // 共通設定
+    implementation BaseUi
+    implementation KotlinCoroutines
 
-  // AndroidPreparation
-  debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
-  implementation "work.shion.androidpreparation:views:${ver_prep_views}"
+    // AndroidPreparation
+    debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
+    implementation "work.shion.androidpreparation:views:${ver_prep_views}"
 
-  // Kotlin
-  implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
-  implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    // Kotlin
+    implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
 }
 
 apply from: 'capacitor.build.gradle'
 
 try {
-  def servicesJSON = file('google-services.json')
-  if (servicesJSON.text) {
-    apply plugin: 'com.google.gms.google-services'
-  }
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
 } catch (Exception e) {
-  logger.warn("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+    logger.warn("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
 }
