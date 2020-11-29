@@ -1,6 +1,6 @@
 package work.shion.xapprecipe.templates
 
-import android.app.Activity.RESULT_OK
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -16,11 +16,9 @@ import work.shion.xapprecipe.contracts.DialogResultContract
 class LaunchErrorDialog : DialogFragment() {
 
     companion object {
-
         val TAG: String = LaunchErrorDialog::class.java.simpleName
 
 
-        @Deprecated("JetPack Navigation からの呼び出しを検討してください")
         @JvmStatic
         fun newInstance(
             requestCode: Int,
@@ -34,20 +32,25 @@ class LaunchErrorDialog : DialogFragment() {
     private var listener: DialogResultContract? = null
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        isCancelable = false
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        listener = context as? DialogResultContract
+        listener = (targetFragment ?: context) as? DialogResultContract
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return MaterialAlertDialogBuilder(requireContext(), R.style.TemplatesLaunchErrorDialog)
-            .setCancelable(false)
             .setMessage(R.string.templates_launch_error_dialog_message)
             .setPositiveButton(R.string.templates_launch_error_dialog_positive) { _, _ ->
                 listener?.onDialogResult(
                     targetRequestCode,
-                    RESULT_OK,
+                    Activity.RESULT_OK,
                     null
                 )
                 dismiss()

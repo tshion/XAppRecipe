@@ -53,7 +53,7 @@
 
         <!-- Native 実装のエントリーポイント -->
         <activity
-            android:name=".entrypoint.MainActivity"
+            android:name=".EntryPointActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 

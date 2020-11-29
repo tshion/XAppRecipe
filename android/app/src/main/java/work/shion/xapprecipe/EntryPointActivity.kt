@@ -1,19 +1,18 @@
-package work.shion.xapprecipe.entrypoint
+package work.shion.xapprecipe
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import work.shion.xapprecipe.R
 
 /**
  * Native 実装のエントリーポイント
  */
-class MainActivity : AppCompatActivity(R.layout.entrypoint) {
+class EntryPointActivity : AppCompatActivity(R.layout.entrypoint) {
 
     companion object {
 
         fun launch(from: Activity) {
-            Intent(from, MainActivity::class.java)
+            Intent(from, EntryPointActivity::class.java)
                 .also { from.startActivity(it) }
         }
     }
