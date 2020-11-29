@@ -3,24 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_entrypoint"
-    app:startDestination="@id/loading">
-
-    <!-- 起動失敗ダイアログ -->
-    <dialog
-        android:id="@+id/launch_error_dialog"
-        android:name="work.shion.xapprecipe.templates.LaunchErrorDialog">
-
-        <argument
-            android:name="requestCode"
-            android:defaultValue="-1"
-            app:argType="integer" />
-    </dialog>
+    app:startDestination="@id/launch">
 
 
-    <!-- 全面ローディング -->
+    <!-- アプリ起動 -->
     <fragment
-        android:id="@+id/loading"
-        android:name="work.shion.xapprecipe.pages.LoadingFragment"
+        android:id="@+id/launch"
+        android:name="work.shion.xapprecipe.pages.launcher.MainFragment"
         tools:layout="@layout/atoms_circle_loading_overlay" />
 
     <!-- トップ -->
@@ -35,11 +24,6 @@
         android:name="work.shion.xapprecipe.pages.tutorial.MainFragment"
         tools:layout="@layout/pages_tutorial" />
 
-
-    <!-- 起動失敗ダイアログへ遷移 -->
-    <action
-        android:id="@+id/navact_show_launch_error_dialog"
-        app:destination="@id/launch_error_dialog" />
 
     <!-- トップへ遷移 -->
     <action

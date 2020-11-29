@@ -1,4 +1,4 @@
-package work.shion.xapprecipe.entrypoint
+package work.shion.xapprecipe.pages.launcher
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,12 +1,11 @@
 package work.shion.xapprecipe.templates
 
-import android.app.Activity.RESULT_OK
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.contracts.DialogResultContract
@@ -17,11 +16,9 @@ import work.shion.xapprecipe.contracts.DialogResultContract
 class LaunchErrorDialog : DialogFragment() {
 
     companion object {
-
         val TAG: String = LaunchErrorDialog::class.java.simpleName
 
 
-        @Deprecated("JetPack Navigation からの呼び出しを検討してください")
         @JvmStatic
         fun newInstance(
             requestCode: Int,
@@ -32,26 +29,28 @@ class LaunchErrorDialog : DialogFragment() {
     }
 
 
-    private val args by navArgs<LaunchErrorDialogArgs>()
     private var listener: DialogResultContract? = null
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        isCancelable = false
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        listener = context as? DialogResultContract
+        listener = (targetFragment ?: context) as? DialogResultContract
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return MaterialAlertDialogBuilder(requireContext(), R.style.TemplatesLaunchErrorDialog)
-            .setCancelable(false)
             .setMessage(R.string.templates_launch_error_dialog_message)
             .setPositiveButton(R.string.templates_launch_error_dialog_positive) { _, _ ->
                 listener?.onDialogResult(
-                    args.requestCode.let {
-                        if (0 < it) it else targetRequestCode
-                    },
-                    RESULT_OK,
+                    targetRequestCode,
+                    Activity.RESULT_OK,
                     null
                 )
                 dismiss()
