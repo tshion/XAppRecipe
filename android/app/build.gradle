@@ -8,6 +8,9 @@ plugins {
 
     // AndroidX Navigation
     id "androidx.navigation.safeargs.kotlin"
+
+    // Google OSS
+    id "com.google.android.gms.oss-licenses-plugin"
 }
 
 android {
@@ -86,6 +89,7 @@ dependencies {
     devImplementation "com.willowtreeapps.hyperion:hyperion-plugin:${ver_hyperion}"
 
     // Google
+    implementation "com.google.android.gms:play-services-oss-licenses:${ver_oss_licenses}"
     kapt "com.google.auto.service:auto-service:${ver_auto_service}"
 
     // Kotlin
