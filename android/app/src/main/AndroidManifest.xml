@@ -55,7 +55,8 @@
         <activity
             android:name=".EntryPointActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launch.Native" />
 
 
         <provider
