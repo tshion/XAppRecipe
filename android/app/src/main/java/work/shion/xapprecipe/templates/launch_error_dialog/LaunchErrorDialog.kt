@@ -9,6 +9,32 @@ import work.shion.xapprecipe.R
 
 /**
  * 起動失敗ダイアログ
+ *
+ * ## Example
+ * ### ダイアログの呼び出し
+ * ``` kotlin
+ * activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
+ *     ?.navigate(NavEntrypointDirections.navactShowLaunchErrorDialog())
+ * ```
+ *
+ * ### ダイアログ選択結果の受け取り
+ * ``` kotlin
+ * class Xxx : Fragment() {
+ *     private val launchErrorDialogViewModel by activityViewModels<LaunchErrorDialogViewModel>()
+ *
+ *     ......
+ *
+ *     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+ *         super.onViewCreated(view, savedInstanceState)
+ *
+ *         launchErrorDialogViewModel.isCalledRetry.observe(viewLifecycleOwner) {
+ *             if (it) {
+ *                 launchErrorDialogViewModel.isCalledRetry.value = false
+ *             }
+ *         }
+ *     }
+ * }
+ * ```
  */
 class LaunchErrorDialog : DialogFragment() {
 
