@@ -1,19 +1,19 @@
 package work.shion.xapprecipe.pages.launcher
 
-import android.app.Activity.RESULT_OK
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.atoms.CircleLoadingOverlay
-import work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialog
+import work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialogViewModel
 import java.lang.ref.WeakReference
 
 /**
@@ -21,11 +21,7 @@ import java.lang.ref.WeakReference
  */
 class MainFragment : Fragment(), MainViewContract {
 
-    companion object {
-        private const val REQUEST_LAUNCH_ERROR_DIALOG = 1000
-    }
-
-
+    private val launchErrorDialogViewModel by activityViewModels<LaunchErrorDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             viewer = WeakReference(this)
@@ -42,6 +38,17 @@ class MainFragment : Fragment(), MainViewContract {
             MATCH_PARENT,
             MATCH_PARENT,
         )
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        launchErrorDialogViewModel.isCalledRetry.observe(viewLifecycleOwner) {
+            if (it) {
+                launchErrorDialogViewModel.isCalledRetry.value = false
+                viewModel.judgePage()
+            }
+        }
     }
 
     override fun onStart() {
@@ -72,26 +79,10 @@ class MainFragment : Fragment(), MainViewContract {
     }
 
     /**
-     * ダイアログ選択結果の受け取り
-     */
-    override fun onDialogResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        when (requestCode) {
-            REQUEST_LAUNCH_ERROR_DIALOG -> {
-                if (resultCode == RESULT_OK) {
-                    viewModel.judgePage()
-                }
-            }
-            else -> super.onActivityResult(requestCode, resultCode, data)
-        }
-    }
-
-    /**
      * 起動失敗ダイアログの表示
      */
     override fun showLaunchErrorDialog() {
-        LaunchErrorDialog.newInstance(
-            REQUEST_LAUNCH_ERROR_DIALOG,
-            this@MainFragment
-        ).show(parentFragmentManager, LaunchErrorDialog.TAG)
+        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
+            ?.navigate(NavEntrypointDirections.navactShowLaunchErrorDialog())
     }
 }
