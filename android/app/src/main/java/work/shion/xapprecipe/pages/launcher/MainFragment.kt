@@ -13,7 +13,7 @@ import androidx.navigation.Navigation
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.atoms.CircleLoadingOverlay
-import work.shion.xapprecipe.templates.LaunchErrorDialog
+import work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialog
 import java.lang.ref.WeakReference
 
 /**

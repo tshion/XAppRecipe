@@ -1,4 +1,4 @@
-package work.shion.xapprecipe.templates
+package work.shion.xapprecipe.templates.launch_error_dialog
 
 import android.app.Activity
 import android.app.Dialog

@@ -8,7 +8,7 @@ import com.google.auto.service.AutoService
 import com.willowtreeapps.hyperion.plugin.v1.Plugin
 import com.willowtreeapps.hyperion.plugin.v1.PluginModule
 import work.shion.xapprecipe.R
-import work.shion.xapprecipe.templates.LaunchErrorDialog
+import work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialog
 
 @AutoService(Plugin::class)
 class ShowLaunchErrorDialog : Plugin() {
