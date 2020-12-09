@@ -51,7 +51,12 @@
 
     <!-- アプリ起動テーマ -->
     <style name="AppTheme.Launch" parent="AppTheme">
-        <item name="android:background">@drawable/splash</item>
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+    <!-- アプリ起動テーマ(Native 用) -->
+    <style name="AppTheme.Launch.Native" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/app_launcher</item>
     </style>
 
     <!-- ツールバー付きテーマ -->
