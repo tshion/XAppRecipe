@@ -1,8 +1,6 @@
 package work.shion.xapprecipe.pages.launcher
 
-import work.shion.xapprecipe.contracts.DialogResultContract
-
-interface MainViewContract : DialogResultContract {
+interface MainViewContract {
 
     /**
      * 初回起動者向けフローへ遷移
