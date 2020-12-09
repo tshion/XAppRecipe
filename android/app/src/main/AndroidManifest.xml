@@ -57,6 +57,20 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <!-- ライセンス一覧 -->
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ToolBar" />
+
+        <!-- ライセンス詳細 -->
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.ToolBar" />
+
 
         <provider
             android:name="androidx.core.content.FileProvider"
