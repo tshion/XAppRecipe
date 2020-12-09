@@ -5,6 +5,11 @@
     android:id="@+id/nav_entrypoint"
     app:startDestination="@id/launch">
 
+    <!-- ライセンス表記 -->
+    <activity
+        android:id="@+id/license"
+        android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity" />
+
 
     <!-- 起動失敗ダイアログ -->
     <dialog
@@ -30,11 +35,16 @@
         android:name="work.shion.xapprecipe.pages.tutorial.MainFragment"
         tools:layout="@layout/pages_tutorial" />
 
-
+  
     <!-- 起動失敗ダイアログの表示 -->
     <action
         android:id="@+id/navact_show_launch_error_dialog"
         app:destination="@id/launch_error_dialog" />
+
+    <!-- ライセンス表記へ遷移 -->
+    <action
+        android:id="@+id/navact_to_license"
+        app:destination="@id/license" />
 
     <!-- トップへ遷移 -->
     <action

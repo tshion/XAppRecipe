@@ -51,6 +51,23 @@
 
     <!-- アプリ起動テーマ -->
     <style name="AppTheme.Launch" parent="AppTheme">
-        <item name="android:background">@drawable/splash</item>
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+    <!-- アプリ起動テーマ(Native 用) -->
+    <style name="AppTheme.Launch.Native" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/app_launcher</item>
+    </style>
+
+    <!-- ツールバー付きテーマ -->
+    <style name="AppTheme.ToolBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/app_main</item>
+        <item name="colorPrimaryVariant">@color/app_main</item>
+        <item name="colorOnPrimary">@color/app_text_contrast</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Icon -->
+        <item name="navigationIcon">@mipmap/ic_launcher</item>
     </style>
 </resources>
