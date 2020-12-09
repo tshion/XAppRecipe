@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pages_top_footer_home"
+        android:icon="@mipmap/app_launcher"
+        android:title="home" />
+
+    <item
+        android:id="@+id/pages_top_footer_2"
+        android:icon="@mipmap/app_launcher"
+        android:title="2" />
+
+    <item
+        android:id="@+id/pages_top_footer_3"
+        android:icon="@mipmap/app_launcher"
+        android:title="3" />
+
+    <item
+        android:id="@+id/pages_top_footer_4"
+        android:icon="@mipmap/app_launcher"
+        android:title="4" />
+
+    <item
+        android:id="@+id/pages_top_footer_5"
+        android:icon="@mipmap/app_launcher"
+        android:title="5" />
+</menu>

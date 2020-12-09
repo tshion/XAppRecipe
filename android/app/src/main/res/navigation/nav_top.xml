@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_top"
+    app:startDestination="@id/top_home">
+
+    <!-- ホーム -->
+    <fragment
+        android:id="@+id/top_home"
+        android:name="work.shion.xapprecipe.pages.home.MainFragment"
+        tools:layout="@layout/pages_home" />
+
+    <!-- サンプル -->
+    <fragment
+        android:id="@+id/top_sample"
+        android:name="work.shion.xapprecipe.pages.sample.MainFragment"
+        tools:layout="@layout/pages_sample" />
+
+
+    <!-- ホームへ遷移 -->
+    <action
+        android:id="@+id/navact_top_to_home"
+        app:destination="@id/top_home"
+        app:popUpTo="@id/nav_top" />
+
+    <!-- サンプルへ遷移 -->
+    <action
+        android:id="@+id/navact_top_to_sample"
+        app:destination="@id/top_sample"
+        app:popUpTo="@id/nav_top" />
+</navigation>
