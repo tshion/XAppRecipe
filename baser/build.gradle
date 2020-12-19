@@ -13,6 +13,9 @@ def VERSION_REVISION = 1
 android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.ext.compileSdkVersion
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
 
 
     defaultConfig {
@@ -33,8 +36,29 @@ android {
 
 
 dependencies {
+    // AndroidX
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
+    implementation "androidx.core:core-ktx:${ktxVersion}"
+    testImplementation "androidx.test:core:${jetpackTestCoreVersion}"
+    testImplementation "androidx.test.ext:junit:${jetpackJUnitVersion}"
+    testImplementation "androidx.test.ext:junit-ktx:${jetpackJUnitVersion}"
+    testImplementation "androidx.test.ext:truth:${jetpackTruthVersion}"
+    testImplementation "androidx.test:rules:${jetpackTestRunnerVersion}"
+    testImplementation "androidx.test:runner:${jetpackTestRunnerVersion}"
+
     // Kotlin
     implementation ktlib
+
+    // Mockito
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKtVersion}"
+
+    // Robolectric
+    testImplementation "org.robolectric:robolectric:${robolectricVersion}"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
 
     // Stetho
     implementation 'com.facebook.stetho:stetho:1.5.1'
