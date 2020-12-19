@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+// バージョン
+def VERSION_MAJOR = 0
+def VERSION_MINOR = 0
+def VERSION_REVISION = 1
+def VERSION_NAME = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+
+// 本番アプリ署名情報
+def singingProd = new Properties()
+singingProd.load(new FileInputStream(rootProject.file("singingProd.properties")))
+
+
+android {
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    dataBinding {
+        enabled = true
+    }
+    flavorDimensions "ktrecipe"
+
+
+    defaultConfig {
+        applicationId "work.shion.ktrecipe"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 10000 * VERSION_MAJOR + 100 * VERSION_MINOR + VERSION_REVISION
+        versionName VERSION_NAME
+
+
+        // JewelSaviorAPI の基本URL
+        buildConfigField "String", "URL_JewelSaviorAPI",
+                "\"https://tentashion.github.io/JewelSaviorCollection/\""
+    }
+
+
+    signingConfigs {
+        // 本番アプリ署名情報設定
+        production {
+            keyAlias singingProd['keyAlias']
+            keyPassword singingProd['keyPassword']
+            storeFile file(singingProd['storeFile'])
+            storePassword singingProd['storePassword']
+        }
+    }
+
+
+    buildTypes {
+        // 開発時用ビルド
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            versionNameSuffix "-debug"
+        }
+
+        // リリース向け最適化ビルド
+        release {
+            minifyEnabled true
+            multiDexEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.production
+        }
+    }
+
+
+    productFlavors {
+        // 開発環境
+        dev {
+            dimension "ktrecipe"
+            versionName "dev-${VERSION_NAME}"
+        }
+
+
+        // ステージング環境
+        stg {
+            dimension "ktrecipe"
+            versionName "stg-${VERSION_NAME}"
+        }
+
+
+        // 本番環境
+        prod {
+            dimension "ktrecipe"
+        }
+    }
+}
+
+
+dependencies {
+    // Local Project
+    implementation project(":baser")
+    implementation project(":commonrecipe")
+
+    // Debug Tools
+    debugImplementation debugTools
+
+    // AndroidX
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
+    implementation "androidx.core:core-ktx:${ktxVersion}"
+
+    // Jetpack
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.navigation:navigation-fragment:${navigationFragmentVersion}"
+    implementation "android.arch.navigation:navigation-fragment-ktx:${navigationFragmentVersion}"
+    implementation "android.arch.navigation:navigation-ui:${navigationUiVersion}"
+    implementation "android.arch.navigation:navigation-ui-ktx:${navigationUiVersion}"
+
+    // Kotlin
+    implementation ktlib
+
+    // Picasso
+    implementation "com.squareup.picasso:picasso:${picassoVersion}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxandroid:${rxdroidVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxjavaVersion}"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
+
+    // Timber
+    implementation timber
+
+    // UI
+    implementation uiktx
+}

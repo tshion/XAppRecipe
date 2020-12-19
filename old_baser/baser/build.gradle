@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+// バージョン
+def VERSION_MAJOR = 0
+def VERSION_MINOR = 0
+def VERSION_REVISION = 1
+
+
+android {
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 10000 * VERSION_MAJOR + 100 * VERSION_MINOR + VERSION_REVISION
+        versionName "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    // AndroidX
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
+    implementation "androidx.core:core-ktx:${ktxVersion}"
+    testImplementation "androidx.test:core:${jetpackTestCoreVersion}"
+    testImplementation "androidx.test.ext:junit:${jetpackJUnitVersion}"
+    testImplementation "androidx.test.ext:junit-ktx:${jetpackJUnitVersion}"
+    testImplementation "androidx.test.ext:truth:${jetpackTruthVersion}"
+    testImplementation "androidx.test:rules:${jetpackTestRunnerVersion}"
+    testImplementation "androidx.test:runner:${jetpackTestRunnerVersion}"
+
+    // Kotlin
+    implementation ktlib
+
+    // Mockito
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKtVersion}"
+
+    // Robolectric
+    testImplementation "org.robolectric:robolectric:${robolectricVersion}"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
+
+    // Stetho
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+    // Timber
+    implementation timber
+
+    // UI
+    implementation uiktx
+}

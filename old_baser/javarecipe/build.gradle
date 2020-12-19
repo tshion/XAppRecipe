@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+
+
+// バージョン
+def VERSION_MAJOR = 0
+def VERSION_MINOR = 0
+def VERSION_REVISION = 1
+def VERSION_NAME = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}"
+
+// 本番アプリ署名情報
+def singingProd = new Properties()
+singingProd.load(new FileInputStream(rootProject.file("singingProd.properties")))
+
+
+android {
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    flavorDimensions "javarecipe"
+
+
+    defaultConfig {
+        applicationId "work.shion.javarecipe"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 10000 * VERSION_MAJOR + 100 * VERSION_MINOR + VERSION_REVISION
+        versionName VERSION_NAME
+    }
+
+
+    signingConfigs {
+        // 本番アプリ署名情報設定
+        production {
+            keyAlias singingProd['keyAlias']
+            keyPassword singingProd['keyPassword']
+            storeFile file(singingProd['storeFile'])
+            storePassword singingProd['storePassword']
+        }
+    }
+
+
+    buildTypes {
+        // 開発時用ビルド
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            versionNameSuffix "-debug"
+        }
+
+        // リリース向け最適化ビルド
+        release {
+            minifyEnabled true
+            multiDexEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.production
+        }
+    }
+
+
+    productFlavors {
+        // 開発環境
+        dev {
+            dimension "javarecipe"
+            versionName "dev-${VERSION_NAME}"
+        }
+
+
+        // ステージング環境
+        stg {
+            dimension "javarecipe"
+            versionName "stg-${VERSION_NAME}"
+        }
+
+
+        // 本番環境
+        prod {
+            dimension "javarecipe"
+        }
+    }
+}
+
+
+dependencies {
+    // Local Project
+    implementation project(":baser")
+    implementation project(":commonrecipe")
+
+    // Debug Tools
+    debugImplementation debugTools
+
+    // Lightweight Stream API
+    implementation 'com.annimon:stream:1.2.1'
+
+    // Timber
+    implementation timber
+
+    // UI
+    implementation ui
+}

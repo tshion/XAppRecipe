@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/htmlWhite"
+    android:orientation="vertical"
+    tools:context=".pages.entrypoint.views.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        app:title="Tab Fragment"
+        app:titleTextColor="@color/htmlWhite"/>
+
+    <fragment
+        android:id="@+id/entrypoint_fragment_tab_navigation_host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:navGraph="@navigation/entrypoint_navigation_tab"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/entrypoint_fragment_tab_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimaryDark"
+        app:itemTextColor="@color/htmlWhite"
+        app:menu="@menu/entrypoint_menu_tab"/>
+</LinearLayout>

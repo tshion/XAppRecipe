@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/entrypoint_navigation_tab"
+    app:startDestination="@id/entrypoint_fragment_tab_1st">
+
+    <fragment
+        android:id="@+id/entrypoint_fragment_tab_1st"
+        android:name="work.shion.ktrecipe.pages.entrypoint.views.Tab1stPageFragment"
+        android:label="entrypoint_fragment_tab_1st"
+        tools:layout="@layout/entrypoint_fragment_tab_1st"/>
+
+    <fragment
+        android:id="@+id/entrypoint_fragment_tab_2nd"
+        android:name="work.shion.ktrecipe.pages.entrypoint.views.Tab2ndPageFragment"
+        android:label="entrypoint_fragment_tab_2nd"
+        tools:layout="@layout/entrypoint_fragment_tab_2nd"/>
+
+    <fragment
+        android:id="@+id/entrypoint_fragment_tab_gallery"
+        android:name="work.shion.ktrecipe.pages.entrypoint.views.TabGalleryFragment"
+        android:label="entrypoint_fragment_tab_gallery"
+        tools:layout="@layout/entrypoint_fragment_tab_gallery"/>
+
+
+    <action
+        android:id="@+id/entrypoint_action_any_to_tab_1st"
+        app:destination="@id/entrypoint_fragment_tab_1st"/>
+
+    <action
+        android:id="@+id/entrypoint_action_any_to_tab_2nd"
+        app:destination="@id/entrypoint_fragment_tab_2nd"/>
+
+    <action
+        android:id="@+id/entrypoint_action_any_to_tab_gallery"
+        app:destination="@id/entrypoint_fragment_tab_gallery"/>
+</navigation>

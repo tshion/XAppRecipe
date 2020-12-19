@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebViewSample</title>
+
+    <script>
+        // 空のアラートダイアログ表示
+        function showEmptyAlert() {
+            alert()
+        }
+
+        // UserAgent 表示用アラートダイアログの表示
+        function showUserAgentAlert() {
+            const userAgent = window.navigator.userAgent
+            alert(userAgent)
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>空のアラート</p>
+        <button onclick="showEmptyAlert()">アラートダイアログの表示</button>
+    </div>
+
+    <div>
+        <p>UserAgent を表示するアラート</p>
+        <button onclick="showUserAgentAlert()">アラートダイアログの表示</button>
+    </div>
+
+    <div>
+        <p>アプリ内で表示</p>
+        <a href="sub.html">Sub</a>
+    </div>
+
+    <div>
+        <p>アプリ外ブラウザテスト</p>
+        <a href="https://github.com/TentaShion/AndroidBaser">TentaShion / AndroidBaser | GitHub</a>
+    </div>
+</body>
+
+</html>
