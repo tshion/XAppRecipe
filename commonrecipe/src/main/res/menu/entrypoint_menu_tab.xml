@@ -12,6 +12,11 @@
         android:title="その２"/>
 
     <item
+        android:id="@+id/entrypoint_menu_gallery"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="ギャラリー"/>
+
+    <item
         android:id="@+id/entrypoint_menu_tab_web"
         android:icon="@mipmap/ic_launcher"
         android:title="WEB"/>

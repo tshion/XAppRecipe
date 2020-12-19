@@ -74,6 +74,26 @@ allprojects {
 }
 
 
+// プロジェクト全体のプロパティ設定
+ext {
+    buildToolsVersion = "29.0.1"
+    compileSdkVersion = 29
+
+    appcompatVersion = "1.0.2"
+    hyperionVersion = "0.9.27"
+    ktxVersion = "1.0.2"
+    leakCanaryVersion = "2.0-alpha-2"
+    materialDesignVersion = "1.0.0"
+    navigationFragmentVersion = "1.0.0"
+    navigationUiVersion = "1.0.0"
+    picassoVersion = "2.71828"
+    retrofitVersion = "2.5.0"
+    rxdroidVersion = "2.1.1"
+    rxjavaVersion = "2.2.11"
+    timberVersion = "4.7.1"
+}
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

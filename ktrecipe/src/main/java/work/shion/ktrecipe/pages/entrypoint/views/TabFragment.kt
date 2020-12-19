@@ -43,6 +43,17 @@ class TabFragment : Fragment(),
 
 
     /**
+     * ギャラリーに遷移
+     */
+    override fun goGallery() {
+        val target = activity ?: return
+        Navigation.findNavController(
+                target,
+                R.id.entrypoint_fragment_tab_navigation_host
+        ).navigate(R.id.entrypoint_action_any_to_tab_gallery)
+    }
+
+    /**
      * Tab1st ページに遷移
      */
     override fun goTab1st() {

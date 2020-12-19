@@ -18,6 +18,9 @@ singingProd.load(new FileInputStream(rootProject.file("singingProd.properties"))
 android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.ext.compileSdkVersion
+    dataBinding {
+        enabled = true
+    }
     flavorDimensions "ktrecipe"
 
 
@@ -27,6 +30,11 @@ android {
         targetSdkVersion 29
         versionCode 10000 * VERSION_MAJOR + 100 * VERSION_MINOR + VERSION_REVISION
         versionName VERSION_NAME
+
+
+        // JewelSaviorAPI の基本URL
+        buildConfigField "String", "URL_JewelSaviorAPI",
+                "\"https://tentashion.github.io/JewelSaviorCollection/\""
     }
 
 
@@ -92,8 +100,32 @@ dependencies {
     // Debug Tools
     debugImplementation debugTools
 
+    // AndroidX
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
+    implementation "androidx.core:core-ktx:${ktxVersion}"
+
+    // Jetpack
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.navigation:navigation-fragment:${navigationFragmentVersion}"
+    implementation "android.arch.navigation:navigation-fragment-ktx:${navigationFragmentVersion}"
+    implementation "android.arch.navigation:navigation-ui:${navigationUiVersion}"
+    implementation "android.arch.navigation:navigation-ui-ktx:${navigationUiVersion}"
+
     // Kotlin
     implementation ktlib
+
+    // Picasso
+    implementation "com.squareup.picasso:picasso:${picassoVersion}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxandroid:${rxdroidVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxjavaVersion}"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
 
     // Timber
     implementation timber
