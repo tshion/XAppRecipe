@@ -20,7 +20,7 @@ buildscript {
         def ver_droidx_fragment = "1.2.5"
         ver_droidx_navigation = "2.3.1"
         ver_hyperion = "0.9.30"
-        ver_kotlin = "1.4.10"
+        ver_kotlin = "1.4.21"
         def ver_kotlin_coroutines = "1.4.1"
         def ver_material = "1.2.1"
         ver_oss_licenses = "17.0.0"
