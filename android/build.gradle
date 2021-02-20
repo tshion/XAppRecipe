@@ -20,8 +20,8 @@ buildscript {
         def ver_droidx_fragment = "1.2.5"
         ver_droidx_navigation = "2.3.1"
         ver_hyperion = "0.9.30"
-        ver_kotlin = "1.4.21"
-        def ver_kotlin_coroutines = "1.4.1"
+        ver_kotlin = "1.4.30"
+        ver_kotlin_coroutines = "1.4.2"
         def ver_material = "1.2.1"
         ver_oss_licenses = "17.0.0"
         ver_prep_debugger = "1.0.4"
@@ -38,10 +38,6 @@ buildscript {
 
             // Material Design
             "com.google.android.material:material:${ver_material}",
-        ]
-        KotlinCoroutines = [
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}",
-            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${ver_kotlin_coroutines}",
         ]
     }
 
