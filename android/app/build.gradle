@@ -3,7 +3,6 @@ plugins {
 
     // Kotlin
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 
     // AndroidX Navigation
@@ -15,7 +14,8 @@ plugins {
 
 android {
     buildFeatures {
-        dataBinding = true
+        dataBinding true
+        viewBinding true
     }
     buildToolsVersion build_tools_version
     buildTypes {
@@ -45,6 +45,9 @@ android {
     flavorDimensions "mode"
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    packagingOptions {
+        exclude "DebugProbesKt.bin"
     }
     productFlavors {
         dev {
@@ -77,7 +80,6 @@ dependencies {
 
     // 共通設定
     implementation BaseUi
-    implementation KotlinCoroutines
 
     // AndroidPreparation
     debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
@@ -95,6 +97,9 @@ dependencies {
     // Kotlin
     implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    // Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
 }
 
 apply from: 'capacitor.build.gradle'
