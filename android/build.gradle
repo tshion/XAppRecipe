@@ -50,7 +50,7 @@ buildscript {
 
         // Google Services
         classpath 'com.google.android.gms:oss-licenses-plugin:0.10.2'
-        classpath 'com.google.gms:google-services:4.3.4'
+        classpath 'com.google.gms:google-services:4.3.5'
 
         // Kotlin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${ver_kotlin}"
