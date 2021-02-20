@@ -3,7 +3,6 @@ plugins {
 
     // Kotlin
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 
     // AndroidX Navigation
@@ -15,7 +14,8 @@ plugins {
 
 android {
     buildFeatures {
-        dataBinding = true
+        dataBinding true
+        viewBinding true
     }
     buildToolsVersion build_tools_version
     buildTypes {
