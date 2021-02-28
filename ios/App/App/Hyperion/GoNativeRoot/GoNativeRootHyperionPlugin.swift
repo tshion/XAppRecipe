@@ -1,9 +1,12 @@
 import Foundation
 import HyperionCore
 
-class ShowNativeRootHyperionPlugin: NSObject, HYPPlugin {
+/**
+ iOS Native トップ画面を表示するためのHyperion プラグイン
+ */
+class GoNativeRootHyperionPlugin: NSObject, HYPPlugin {
     static func createPluginModule(_ pluginExtension: HYPPluginExtensionProtocol) -> HYPPluginModuleProtocol {
-        return ShowNativeRootHyperionPluginModule(with: pluginExtension)
+        return GoNativeRootHyperionPluginModule(with: pluginExtension)
     }
 
     static func pluginVersion() -> String {

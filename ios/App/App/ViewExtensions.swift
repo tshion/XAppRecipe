@@ -1,7 +1,6 @@
 import UIKit
 
 extension UIApplication {
-    
     /**
      最前面にあるViewController の検索
      - Note
