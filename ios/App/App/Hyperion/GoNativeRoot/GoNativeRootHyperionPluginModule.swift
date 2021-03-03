@@ -13,7 +13,7 @@ class GoNativeRootHyperionPluginModule: HYPPluginModule {
 
 extension GoNativeRootHyperionPluginModule: HYPPluginMenuItemDelegate {
     func pluginMenuItemSelected(_ pluginView: (UIView & HYPPluginMenuItemProtocol)!) {
-        guard let nowViewController: UIViewController = pluginView.findFirstViewOrNil() else {
+        guard let nowViewController = pluginView.window?.rootViewController else {
             return
         }
 
