@@ -17,10 +17,7 @@ extension GoNativeRootHyperionPluginModule: HYPPluginMenuItemDelegate {
             return
         }
 
-        let storyboard = UIStoryboard(name: "NativeRoot", bundle: nil)
-        guard let nextPage = storyboard.instantiateViewController(withIdentifier: "NativeRootViewController") as? NativeRootViewController else {
-            return
-        }
+        let nextPage = NativeRootViewController.newInstance()
         nextPage.modalPresentationStyle = .fullScreen
 
         nowViewController.present(nextPage, animated: true, completion: nil)
