@@ -6,6 +6,8 @@ settings:
   PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
 targetTemplates:
   appbase:
+    dependencies:
+      - sdk: WebKit.framework
     platform: iOS
     preBuildScripts:
       - path: scripts/format.sh
