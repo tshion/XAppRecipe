@@ -1,6 +1,7 @@
 name: XAppRecipe
 options:
   deploymentLanguage: Japan
+  groupSortPosition: top
 settings:
   PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
 targetTemplates:
