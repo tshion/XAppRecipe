@@ -31,6 +31,12 @@ extension ShowKiyoshiViewController: UICollectionViewDataSource {
             cell.update(data: item)
         }
 
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = .cyan
+        } else {
+            cell.backgroundColor = .none
+        }
+
         return cell
     }
 

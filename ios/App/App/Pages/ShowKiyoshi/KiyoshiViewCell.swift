@@ -1,7 +1,7 @@
 import UIKit
 
 class KiyoshiViewCell: UICollectionViewCell {
-    private static let fontSize = UIFont.systemFont(ofSize: 22.0)
+    private static let fontSize = UIFont.systemFont(ofSize: 40.0)
 
     @IBOutlet weak var message: UILabel!
 
@@ -13,6 +13,7 @@ class KiyoshiViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         message.font = KiyoshiViewCell.fontSize
+        message.numberOfLines = 3
     }
 
     /**
