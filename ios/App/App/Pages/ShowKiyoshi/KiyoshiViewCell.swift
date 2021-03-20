@@ -1,6 +1,7 @@
 import UIKit
 
 class KiyoshiViewCell: UICollectionViewCell {
+    public static let cellId = "KiyoshiViewCell"
     private static let fontSize = UIFont.systemFont(ofSize: 40.0)
 
     @IBOutlet weak var message: UILabel!

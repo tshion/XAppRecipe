@@ -1,9 +1,7 @@
 import UIKit
 
 class ShowKiyoshiViewController: UIViewController {
-    private static let cellId = "KiyoshiViewCell"
-
-    private var displayData: [String]?
+    private var adapter: ShowKiyoshiAdapter?
     @IBOutlet weak var list: UICollectionView!
     private let model = ShowKiyoshiModel()
 
@@ -14,54 +12,12 @@ class ShowKiyoshiViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        displayData = [String](repeating: "", count: 30)
-            .map { _ in model.generate() }
+        adapter = ShowKiyoshiAdapter()
+        adapter?.with(target: list)
 
-        list.dataSource = self
-        list.delegate = self
-        list.register(KiyoshiViewCell.newInstance(), forCellWithReuseIdentifier: ShowKiyoshiViewController.cellId)
-    }
-}
-
-extension ShowKiyoshiViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShowKiyoshiViewController.cellId, for: indexPath)
-
-        if let cell = cell as? KiyoshiViewCell, let item = displayData?[indexPath.row] {
-            cell.update(data: item)
-        }
-
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = .cyan
-        } else {
-            cell.backgroundColor = .none
-        }
-
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return displayData?.count ?? 0
-    }
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-}
-
-extension ShowKiyoshiViewController: UICollectionViewDelegate {}
-
-extension ShowKiyoshiViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShowKiyoshiViewController.cellId, for: indexPath)
-        let item = displayData?[indexPath.row]
-
-        switch cell {
-        case let target as KiyoshiViewCell:
-            return CGSize(width: collectionView.frame.width, height: target.calculateHeight(data: item ?? ""))
-
-        default:
-            return CGSize(width: 0, height: 0)
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+            self.adapter?.displayData = [String](repeating: "", count: 30)
+                .map { _ in self.model.generate() }
         }
     }
 }
