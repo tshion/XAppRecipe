@@ -1,0 +1,7 @@
+{
+  "name": "XAppRecipe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

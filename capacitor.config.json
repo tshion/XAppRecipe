@@ -6,7 +6,7 @@
     "minVersion": "12.0"
   },
   "npmClient": "yarn",
-  "webDir": "dist/mainapp",
+  "webDir": "mainapp/dist",
   "plugins": {
     "SplashScreen": {
       "launchAutoHide": false

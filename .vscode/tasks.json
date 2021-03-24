@@ -5,21 +5,13 @@
   "tasks": [
     {
       "label": "Serve",
-      "command": "ionic",
-      "args": [
-        "serve",
-        "--host",
-        "localhost",
-        "--no-open",
-        "--port",
-        "8100"
-      ],
+      "path": "./mainapp/package.json",
       "isBackground": true,
       "problemMatcher": {
         "background": {
           "activeOnStart": true,
           "beginsPattern": ".",
-          "endsPattern": ".*Development server running!.*",
+          "endsPattern": ".*Development Server is listening.*"
         },
         "pattern": [
           {
@@ -30,7 +22,8 @@
           }
         ],
       },
-      "type": "shell",
+      "type": "npm",
+      "script": "start"
     }
   ]
 }
