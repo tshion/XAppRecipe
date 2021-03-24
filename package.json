@@ -1,13 +1,17 @@
 {
   "name": "root",
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 7.0.0"
+  },
   "private": true,
   "dependencies": {
-    "@capacitor/android": "2.4.7",
-    "@capacitor/core": "2.4.7",
+    "@capacitor/android": "^3.0.0-rc.0",
+    "@capacitor/core": "^3.0.0-rc.0",
     "@capacitor/ios": "2.4.7"
   },
   "devDependencies": {
-    "@capacitor/cli": "2.4.7",
+    "@capacitor/cli": "^3.0.0-rc.0",
     "lerna": "^4.0.0"
   }
 }
