@@ -5,7 +5,7 @@
   "ios": {
     "minVersion": "12.0"
   },
-  "npmClient": "yarn",
+  "npmClient": "npm",
   "webDir": "mainapp/dist",
   "plugins": {
     "SplashScreen": {
