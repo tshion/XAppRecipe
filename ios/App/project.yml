@@ -1,4 +1,4 @@
-name: XAppRecipe
+name: App
 options:
   deploymentLanguage: Japan
   groupSortPosition: top
@@ -16,8 +16,10 @@ targetTemplates:
       - path: scripts/lint.sh
         name: Run Lint
     sources:
-      - App
-      - path: public
+      - path: App
+        excludes:
+          - "public/*"
+      - path: "App/public"
         type: folder
     type: application
 
