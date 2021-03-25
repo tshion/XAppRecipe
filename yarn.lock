@@ -57,10 +57,10 @@
   dependencies:
     tslib "^2.1.0"
 
-"@capacitor/ios@^3.0.0-rc.0":
-  version "3.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-3.0.0-rc.0.tgz#36e71a6abea071c69a158c875bc627c64a52609f"
-  integrity sha512-c92qeHIKoC/HPBB9Ji+kdn9LJ2HPeRoWpamV/7OOlS2SAB+GjHWHWjuP8aWLnUFqFZxI7Mfrfo65Gd6N4haoGw==
+"@capacitor/ios@2.4.7":
+  version "2.4.7"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-2.4.7.tgz#03eecc5348d2ac84e62fc17ae37cc266bcc6a437"
+  integrity sha512-XKYU67ZM+yY4/vDJ3ZVfs+phjtWK8TcKwq75fGoxB9PKXuCmMi5bihPuA3Xs/sIFXuozpnaYnspp0eTRJ7bG0w==
 
 "@ionic/cli-framework-output@^2.2.1":
   version "2.2.2"
