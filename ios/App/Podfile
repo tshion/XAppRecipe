@@ -26,6 +26,8 @@ def hyperion
 end
 
 def ui
+  pod 'MaterialComponents/BottomNavigation'
+  pod 'MaterialComponents/BottomNavigation+Theming'
   pod 'MaterialComponents/Buttons'
   pod 'MaterialComponents/Buttons+Theming'
 end
