@@ -1,8 +1,5 @@
-plugin 'cocoapods-binary'
-
 platform :ios, '12.0'
 use_frameworks!
-all_binary!
 
 # workaround to avoid Xcode caching of Pods that requires
 # Product -> Clean Build Folder after new Cordova plugins installed
@@ -10,11 +7,9 @@ all_binary!
 install! 'cocoapods', :disable_input_output_paths => true
 
 def capacitor_pods
-  # Automatic Capacitor Pod dependencies, do not delete
   pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
 
-  # Do not delete
 end
 
 def hyperion

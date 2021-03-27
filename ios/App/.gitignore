@@ -279,5 +279,9 @@ iOSInjectionProject/
 ###############
 ### Project ###
 ###############
+# Capacitor
+App/public
+DerivedData
+
 # LicensePlist
 com.mono0926.LicensePlist**

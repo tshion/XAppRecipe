@@ -12,9 +12,9 @@
       "url": "http://localhost:8100",
       "sourceMaps": true,
       "sourceMapPathOverrides": {
-        "webpack:///./src/*": "${workspaceFolder}/src/*"
+        "webpack:///./src/*": "${webRoot}/src/*"
       },
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}/mainapp"
     }
   ]
 }

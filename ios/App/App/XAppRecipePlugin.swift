@@ -10,8 +10,8 @@ public class XAppRecipePlugin: CAPPlugin {
             }
 
             nextPage.modalPresentationStyle = .fullScreen
-            self.bridge.viewController.present(nextPage, animated: true, completion: nil)
-            call.success()
+            self.bridge?.viewController?.present(nextPage, animated: true, completion: nil)
+            call.resolve()
         }
     }
 }
