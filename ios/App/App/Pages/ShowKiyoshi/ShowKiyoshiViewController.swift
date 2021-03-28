@@ -6,7 +6,7 @@ class ShowKiyoshiViewController: UIViewController {
     private let model = ShowKiyoshiModel()
 
     static func newInstance() -> ShowKiyoshiViewController {
-        return ShowKiyoshiViewController(nibName: "ShowKiyoshiViewController", bundle: nil)
+        return ShowKiyoshiViewController(nib: R.nib.showKiyoshiViewController)
     }
 
     override func viewDidLoad() {

@@ -15,16 +15,16 @@ class ShowKiyoshiAdapter: NSObject {
     func with(target: UICollectionView) {
         target.dataSource = self
         target.delegate = self
-        target.register(KiyoshiViewCell.newInstance(), forCellWithReuseIdentifier: KiyoshiViewCell.cellId)
+        target.register(R.nib.kiyoshiViewCell)
         list = target
     }
 }
 
 extension ShowKiyoshiAdapter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KiyoshiViewCell.cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.kiyoshiViewCell, for: indexPath)!
 
-        if let cell = cell as? KiyoshiViewCell, let item = displayData?[indexPath.row] {
+        if let item = displayData?[indexPath.row] {
             cell.update(data: item)
         }
 
@@ -50,7 +50,7 @@ extension ShowKiyoshiAdapter: UICollectionViewDelegate {}
 
 extension ShowKiyoshiAdapter: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KiyoshiViewCell.cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.kiyoshiViewCell, for: indexPath)
         let item = displayData?[indexPath.row]
 
         switch cell {

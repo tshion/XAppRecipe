@@ -5,9 +5,7 @@ class NativeRootViewController: UIViewController {
     @IBOutlet weak var buttonClose: MDCButton!
 
     static func newInstance() -> NativeRootViewController {
-        let storyboard = UIStoryboard(name: "NativeRoot", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NativeRootViewController") as? NativeRootViewController
-        return vc!
+        return R.storyboard.nativeRoot.instantiateInitialViewController()!
     }
 
     override func viewDidLoad() {
