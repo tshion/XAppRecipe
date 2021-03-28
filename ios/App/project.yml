@@ -12,6 +12,13 @@ targetTemplates:
     preBuildScripts:
       - path: scripts/format.sh
         name: Run Format
+      - name: Generate by R.swift
+        script: |
+          "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/R.generated.swift"
+        inputFiles:
+          - "$TEMP_DIR/rswift-lastrun"
+        outputFiles:
+          - "$SRCROOT/R.generated.swift"
     postBuildScripts:
       - path: scripts/lint.sh
         name: Run Lint
@@ -21,6 +28,8 @@ targetTemplates:
           - "public/*"
       - path: "App/public"
         type: folder
+      - path: "R.generated.swift"
+        optional: true
     type: application
 
 
