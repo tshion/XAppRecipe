@@ -25,6 +25,7 @@ def ui
   pod 'MaterialComponents/BottomNavigation+Theming'
   pod 'MaterialComponents/Buttons'
   pod 'MaterialComponents/Buttons+Theming'
+  pod 'R.swift'
 end
 
 

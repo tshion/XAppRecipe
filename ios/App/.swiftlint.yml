@@ -9,6 +9,7 @@ opt_in_rules:
   - closure_end_indentation
   - file_header
 excluded:
+  - "*.generated.swift"
   - Carthage
   - fastlane
   - Pods

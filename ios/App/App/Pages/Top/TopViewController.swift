@@ -5,7 +5,7 @@ class TopViewController: UIViewController {
     @IBOutlet weak var tab: MDCBottomNavigationBar!
 
     static func newInstance() -> TopViewController {
-        return TopViewController(nibName: "TopViewController", bundle: nil)
+        return TopViewController(nib: R.nib.topViewController)
     }
 
     override func viewDidLoad() {

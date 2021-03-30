@@ -3,9 +3,8 @@ import Capacitor
 @objc(XAppRecipePlugin)
 public class XAppRecipePlugin: CAPPlugin {
     @objc func launch(_ call: CAPPluginCall) {
-        let storyboard = UIStoryboard(name: "NativeRoot", bundle: nil)
         DispatchQueue.main.async {
-            guard let nextPage = storyboard.instantiateViewController(withIdentifier: "NativeRootViewController") as? NativeRootViewController else {
+            guard let nextPage = R.storyboard.nativeRoot.instantiateInitialViewController() else {
                 return
             }
 

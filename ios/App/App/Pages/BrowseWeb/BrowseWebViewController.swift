@@ -7,7 +7,7 @@ class BrowseWebViewController: UIViewController {
     @IBOutlet weak var browser: WKWebView!
 
     static func newInstance() -> BrowseWebViewController {
-        return BrowseWebViewController(nibName: "BrowseWebViewController", bundle: nil)
+        return BrowseWebViewController(nib: R.nib.browseWebViewController)
     }
 
     override func viewDidLoad() {
