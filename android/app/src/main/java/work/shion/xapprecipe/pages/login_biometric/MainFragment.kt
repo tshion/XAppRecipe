@@ -1,6 +1,5 @@
 package work.shion.xapprecipe.pages.login_biometric
 
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings.ACTION_BIOMETRIC_ENROLL
@@ -48,9 +47,7 @@ class MainFragment : Fragment(R.layout.page_login_biometric) {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when(requestCode) {
-            REQUEST_CHECK -> if(resultCode == RESULT_OK) {
-                doBiometric()
-            }
+            REQUEST_CHECK -> doBiometric()
             else -> super.onActivityResult(requestCode, resultCode, data)
         }
     }
@@ -64,14 +61,17 @@ class MainFragment : Fragment(R.layout.page_login_biometric) {
 
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                     super.onAuthenticationError(errorCode, errString)
+                    Toast.makeText(requireContext(), "認証エラー: ${errorCode}", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
+                    Toast.makeText(requireContext(), "認証失敗", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
+                    Toast.makeText(requireContext(), "認証成功: ${result}", Toast.LENGTH_SHORT).show()
                 }
             }
         )

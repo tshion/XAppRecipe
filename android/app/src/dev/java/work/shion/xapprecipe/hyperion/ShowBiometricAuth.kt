@@ -3,9 +3,12 @@ package work.shion.xapprecipe.hyperion
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.google.auto.service.AutoService
 import com.willowtreeapps.hyperion.plugin.v1.Plugin
 import com.willowtreeapps.hyperion.plugin.v1.PluginModule
+import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 
 @AutoService(Plugin::class)
@@ -19,6 +22,13 @@ class ShowBiometricAuth : Plugin() {
             findViewById<TextView>(R.id.hyperion_menu_title)?.setText(name)
 
             setOnClickListener {
+                val activity = extension.activity
+                if (activity !is AppCompatActivity) {
+                    return@setOnClickListener
+                }
+
+                activity.let { Navigation.findNavController(it, R.id.entrypoint) }
+                    .navigate(NavEntrypointDirections.navactToLoginBiometric())
             }
         }
 
