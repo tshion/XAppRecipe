@@ -23,6 +23,12 @@
         android:name="work.shion.xapprecipe.pages.launcher.MainFragment"
         tools:layout="@layout/atoms_circle_loading_overlay" />
 
+    <!-- 生体認証 -->
+    <fragment
+        android:id="@+id/login_biometric"
+        android:name="work.shion.xapprecipe.pages.login_biometric.MainFragment"
+        tools:layout="@layout/page_login_biometric" />
+
     <!-- 通知一覧 -->
     <fragment
         android:id="@+id/notice"
@@ -57,6 +63,11 @@
     <action
         android:id="@+id/navact_show_launch_error_dialog"
         app:destination="@id/launch_error_dialog" />
+
+    <!-- 生体認証へ遷移 -->
+    <action
+        android:id="@+id/navact_to_login_biometric"
+        app:destination="@id/login_biometric" />
 
     <!-- トップへ遷移 -->
     <action

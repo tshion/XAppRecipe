@@ -85,6 +85,9 @@ dependencies {
     debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
     implementation "work.shion.androidpreparation:views:${ver_prep_views}"
 
+    // AndroidX
+    implementation "androidx.biometric:biometric:${ver_droidx_biometric}"
+
     // Hyperion
     devImplementation "com.willowtreeapps.hyperion:hyperion-core:${ver_hyperion}"
     debugImplementation "com.willowtreeapps.hyperion:hyperion-plugin:${ver_hyperion}"
