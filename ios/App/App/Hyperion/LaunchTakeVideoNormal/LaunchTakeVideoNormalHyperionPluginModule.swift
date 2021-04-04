@@ -15,8 +15,11 @@ extension LaunchTakeVideoNormalHyperionPluginModule: HYPPluginMenuItemDelegate {
             return
         }
 
-        let camera = UIImagePickerController.SourceType.camera
-        guard UIImagePickerController.isSourceTypeAvailable(camera) else {
+        let builder = UIImagePickerControllerBuilder()
+            .appendMediaFilterMovie()
+            .setSourceType(UIImagePickerController.SourceType.camera)
+
+        guard let picker = builder.build() else {
             let dismiss = UIAlertAction(
                 title: "OK",
                 style: .default,
@@ -33,12 +36,8 @@ extension LaunchTakeVideoNormalHyperionPluginModule: HYPPluginMenuItemDelegate {
             nowViewController.present(alert, animated: true, completion: nil)
             return
         }
+        picker.modalPresentationStyle = .fullScreen
 
-        let nextPage = UIImagePickerController()
-        nextPage.mediaTypes = ["public.movie"]
-        nextPage.sourceType = camera
-
-        nextPage.modalPresentationStyle = .fullScreen
-        nowViewController.present(nextPage, animated: true, completion: nil)
+        nowViewController.present(picker, animated: true, completion: nil)
     }
 }
