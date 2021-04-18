@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopViewController" customModule="App" customModuleProvider="target">
             <connections>
+                <outlet property="footer" destination="uzO-ko-mT2" id="9AV-SE-0Mx"/>
+                <outlet property="root" destination="A48-BF-cN2" id="Sls-NX-Yzl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +23,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzO-ko-mT2" customClass="MDCBottomNavigationBar">
                     <rect key="frame" x="0.0" y="814" width="414" height="48"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="48" id="zEl-eC-J8v"/>
+                        <constraint firstAttribute="height" constant="48" id="yRI-gO-UGD"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A48-BF-cN2">

@@ -2,53 +2,43 @@ import MaterialComponents.MaterialBottomNavigation
 import UIKit
 
 class TopViewController: UIViewController {
-    @IBOutlet weak var tab: MDCBottomNavigationBar!
-
     static func newInstance() -> TopViewController {
         return TopViewController(nib: R.nib.topViewController)
     }
 
+    @IBOutlet weak var footer: MDCBottomNavigationBar!
+    @IBOutlet weak var root: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let size = CGSize(width: 24, height: 24)
         let homeItem = UITabBarItem(
             title: "Home",
-            image: UIImage(named: "ic_home"),
+            image: R.image.icon_iphone()?.resize(size: size),
             tag: 0
         )
 
         let messagesItem = UITabBarItem(
             title: "Messages",
-            image: UIImage(named: "ic_email"),
+            image: R.image.icon_iphone()?.resize(size: size),
             tag: 0
         )
         messagesItem.badgeValue = "8"
 
         let favoritesItem = UITabBarItem(
             title: "Favorites",
-            image: UIImage(named: "ic_favorite"),
+            image: R.image.icon_iphone()?.resize(size: size),
             tag: 0
         )
         favoritesItem.badgeValue = ""
 
-        let readerItem = UITabBarItem(
-            title: "Reader",
-            image: UIImage(named: "ic_reader"),
-            tag: 0
-        )
-        readerItem.badgeValue = "88"
-
-        let birthdayItem = UITabBarItem(
-            title: "ic_birthday",
-            image: UIImage(named: "ic_cake"),
-            tag: 0
-        )
-        birthdayItem.badgeValue = "888+"
-
-        tab.alignment = MDCBottomNavigationBarAlignment.justifiedAdjacentTitles
-        tab.backgroundColor = UIColor.orange
-        tab.items = [homeItem, messagesItem, favoritesItem, readerItem, birthdayItem]
-        tab.selectedItem = messagesItem
-        tab.titleVisibility = MDCBottomNavigationBarTitleVisibility.selected
+        footer.alignment = MDCBottomNavigationBarAlignment.justifiedAdjacentTitles
+        footer.backgroundColor = R.color.app_main()
+        footer.elevation = ShadowElevation.none
+        footer.items = [homeItem, messagesItem, favoritesItem]
+        footer.selectedItem = messagesItem
+        footer.selectedItemTintColor = UIColor.white
+        footer.titleVisibility = MDCBottomNavigationBarTitleVisibility.always
     }
 }
