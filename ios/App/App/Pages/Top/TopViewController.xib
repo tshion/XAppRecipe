@@ -2,16 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopViewController" customModule="App" customModuleProvider="target">
             <connections>
-                <outlet property="tab" destination="vyX-vg-zIj" id="VHb-Pc-4QY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,30 +18,37 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyX-vg-zIj" customClass="MDCBottomNavigationBar">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzO-ko-mT2" customClass="MDCBottomNavigationBar">
                     <rect key="frame" x="0.0" y="814" width="414" height="48"/>
-                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="48" id="Xow-Sf-Zir"/>
+                        <constraint firstAttribute="height" constant="48" id="zEl-eC-J8v"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A48-BF-cN2">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="814"/>
+                    <color key="backgroundColor" name="app_base"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="app_main"/>
             <constraints>
-                <constraint firstItem="vyX-vg-zIj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DLZ-By-Sld"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vyX-vg-zIj" secondAttribute="bottom" id="Vk6-Og-JKk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vyX-vg-zIj" secondAttribute="trailing" id="b43-uL-5qC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="A48-BF-cN2" secondAttribute="trailing" id="1Lf-Zs-cVj"/>
+                <constraint firstItem="A48-BF-cN2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mgs-c9-79T"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uzO-ko-mT2" secondAttribute="bottom" id="XPc-32-zuP"/>
+                <constraint firstItem="uzO-ko-mT2" firstAttribute="top" secondItem="A48-BF-cN2" secondAttribute="bottom" id="kRj-Bs-YB3"/>
+                <constraint firstItem="uzO-ko-mT2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ljs-Ah-Bj2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uzO-ko-mT2" secondAttribute="trailing" id="zLh-FZ-Aqo"/>
+                <constraint firstItem="A48-BF-cN2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zpN-3D-DyA"/>
             </constraints>
             <point key="canvasLocation" x="70" y="92"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="app_base">
+            <color red="0.63137254901960782" green="0.69803921568627447" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="app_main">
+            <color red="0.066666666666666666" green="0.066666666666666666" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
