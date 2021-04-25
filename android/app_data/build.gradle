@@ -37,10 +37,17 @@ dependencies {
     // Local Project
     implementation project(":app_core")
 
+    // 共通設定
+    testImplementation UnitTestLocal
+
     // Kotlin
     implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
 
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
+
+    // OkHttp
+    implementation platform("com.squareup.okhttp3:okhttp-bom:${ver_okhttp}")
+    implementation "com.squareup.okhttp3:okhttp"
 }

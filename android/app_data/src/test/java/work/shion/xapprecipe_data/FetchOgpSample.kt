@@ -1,4 +1,4 @@
-package work.shion.xapprecipe
+package work.shion.xapprecipe_data
 
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.Dispatchers
