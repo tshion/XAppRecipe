@@ -80,6 +80,7 @@ dependencies {
 
     // 共通設定
     implementation BaseUi
+    testImplementation UnitTestLocal
 
     // AndroidPreparation
     debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"

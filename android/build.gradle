@@ -24,6 +24,7 @@ buildscript {
         ver_kotlin = "1.4.30"
         ver_kotlin_coroutines = "1.4.2"
         def ver_material = '1.3.0'
+        ver_okhttp = '4.9.0'
         ver_oss_licenses = "17.0.0"
         ver_prep_debugger = "1.0.4"
         ver_prep_views = "0.2.0.alpha"
@@ -39,6 +40,11 @@ buildscript {
 
             // Material Design
             "com.google.android.material:material:${ver_material}",
+        ]
+        UnitTestLocal = [
+            "androidx.test:core-ktx:1.3.0",
+            "androidx.test.ext:junit-ktx:1.1.2",
+            "androidx.test.ext:truth:1.3.0",
         ]
     }
 
