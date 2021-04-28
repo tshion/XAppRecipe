@@ -108,6 +108,9 @@ dependencies {
     // Material Design
     implementation "com.google.android.material:material:${ver_material}"
 
+    // PermissionsDispatcher
+    implementation "com.github.permissions-dispatcher:ktx:${ver_permissions_dispatcher_ktx}"
+
     // Picasso
     implementation "com.squareup.picasso:picasso:${ver_picasso}"
 
