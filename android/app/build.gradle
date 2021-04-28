@@ -98,10 +98,6 @@ dependencies {
     implementation "com.google.android.gms:play-services-oss-licenses:${ver_oss_licenses}"
     kapt "com.google.auto.service:auto-service:${ver_auto_service}"
 
-    // Kotlin
-    implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib"
-
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
 }
