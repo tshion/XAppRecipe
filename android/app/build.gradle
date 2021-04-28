@@ -79,7 +79,6 @@ dependencies {
     implementation project(":app_data")
 
     // 共通設定
-    implementation BaseUi
     testImplementation UnitTestLocal
 
     // AndroidPreparation
@@ -88,6 +87,13 @@ dependencies {
 
     // AndroidX
     implementation "androidx.biometric:biometric:${ver_droidx_biometric}"
+    implementation "androidx.browser:browser:${ver_droidx_browser}"
+    implementation "androidx.constraintlayout:constraintlayout:${ver_droidx_constraint}"
+    implementation "androidx.core:core-ktx:${ver_droidx_core}"
+    implementation "androidx.fragment:fragment-ktx:${ver_droidx_fragment}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${ver_droidx_navigation}"
+    implementation "androidx.navigation:navigation-ui-ktx:${ver_droidx_navigation}"
+    implementation "androidx.recyclerview:recyclerview:${ver_droidx_recyclerview}"
 
     // Hyperion
     devImplementation "com.willowtreeapps.hyperion:hyperion-core:${ver_hyperion}"
@@ -100,6 +106,19 @@ dependencies {
 
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
+
+    // Material Design
+    implementation "com.google.android.material:material:${ver_material}"
+
+    // PermissionsDispatcher
+    implementation "com.github.permissions-dispatcher:ktx:${ver_permissions_dispatcher_ktx}"
+
+    // Picasso
+    implementation "com.squareup.picasso:picasso:${ver_picasso}"
+
+    // ZXing
+    implementation("com.journeyapps:zxing-android-embedded:${ver_zxing_embedded}") { transitive = false }
+    implementation "com.google.zxing:core:${ver_zxing}"
 }
 
 apply from: 'capacitor.build.gradle'
