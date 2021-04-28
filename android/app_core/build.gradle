@@ -34,10 +34,6 @@ dependencies {
     // Java 8+
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${ver_desugar_jdk}"
 
-    // Kotlin
-    implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib"
-
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
 }

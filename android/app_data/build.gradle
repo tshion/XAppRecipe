@@ -40,10 +40,6 @@ dependencies {
     // 共通設定
     testImplementation UnitTestLocal
 
-    // Kotlin
-    implementation platform("org.jetbrains.kotlin:kotlin-bom:${ver_kotlin}")
-    implementation "org.jetbrains.kotlin:kotlin-stdlib"
-
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
 
