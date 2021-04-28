@@ -28,6 +28,8 @@ buildscript {
         ver_oss_licenses = "17.0.0"
         ver_prep_debugger = "1.0.4"
         ver_prep_views = "0.2.0.alpha"
+        ver_zxing = "3.4.1"
+        ver_zxing_embedded = "4.2.0"
 
 
         UnitTestLocal = [

@@ -107,6 +107,10 @@ dependencies {
 
     // Material Design
     implementation "com.google.android.material:material:${ver_material}"
+
+    // ZXing
+    implementation("com.journeyapps:zxing-android-embedded:${ver_zxing_embedded}") { transitive = false }
+    implementation "com.google.zxing:core:${ver_zxing}"
 }
 
 apply from: 'capacitor.build.gradle'
