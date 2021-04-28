@@ -87,11 +87,13 @@ dependencies {
 
     // AndroidX
     implementation "androidx.biometric:biometric:${ver_droidx_biometric}"
+    implementation "androidx.browser:browser:${ver_droidx_browser}"
     implementation "androidx.constraintlayout:constraintlayout:${ver_droidx_constraint}"
     implementation "androidx.core:core-ktx:${ver_droidx_core}"
     implementation "androidx.fragment:fragment-ktx:${ver_droidx_fragment}"
     implementation "androidx.navigation:navigation-fragment-ktx:${ver_droidx_navigation}"
     implementation "androidx.navigation:navigation-ui-ktx:${ver_droidx_navigation}"
+    implementation "androidx.recyclerview:recyclerview:${ver_droidx_recyclerview}"
 
     // Hyperion
     devImplementation "com.willowtreeapps.hyperion:hyperion-core:${ver_hyperion}"
