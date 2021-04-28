@@ -108,6 +108,9 @@ dependencies {
     // Material Design
     implementation "com.google.android.material:material:${ver_material}"
 
+    // Picasso
+    implementation "com.squareup.picasso:picasso:${ver_picasso}"
+
     // ZXing
     implementation("com.journeyapps:zxing-android-embedded:${ver_zxing_embedded}") { transitive = false }
     implementation "com.google.zxing:core:${ver_zxing}"
