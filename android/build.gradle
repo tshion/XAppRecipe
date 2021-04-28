@@ -13,7 +13,7 @@ buildscript {
         min_sdk_version = 21
 
         // ライブラリバージョン
-        ver_auto_service = "1.0-rc7"
+        ver_auto_service = "1.0"
         ver_desugar_jdk = '1.1.1'
         ver_droidx_biometric = "1.1.0"
         def ver_droidx_constraint = "2.0.4"
@@ -56,7 +56,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:4.1.3'
 
         // Google Services
-        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.2'
+        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.4'
         classpath 'com.google.gms:google-services:4.3.5'
 
         // Kotlin
