@@ -11,4 +11,9 @@
     <string name="organisms_menu_for_top_item_settings">設定確認</string>
     <string name="organisms_menu_for_top_item_twitter">Twitter</string>
     <string name="organisms_menu_for_top_item_youtube">YouTube</string>
+
+
+    <style name="organisms_menu_for_top">
+        <item name="android:background">#FFFFFF</item>
+    </style>
 </resources>
