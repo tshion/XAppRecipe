@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import work.shion.xapprecipe.databinding.OrganismsMenuForTopItemBinding
 
@@ -19,4 +20,12 @@ internal class MenuForTopItem @JvmOverloads constructor(
         LayoutInflater.from(context),
         this
     )
+
+
+    fun setup(menu: MenuForTopItemType) {
+        binding.organismsMenuForTopItemIcon.setImageDrawable(
+            AppCompatResources.getDrawable(context, menu.iconId)
+        )
+        binding.organismsMenuForTopItemTitle.setText(menu.titleId)
+    }
 }

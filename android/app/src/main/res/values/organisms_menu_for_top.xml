@@ -2,4 +2,13 @@
 <resources>
 
     <dimen name="organisms_menu_for_top_item_icon">24dp</dimen>
+
+
+    <string name="organisms_menu_for_top_item_contact">お問い合わせ</string>
+    <string name="organisms_menu_for_top_item_license">ライセンス</string>
+    <string name="organisms_menu_for_top_item_login">ログイン</string>
+    <string name="organisms_menu_for_top_item_logout">ログアウト</string>
+    <string name="organisms_menu_for_top_item_settings">設定確認</string>
+    <string name="organisms_menu_for_top_item_twitter">Twitter</string>
+    <string name="organisms_menu_for_top_item_youtube">YouTube</string>
 </resources>
