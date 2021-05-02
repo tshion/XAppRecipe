@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="MenuForTopItem">
-        <attr name="android:src" />
-        <attr name="android:text" />
-    </declare-styleable>
-
-
     <dimen name="organisms_menu_for_top_item_icon">24dp</dimen>
 </resources>

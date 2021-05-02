@@ -2,6 +2,6 @@ package work.shion.xapprecipe.organisms.menu_for_top
 
 import androidx.recyclerview.widget.RecyclerView
 
-class MenuForTopItemViewHolder(
-    target: MenuForTopItem,
-) : RecyclerView.ViewHolder(target)
+internal class MenuForTopItemViewHolder(
+    val root: MenuForTopItem,
+) : RecyclerView.ViewHolder(root)
