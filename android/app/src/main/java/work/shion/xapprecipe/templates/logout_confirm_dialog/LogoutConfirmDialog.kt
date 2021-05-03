@@ -11,6 +11,12 @@ import work.shion.xapprecipe.R
  * ログアウト確認ダイアログ
  *
  * ## Example
+ * ### ダイアログの呼び出し
+ * ``` kotlin
+ * activity.let { Navigation.findNavController(it, R.id.entrypoint) }
+ *     .navigate(NavEntrypointDirections.navactShowLogoutConfirmDialog())
+ * ```
+ *
  * ### ダイアログ選択結果の受け取り
  * ``` kotlin
  * class Xxx : Fragment() {
