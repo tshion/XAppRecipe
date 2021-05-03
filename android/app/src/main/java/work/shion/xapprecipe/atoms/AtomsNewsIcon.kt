@@ -47,10 +47,9 @@ class AtomsNewsIcon @JvmOverloads constructor(
     /**
      * バッジ表示するかどうか
      */
-    var isShowBadge: Boolean = false
+    var isShowBadge: Boolean
         get() = binding.atomsNewsIconBadge.isVisible
         set(value) {
-            field = value
             binding.atomsNewsIconBadge.isVisible = value
         }
 }
