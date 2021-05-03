@@ -14,6 +14,22 @@ class ApiSample {
 
 
     @Test
+    fun getHtml_GitHub() {
+        val (description: String?, image: String?, title: String?) = runBlocking {
+            val html = api.getHtml("https://github.com/TentaShion")
+            Triple(
+                html?.let { regexDescription.find(it) }?.destructured?.component1(),
+                html?.let { regexImage.find(it) }?.destructured?.component1(),
+                html?.let { regexTitle.find(it) }?.destructured?.component1()
+            )
+        }
+
+        assertThat(description.isNullOrBlank()).isFalse()
+        assertThat(image.isNullOrBlank()).isFalse()
+        assertThat(title.isNullOrBlank()).isFalse()
+    }
+
+    @Test
     fun getHtml_MkLog() {
         val (description: String?, image: String?, title: String?) = runBlocking {
             val html = api.getHtml("https://mokumokulog.netlify.app/")
