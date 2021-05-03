@@ -4,9 +4,4 @@
     <declare-styleable name="HeaderForWebTab">
         <attr name="android:text" />
     </declare-styleable>
-
-
-    <style name="molecules_header_for_web_tab">
-        <item name="android:background">@color/app_main</item>
-    </style>
 </resources>
