@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_transparent_dark"
+        android:padding="@dimen/app_space_2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
+            android:padding="@dimen/app_space_2">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/templates_link_detail_dialog_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toTopOf="@id/templates_link_detail_dialog_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.6"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <work.shion.xapprecipe.atoms.NegativeButton
+                android:id="@+id/templates_link_detail_dialog_delete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_space_2"
+                android:layout_marginEnd="@dimen/app_space_2"
+                android:text="@string/templates_link_detail_dialog_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/templates_link_detail_dialog_close"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/templates_link_detail_dialog_code" />
+
+            <work.shion.xapprecipe.atoms.PositiveButton
+                android:id="@+id/templates_link_detail_dialog_close"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/app_space_2"
+                android:text="@string/templates_link_detail_dialog_close"
+                app:layout_constraintBottom_toBottomOf="@id/templates_link_detail_dialog_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/templates_link_detail_dialog_delete"
+                app:layout_constraintTop_toTopOf="@id/templates_link_detail_dialog_delete" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
