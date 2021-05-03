@@ -1,12 +1,11 @@
-package work.shion.xapprecipe_data
+package work.shion.xapprecipe_data.apiWeb
 
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import org.junit.Test
-import work.shion.xapprecipe_data.apiWeb.Api
 
-class FetchOgpSample {
+class ApiSample {
 
     private val api = Api(OkHttpClient())
     private val regexDescription = """meta property="og:description" content="(.*)"""".toRegex()
@@ -15,7 +14,7 @@ class FetchOgpSample {
 
 
     @Test
-    fun fetchMkLog() {
+    fun getHtml_MkLog() {
         val (description: String?, image: String?, title: String?) = runBlocking {
             val html = api.getHtml("https://mokumokulog.netlify.app/")
             Triple(
