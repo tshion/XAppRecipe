@@ -2,9 +2,9 @@
 <resources>
 
     <string name="templates_logout_confirm_dialog_message">ログアウトしますか？</string>
-    <string name="templates_logout_confirm_dialog_negative">閉じる</string>
-    <string name="templates_logout_confirm_dialog_positive">ログアウト</string>
-    <string name="templates_logout_confirm_dialog_title">ログアウト</string>
+    <string name="templates_logout_confirm_dialog_negative">@string/app_action_close</string>
+    <string name="templates_logout_confirm_dialog_positive">@string/app_action_logout</string>
+    <string name="templates_logout_confirm_dialog_title">@string/app_action_logout</string>
 
 
     <style name="TemplatesLogoutConfirmDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">

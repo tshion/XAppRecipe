@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="templates_link_detail_dialog_close">閉じる</string>
-    <string name="templates_link_detail_dialog_delete">削除</string>
+    <string name="templates_link_detail_dialog_close">@string/app_action_close</string>
+    <string name="templates_link_detail_dialog_delete">@string/app_action_delete</string>
 </resources>

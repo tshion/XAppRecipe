@@ -2,8 +2,8 @@
 <resources>
 
     <string name="templates_logout_finish_dialog_message">ログアウト完了しました。</string>
-    <string name="templates_logout_finish_dialog_positive">閉じる</string>
-    <string name="templates_logout_finish_dialog_title">ログアウト</string>
+    <string name="templates_logout_finish_dialog_positive">@string/app_action_close</string>
+    <string name="templates_logout_finish_dialog_title">@string/app_action_logout</string>
 
 
     <style name="TemplatesLogoutFinishDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
