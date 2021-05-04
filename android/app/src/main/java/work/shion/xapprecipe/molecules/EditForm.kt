@@ -13,6 +13,33 @@ import work.shion.xapprecipe.databinding.MoleculesEditFormBinding
 
 /**
  * 入力欄
+ *
+ * ## Example
+ * ### 前提
+ * ``` xml
+ * <(package).molecules.EditForm
+ *     android:id="(id)"
+ *     android:layout_width="match_parent"
+ *     android:layout_height="wrap_content"
+ *     android:hint="タイトル"
+ *     android:inputType="text" />
+ * ```
+ *
+ * ### 入力データの取得
+ * ``` kotlin
+ * (id).input
+ * ```
+ *
+ * ### 変更の検知
+ * ``` kotlin
+ * (id).listener = object : TextWatcher {
+ *     ......
+ * }
+ *
+ * ### エラーの設定
+ * ``` kotlin
+ * (id).errors = "..."
+ * ```
  */
 class EditForm @JvmOverloads constructor(
     context: Context,
@@ -28,15 +55,27 @@ class EditForm @JvmOverloads constructor(
     )
 
     var errors: String?
-        get() = binding.errors
+        get() = binding.message
         set(value) {
-            binding.errors = value
+            binding.message = value
         }
 
     var input: String?
         get() = binding.input
         set(value) {
             binding.input = value
+        }
+
+    var listener: TextWatcher? = null
+        set(value) {
+            binding.moleculesEditFormInput.apply {
+                if (value != null) {
+                    addTextChangedListener(value)
+                } else {
+                    removeTextChangedListener(field)
+                }
+            }
+            field = listener
         }
 
 
@@ -48,14 +87,10 @@ class EditForm @JvmOverloads constructor(
             R.styleable.EditForm,
             defStyleAttr,
         ) {
-            binding.title = getString(R.styleable.EditForm_android_text)
-        }
-    }
+            binding.input = getString(R.styleable.EditForm_android_text)
+            binding.label = getString(R.styleable.EditForm_android_hint)
 
-
-    fun registerListener(listener: TextWatcher?) {
-        binding.moleculesEditFormInput.apply {
-            addTextChangedListener(listener)
+            binding.moleculesEditFormInput.inputType = getInt(R.styleable.EditForm_android_inputType, 0)
         }
     }
 }

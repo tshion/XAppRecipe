@@ -9,15 +9,15 @@
         <import type="android.view.View" />
 
         <variable
-            name="errors"
-            type="String" />
-
-        <variable
             name="input"
             type="String" />
 
         <variable
-            name="title"
+            name="label"
+            type="String" />
+
+        <variable
+            name="message"
             type="String" />
     </data>
 
@@ -30,7 +30,7 @@
             android:id="@+id/molecules_edit_form_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{title}"
+            android:text="@{label}"
             android:textColor="@color/app_text"
             android:textSize="@dimen/app_text_large"
             android:textStyle="bold"
@@ -39,12 +39,14 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{errors}"
+            android:paddingTop="@dimen/app_space_1"
+            android:paddingBottom="@dimen/app_space_1"
+            android:text="@{message}"
             android:textColor="@color/app_text_accent"
             android:textSize="@dimen/app_text_small"
-            android:visibility="@{!TextUtils.isEmpty(errors) ? View.VISIBLE : View.GONE}"
+            android:visibility="@{!TextUtils.isEmpty(message) ? View.VISIBLE : View.GONE}"
             tools:text="@tools:sample/full_names"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/molecules_edit_form_input"
