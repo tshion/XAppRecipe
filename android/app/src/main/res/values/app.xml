@@ -4,6 +4,7 @@
     <!-- アプリ配色ルール -->
     <color name="app_accent">#E15A28</color>
     <color name="app_base">#A1B2BD</color>
+    <color name="app_base_2">#FFFFFF</color>
     <color name="app_main">#111122</color>
     <color name="app_main_dark">#000011</color>
 

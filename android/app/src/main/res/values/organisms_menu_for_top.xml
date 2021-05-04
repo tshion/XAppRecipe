@@ -14,6 +14,6 @@
 
 
     <style name="organisms_menu_for_top">
-        <item name="android:background">#FFFFFF</item>
+        <item name="android:background">@color/app_base_2</item>
     </style>
 </resources>
