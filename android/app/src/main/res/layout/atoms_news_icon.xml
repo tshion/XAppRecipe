@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/app_main"
+    tools:layout_height="?attr/actionBarSize"
+    tools:layout_width="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/atoms_news_icon_image"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/icon_notification"
+        android:tint="@color/app_text_contrast"
+        app:layout_constraintBottom_toTopOf="@id/atoms_news_icon_title"
+        app:layout_constraintEnd_toEndOf="@id/atoms_news_icon_title"
+        app:layout_constraintStart_toStartOf="@id/atoms_news_icon_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atoms_news_icon_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/app_space_1"
+        android:paddingEnd="@dimen/app_space_1"
+        android:text="@string/atoms_news_icon_title"
+        android:textColor="@color/app_text_contrast"
+        android:textSize="@dimen/app_text_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/atoms_news_icon_image" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/atoms_news_icon_badge"
+        android:layout_width="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/atoms_news_icon_badge"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+</merge>
