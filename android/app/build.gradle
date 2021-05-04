@@ -83,7 +83,9 @@ dependencies {
 
     // AndroidPreparation
     debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
+    implementation "work.shion.androidpreparation:intentbuilder:${ver_prep_intent}"
     implementation "work.shion.androidpreparation:views:${ver_prep_views}"
+    implementation "work.shion.androidpreparation:webviewbuilder:${ver_prep_web}"
 
     // AndroidX
     implementation "androidx.biometric:biometric:${ver_droidx_biometric}"
