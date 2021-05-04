@@ -3,10 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <work.shion.xapprecipe.molecules.EditForm
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home" />
-
+        android:text="aaa"
+        android:layout_height="wrap_content" />
 </FrameLayout>

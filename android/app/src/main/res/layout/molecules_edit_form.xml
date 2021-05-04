@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="android.text.TextUtils" />
+
         <import type="android.view.View" />
 
         <variable
@@ -40,13 +42,15 @@
             android:text="@{errors}"
             android:textColor="@color/app_text_accent"
             android:textSize="@dimen/app_text_small"
-            android:visibility="@{!errors.empty ? View.VISIBLE : View.GONE}"
+            android:visibility="@{!TextUtils.isEmpty(errors) ? View.VISIBLE : View.GONE}"
             tools:text="@tools:sample/full_names"
             tools:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/molecules_edit_form_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="@={input}"
             tools:text="@tools:sample/full_names" />
     </merge>
