@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="errors"
+            type="String" />
+
+        <variable
+            name="input"
+            type="String" />
+
+        <variable
+            name="title"
+            type="String" />
+    </data>
+
+
+    <merge
+        tools:orientation="vertical"
+        tools:parentTag="androidx.appcompat.widget.LinearLayoutCompat">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/molecules_edit_form_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{title}"
+            android:textColor="@color/app_text"
+            android:textSize="@dimen/app_text_large"
+            android:textStyle="bold"
+            tools:text="@tools:sample/cities" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{errors}"
+            android:textColor="@color/app_text_accent"
+            android:textSize="@dimen/app_text_small"
+            android:visibility="@{!errors.empty ? View.VISIBLE : View.GONE}"
+            tools:text="@tools:sample/full_names"
+            tools:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={input}"
+            tools:text="@tools:sample/full_names" />
+    </merge>
+</layout>
