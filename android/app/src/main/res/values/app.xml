@@ -34,6 +34,12 @@
     <dimen name="app_text_small_x">10sp</dimen>
 
 
+    <!-- アクション名 -->
+    <string name="app_action_close">閉じる</string>
+    <string name="app_action_delete">削除</string>
+    <string name="app_action_login">ログイン</string>
+    <string name="app_action_logout">ログアウト</string>
+
     <string name="app_name">XAppRecipe</string>
     <string name="custom_url_scheme">@string/package_name</string>
     <string name="package_name">work.shion.xapprecipe</string>
