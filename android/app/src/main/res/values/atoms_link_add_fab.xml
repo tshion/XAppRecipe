@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="atoms_link_add_fab_icon">#FFFFFF</color>
+
+
+    <string name="atoms_link_add_fab_icon">リンクの追加</string>
+</resources>
