@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Header">
+        <attr name="android:text" />
+    </declare-styleable>
+
+
+    <style name="molecules_header">
+        <item name="android:background">@color/app_main</item>
+    </style>
+</resources>

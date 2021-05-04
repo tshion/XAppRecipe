@@ -26,6 +26,16 @@
             app:argType="string" />
     </dialog>
 
+    <!-- ログアウト確認ダイアログ -->
+    <dialog
+        android:id="@+id/logout_confirm_dialog"
+        android:name="work.shion.xapprecipe.templates.logout_confirm_dialog.LogoutConfirmDialog" />
+
+    <!-- ログアウト完了ダイアログ -->
+    <dialog
+        android:id="@+id/logout_finish_dialog"
+        android:name="work.shion.xapprecipe.templates.logout_finish_dialog.LogoutFinishDialog" />
+
 
     <!-- アプリ起動 -->
     <fragment
@@ -78,6 +88,16 @@
     <action
         android:id="@+id/navact_show_link_detail_dialog"
         app:destination="@id/link_detail_dialog" />
+
+    <!-- ログアウト確認ダイアログの表示 -->
+    <action
+        android:id="@+id/navact_show_logout_confirm_dialog"
+        app:destination="@id/logout_confirm_dialog" />
+
+    <!-- ログアウト完了ダイアログの表示 -->
+    <action
+        android:id="@+id/navact_show_logout_finish_dialog"
+        app:destination="@id/logout_finish_dialog" />
 
     <!-- 生体認証へ遷移 -->
     <action
