@@ -16,6 +16,16 @@
         android:id="@+id/launch_error_dialog"
         android:name="work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialog" />
 
+    <!-- リンク詳細ダイアログ -->
+    <dialog
+        android:id="@+id/link_detail_dialog"
+        android:name="work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialog">
+
+        <argument
+            android:name="uri"
+            app:argType="string" />
+    </dialog>
+
     <!-- ログアウト確認ダイアログ -->
     <dialog
         android:id="@+id/logout_confirm_dialog"
@@ -73,6 +83,11 @@
     <action
         android:id="@+id/navact_show_launch_error_dialog"
         app:destination="@id/launch_error_dialog" />
+
+    <!-- リンク詳細ダイアログの表示 -->
+    <action
+        android:id="@+id/navact_show_link_detail_dialog"
+        app:destination="@id/link_detail_dialog" />
 
     <!-- ログアウト確認ダイアログの表示 -->
     <action
