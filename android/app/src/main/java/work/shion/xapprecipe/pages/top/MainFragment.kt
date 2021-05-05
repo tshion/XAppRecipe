@@ -1,8 +1,9 @@
 package work.shion.xapprecipe.pages.top
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.databinding.DataBindingUtil
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import work.shion.xapprecipe.NavTopDirections
@@ -12,32 +13,18 @@ import work.shion.xapprecipe.databinding.PagesTopBinding
 /**
  * トップ
  */
-class MainFragment : Fragment(R.layout.pages_top) {
+class MainFragment : Fragment() {
 
     private var binding: PagesTopBinding? = null
 
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = PagesTopBinding.inflate(inflater, container, false)
+        return binding?.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding = DataBindingUtil.bind(view)
-        binding?.apply {
-            lifecycleOwner = viewLifecycleOwner
-        }
-
-        // ドロワー
-        binding?.pagesTopDrawer?.setNavigationItemSelectedListener { menu ->
-            when (menu.itemId) {
-                R.id.pages_top_drawer_licenses -> {
-                    MainFragmentDirections.navactToLicense()
-                }
-                else -> null
-            }?.also { direction ->
-                activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-                    ?.navigate(direction)
-            }
-            return@setNavigationItemSelectedListener true
-        }
 
         // フッター
         binding?.pagesTopFooter?.setOnNavigationItemSelectedListener { menu ->
@@ -59,6 +46,20 @@ class MainFragment : Fragment(R.layout.pages_top) {
         binding?.pagesTopHeader?.setOnClickListener {
             activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
                 ?.navigate(MainFragmentDirections.navactToNotice())
+        }
+
+        // ドロワーメニュー
+        binding?.pagesTopMenu?.setNavigationItemSelectedListener { menu ->
+            when (menu.itemId) {
+                R.id.pages_top_drawer_licenses -> {
+                    MainFragmentDirections.navactToLicense()
+                }
+                else -> null
+            }?.also { direction ->
+                activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
+                    ?.navigate(direction)
+            }
+            return@setNavigationItemSelectedListener true
         }
     }
 
