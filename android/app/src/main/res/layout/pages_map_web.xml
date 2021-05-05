@@ -6,13 +6,13 @@
     android:orientation="vertical">
 
     <work.shion.xapprecipe.molecules.HeaderForWebTab
-        android:id="@+id/pages_web_tab_header"
+        android:id="@+id/pages_map_web_header"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:text="@string/pages_web_tab_header" />
+        android:text="@string/pages_map_web_header" />
 
     <WebView
-        android:id="@+id/pages_web_tab_browser"
+        android:id="@+id/pages_map_web_browser"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
