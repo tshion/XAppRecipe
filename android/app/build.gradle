@@ -41,6 +41,15 @@ android {
         targetSdkVersion compile_sdk_version
         versionCode appver_code
         versionName appver_name
+
+
+        // Twitter のURL
+        buildConfigField "String", "URL_Twitter",
+            "\"https://twitter.com/shion_engineer\""
+
+        // YouTube のURL
+        buildConfigField "String", "URL_YouTube",
+            "\"https://www.youtube.com/channel/UCAB_s7KJI0Ms6pjjSASte2w\""
     }
     flavorDimensions "mode"
     kotlinOptions {
