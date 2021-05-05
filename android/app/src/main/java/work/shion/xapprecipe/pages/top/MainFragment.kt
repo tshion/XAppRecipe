@@ -42,12 +42,6 @@ class MainFragment : Fragment() {
             return@setOnNavigationItemSelectedListener true
         }
 
-        // ヘッダー
-        binding?.pagesTopHeader?.setOnClickListener {
-            activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-                ?.navigate(MainFragmentDirections.navactToNotice())
-        }
-
         // ドロワーメニュー
         binding?.pagesTopMenu?.setNavigationItemSelectedListener { menu ->
             when (menu.itemId) {
