@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
-        <!-- 次へ -->
+        <!-- スキップ -->
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/pages_tutorial_action_next"
+            android:id="@+id/pages_tutorial_action_skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|start"
@@ -31,7 +31,7 @@
             android:paddingTop="@dimen/app_space_1"
             android:paddingEnd="@dimen/app_space_1"
             android:paddingBottom="@dimen/app_space_1"
-            android:text="@string/pages_tutorial_action_next"
+            android:text="@string/pages_tutorial_action_skip"
             android:textColor="@color/app_text_accent"
             android:textSize="@dimen/app_text_large"
             tools:visibility="gone" />
@@ -48,9 +48,9 @@
             android:visibility="gone"
             tools:visibility="visible" />
 
-        <!-- スキップ -->
+        <!-- 次へ -->
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/pages_tutorial_action_skip"
+            android:id="@+id/pages_tutorial_action_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|end"
@@ -58,7 +58,7 @@
             android:paddingTop="@dimen/app_space_1"
             android:paddingEnd="@dimen/app_space_1"
             android:paddingBottom="@dimen/app_space_1"
-            android:text="@string/pages_tutorial_action_skip"
+            android:text="@string/pages_tutorial_action_next"
             android:textColor="@color/app_text_accent"
             android:textSize="@dimen/app_text_large"
             tools:visibility="gone" />
