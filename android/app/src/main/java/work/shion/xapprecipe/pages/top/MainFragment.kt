@@ -43,17 +43,8 @@ class MainFragment : Fragment() {
         }
 
         // ドロワーメニュー
-        binding?.pagesTopMenu?.setNavigationItemSelectedListener { menu ->
-            when (menu.itemId) {
-                R.id.pages_top_drawer_licenses -> {
-                    MainFragmentDirections.navactToLicense()
-                }
-                else -> null
-            }?.also { direction ->
-                activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-                    ?.navigate(direction)
-            }
-            return@setNavigationItemSelectedListener true
+        binding?.pagesTopMenu?.setup(true)
+        binding?.pagesTopMenu?.tapListener = {
         }
     }
 
