@@ -19,7 +19,7 @@ class PageFragment : Fragment() {
 
 
         @JvmStatic
-        fun newInstance(imagePath: String) = PageFragment().apply {
+        fun newInstance(imagePath: String?) = PageFragment().apply {
             arguments = bundleOf(
                 ARGS_IMAGE_PATH to imagePath
             )
