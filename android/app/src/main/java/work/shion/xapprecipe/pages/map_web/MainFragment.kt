@@ -56,8 +56,9 @@ class MainFragment : Fragment() {
             }
             .shouldOverrideUrlLoading { _, request ->
                 if (request?.url?.scheme?.equals("tel", true) == true) {
+                    val phoneNumber = request.url.toString().removePrefix("tel:")
                     LaunchPhoneIntentBuilder()
-                        .phoneNumber(request.url.path)
+                        .phoneNumber(phoneNumber)
                         .build()
                         .also { startActivity(it) }
                 } else {
