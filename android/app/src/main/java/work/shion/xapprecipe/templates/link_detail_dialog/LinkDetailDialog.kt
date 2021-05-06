@@ -70,6 +70,7 @@ class LinkDetailDialog : DialogFragment() {
             binding?.templatesLinkDetailDialogClose?.setOnClickListener { dismiss() }
 
             binding?.templatesLinkDetailDialogDelete?.setOnClickListener {
+                dismiss()
                 viewModel.isCalledDelete.value = true
             }
         } catch (ex: Error) {
