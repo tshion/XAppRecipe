@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base">
+
+    <work.shion.xapprecipe.molecules.Header
+        android:id="@+id/pages_login_header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="@string/pages_login"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <work.shion.xapprecipe.molecules.EditForm
+        android:id="@+id/pages_login_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_space_2"
+        android:layout_marginTop="@dimen/app_space_2"
+        android:layout_marginEnd="@dimen/app_space_2"
+        android:hint="@string/pages_login_id"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/pages_login_header" />
+
+    <work.shion.xapprecipe.molecules.EditForm
+        android:id="@+id/pages_login_pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_space_2"
+        android:layout_marginTop="@dimen/app_space_2"
+        android:layout_marginEnd="@dimen/app_space_2"
+        android:hint="@string/pages_login_pw"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@id/pages_login_id" />
+
+    <work.shion.xapprecipe.atoms.NegativeButton
+        android:id="@+id/pages_login_action_skip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_space_2"
+        android:layout_marginEnd="@dimen/app_space_1"
+        android:layout_marginBottom="@dimen/app_space_2"
+        android:text="@string/pages_login_skip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/pages_login_action_login"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <work.shion.xapprecipe.atoms.PositiveButton
+        android:id="@+id/pages_login_action_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/app_space_1"
+        android:layout_marginEnd="@dimen/app_space_2"
+        android:text="@string/app_action_login"
+        app:layout_constraintBottom_toBottomOf="@id/pages_login_action_skip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pages_login_action_skip" />
+</androidx.constraintlayout.widget.ConstraintLayout>
