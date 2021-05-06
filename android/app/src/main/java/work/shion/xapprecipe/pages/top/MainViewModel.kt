@@ -11,6 +11,14 @@ class MainViewModel(
 ) : ViewModel(), MainActionContract {
 
     /**
+     * ログアウトの実行
+     */
+    override fun doLogout() {
+        // TODO: 認証状態の変更
+        viewer.get()?.showLogoutFinish()
+    }
+
+    /**
      * メニュータップ時
      */
     override fun onTapMenu(type: MenuForTopItemType) {

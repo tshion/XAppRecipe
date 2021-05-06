@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -68,13 +69,13 @@ class MainFragment : Fragment(), MainViewContract {
         logoutConfirmDialogViewModel.isCalledDismiss.observe(viewLifecycleOwner) {
             if (it) {
                 logoutConfirmDialogViewModel.isCalledDismiss.value = false
-                showLogoutFinish()
+                viewModel.doLogout()
             }
         }
         logoutFinishDialogViewModel.isCalledDismiss.observe(viewLifecycleOwner) {
             if (it) {
                 logoutFinishDialogViewModel.isCalledDismiss.value = false
-                goTop()
+                closeMenu()
             }
         }
     }
@@ -84,6 +85,13 @@ class MainFragment : Fragment(), MainViewContract {
         super.onDestroyView()
     }
 
+
+    /**
+     * メニューを閉じる
+     */
+    override fun closeMenu() {
+        binding?.pagesTopDrawer?.closeDrawer(GravityCompat.START)
+    }
 
     /**
      * ライセンス表記へ遷移
@@ -98,14 +106,6 @@ class MainFragment : Fragment(), MainViewContract {
      */
     override fun goLogin() {
         Toast.makeText(requireContext(), "ログイン", Toast.LENGTH_SHORT).show()
-    }
-
-    /**
-     * トップへ遷移
-     */
-    override fun goTop() {
-        activity?.let { Navigation.findNavController(it, R.id.pages_top_entrypoint) }
-            ?.navigate(NavEntrypointDirections.navactToTop())
     }
 
     /**
@@ -137,6 +137,13 @@ class MainFragment : Fragment(), MainViewContract {
         Intent().apply {
             action = ACTION_SETTINGS
         }.also { startActivity(it) }
+    }
+
+    /**
+     * メニューを開く
+     */
+    override fun openMenu() {
+        binding?.pagesTopDrawer?.openDrawer(GravityCompat.START)
     }
 
     /**

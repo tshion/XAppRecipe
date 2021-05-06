@@ -8,6 +8,11 @@ import work.shion.xapprecipe.organisms.menu_for_top.MenuForTopItemType
 interface MainActionContract {
 
     /**
+     * ログアウトの実行
+     */
+    fun doLogout()
+
+    /**
      * メニュータップ時
      */
     fun onTapMenu(type: MenuForTopItemType)

@@ -6,6 +6,11 @@ package work.shion.xapprecipe.pages.top
 interface MainViewContract {
 
     /**
+     * メニューを閉じる
+     */
+    fun closeMenu()
+
+    /**
      * ライセンス表記へ遷移
      */
     fun goLicense()
@@ -14,11 +19,6 @@ interface MainViewContract {
      * ログインへ遷移
      */
     fun goLogin()
-
-    /**
-     * トップへ遷移
-     */
-    fun goTop()
 
     /**
      * 外部ブラウザの起動
@@ -34,6 +34,11 @@ interface MainViewContract {
      * OS 設定の起動
      */
     fun launchOsSettings()
+
+    /**
+     * メニューを開く
+     */
+    fun openMenu()
 
     /**
      * ログアウト確認の表示
