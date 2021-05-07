@@ -5,16 +5,18 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_margin="@dimen/app_space_2"
-    android:minWidth="240dp"
+    android:minWidth="320dp"
     android:padding="@dimen/app_space_2">
 
     <work.shion.xapprecipe.molecules.EditForm
         android:id="@+id/templates_link_insert_dialog_input"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/templates_link_insert_dialog_input_title"
-        android:inputType="textUri"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@id/templates_link_insert_dialog_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <work.shion.xapprecipe.atoms.NegativeButton
