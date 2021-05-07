@@ -11,13 +11,13 @@ object LoginValidator {
     fun preCheck(target: LoginEntity): LoginException? {
         val idError = when {
             target.id.isNullOrBlank() -> NullPointerException()
-            3 < target.id.count() -> IllegalArgumentException()
+            target.id.count() < 3 -> IllegalArgumentException()
             else -> null
         }
 
         val pwError = when {
             target.pw.isNullOrBlank() -> NullPointerException()
-            8 < target.pw.count() -> IllegalArgumentException()
+            target.pw.count() < 8 -> IllegalArgumentException()
             else -> null
         }
 
