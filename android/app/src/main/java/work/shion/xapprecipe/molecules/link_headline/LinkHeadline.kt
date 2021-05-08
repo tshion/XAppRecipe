@@ -27,9 +27,9 @@ class LinkHeadline @JvmOverloads constructor(
 
 
     fun setup(
-        description: String,
+        description: String?,
         imagePath: String?,
-        title: String,
+        title: String?,
     ) {
         if (imagePath?.isBlank() != true) {
             Picasso.get()
