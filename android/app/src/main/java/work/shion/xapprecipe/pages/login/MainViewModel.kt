@@ -21,6 +21,7 @@ class MainViewModel(
      */
     override fun doLogin(id: String?, pw: String?) {
         viewModelScope.launch {
+            viewer.get()?.reflectLoading(true)
             try {
                 LoginEntity(id, pw)
                     .also { certifyAccountUseCaseContract.login(it) }
@@ -46,6 +47,8 @@ class MainViewModel(
                         }
                     }?.joinToString(separator = "") { "・${it}\n" },
                 )
+            } finally {
+                viewer.get()?.reflectLoading(false)
             }
         }
     }

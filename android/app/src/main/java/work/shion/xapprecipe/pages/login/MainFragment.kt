@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -94,6 +95,13 @@ class MainFragment : Fragment(), MainViewContract {
             pagesLoginId.errors = idError
             pagesLoginPw.errors = pwError
         }
+    }
+
+    /**
+     * ローディング表示状態の反映
+     */
+    override fun reflectLoading(shouldShow: Boolean) {
+        binding?.pagesLoginLoading?.isVisible = shouldShow
     }
 
     /**
