@@ -5,12 +5,6 @@
     android:id="@+id/nav_top"
     app:startDestination="@id/top_link_index">
 
-    <!-- ホーム -->
-    <fragment
-        android:id="@+id/top_home"
-        android:name="work.shion.xapprecipe.pages.home.MainFragment"
-        tools:layout="@layout/pages_home" />
-
     <!-- リンク一覧 -->
     <fragment
         android:id="@+id/top_link_index"
@@ -23,18 +17,6 @@
         android:name="work.shion.xapprecipe.pages.map_web.MainFragment"
         tools:layout="@layout/pages_map_web" />
 
-    <!-- サンプル -->
-    <fragment
-        android:id="@+id/top_sample"
-        android:name="work.shion.xapprecipe.pages.sample.MainFragment"
-        tools:layout="@layout/pages_sample" />
-
-
-    <!-- ホームへ遷移 -->
-    <action
-        android:id="@+id/navact_top_to_home"
-        app:destination="@id/top_home"
-        app:popUpTo="@id/nav_top" />
 
     <!-- リンク一覧へ遷移 -->
     <action
@@ -46,11 +28,5 @@
     <action
         android:id="@+id/navact_top_to_map_web"
         app:destination="@id/top_map_web"
-        app:popUpTo="@id/nav_top" />
-
-    <!-- サンプルへ遷移 -->
-    <action
-        android:id="@+id/navact_top_to_sample"
-        app:destination="@id/top_sample"
         app:popUpTo="@id/nav_top" />
 </navigation>
