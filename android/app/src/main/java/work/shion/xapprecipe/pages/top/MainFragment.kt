@@ -18,11 +18,9 @@ import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.NavTopDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesTopBinding
+import work.shion.xapprecipe.getProvider
 import work.shion.xapprecipe.templates.logout_confirm_dialog.LogoutConfirmDialogViewModel
 import work.shion.xapprecipe.templates.logout_finish_dialog.LogoutFinishDialogViewModel
-import work.shion.xapprecipe_core.entities.LoginEntity
-import work.shion.xapprecipe_core.repositories.AuthenticateRepositoryContract
-import work.shion.xapprecipe_core.usecases.CertifyAccountUseCase
 import java.lang.ref.WeakReference
 
 /**
@@ -35,18 +33,7 @@ class MainFragment : Fragment(), MainViewContract {
     private val logoutFinishDialogViewModel by activityViewModels<LogoutFinishDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
-            certifyAccountUseCase = CertifyAccountUseCase(
-                authenticateRepository = object : AuthenticateRepositoryContract {
-
-                    override suspend fun isAuthenticated() = true
-
-                    override suspend fun login(data: LoginEntity) {
-                    }
-
-                    override suspend fun logout() {
-                    }
-                },
-            ),
+            certifyAccountUseCase = activity?.getProvider()!!.certifyAccountUseCase,
             viewer = WeakReference(this),
         )
     }

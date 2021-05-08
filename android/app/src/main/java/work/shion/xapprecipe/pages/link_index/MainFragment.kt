@@ -12,11 +12,10 @@ import androidx.navigation.Navigation
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesLinkIndexBinding
+import work.shion.xapprecipe.getProvider
 import work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialogViewModel
 import work.shion.xapprecipe.templates.link_insert_dialog.LinkInsertDialogViewModel
 import work.shion.xapprecipe_core.entities.WebLinkEntity
-import work.shion.xapprecipe_core.repositories.WebLinkRepositoryContract
-import work.shion.xapprecipe_core.usecases.BookmarkWebUseCase
 import java.lang.ref.WeakReference
 import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 
@@ -31,21 +30,7 @@ class MainFragment : Fragment(), MainViewContract {
     private val linkInsertViewModel by activityViewModels<LinkInsertDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
-            bookmarkWebUseCase = BookmarkWebUseCase(
-                webLinkRepository = object : WebLinkRepositoryContract {
-
-                    override suspend fun append(path: String) {
-                    }
-
-                    override suspend fun load(): List<WebLinkEntity> = emptyList()
-
-                    override suspend fun remove(id: String) {
-                    }
-
-                    override suspend fun update(target: WebLinkEntity) {
-                    }
-                },
-            ),
+            bookmarkWebUseCase = activity?.getProvider()!!.bookmarkUseCase,
             viewer = WeakReference(this),
         )
     }
