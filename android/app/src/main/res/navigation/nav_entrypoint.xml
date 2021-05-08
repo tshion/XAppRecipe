@@ -66,12 +66,6 @@
         android:name="work.shion.xapprecipe.pages.login_biometric.MainFragment"
         tools:layout="@layout/page_login_biometric" />
 
-    <!-- 地図(WEB 版) -->
-    <fragment
-        android:id="@+id/map_web"
-        android:name="work.shion.xapprecipe.pages.map_web.MainFragment"
-        tools:layout="@layout/pages_map_web" />
-
     <!-- 通知一覧 -->
     <fragment
         android:id="@+id/notice"
@@ -132,11 +126,6 @@
         android:id="@+id/navact_to_login_biometric"
         app:destination="@id/login_biometric" />
 
-    <!-- 地図(WEB 版) へ遷移 -->
-    <action
-        android:id="@+id/navact_to_map_web"
-        app:destination="@id/map_web" />
-  
     <!-- 通知一覧へ遷移 -->
     <action
         android:id="@+id/navact_to_notice"

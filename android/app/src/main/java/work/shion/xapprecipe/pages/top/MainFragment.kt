@@ -6,8 +6,8 @@ import android.provider.Settings.ACTION_SETTINGS
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -20,6 +20,9 @@ import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesTopBinding
 import work.shion.xapprecipe.templates.logout_confirm_dialog.LogoutConfirmDialogViewModel
 import work.shion.xapprecipe.templates.logout_finish_dialog.LogoutFinishDialogViewModel
+import work.shion.xapprecipe_core.entities.LoginEntity
+import work.shion.xapprecipe_core.repositories.AuthenticateRepositoryContract
+import work.shion.xapprecipe_core.usecases.CertifyAccountUseCase
 import java.lang.ref.WeakReference
 
 /**
@@ -32,7 +35,19 @@ class MainFragment : Fragment(), MainViewContract {
     private val logoutFinishDialogViewModel by activityViewModels<LogoutFinishDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
-            viewer = WeakReference(this)
+            certifyAccountUseCase = CertifyAccountUseCase(
+                authenticateRepository = object : AuthenticateRepositoryContract {
+
+                    override suspend fun isAuthenticated() = true
+
+                    override suspend fun login(data: LoginEntity) {
+                    }
+
+                    override suspend fun logout() {
+                    }
+                },
+            ),
+            viewer = WeakReference(this),
         )
     }
 
@@ -52,8 +67,8 @@ class MainFragment : Fragment(), MainViewContract {
         // フッター
         binding?.pagesTopFooter?.setOnNavigationItemSelectedListener { menu ->
             when (menu.itemId) {
-                R.id.pages_top_footer_links -> NavTopDirections.navactTopToSample()
-                R.id.pages_top_footer_map -> NavTopDirections.navactTopToSample()
+                R.id.pages_top_footer_links -> NavTopDirections.navactTopToLinkIndex()
+                R.id.pages_top_footer_map -> NavTopDirections.navactTopToMapWeb()
                 else -> null
             }?.also { direction ->
                 activity?.let { Navigation.findNavController(it, R.id.pages_top_entrypoint) }
@@ -63,7 +78,6 @@ class MainFragment : Fragment(), MainViewContract {
         }
 
         // ドロワーメニュー
-        binding?.pagesTopMenu?.setup(true)
         binding?.pagesTopMenu?.tapListener = { viewModel.onTapMenu(it) }
 
         // 値の監視
@@ -77,8 +91,19 @@ class MainFragment : Fragment(), MainViewContract {
             if (it) {
                 logoutFinishDialogViewModel.isCalledDismiss.value = false
                 closeMenu()
+                viewModel.loadMenu()
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.loadMenu()
+    }
+
+    override fun onStop() {
+        viewModel.cancelTasks()
+        super.onStop()
     }
 
     override fun onDestroyView() {
@@ -106,7 +131,8 @@ class MainFragment : Fragment(), MainViewContract {
      * ログインへ遷移
      */
     override fun goLogin() {
-        Toast.makeText(requireContext(), "ログイン", Toast.LENGTH_SHORT).show()
+        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
+            ?.navigate(NavEntrypointDirections.navactToLogin(canClose = true))
     }
 
     /**
@@ -145,6 +171,20 @@ class MainFragment : Fragment(), MainViewContract {
      */
     override fun openMenu() {
         binding?.pagesTopDrawer?.openDrawer(GravityCompat.START)
+    }
+
+    /**
+     * ローディング状態の反映
+     */
+    override fun reflectLoading(shouldShow: Boolean) {
+        binding?.pagesTopLoading?.isVisible = shouldShow
+    }
+
+    /**
+     * メニュー項目の反映
+     */
+    override fun reflectMenu(isLogin: Boolean) {
+        binding?.pagesTopMenu?.setup(isLogin)
     }
 
     /**

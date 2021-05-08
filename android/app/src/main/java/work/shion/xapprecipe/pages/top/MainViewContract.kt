@@ -41,6 +41,16 @@ interface MainViewContract {
     fun openMenu()
 
     /**
+     * ローディング状態の反映
+     */
+    fun reflectLoading(shouldShow: Boolean)
+
+    /**
+     * メニュー項目の反映
+     */
+    fun reflectMenu(isLogin: Boolean)
+
+    /**
      * ログアウト確認の表示
      */
     fun showLogoutConfirm()

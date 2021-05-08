@@ -1,42 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/pages_top_drawer"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_base">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/pages_top_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- コンテンツ内容 -->
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/pages_top_entrypoint"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_top" />
+
+            <!-- フッター -->
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/pages_top_footer"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/app_main"
+                app:itemIconTint="@color/app_text_contrast"
+                app:itemTextColor="@color/app_text_contrast"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/pages_top_footer" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--ドロワーメニュー -->
+        <work.shion.xapprecipe.organisms.menu_for_top.MenuForTop
+            android:id="@+id/pages_top_menu"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+    <!-- ローディング -->
+    <work.shion.xapprecipe.atoms.CircleLoadingOverlay
+        android:id="@+id/pages_top_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <!-- コンテンツ内容 -->
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/pages_top_entrypoint"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_top" />
-
-        <!-- フッター -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/pages_top_footer"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/app_main"
-            app:itemIconTint="@color/app_text_contrast"
-            app:itemTextColor="@color/app_text_contrast"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/pages_top_footer" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <!--ドロワーメニュー -->
-    <work.shion.xapprecipe.organisms.menu_for_top.MenuForTop
-        android:id="@+id/pages_top_menu"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start" />
-</androidx.drawerlayout.widget.DrawerLayout>
+        android:visibility="gone"
+        tools:visibility="visible" />
+</FrameLayout>

@@ -39,6 +39,8 @@ class CircleLoadingOverlay @JvmOverloads constructor(
 
     init {
         View.inflate(context, R.layout.atoms_circle_loading_overlay, this)
+        isClickable = true
+        isFocusable = true
         setBackgroundResource(R.color.atoms_circle_loading_overlay_background)
     }
 }

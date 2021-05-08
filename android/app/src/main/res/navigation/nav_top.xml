@@ -3,30 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_top"
-    app:startDestination="@id/top_home">
+    app:startDestination="@id/top_link_index">
 
-    <!-- ホーム -->
+    <!-- リンク一覧 -->
     <fragment
-        android:id="@+id/top_home"
-        android:name="work.shion.xapprecipe.pages.home.MainFragment"
-        tools:layout="@layout/pages_home" />
+        android:id="@+id/top_link_index"
+        android:name="work.shion.xapprecipe.pages.link_index.MainFragment"
+        tools:layout="@layout/pages_link_index" />
 
-    <!-- サンプル -->
+    <!-- 地図(WEB 版) -->
     <fragment
-        android:id="@+id/top_sample"
-        android:name="work.shion.xapprecipe.pages.sample.MainFragment"
-        tools:layout="@layout/pages_sample" />
+        android:id="@+id/top_map_web"
+        android:name="work.shion.xapprecipe.pages.map_web.MainFragment"
+        tools:layout="@layout/pages_map_web" />
 
 
-    <!-- ホームへ遷移 -->
+    <!-- リンク一覧へ遷移 -->
     <action
-        android:id="@+id/navact_top_to_home"
-        app:destination="@id/top_home"
+        android:id="@+id/navact_top_to_link_index"
+        app:destination="@id/top_link_index"
         app:popUpTo="@id/nav_top" />
 
-    <!-- サンプルへ遷移 -->
+    <!-- 地図(WEB 版) へ遷移 -->
     <action
-        android:id="@+id/navact_top_to_sample"
-        app:destination="@id/top_sample"
+        android:id="@+id/navact_top_to_map_web"
+        app:destination="@id/top_map_web"
         app:popUpTo="@id/nav_top" />
 </navigation>
