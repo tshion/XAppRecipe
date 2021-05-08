@@ -11,6 +11,7 @@ import work.shion.xapprecipe.molecules.link_headline.LinkHeadlineViewHolder
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 
 class MainAdapter(
+    private val action: MainItemActionContract,
     diffCallback: MainAdapterDiffs,
 ) : RecyclerView.Adapter<LinkHeadlineViewHolder>() {
 
@@ -44,11 +45,14 @@ class MainAdapter(
 
     override fun onBindViewHolder(holder: LinkHeadlineViewHolder, position: Int) {
         val data = differ.currentList.getOrNull(position) ?: return
-        holder.root.setup(
-            description = data.description,
-            imagePath = data.imagePath,
-            title = data.title,
-        )
+        holder.root.apply {
+            setOnClickListener { action.callDetail(data) }
+            setup(
+                description = data.description,
+                imagePath = data.imagePath,
+                title = data.title,
+            )
+        }
     }
 
 
