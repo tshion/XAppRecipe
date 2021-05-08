@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesLinkIndexBinding
+import work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialogViewModel
+import work.shion.xapprecipe.templates.link_insert_dialog.LinkInsertDialogViewModel
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 
@@ -20,6 +23,8 @@ class MainFragment : Fragment(), MainViewContract {
 
     private var adapter: MainAdapter? = MainAdapter(MainAdapterDiffs())
     private var binding: PagesLinkIndexBinding? = null
+    private val linkDetailViewModel by activityViewModels<LinkDetailDialogViewModel>()
+    private val linkInsertViewModel by activityViewModels<LinkInsertDialogViewModel>()
 
 
     override fun onCreateView(
@@ -42,6 +47,21 @@ class MainFragment : Fragment(), MainViewContract {
         }
 
         binding?.pagesLinkIndexList?.adapter = adapter
+
+
+        linkDetailViewModel.isCalledDelete.observe(viewLifecycleOwner) {
+            if (it) {
+                // TODO: 削除処理
+                linkDetailViewModel.isCalledDelete.value = false
+            }
+        }
+
+        linkInsertViewModel.input.observe(viewLifecycleOwner) {
+            if (!it.isNullOrBlank()) {
+                //TODO: 登録処理
+                linkInsertViewModel.input.value = null
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -78,7 +98,16 @@ class MainFragment : Fragment(), MainViewContract {
      * 登録ダイアログの表示
      */
     override fun showEditor() {
-        // TODO: 登録ダイアログの表示
+        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
+            ?.navigate(NavEntrypointDirections.navactShowLinkInsertDialog())
+    }
+
+    /**
+     * リンク詳細の表示
+     */
+    override fun showLinkDetail(data: WebLinkEntity) {
+        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
+            ?.navigate(NavEntrypointDirections.navactShowLinkDetailDialog(data.webPath))
     }
 
     /**
