@@ -52,8 +52,8 @@ class MainFragment : Fragment(), MainViewContract {
         // フッター
         binding?.pagesTopFooter?.setOnNavigationItemSelectedListener { menu ->
             when (menu.itemId) {
-                R.id.pages_top_footer_links -> NavTopDirections.navactTopToSample()
-                R.id.pages_top_footer_map -> NavTopDirections.navactTopToSample()
+                R.id.pages_top_footer_links -> NavTopDirections.navactTopToLinkIndex()
+                R.id.pages_top_footer_map -> NavTopDirections.navactTopToMapWeb()
                 else -> null
             }?.also { direction ->
                 activity?.let { Navigation.findNavController(it, R.id.pages_top_entrypoint) }
