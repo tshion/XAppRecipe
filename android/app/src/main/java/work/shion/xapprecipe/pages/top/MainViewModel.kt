@@ -24,10 +24,13 @@ class MainViewModel(
     override fun doLogout() {
         viewModelScope.launch {
             try {
+                viewer.get()?.reflectLoading(true)
                 certifyAccountUseCase.logout()
                 viewer.get()?.showLogoutFinish()
             } catch (ex: Throwable) {
                 // TODO: エラー表示
+            } finally {
+                viewer.get()?.reflectLoading(false)
             }
         }
     }
@@ -38,10 +41,13 @@ class MainViewModel(
     override fun loadMenu() {
         viewModelScope.launch {
             try {
+                viewer.get()?.reflectLoading(true)
                 certifyAccountUseCase.isAuthenticated()
                     .also { viewer.get()?.reflectMenu(it) }
             } catch (ex: Throwable) {
                 // TODO: エラー表示
+            } finally {
+                viewer.get()?.reflectLoading(false)
             }
         }
     }

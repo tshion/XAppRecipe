@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -170,6 +171,13 @@ class MainFragment : Fragment(), MainViewContract {
      */
     override fun openMenu() {
         binding?.pagesTopDrawer?.openDrawer(GravityCompat.START)
+    }
+
+    /**
+     * ローディング状態の反映
+     */
+    override fun reflectLoading(shouldShow: Boolean) {
+        binding?.pagesTopLoading?.isVisible = shouldShow
     }
 
     /**
