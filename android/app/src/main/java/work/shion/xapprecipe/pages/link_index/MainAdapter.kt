@@ -44,7 +44,12 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: LinkHeadlineViewHolder, position: Int) {
-        val data = differ.currentList.getOrNull(position) ?: return
+        val data = differ.currentList.getOrNull(position)
+        if (data == null) {
+            holder.root.setOnClickListener(null)
+            return
+        }
+
         holder.root.apply {
             setOnClickListener { action.callDetail(data) }
             setup(

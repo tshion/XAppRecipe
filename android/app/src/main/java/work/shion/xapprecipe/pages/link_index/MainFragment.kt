@@ -77,6 +77,16 @@ class MainFragment : Fragment(), MainViewContract {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.load()
+    }
+
+    override fun onStop() {
+        viewModel.cancelTasks()
+        super.onStop()
+    }
+
     override fun onDestroyView() {
         adapter = null
         binding = null
