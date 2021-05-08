@@ -46,8 +46,8 @@ class LogoutConfirmDialog : DialogFragment() {
             .setMessage(R.string.templates_logout_confirm_dialog_message)
             .setNegativeButton(R.string.templates_logout_confirm_dialog_negative, null)
             .setPositiveButton(R.string.templates_logout_confirm_dialog_positive) { _, _ ->
-                viewModel.isCalledDismiss.value = true
                 dismiss()
+                viewModel.isCalledDismiss.value = true
             }
             .setTitle(R.string.templates_logout_confirm_dialog_title)
             .create()
