@@ -36,7 +36,10 @@ class MainFragment : Fragment(), MainViewContract {
 
         binding?.pagesLinkIndexAdd?.setOnClickListener { showEditor() }
 
-        binding?.pagesLinkIndexHeader?.setupBackListener(null)
+        binding?.pagesLinkIndexHeader?.apply {
+            setupTapMenuListener { showMenu() }
+            setupTapNewsListener { goNews() }
+        }
 
         binding?.pagesLinkIndexList?.adapter = adapter
     }
@@ -82,7 +85,6 @@ class MainFragment : Fragment(), MainViewContract {
      * メニューの表示
      */
     override fun showMenu() {
-        // TODO: メニューの表示
-        val parent = parentFragment as? TopFragment
+        (parentFragment as? TopFragment?)?.openMenu()
     }
 }
