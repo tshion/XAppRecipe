@@ -81,6 +81,11 @@ class MainFragment : Fragment(), MainViewContract {
         }.also { binding?.pagesLoginHeader?.setupBackListener(it) }
     }
 
+    override fun onStop() {
+        viewModel.cancelTasks()
+        super.onStop()
+    }
+
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()

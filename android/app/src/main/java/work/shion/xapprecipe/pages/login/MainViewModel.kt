@@ -3,6 +3,7 @@ package work.shion.xapprecipe.pages.login
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe_core.entities.LoginEntity
@@ -15,6 +16,9 @@ class MainViewModel(
     private val context: WeakReference<Context>,
     private val viewer: WeakReference<MainViewContract>
 ) : ViewModel(), MainActionContract {
+
+    /** タスクキャンセル */
+    override fun cancelTasks() = viewModelScope.coroutineContext.cancelChildren()
 
     /**
      * ログインの実行
