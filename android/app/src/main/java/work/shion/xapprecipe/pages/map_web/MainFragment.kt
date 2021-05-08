@@ -12,6 +12,7 @@ import work.shion.androidpreparation.intentbuilder.LaunchPhoneIntentBuilder
 import work.shion.androidpreparation.webviewbuilder.WebViewBuilder
 import work.shion.xapprecipe.BuildConfig
 import work.shion.xapprecipe.databinding.PagesMapWebBinding
+import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 
 /**
  * WEB 版地図表示
@@ -35,6 +36,10 @@ class MainFragment : Fragment() {
 
         // Header
         binding?.pagesMapWebHeader?.apply {
+            setupTapMenuListener {
+                (parentFragment as? TopFragment)?.openMenu()
+            }
+
             setupTapReloadListener {
                 binding?.pagesMapWebBrowser?.reload()
             }
