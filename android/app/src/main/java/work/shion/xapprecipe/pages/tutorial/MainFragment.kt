@@ -16,13 +16,17 @@ import work.shion.xapprecipe.databinding.PagesTutorialBinding
 /**
  * チュートリアル
  */
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), MainViewContract {
 
     private var binding: PagesTutorialBinding? = null
     private val model = MainModel()
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = PagesTutorialBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -40,16 +44,10 @@ class MainFragment : Fragment() {
         }
 
         // 「スキップ」ボタン
-        root.pagesTutorialActionSkip.setOnClickListener {
-            activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-                ?.navigate(NavEntrypointDirections.navactToTop())
-        }
+        root.pagesTutorialActionSkip.setOnClickListener { goLogin() }
 
         // 「はじめる」ボタン
-        root.pagesTutorialActionStart.setOnClickListener {
-            activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-                ?.navigate(NavEntrypointDirections.navactToTop())
-        }
+        root.pagesTutorialActionStart.setOnClickListener { goLogin() }
 
         // ページャー関連
         val adapter = MainAdapter(this@MainFragment)
@@ -73,5 +71,14 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
+    }
+
+
+    /**
+     * ログインへ遷移
+     */
+    override fun goLogin() {
+        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
+            ?.navigate(NavEntrypointDirections.navactToLogin())
     }
 }
