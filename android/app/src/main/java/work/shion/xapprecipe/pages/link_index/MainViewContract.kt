@@ -25,6 +25,11 @@ interface MainViewContract {
     fun showEditor()
 
     /**
+     * リンク詳細の表示
+     */
+    fun showLinkDetail(data: WebLinkEntity)
+
+    /**
      * メニューの表示
      */
     fun showMenu()
