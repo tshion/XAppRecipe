@@ -43,6 +43,18 @@
         android:name="work.shion.xapprecipe.pages.launcher.MainFragment"
         tools:layout="@layout/atoms_circle_loading_overlay" />
 
+    <!-- ログイン -->
+    <fragment
+        android:id="@+id/login"
+        android:name="work.shion.xapprecipe.pages.login.MainFragment"
+        tools:layout="@layout/pages_login" >
+
+        <argument
+            android:name="canClose"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+
     <!-- 生体認証 -->
     <fragment
         android:id="@+id/login_biometric"
@@ -104,6 +116,11 @@
     <action
         android:id="@+id/navact_show_logout_finish_dialog"
         app:destination="@id/logout_finish_dialog" />
+
+    <!-- ログインへ遷移 -->
+    <action
+        android:id="@+id/navact_to_login"
+        app:destination="@id/login" />
 
     <!-- 生体認証へ遷移 -->
     <action
