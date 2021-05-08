@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base"
+    android:orientation="vertical">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pages_tutorial_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <work.shion.xapprecipe.atoms.DotsIndicator
+        android:id="@+id/pages_tutorial_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/app_base">
+        android:layout_height="?attr/actionBarSize">
 
-        <TextView
+        <!-- スキップ -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pages_tutorial_action_skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Tutorial" />
+            android:layout_gravity="center_vertical|start"
+            android:paddingStart="@dimen/app_space_1"
+            android:paddingTop="@dimen/app_space_1"
+            android:paddingEnd="@dimen/app_space_1"
+            android:paddingBottom="@dimen/app_space_1"
+            android:text="@string/pages_tutorial_action_skip"
+            android:textColor="@color/app_text_accent"
+            android:textSize="@dimen/app_text_large"
+            tools:visibility="gone" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/pages_tutorial_next"
-            android:layout_width="wrap_content"
+        <!-- はじめる -->
+        <work.shion.xapprecipe.atoms.PositiveButton
+            android:id="@+id/pages_tutorial_action_start"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Top へ" />
+            android:layout_marginStart="@dimen/app_space_2"
+            android:layout_marginEnd="@dimen/app_space_2"
+            android:text="@string/pages_tutorial_action_start"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <!-- 次へ -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pages_tutorial_action_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:paddingStart="@dimen/app_space_1"
+            android:paddingTop="@dimen/app_space_1"
+            android:paddingEnd="@dimen/app_space_1"
+            android:paddingBottom="@dimen/app_space_1"
+            android:text="@string/pages_tutorial_action_next"
+            android:textColor="@color/app_text_accent"
+            android:textSize="@dimen/app_text_large"
+            tools:visibility="gone" />
     </FrameLayout>
-</layout>
+</androidx.appcompat.widget.LinearLayoutCompat>
