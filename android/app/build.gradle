@@ -43,6 +43,10 @@ android {
         versionName appver_name
 
 
+        // 地図の基本URL
+        buildConfigField "String", "URL_MAP",
+            "\"https://www.google.co.jp/maps\""
+
         // Twitter のURL
         buildConfigField "String", "URL_Twitter",
             "\"https://twitter.com/shion_engineer\""
