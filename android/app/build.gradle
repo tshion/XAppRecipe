@@ -41,6 +41,11 @@ android {
         targetSdkVersion compile_sdk_version
         versionCode appver_code
         versionName appver_name
+
+
+        // 地図の基本URL
+        buildConfigField "String", "URL_MAP",
+            "\"https://www.google.co.jp/maps\""
     }
     flavorDimensions "mode"
     kotlinOptions {
