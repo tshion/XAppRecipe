@@ -51,7 +51,7 @@ class LogoutFinishDialog : DialogFragment() {
     }
 
     override fun onDismiss(dialog: DialogInterface) {
-        viewModel.isCalledDismiss.value = true
         super.onDismiss(dialog)
+        viewModel.isCalledDismiss.value = true
     }
 }

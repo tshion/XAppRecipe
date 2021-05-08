@@ -26,6 +26,11 @@
             app:argType="string" />
     </dialog>
 
+    <!-- リンク登録ダイアログ -->
+    <dialog
+        android:id="@+id/link_insert_dialog"
+        android:name="work.shion.xapprecipe.templates.link_insert_dialog.LinkInsertDialog" />
+
     <!-- ログアウト確認ダイアログ -->
     <dialog
         android:id="@+id/logout_confirm_dialog"
@@ -43,11 +48,29 @@
         android:name="work.shion.xapprecipe.pages.launcher.MainFragment"
         tools:layout="@layout/atoms_circle_loading_overlay" />
 
+    <!-- ログイン -->
+    <fragment
+        android:id="@+id/login"
+        android:name="work.shion.xapprecipe.pages.login.MainFragment"
+        tools:layout="@layout/pages_login" >
+
+        <argument
+            android:name="canClose"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+
     <!-- 生体認証 -->
     <fragment
         android:id="@+id/login_biometric"
         android:name="work.shion.xapprecipe.pages.login_biometric.MainFragment"
         tools:layout="@layout/page_login_biometric" />
+
+    <!-- 地図(WEB 版) -->
+    <fragment
+        android:id="@+id/map_web"
+        android:name="work.shion.xapprecipe.pages.map_web.MainFragment"
+        tools:layout="@layout/pages_map_web" />
 
     <!-- 通知一覧 -->
     <fragment
@@ -84,6 +107,11 @@
         android:id="@+id/navact_show_link_detail_dialog"
         app:destination="@id/link_detail_dialog" />
 
+    <!-- リンク登録ダイアログの表示 -->
+    <action
+        android:id="@+id/navact_show_link_insert_dialog"
+        app:destination="@id/link_insert_dialog" />
+
     <!-- ログアウト確認ダイアログの表示 -->
     <action
         android:id="@+id/navact_show_logout_confirm_dialog"
@@ -94,11 +122,21 @@
         android:id="@+id/navact_show_logout_finish_dialog"
         app:destination="@id/logout_finish_dialog" />
 
+    <!-- ログインへ遷移 -->
+    <action
+        android:id="@+id/navact_to_login"
+        app:destination="@id/login" />
+
     <!-- 生体認証へ遷移 -->
     <action
         android:id="@+id/navact_to_login_biometric"
         app:destination="@id/login_biometric" />
 
+    <!-- 地図(WEB 版) へ遷移 -->
+    <action
+        android:id="@+id/navact_to_map_web"
+        app:destination="@id/map_web" />
+  
     <!-- 通知一覧へ遷移 -->
     <action
         android:id="@+id/navact_to_notice"

@@ -51,8 +51,8 @@ class LaunchErrorDialog : DialogFragment() {
         return MaterialAlertDialogBuilder(requireContext(), R.style.TemplatesLaunchErrorDialog)
             .setMessage(R.string.templates_launch_error_dialog_message)
             .setPositiveButton(R.string.templates_launch_error_dialog_positive) { _, _ ->
-                viewModel.isCalledRetry.value = true
                 dismiss()
+                viewModel.isCalledRetry.value = true
             }
             .setTitle(R.string.templates_launch_error_dialog_title)
             .create()
