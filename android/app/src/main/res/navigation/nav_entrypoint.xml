@@ -26,6 +26,11 @@
             app:argType="string" />
     </dialog>
 
+    <!-- リンク登録ダイアログ -->
+    <dialog
+        android:id="@+id/link_insert_dialog"
+        android:name="work.shion.xapprecipe.templates.link_insert_dialog.LinkInsertDialog" />
+
     <!-- ログアウト確認ダイアログ -->
     <dialog
         android:id="@+id/logout_confirm_dialog"
@@ -106,6 +111,11 @@
     <action
         android:id="@+id/navact_show_link_detail_dialog"
         app:destination="@id/link_detail_dialog" />
+
+    <!-- リンク登録ダイアログの表示 -->
+    <action
+        android:id="@+id/navact_show_link_insert_dialog"
+        app:destination="@id/link_insert_dialog" />
 
     <!-- ログアウト確認ダイアログの表示 -->
     <action
