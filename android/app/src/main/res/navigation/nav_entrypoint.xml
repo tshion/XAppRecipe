@@ -65,11 +65,6 @@
         <action
             android:id="@+id/navact_to_license"
             app:destination="@id/license" />
-
-        <!-- 通知一覧へ遷移 -->
-        <action
-            android:id="@+id/navact_to_notice"
-            app:destination="@id/notice" />
     </fragment>
 
     <!-- チュートリアル -->
@@ -103,6 +98,11 @@
     <action
         android:id="@+id/navact_to_login_biometric"
         app:destination="@id/login_biometric" />
+
+    <!-- 通知一覧へ遷移 -->
+    <action
+        android:id="@+id/navact_to_notice"
+        app:destination="@id/notice" />
 
     <!-- トップへ遷移 -->
     <action

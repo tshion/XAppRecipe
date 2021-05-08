@@ -11,16 +11,28 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:text="@string/pages_link_index_header"
-        app:layout_constraintBottom_toTopOf="@id/pages_link_index_list"
+        app:layout_constraintBottom_toTopOf="@id/pages_link_index_list_empty"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pages_link_index_list_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/pages_link_index_list_empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pages_link_index_header" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pages_link_index_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pages_link_index_header"
-        tools:listitem="@android:layout/simple_list_item_2" />
+        android:background="@color/app_base"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/pages_link_index_list_empty"
+        app:layout_constraintTop_toTopOf="@id/pages_link_index_list_empty"
+        tools:listitem="@android:layout/simple_expandable_list_item_2"
+        tools:visibility="visible" />
 
     <work.shion.xapprecipe.atoms.LinkAddFAB
         android:id="@+id/pages_link_index_add"
@@ -29,4 +41,14 @@
         android:layout_margin="@dimen/app_space_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <work.shion.xapprecipe.atoms.CircleLoadingOverlay
+        android:id="@+id/pages_link_index_loading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/pages_link_index_list_empty"
+        app:layout_constraintTop_toTopOf="@id/pages_link_index_list_empty"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
