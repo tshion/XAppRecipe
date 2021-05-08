@@ -14,6 +14,11 @@ interface MainViewContract {
     )
 
     /**
+     * ローディング表示状態の反映
+     */
+    fun reflectLoading(shouldShow: Boolean)
+
+    /**
      * トップへ遷移する
      */
     fun goTop()

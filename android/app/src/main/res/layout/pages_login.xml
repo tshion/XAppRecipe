@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_base">
@@ -56,4 +57,14 @@
         app:layout_constraintBottom_toBottomOf="@id/pages_login_action_skip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/pages_login_action_skip" />
+
+    <work.shion.xapprecipe.atoms.CircleLoadingOverlay
+        android:id="@+id/pages_login_loading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pages_login_header"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

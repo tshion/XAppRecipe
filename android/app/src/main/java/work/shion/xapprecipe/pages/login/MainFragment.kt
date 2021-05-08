@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -11,6 +12,10 @@ import androidx.navigation.fragment.navArgs
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesLoginBinding
+import work.shion.xapprecipe_core.entities.LoginEntity
+import work.shion.xapprecipe_core.errors.LoginException
+import work.shion.xapprecipe_core.repositories.AuthenticateRepositoryContract
+import work.shion.xapprecipe_core.usecases.CertifyAccountUseCase
 import java.lang.ref.WeakReference
 
 /**
@@ -22,7 +27,29 @@ class MainFragment : Fragment(), MainViewContract {
     private var binding: PagesLoginBinding? = null
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
-            viewer = WeakReference(this)
+            certifyAccountUseCaseContract = CertifyAccountUseCase(
+                authenticateRepository = object : AuthenticateRepositoryContract {
+                    /**
+                     * 認証済みかどうか
+                     */
+                    override suspend fun isAuthenticated() = false
+
+                    /**
+                     * ログイン
+                     * @throws LoginException ログイン失敗
+                     */
+                    override suspend fun login(data: LoginEntity) {
+                    }
+
+                    /**
+                     * ログアウト
+                     */
+                    override suspend fun logout() {
+                    }
+                }
+            ),
+            context = WeakReference(requireContext()),
+            viewer = WeakReference(this),
         )
     }
 
@@ -54,6 +81,11 @@ class MainFragment : Fragment(), MainViewContract {
         }.also { binding?.pagesLoginHeader?.setupBackListener(it) }
     }
 
+    override fun onStop() {
+        viewModel.cancelTasks()
+        super.onStop()
+    }
+
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
@@ -68,6 +100,13 @@ class MainFragment : Fragment(), MainViewContract {
             pagesLoginId.errors = idError
             pagesLoginPw.errors = pwError
         }
+    }
+
+    /**
+     * ローディング表示状態の反映
+     */
+    override fun reflectLoading(shouldShow: Boolean) {
+        binding?.pagesLoginLoading?.isVisible = shouldShow
     }
 
     /**
