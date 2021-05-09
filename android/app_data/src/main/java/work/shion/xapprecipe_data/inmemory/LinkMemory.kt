@@ -10,7 +10,7 @@ class LinkMemory : LinkMemoryContract {
     val store = arrayListOf<WebLinkEntity>()
 
 
-    override fun load() = store
+    override fun load() = store.map { it.copy() }
 
     override fun remove(id: String) {
         store.removeAll { it.id == id }

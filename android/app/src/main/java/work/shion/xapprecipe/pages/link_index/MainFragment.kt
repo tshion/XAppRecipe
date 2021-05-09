@@ -9,14 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesLinkIndexBinding
+import work.shion.xapprecipe.getProvider
 import work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialogViewModel
 import work.shion.xapprecipe.templates.link_insert_dialog.LinkInsertDialogViewModel
 import work.shion.xapprecipe_core.entities.WebLinkEntity
-import work.shion.xapprecipe_core.repositories.WebLinkRepositoryContract
-import work.shion.xapprecipe_core.usecases.BookmarkWebUseCase
 import java.lang.ref.WeakReference
 import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 
@@ -31,21 +31,7 @@ class MainFragment : Fragment(), MainViewContract {
     private val linkInsertViewModel by activityViewModels<LinkInsertDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
-            bookmarkWebUseCase = BookmarkWebUseCase(
-                webLinkRepository = object : WebLinkRepositoryContract {
-
-                    override suspend fun append(path: String) {
-                    }
-
-                    override suspend fun load(): List<WebLinkEntity> = emptyList()
-
-                    override suspend fun remove(id: String) {
-                    }
-
-                    override suspend fun update(target: WebLinkEntity) {
-                    }
-                },
-            ),
+            bookmarkWebUseCase = activity?.getProvider()!!.bookmarkUseCase,
             viewer = WeakReference(this),
         )
     }
@@ -92,6 +78,16 @@ class MainFragment : Fragment(), MainViewContract {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.load()
+    }
+
+    override fun onStop() {
+        viewModel.cancelTasks()
+        super.onStop()
+    }
+
     override fun onDestroyView() {
         adapter = null
         binding = null
@@ -112,7 +108,13 @@ class MainFragment : Fragment(), MainViewContract {
      */
     override fun reflectList(data: List<WebLinkEntity>?) {
         adapter?.displayData = data
-        binding?.pagesLinkIndexList?.isVisible = adapter?.displayData.isNullOrEmpty().not()
+    }
+
+    /**
+     * リスト表示状態の反映
+     */
+    override fun reflectListShowState(shouldShow: Boolean) {
+        binding?.pagesLinkIndexList?.isVisible = shouldShow
     }
 
     /**
@@ -142,6 +144,8 @@ class MainFragment : Fragment(), MainViewContract {
      * メニューの表示
      */
     override fun showMenu() {
-        (parentFragment as? TopFragment?)?.openMenu()
+        (parentFragment as? NavHostFragment)
+            ?.let { it.parentFragment as? TopFragment }
+            ?.openMenu()
     }
 }

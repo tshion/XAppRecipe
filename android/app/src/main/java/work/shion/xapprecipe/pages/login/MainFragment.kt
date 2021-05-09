@@ -12,10 +12,7 @@ import androidx.navigation.fragment.navArgs
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesLoginBinding
-import work.shion.xapprecipe_core.entities.LoginEntity
-import work.shion.xapprecipe_core.errors.LoginException
-import work.shion.xapprecipe_core.repositories.AuthenticateRepositoryContract
-import work.shion.xapprecipe_core.usecases.CertifyAccountUseCase
+import work.shion.xapprecipe.getProvider
 import java.lang.ref.WeakReference
 
 /**
@@ -27,27 +24,7 @@ class MainFragment : Fragment(), MainViewContract {
     private var binding: PagesLoginBinding? = null
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
-            certifyAccountUseCaseContract = CertifyAccountUseCase(
-                authenticateRepository = object : AuthenticateRepositoryContract {
-                    /**
-                     * 認証済みかどうか
-                     */
-                    override suspend fun isAuthenticated() = false
-
-                    /**
-                     * ログイン
-                     * @throws LoginException ログイン失敗
-                     */
-                    override suspend fun login(data: LoginEntity) {
-                    }
-
-                    /**
-                     * ログアウト
-                     */
-                    override suspend fun logout() {
-                    }
-                }
-            ),
+            certifyAccountUseCaseContract = activity?.getProvider()!!.certifyAccountUseCase,
             context = WeakReference(requireContext()),
             viewer = WeakReference(this),
         )

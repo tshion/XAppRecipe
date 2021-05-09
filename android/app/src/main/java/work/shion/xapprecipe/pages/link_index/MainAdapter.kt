@@ -23,6 +23,13 @@ class MainAdapter(
         }
 
 
+    init {
+        differ.addListListener { _, currentList ->
+            action.changeListShowState(!currentList.isNullOrEmpty())
+        }
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LinkHeadlineViewHolder {
         val context = parent.context
         val space1 = context.resources.getDimensionPixelSize(R.dimen.app_space_1)
@@ -44,13 +51,25 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: LinkHeadlineViewHolder, position: Int) {
-        val data = differ.currentList.getOrNull(position) ?: return
+        val data = differ.currentList.getOrNull(position)
+        if (data == null) {
+            holder.root.apply {
+                setOnClickListener(null)
+                setup(
+                    description = null,
+                    imagePath = null,
+                    title = null,
+                )
+            }
+            return
+        }
+
         holder.root.apply {
             setOnClickListener { action.callDetail(data) }
             setup(
-                description = data.description,
+                description = data.description ?: "(取得失敗)",
                 imagePath = data.imagePath,
-                title = data.title,
+                title = data.title ?: "(取得失敗)",
             )
         }
     }

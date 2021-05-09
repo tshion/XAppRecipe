@@ -15,6 +15,11 @@ interface MainViewContract {
     fun reflectList(data: List<WebLinkEntity>?)
 
     /**
+     * リスト表示状態の反映
+     */
+    fun reflectListShowState(shouldShow: Boolean)
+
+    /**
      * ローディング表示状態の反映
      */
     fun reflectLoading(shouldShow: Boolean)

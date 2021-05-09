@@ -29,6 +29,7 @@
         android:layout_height="0dp"
         android:background="@color/app_base"
         android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@id/pages_link_index_list_empty"
         app:layout_constraintTop_toTopOf="@id/pages_link_index_list_empty"
         tools:listitem="@android:layout/simple_expandable_list_item_2"

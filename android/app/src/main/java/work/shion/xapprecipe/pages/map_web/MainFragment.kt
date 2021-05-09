@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import permissions.dispatcher.ktx.LocationPermission
 import permissions.dispatcher.ktx.constructLocationPermissionRequest
 import work.shion.androidpreparation.intentbuilder.LaunchPhoneIntentBuilder
@@ -37,7 +38,9 @@ class MainFragment : Fragment() {
         // Header
         binding?.pagesMapWebHeader?.apply {
             setupTapMenuListener {
-                (parentFragment as? TopFragment)?.openMenu()
+                (parentFragment as? NavHostFragment)
+                    ?.let { it.parentFragment as? TopFragment }
+                    ?.openMenu()
             }
 
             setupTapReloadListener {
