@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesLinkIndexBinding
@@ -143,6 +144,8 @@ class MainFragment : Fragment(), MainViewContract {
      * メニューの表示
      */
     override fun showMenu() {
-        (parentFragment as? TopFragment?)?.openMenu()
+        (parentFragment as? NavHostFragment)
+            ?.let { it.parentFragment as? TopFragment }
+            ?.openMenu()
     }
 }
