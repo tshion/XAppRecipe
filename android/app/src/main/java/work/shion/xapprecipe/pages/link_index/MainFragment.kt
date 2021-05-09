@@ -107,7 +107,13 @@ class MainFragment : Fragment(), MainViewContract {
      */
     override fun reflectList(data: List<WebLinkEntity>?) {
         adapter?.displayData = data
-        binding?.pagesLinkIndexList?.isVisible = adapter?.displayData.isNullOrEmpty().not()
+    }
+
+    /**
+     * リスト表示状態の反映
+     */
+    override fun reflectListShowState(shouldShow: Boolean) {
+        binding?.pagesLinkIndexList?.isVisible = shouldShow
     }
 
     /**

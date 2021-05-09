@@ -28,6 +28,13 @@ class MainViewModel(
     override fun cancelTasks() = viewModelScope.coroutineContext.cancelChildren()
 
     /**
+     * リスト表示状態の変更要求
+     */
+    override fun changeListShowState(shouldShow: Boolean) {
+        viewer.get()?.reflectListShowState(shouldShow)
+    }
+
+    /**
      * データ読み込み
      */
     override fun load() {
