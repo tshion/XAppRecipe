@@ -72,6 +72,12 @@
         android:name="work.shion.xapprecipe.pages.notice.MainFragment"
         tools:layout="@layout/pages_notice" />
 
+    <!-- PDF 表示 -->
+    <fragment
+        android:id="@+id/pdf_viewer"
+        android:name="work.shion.xapprecipe.pages.pdf_viewer.MainFragment"
+        tools:layout="@layout/pages_pdf_viewer" />
+
     <!-- トップ -->
     <fragment
         android:id="@+id/top"
@@ -130,6 +136,11 @@
     <action
         android:id="@+id/navact_to_notice"
         app:destination="@id/notice" />
+
+    <!-- PDF 表示へ遷移 -->
+    <action
+        android:id="@+id/navact_to_pdf_viewer"
+        app:destination="@id/pdf_viewer" />
 
     <!-- トップへ遷移 -->
     <action
