@@ -61,7 +61,14 @@ buildscript {
     }
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+
+
+        // TODO: Bintray(jCenter) からの移行が完了したら削除する(2021/05/15)
+        jcenter().mavenContent {
+            includeGroup('org.apache.cordova')
+            includeGroup('work.shion.androidpreparation')
+        }
         maven {
             url 'https://dl.bintray.com/shion/maven'
         }
@@ -71,7 +78,14 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+
+
+        // TODO: Bintray(jCenter) からの移行が完了したら削除する(2021/05/15)
+        jcenter().mavenContent {
+            includeGroup('org.apache.cordova')
+            includeGroup('work.shion.androidpreparation')
+        }
         maven {
             url 'https://dl.bintray.com/shion/maven'
         }
