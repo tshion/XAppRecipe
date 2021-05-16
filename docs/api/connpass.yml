@@ -30,6 +30,7 @@ paths:
             items:
               type: integer
           style: form
+          explode: false
         - in: query
           name: format
           description: レスポンス形式
@@ -44,6 +45,7 @@ paths:
             items:
               type: string
           style: form
+          explode: false
         - in: query
           name: keyword_or
           description: キーワード (OR)
@@ -52,6 +54,7 @@ paths:
             items:
               type: string
           style: form
+          explode: false
         - in: query
           name: nickname
           description: 参加者のニックネーム
@@ -60,6 +63,7 @@ paths:
             items:
               type: string
           style: form
+          explode: false
         - in: query
           name: order
           description: 検索結果の表示順
@@ -77,6 +81,7 @@ paths:
             items:
               type: string
           style: form
+          explode: false
         - in: query
           name: series_id
           description: グループID
@@ -85,6 +90,7 @@ paths:
             items:
               type: integer
           style: form
+          explode: false
         - in: query
           name: start
           description: 検索の開始位置
@@ -100,6 +106,7 @@ paths:
               type: string
               pattern: '^\d{4}(0[1-9]|1[0-2])$'
           style: form
+          explode: false
         - in: query
           name: ymd
           description: イベント開催年月日
@@ -109,6 +116,7 @@ paths:
               type: string
               pattern: '^\d{4}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])$'
           style: form
+          explode: false
       responses:
         "200":
           description: 取得成功
