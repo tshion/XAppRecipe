@@ -130,7 +130,6 @@ paths:
 components:
   schemas:
     Event:
-      description: 検索結果のイベントリスト
       type: object
       properties:
         accepted:
@@ -185,7 +184,9 @@ components:
           type: string
           description: 開催会場
         series:
-          $ref: '#/components/schemas/Series'
+          description: 検索結果のイベントリスト
+          oneOf:
+            - $ref: '#/components/schemas/Series'
         started_at:
           type: string
           format: date-time
@@ -205,7 +206,10 @@ components:
       type: object
       properties:
         events:
-          $ref: '#/components/schemas/Event'
+          description: 検索結果のイベントリスト
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
         results_available:
           type: integer
           description: 検索結果の総件数
@@ -217,7 +221,6 @@ components:
           description: 検索の開始位置
 
     Series:
-      description: 検索結果のイベントリスト
       type: object
       properties:
         id:
