@@ -129,79 +129,83 @@ paths:
 
 components:
   schemas:
+    Event:
+      description: 検索結果のイベントリスト
+      type: object
+      properties:
+        accepted:
+          type: integer
+          description: 参加者数
+        address:
+          type: string
+          description: 開催場所
+        catch:
+          type: string
+          description: キャッチ
+        description:
+          type: string
+          description: 概要(HTML形式)
+        ended_at:
+          type: string
+          format: date-time
+          description: イベント開催日時 (ISO-8601形式)
+        event_id:
+          type: integer
+          description: イベントID
+        event_type:
+          type: string
+          description: イベント参加タイプ
+        event_url:
+          type: string
+          description: connpass.com 上のURL
+        hash_tag:
+          type: string
+          description: Twitterのハッシュタグ
+        lat:
+          type: number
+          format: double
+          description: 開催会場の緯度
+        limit:
+          type: integer
+          description: 定員
+        lon:
+          type: number
+          format: double
+          description: 開催会場の経度
+        owner_display_name:
+          type: string
+          description: 管理者の表示名
+        owner_id:
+          type: integer
+          description: 管理者のID
+        owner_nickname:
+          type: string
+          description: 管理者のニックネーム
+        place:
+          type: string
+          description: 開催会場
+        series:
+          $ref: '#/components/schemas/Series'
+        started_at:
+          type: string
+          format: date-time
+          description: イベント開催日時 (ISO-8601形式)
+        title:
+          type: string
+          description: タイトル
+        updated_at:
+          type: string
+          format: date-time
+          description: 更新日時 (ISO-8601形式)
+        waiting:
+          type: integer
+          description: 補欠者数
+
     GetEventResponse:
       type: object
       properties:
         events:
-          type: object
-          properties:
-            accepted:
-              type: integer
-              description: 参加者数
-            address:
-              type: string
-              description: 開催場所
-            catch:
-              type: string
-              description: キャッチ
-            description:
-              type: string
-              description: 概要(HTML形式)
-            ended_at:
-              type: string
-              format: date-time
-              description: イベント開催日時 (ISO-8601形式)
-            event_id:
-              type: integer
-              description: イベントID
-            event_type:
-              type: string
-              description: イベント参加タイプ
-            event_url:
-              type: string
-              description: connpass.com 上のURL
-            hash_tag:
-              type: string
-              description: Twitterのハッシュタグ
-            lat:
-              type: number
-              format: double
-              description: 開催会場の緯度
-            limit:
-              type: integer
-              description: 定員
-            lon:
-              type: number
-              format: double
-              description: 開催会場の経度
-            owner_display_name:
-              type: string
-              description: 管理者の表示名
-            owner_id:
-              type: integer
-              description: 管理者のID
-            owner_nickname:
-              type: string
-              description: 管理者のニックネーム
-            place:
-              type: string
-              description: 開催会場
-            series:
-              $ref: '#/components/schemas/Series'
-            started_at:
-              type: string
-              format: date-time
-              description: イベント開催日時 (ISO-8601形式)
-            title:
-              type: string
-              description: タイトル
-            updated_at:
-              type: string
-              format: date-time
-              description: 更新日時 (ISO-8601形式)
-            waiting:
-              type: integer
-              description: 補欠者数
+          $ref: '#/components/schemas/Event'
         results_available:
           type: integer
           description: 検索結果の総件数
