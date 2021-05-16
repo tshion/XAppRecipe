@@ -1,5 +1,6 @@
 package work.shion.xapprecipe_data.apiConpass.v1
 
+import com.squareup.moshi.JsonClass
 import java.time.LocalDateTime
 
 /**
@@ -26,6 +27,7 @@ import java.time.LocalDateTime
  * @param updatedAt 更新日時 (ISO-8601形式)
  * @param waiting 補欠者数
  */
+@JsonClass(generateAdapter = true)
 data class Event(
     val accepted: Int?,
     val address: String?,
