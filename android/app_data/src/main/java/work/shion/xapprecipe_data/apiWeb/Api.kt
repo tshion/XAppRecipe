@@ -10,6 +10,18 @@ class Api(
 ) {
 
     /**
+     * ファイルのダウンロード
+     */
+    @Suppress("BlockingMethodInNonBlockingContext")
+    suspend fun downloadFile(path: String) = withContext(Dispatchers.IO) {
+        Request.Builder()
+            .url(path)
+            .build()
+            .let { client.newCall(it) }
+            .execute()
+    }
+
+    /**
      * HTML の取得
      */
     @Suppress("BlockingMethodInNonBlockingContext")

@@ -14,6 +14,16 @@ class ApiSample {
 
 
     @Test
+    fun downloadFile_IPASec() {
+        val response = runBlocking {
+            api.downloadFile("https://www.jssec.org/dl/android_securecoding.pdf")
+        }
+
+        assertThat(response.body?.contentType()?.type).isEqualTo("application")
+        assertThat(response.body?.contentType()?.subtype).isEqualTo("pdf")
+    }
+
+    @Test
     fun getHtml_GitHub() {
         val (description: String?, image: String?, title: String?) = runBlocking {
             val html = api.getHtml("https://github.com/TentaShion")
