@@ -16,6 +16,6 @@ class ShowPdfUseCase(
             return result
         }
 
-        return pdfRepository.fetch(url)
+        return pdfRepository.fetch(cacheName, url)
     }
 }
