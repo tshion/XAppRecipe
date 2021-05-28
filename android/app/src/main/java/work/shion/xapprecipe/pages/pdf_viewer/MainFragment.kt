@@ -5,6 +5,7 @@ import android.graphics.Rect
 import android.graphics.pdf.PdfRenderer
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -35,6 +36,31 @@ class MainFragment : Fragment(), MainViewContract {
     ): View? {
         binding = PagesPdfViewerBinding.inflate(inflater, container, false)
         return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.pagesPdfViewerImage?.setOnTouchListener { view, motionEvent ->
+            val width = view?.width?.toFloat() ?: 0f
+            val pointEnd = (width * 3 / 4)..width
+            val pointStart = 0f..(width * 1 / 4)
+
+            when (motionEvent.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    if (pointEnd.contains(motionEvent.x)) {
+                        viewModel.loadNext()
+                        true
+                    } else if (pointStart.contains(motionEvent.x)) {
+                        viewModel.loadPrev()
+                        true
+                    } else {
+                        false
+                    }
+                }
+                else -> false
+            }
+        }
     }
 
     override fun onStart() {
