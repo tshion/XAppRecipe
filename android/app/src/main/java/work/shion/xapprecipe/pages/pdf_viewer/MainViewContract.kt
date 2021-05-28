@@ -1,8 +1,8 @@
 package work.shion.xapprecipe.pages.pdf_viewer
 
-import java.io.File
+import android.graphics.pdf.PdfRenderer
 
 interface MainViewContract {
 
-    fun reflectPdf(pdf: File)
+    fun reflectPdf(page: PdfRenderer.Page)
 }

@@ -5,4 +5,8 @@ import work.shion.xapprecipe.contracts.CancelableActionContract
 interface MainActionContract : CancelableActionContract {
 
     fun loadPdf()
+
+    fun loadPrev()
+
+    fun loadNext()
 }

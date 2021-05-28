@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.Rect
 import android.graphics.pdf.PdfRenderer
 import android.os.Bundle
-import android.os.ParcelFileDescriptor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import work.shion.xapprecipe.databinding.PagesPdfViewerBinding
 import work.shion.xapprecipe.getProvider
-import java.io.File
 import java.lang.ref.WeakReference
 import kotlin.math.ceil
 
@@ -22,8 +20,6 @@ import kotlin.math.ceil
 class MainFragment : Fragment(), MainViewContract {
 
     private var binding: PagesPdfViewerBinding? = null
-    private var currentPage: PdfRenderer.Page? = null
-    private var pdfRenderer: PdfRenderer? = null
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             showPdfUseCase = activity?.getProvider()!!.showPdfUseCase,
@@ -48,8 +44,6 @@ class MainFragment : Fragment(), MainViewContract {
 
     override fun onStop() {
         viewModel.cancelTasks()
-        currentPage?.close()
-        pdfRenderer?.close()
         super.onStop()
     }
 
@@ -59,23 +53,8 @@ class MainFragment : Fragment(), MainViewContract {
     }
 
 
-    override fun reflectPdf(pdf: File) {
-        currentPage?.close()
-        pdfRenderer?.close()
-
-        pdfRenderer = PdfRenderer(
-            ParcelFileDescriptor.open(
-                pdf,
-                ParcelFileDescriptor.MODE_READ_ONLY
-            )
-        )
-        showPage(0)
-    }
-
-
-    private fun showPage(index: Int) {
+    override fun reflectPdf(page: PdfRenderer.Page) {
         val view = binding?.pagesPdfViewerImage ?: return
-        val page = pdfRenderer?.openPage(index) ?: return
 
         var height = view.height
         var width = view.width
