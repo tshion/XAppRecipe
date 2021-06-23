@@ -72,6 +72,12 @@
         android:name="work.shion.xapprecipe.pages.notice.MainFragment"
         tools:layout="@layout/pages_notice" />
 
+    <!-- プロフィール編集 -->
+    <fragment
+        android:id="@+id/profile_editor"
+        android:name="work.shion.xapprecipe.pages.profile_editor.MainFragment"
+        tools:layout="@layout/pages_profile_editor" />
+
     <!-- トップ -->
     <fragment
         android:id="@+id/top"
@@ -130,6 +136,11 @@
     <action
         android:id="@+id/navact_to_notice"
         app:destination="@id/notice" />
+
+    <!-- プロフィール編集へ遷移 -->
+    <action
+        android:id="@+id/navact_to_profile_editor"
+        app:destination="@id/profile_editor" />
 
     <!-- トップへ遷移 -->
     <action
