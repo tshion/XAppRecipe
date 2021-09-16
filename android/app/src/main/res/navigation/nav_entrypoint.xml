@@ -42,6 +42,12 @@
         android:name="work.shion.xapprecipe.templates.logout_finish_dialog.LogoutFinishDialog" />
 
 
+    <!-- ビデオ撮影 -->
+    <fragment
+        android:id="@+id/capture_video"
+        android:name="work.shion.xapprecipe.pages.capture_video.MainFragment"
+        tools:layout="@layout/page_capture_video" />
+
     <!-- アプリ起動 -->
     <fragment
         android:id="@+id/launch"
@@ -121,6 +127,11 @@
     <action
         android:id="@+id/navact_show_logout_finish_dialog"
         app:destination="@id/logout_finish_dialog" />
+
+    <!-- ビデオ撮影へ遷移 -->
+    <action
+        android:id="@+id/navact_to_capture_video"
+        app:destination="@id/capture_video" />
 
     <!-- ログインへ遷移 -->
     <action
