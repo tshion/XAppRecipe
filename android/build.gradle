@@ -17,6 +17,7 @@ buildscript {
         ver_desugar_jdk = '1.1.5'
         ver_droidx_biometric = "1.1.0"
         ver_droidx_browser = "1.3.0"
+        ver_droidx_camera = '1.0.1'
         ver_droidx_constraint = "2.0.4"
         ver_droidx_core = "1.3.2"
         ver_droidx_fragment = '1.3.3'
