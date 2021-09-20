@@ -1,57 +1,73 @@
 package work.shion.xapprecipe.pages.media_list
 
-import android.content.ContentUris
-import android.net.Uri
+import android.Manifest
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
-import androidx.core.content.ContentResolverCompat
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import permissions.dispatcher.ktx.constructPermissionsRequest
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PageMediaListBinding
+import java.lang.ref.WeakReference
 
 /**
  * メディアコンテンツ一覧の表示
  */
-class MainFragment : Fragment(R.layout.page_media_list) {
+class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
 
     private var binding: PageMediaListBinding? = null
+    private val viewModel by viewModels<MainViewModel> {
+        MainViewModelFactory(
+            application = requireActivity().application,
+            viewer = WeakReference(this),
+        )
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = PageMediaListBinding.bind(view)
+    }
 
-        val query = ContentResolverCompat.query(
-            requireContext().contentResolver,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-            arrayOf(
-                MediaStore.Images.Media._ID,
-            ),
-            null,
-            null,
-            null,
-            null,
-        )
+    override fun onStart() {
+        super.onStart()
 
-        val count = query.count
-        print(count)
-
-        query?.use { cursor ->
-            val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
-            while (cursor.moveToNext()) {
-                val id = cursor.getLong(idColumn)
-                val contentUri: Uri = ContentUris.withAppendedId(
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    id
-                )
-                print(contentUri)
+        constructPermissionsRequest(
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            onNeverAskAgain = {
+                Toast.makeText(requireContext(), "never", Toast.LENGTH_SHORT).show()
+            },
+            onPermissionDenied = {
+                Toast.makeText(requireContext(), "denied", Toast.LENGTH_SHORT).show()
+            },
+            onShowRationale = {
+                it.proceed()
             }
-        }
+        ) {
+            viewModel.loadMedia()
+        }.launch()
     }
 
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
+    }
+
+
+    /**
+     * ローディング状態の反映
+     */
+    override fun reflectLoading(shouldShow: Boolean) {
+        // TODO("Not yet implemented")
+    }
+
+    /**
+     * リスト表示への反映
+     */
+    override fun reflectList(data: List<MediaViewData>) {
+        // TODO("Not yet implemented")
+        val a = data
+        val b = a
     }
 }
