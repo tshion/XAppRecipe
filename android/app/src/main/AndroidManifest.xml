@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="work.shion.xapprecipe">
 
+    <uses-feature android:name="android.hardware.camera.any" />
     <uses-feature android:name="android.hardware.location.gps" />
 
     <!-- Permissions -->
