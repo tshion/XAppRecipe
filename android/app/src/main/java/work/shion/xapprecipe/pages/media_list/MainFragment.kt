@@ -16,6 +16,9 @@ import java.lang.ref.WeakReference
  */
 class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
 
+    private val adapter = MainAdapter(
+        diffCallback = MainAdapterDiffs()
+    )
     private var binding: PageMediaListBinding? = null
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
@@ -28,6 +31,11 @@ class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = PageMediaListBinding.bind(view)
+
+        binding?.pageMediaListContents?.adapter = adapter
+        binding?.pageMediaListHeader?.setupBackListener {
+            activity?.onBackPressed()
+        }
     }
 
     override fun onStart() {
@@ -66,8 +74,6 @@ class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
      * リスト表示への反映
      */
     override fun reflectList(data: List<MediaViewData>) {
-        // TODO("Not yet implemented")
-        val a = data
-        val b = a
+        adapter.displayData = data
     }
 }

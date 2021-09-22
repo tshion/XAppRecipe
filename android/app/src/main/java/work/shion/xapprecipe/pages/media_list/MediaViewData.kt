@@ -1,6 +1,7 @@
 package work.shion.xapprecipe.pages.media_list
 
 import android.content.Context
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
@@ -30,6 +31,6 @@ data class MediaViewData(
                 MediaStore.Images.Thumbnails.MINI_KIND,
                 null
             )
-        }
+        }.let { BitmapDrawable(appContext.resources, it) }
     }.getOrNull()
 }
