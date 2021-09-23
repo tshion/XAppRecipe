@@ -12,6 +12,7 @@ import work.shion.xapprecipe.atoms.media_tile.MediaTile
 import work.shion.xapprecipe.atoms.media_tile.MediaTileViewHolder
 
 class MainAdapter(
+    private val action: MainAdapterActionContract,
     diffCallback: MainAdapterDiffs,
 ) : RecyclerView.Adapter<MediaTileViewHolder>() {
 
@@ -35,13 +36,21 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: MediaTileViewHolder, position: Int) {
-        val data = differ.currentList.getOrNull(position) ?: return
-        holder.root.apply {
-            preview = data.thumbnail(
-                appContext = context,
-                size = Size(320, 160),
-            )
-            title = data.title
+        val data = differ.currentList.getOrNull(position)
+        if (data != null) {
+            holder.root.apply {
+                preview = data.thumbnail(
+                    appContext = context,
+                    size = Size(320, 160),
+                )
+                title = data.title
+
+                setOnClickListener {
+                    action.tapItem(data)
+                }
+            }
+        } else {
+            holder.root.setOnClickListener(null)
         }
     }
 

@@ -57,4 +57,8 @@ class MainViewModel(
             viewer.get()?.reflectLoading(false)
         }
     }
+
+    override fun tapItem(target: MediaViewData) {
+        viewer.get()?.launchMediaApp(target.contentUri)
+    }
 }

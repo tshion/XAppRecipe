@@ -1,6 +1,9 @@
 package work.shion.xapprecipe.pages.media_list
 
 import android.Manifest
+import android.content.Intent
+import android.content.Intent.ACTION_VIEW
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -16,9 +19,7 @@ import java.lang.ref.WeakReference
  */
 class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
 
-    private val adapter = MainAdapter(
-        diffCallback = MainAdapterDiffs()
-    )
+    private var adapter: MainAdapter? = null
     private var binding: PageMediaListBinding? = null
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
@@ -32,7 +33,12 @@ class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
         super.onViewCreated(view, savedInstanceState)
         binding = PageMediaListBinding.bind(view)
 
+        adapter = MainAdapter(
+            action = viewModel,
+            diffCallback = MainAdapterDiffs()
+        )
         binding?.pageMediaListContents?.adapter = adapter
+
         binding?.pageMediaListHeader?.setupBackListener {
             activity?.onBackPressed()
         }
@@ -64,6 +70,21 @@ class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
 
 
     /**
+     * メディア再生アプリの起動
+     */
+    override fun launchMediaApp(contentUri: Uri) {
+        val intent = Intent(ACTION_VIEW).apply {
+            data = contentUri
+        }
+
+        activity?.packageManager?.also {
+            if (intent.resolveActivity(it) != null) {
+                startActivity(intent)
+            }
+        }
+    }
+
+    /**
      * ローディング状態の反映
      */
     override fun reflectLoading(shouldShow: Boolean) {
@@ -74,6 +95,6 @@ class MainFragment : Fragment(R.layout.page_media_list), MainViewContract {
      * リスト表示への反映
      */
     override fun reflectList(data: List<MediaViewData>) {
-        adapter.displayData = data
+        adapter?.displayData = data
     }
 }
