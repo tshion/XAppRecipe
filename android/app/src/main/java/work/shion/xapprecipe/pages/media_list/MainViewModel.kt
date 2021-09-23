@@ -24,7 +24,7 @@ class MainViewModel(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                 arrayOf(
                     MediaStore.Images.Media._ID,
-                    MediaStore.Video.Media.DISPLAY_NAME,
+                    MediaStore.Images.Media.DISPLAY_NAME,
                 ),
                 null,
                 null,
