@@ -78,6 +78,12 @@
         android:name="work.shion.xapprecipe.pages.login_biometric.MainFragment"
         tools:layout="@layout/page_login_biometric" />
 
+    <!-- メディアコンテンツ一覧 -->
+    <fragment
+        android:id="@+id/media_list"
+        android:name="work.shion.xapprecipe.pages.media_list.MainFragment"
+        tools:layout="@layout/page_media_list" />
+
     <!-- 通知一覧 -->
     <fragment
         android:id="@+id/notice"
@@ -153,6 +159,11 @@
     <action
         android:id="@+id/navact_to_login_biometric"
         app:destination="@id/login_biometric" />
+
+    <!-- メディアコンテンツ一覧へ遷移 -->
+    <action
+        android:id="@+id/navact_to_media_list"
+        app:destination="@id/media_list" />
 
     <!-- 通知一覧へ遷移 -->
     <action
