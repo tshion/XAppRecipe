@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AtomMediaTile">
+        <attr name="android:src" />
+        <attr name="android:text" />
+    </declare-styleable>
+</resources>

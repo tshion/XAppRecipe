@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pages_profile_editor_header">プロフィール編集</string>
+    <string name="pages_profile_editor_name">氏名</string>
+    <string name="pages_profile_editor_name_ruby">しめい</string>
+</resources>

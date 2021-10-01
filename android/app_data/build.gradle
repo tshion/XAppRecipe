@@ -46,7 +46,16 @@ dependencies {
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
 
+    // Moshi
+    implementation "com.squareup.moshi:moshi-adapters:${ver_moshi}"
+    implementation "com.squareup.moshi:moshi-kotlin:${ver_moshi}"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:${ver_moshi}"
+
     // OkHttp
     implementation platform("com.squareup.okhttp3:okhttp-bom:${ver_okhttp}")
     implementation "com.squareup.okhttp3:okhttp"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:converter-moshi:${ver_retrofit}"
+    implementation "com.squareup.retrofit2:retrofit:${ver_retrofit}"
 }

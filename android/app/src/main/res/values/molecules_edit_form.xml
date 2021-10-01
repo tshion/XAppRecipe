@@ -4,6 +4,7 @@
     <declare-styleable name="EditForm">
         <attr name="android:hint" />
         <attr name="android:inputType" />
+        <attr name="android:privateImeOptions" />
         <attr name="android:text" />
     </declare-styleable>
 </resources>

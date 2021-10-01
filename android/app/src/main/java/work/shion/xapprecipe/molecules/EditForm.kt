@@ -22,7 +22,8 @@ import work.shion.xapprecipe.databinding.MoleculesEditFormBinding
  *     android:layout_width="match_parent"
  *     android:layout_height="wrap_content"
  *     android:hint="タイトル"
- *     android:inputType="text" />
+ *     android:inputType="text"
+ *     android:privateImeOptions="" />
  * ```
  *
  * ### 入力データの取得
@@ -91,6 +92,7 @@ class EditForm @JvmOverloads constructor(
             binding.label = getString(R.styleable.EditForm_android_hint)
 
             binding.moleculesEditFormInput.inputType = getInt(R.styleable.EditForm_android_inputType, 0)
+            binding.moleculesEditFormInput.privateImeOptions = getString(R.styleable.EditForm_android_privateImeOptions)
         }
     }
 }
