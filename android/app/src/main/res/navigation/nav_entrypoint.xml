@@ -90,6 +90,12 @@
         android:name="work.shion.xapprecipe.pages.notice.MainFragment"
         tools:layout="@layout/pages_notice" />
 
+    <!-- PDF 表示 -->
+    <fragment
+        android:id="@+id/pdf_viewer"
+        android:name="work.shion.xapprecipe.pages.pdf_viewer.MainFragment"
+        tools:layout="@layout/pages_pdf_viewer" />
+
     <!-- プロフィール編集 -->
     <fragment
         android:id="@+id/profile_editor"
@@ -170,7 +176,12 @@
         android:id="@+id/navact_to_notice"
         app:destination="@id/notice" />
 
-    <!-- プロフィール編集へ遷移 -->
+    <!-- PDF 表示へ遷移 -->
+    <action
+        android:id="@+id/navact_to_pdf_viewer"
+        app:destination="@id/pdf_viewer" />
+
+  <!-- プロフィール編集へ遷移 -->
     <action
         android:id="@+id/navact_to_profile_editor"
         app:destination="@id/profile_editor" />

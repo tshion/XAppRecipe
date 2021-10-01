@@ -40,6 +40,9 @@ dependencies {
     // 共通設定
     testImplementation UnitTestLocal
 
+    // AndroidX
+    implementation "androidx.core:core-ktx:${ver_droidx_core}"
+
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
 
