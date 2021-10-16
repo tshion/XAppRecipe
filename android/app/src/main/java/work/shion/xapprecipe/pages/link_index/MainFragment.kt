@@ -80,7 +80,7 @@ class MainFragment : Fragment(), MainViewContract {
 
     override fun onStart() {
         super.onStart()
-        viewModel.load()
+        //viewModel.load()
     }
 
     override fun onStop() {
