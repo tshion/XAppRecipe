@@ -9,17 +9,21 @@ import work.shion.xapprecipe_core.entities.WebLinkEntity
 interface BookmarkWebUseCaseContract {
 
     /**
+     * ブックマークのデータストリーム
+     */
+    val bookmarkStream: StateFlow<List<WebLinkEntity>>
+
+
+    /**
      * ブックマークの追加
      * @throws IllegalArgumentException path に不備がある
      */
     suspend fun append(path: String)
 
-    suspend fun linkStream(): StateFlow<List<WebLinkEntity>>
-
     /**
-     * ブックマークの読み込み
+     * ブックマークのデータストリーム更新
      */
-    suspend fun load(): List<WebLinkEntity>
+    suspend fun refreshBookmarkStream()
 
     /**
      * ブックマークの削除

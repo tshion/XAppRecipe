@@ -13,7 +13,11 @@ class BookmarkWebUseCase(
     private val webLinkRepository: WebLinkRepositoryContract,
 ) : BookmarkWebUseCaseContract {
 
-    private val _linkStream = MutableStateFlow<List<WebLinkEntity>>(emptyList())
+    /**
+     * ブックマークのデータストリーム
+     */
+    private val _bookmarkStream = MutableStateFlow<List<WebLinkEntity>>(emptyList())
+    override val bookmarkStream: StateFlow<List<WebLinkEntity>> = _bookmarkStream
 
 
     /**
@@ -32,18 +36,15 @@ class BookmarkWebUseCase(
         } else {
             webLinkRepository.append(path)
         }
-        _linkStream.value = webLinkRepository.load()
-    }
-
-    override suspend fun linkStream(): StateFlow<List<WebLinkEntity>> {
-        _linkStream.value = webLinkRepository.load()
-        return _linkStream
+        refreshBookmarkStream()
     }
 
     /**
-     * ブックマークの読み込み
+     * ブックマークのデータストリーム更新
      */
-    override suspend fun load() = webLinkRepository.load()
+    override suspend fun refreshBookmarkStream() {
+        _bookmarkStream.value = webLinkRepository.load()
+    }
 
     /**
      * ブックマークの削除
@@ -55,6 +56,6 @@ class BookmarkWebUseCase(
         }
 
         webLinkRepository.remove(target.id)
-        _linkStream.value = webLinkRepository.load()
+        refreshBookmarkStream()
     }
 }

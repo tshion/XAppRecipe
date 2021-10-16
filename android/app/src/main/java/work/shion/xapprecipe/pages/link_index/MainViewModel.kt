@@ -19,7 +19,7 @@ class MainViewModel(
 
     init {
         viewModelScope.launch {
-            bookmarkWebUseCase.linkStream().collect {
+            bookmarkWebUseCase.bookmarkStream.collect {
                 viewer.get()?.reflectList(it)
             }
         }
@@ -51,8 +51,7 @@ class MainViewModel(
         viewModelScope.launch {
             try {
                 viewer.get()?.reflectLoading(true)
-//                bookmarkWebUseCase.load()
-//                    .also { viewer.get()?.reflectList(it) }
+                bookmarkWebUseCase.refreshBookmarkStream()
             } catch (ex: Throwable) {
                 // TODO: エラー表示
             } finally {
@@ -70,9 +69,6 @@ class MainViewModel(
                 viewer.get()?.reflectLoading(true)
 
                 link?.also { bookmarkWebUseCase.append(it) }
-
-//                bookmarkWebUseCase.load()
-//                    .also { viewer.get()?.reflectList(it) }
             } catch (ex: Throwable) {
                 // TODO: エラー表示
             } finally {
@@ -91,9 +87,6 @@ class MainViewModel(
 
                 selectedData?.also { bookmarkWebUseCase.remove(it) }
                 selectedData = null
-
-//                bookmarkWebUseCase.load()
-//                    .also { viewer.get()?.reflectList(it) }
             } catch (ex: Throwable) {
                 // TODO: エラー表示
             } finally {
