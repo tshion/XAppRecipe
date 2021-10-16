@@ -1,5 +1,7 @@
 package work.shion.xapprecipe_core.usecases
 
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 import work.shion.xapprecipe_core.repositories.WebLinkRepositoryContract
 import work.shion.xapprecipe_core.validators.WebUriValidator
@@ -10,6 +12,9 @@ import work.shion.xapprecipe_core.validators.WebUriValidator
 class BookmarkWebUseCase(
     private val webLinkRepository: WebLinkRepositoryContract,
 ) : BookmarkWebUseCaseContract {
+
+    private val _linkStream = MutableStateFlow<List<WebLinkEntity>>(emptyList())
+
 
     /**
      * ブックマークの追加
@@ -27,6 +32,12 @@ class BookmarkWebUseCase(
         } else {
             webLinkRepository.append(path)
         }
+        _linkStream.value = webLinkRepository.load()
+    }
+
+    override suspend fun linkStream(): StateFlow<List<WebLinkEntity>> {
+        _linkStream.value = webLinkRepository.load()
+        return _linkStream
     }
 
     /**
@@ -44,5 +55,6 @@ class BookmarkWebUseCase(
         }
 
         webLinkRepository.remove(target.id)
+        _linkStream.value = webLinkRepository.load()
     }
 }
