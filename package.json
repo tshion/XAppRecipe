@@ -10,12 +10,12 @@
     "webui"
   ],
   "dependencies": {
-    "@capacitor/android": "3.2.2",
-    "@capacitor/core": "3.2.2",
-    "@capacitor/ios": "3.2.2"
+    "@capacitor/android": "3.2.5",
+    "@capacitor/core": "3.2.5",
+    "@capacitor/ios": "3.2.5"
   },
   "devDependencies": {
-    "@capacitor/cli": "3.2.2",
+    "@capacitor/cli": "3.2.5",
     "lerna": "^4.0.0"
   }
 }
