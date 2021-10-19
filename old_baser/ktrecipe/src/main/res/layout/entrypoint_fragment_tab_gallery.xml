@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<fragment
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/entrypoint_fragment_gallery"
-    android:name="work.shion.ktrecipe.pages.entrypoint.views.GalleryFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
