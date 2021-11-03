@@ -23,6 +23,7 @@ buildscript {
         ver_droidx_fragment = '1.3.3'
         ver_droidx_navigation = '2.3.5'
         ver_droidx_recyclerview = '1.2.0'
+        ver_droidx_workmanager = '2.6.0'
         ver_hyperion = "0.9.30"
         ver_kotlin = "1.4.32"
         ver_kotlin_coroutines = "1.4.3"
