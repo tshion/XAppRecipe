@@ -1,9 +1,14 @@
 package work.shion.xapprecipe.pages.pdf_viewer
 
+import android.app.Application
 import android.graphics.pdf.PdfRenderer
 import android.os.ParcelFileDescriptor
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
@@ -12,13 +17,27 @@ import work.shion.xapprecipe_core.usecases.ShowPdfUseCaseContract
 import java.lang.ref.WeakReference
 
 class MainViewModel(
+    application: Application,
     private val showPdfUseCase: ShowPdfUseCaseContract,
     private val viewer: WeakReference<MainViewContract>,
 ) : ViewModel(), MainActionContract {
 
+    companion object {
+
+        private const val TAG_LOAD = "TAG_LOAD"
+    }
+
+
     private var currentIndex = 0
     private var currentPage: PdfRenderer.Page? = null
     private var pdfRenderer: PdfRenderer? = null
+    internal val workInfo: LiveData<List<WorkInfo>>
+    private val workManager = WorkManager.getInstance(application)
+
+
+    init {
+        workInfo = workManager.getWorkInfosByTagLiveData(TAG_LOAD)
+    }
 
 
     /** タスクキャンセル */
@@ -28,29 +47,16 @@ class MainViewModel(
     }
 
     override fun loadPdf() {
-        viewModelScope.launch {
-            try {
-                val file = showPdfUseCase.load(
+        OneTimeWorkRequestBuilder<DownloadWorker>()
+            .addTag(TAG_LOAD)
+            .setInputData(
+                DownloadWorker.createInputData(
                     cacheName = "android_securecoding.pdf",
                     url = "https://www.jssec.org/dl/android_securecoding.pdf",
                 )
-
-                clearPage()
-
-                pdfRenderer = withContext(Dispatchers.IO) {
-                    ParcelFileDescriptor.open(
-                        file,
-                        ParcelFileDescriptor.MODE_READ_ONLY
-                    ).let { PdfRenderer(it) }
-                }
-
-                currentPage = pdfRenderer?.openPage(currentIndex)
-                currentPage?.also { viewer.get()?.reflectPdf(it) }
-            } catch (ex: Throwable) {
-                val a = 0
-                val b = a
-            }
-        }
+            )
+            .build()
+            .also { workManager.enqueue(it) }
     }
 
     override fun loadPrev() {
@@ -75,6 +81,32 @@ class MainViewModel(
         currentPage?.close()
         currentPage = pdfRenderer?.openPage(currentIndex)
         currentPage?.also { viewer.get()?.reflectPdf(it) }
+    }
+
+    override fun setup() {
+        viewModelScope.launch {
+            try {
+                val file = showPdfUseCase.load(
+                    cacheName = "android_securecoding.pdf",
+                    url = "https://www.jssec.org/dl/android_securecoding.pdf",
+                )
+
+                clearPage()
+
+                pdfRenderer = withContext(Dispatchers.IO) {
+                    ParcelFileDescriptor.open(
+                        file,
+                        ParcelFileDescriptor.MODE_READ_ONLY
+                    ).let { PdfRenderer(it) }
+                }
+
+                currentPage = pdfRenderer?.openPage(currentIndex)
+                currentPage?.also { viewer.get()?.reflectPdf(it) }
+            } catch (ex: Throwable) {
+                val a = 0
+                val b = a
+            }
+        }
     }
 
 
