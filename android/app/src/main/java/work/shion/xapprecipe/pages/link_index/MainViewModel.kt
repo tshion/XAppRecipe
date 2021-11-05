@@ -3,6 +3,7 @@ package work.shion.xapprecipe.pages.link_index
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 import work.shion.xapprecipe_core.usecases.BookmarkWebUseCaseContract
@@ -14,6 +15,15 @@ class MainViewModel(
 ) : ViewModel(), MainActionContract {
 
     private var selectedData: WebLinkEntity? = null
+
+
+    init {
+        viewModelScope.launch {
+            bookmarkWebUseCase.bookmarkStream.collect {
+                viewer.get()?.reflectList(it)
+            }
+        }
+    }
 
 
     /**
@@ -41,8 +51,7 @@ class MainViewModel(
         viewModelScope.launch {
             try {
                 viewer.get()?.reflectLoading(true)
-                bookmarkWebUseCase.load()
-                    .also { viewer.get()?.reflectList(it) }
+                bookmarkWebUseCase.refreshBookmarkStream()
             } catch (ex: Throwable) {
                 // TODO: エラー表示
             } finally {
@@ -60,9 +69,6 @@ class MainViewModel(
                 viewer.get()?.reflectLoading(true)
 
                 link?.also { bookmarkWebUseCase.append(it) }
-
-                bookmarkWebUseCase.load()
-                    .also { viewer.get()?.reflectList(it) }
             } catch (ex: Throwable) {
                 // TODO: エラー表示
             } finally {
@@ -81,9 +87,6 @@ class MainViewModel(
 
                 selectedData?.also { bookmarkWebUseCase.remove(it) }
                 selectedData = null
-
-                bookmarkWebUseCase.load()
-                    .also { viewer.get()?.reflectList(it) }
             } catch (ex: Throwable) {
                 // TODO: エラー表示
             } finally {
