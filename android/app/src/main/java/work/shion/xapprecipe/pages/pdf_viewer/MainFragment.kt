@@ -23,6 +23,7 @@ class MainFragment : Fragment(), MainViewContract {
     private var binding: PagesPdfViewerBinding? = null
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
+            application = requireActivity().application,
             showPdfUseCase = activity?.getProvider()!!.showPdfUseCase,
             viewer = WeakReference(this),
         )
@@ -59,6 +60,17 @@ class MainFragment : Fragment(), MainViewContract {
                     }
                 }
                 else -> false
+            }
+        }
+
+        viewModel.workInfo.observe(viewLifecycleOwner) { list ->
+            if (list.isNullOrEmpty()) {
+                return@observe
+            }
+
+            val work = list[0]
+            if (work.state.isFinished) {
+                viewModel.setup()
             }
         }
     }

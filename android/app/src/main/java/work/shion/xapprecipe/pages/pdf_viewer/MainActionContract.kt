@@ -9,4 +9,6 @@ interface MainActionContract : CancelableActionContract {
     fun loadPrev()
 
     fun loadNext()
+
+    fun setup()
 }

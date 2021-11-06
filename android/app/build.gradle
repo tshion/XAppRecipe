@@ -112,6 +112,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:${ver_droidx_navigation}"
     implementation "androidx.navigation:navigation-ui-ktx:${ver_droidx_navigation}"
     implementation "androidx.recyclerview:recyclerview:${ver_droidx_recyclerview}"
+    implementation "androidx.work:work-runtime-ktx:${ver_droidx_workmanager}"
 
     // Hyperion
     devImplementation "com.willowtreeapps.hyperion:hyperion-core:${ver_hyperion}"
