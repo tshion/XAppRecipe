@@ -2,6 +2,7 @@ package work.shion.xapprecipe
 
 import android.app.Application
 import androidx.work.Configuration
+import androidx.work.DelegatingWorkerFactory
 import java.lang.ref.WeakReference
 
 open class MainApplication : Application(), Configuration.Provider {
@@ -18,11 +19,16 @@ open class MainApplication : Application(), Configuration.Provider {
     }
 
 
-    override fun getWorkManagerConfiguration() = Configuration.Builder()
-        .setWorkerFactory(
+    override fun getWorkManagerConfiguration(): Configuration {
+        val factory = DelegatingWorkerFactory()
+        factory.addFactory(
             MainWorkerFactory(
                 showPdfUseCase = provider!!.showPdfUseCase,
             )
         )
-        .build()
+
+        return Configuration.Builder()
+            .setWorkerFactory(factory)
+            .build()
+    }
 }
