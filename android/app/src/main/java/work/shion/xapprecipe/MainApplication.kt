@@ -1,9 +1,10 @@
 package work.shion.xapprecipe
 
 import android.app.Application
+import androidx.work.Configuration
 import java.lang.ref.WeakReference
 
-open class MainApplication : Application() {
+open class MainApplication : Application(), Configuration.Provider {
 
     var provider: ModelProvider? = null
 
@@ -15,4 +16,13 @@ open class MainApplication : Application() {
             appContext = WeakReference(applicationContext),
         )
     }
+
+
+    override fun getWorkManagerConfiguration() = Configuration.Builder()
+        .setWorkerFactory(
+            MainWorkerFactory(
+                showPdfUseCase = provider!!.showPdfUseCase,
+            )
+        )
+        .build()
 }
