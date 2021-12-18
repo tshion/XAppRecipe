@@ -6,6 +6,7 @@ import android.os.ParcelFileDescriptor
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
@@ -56,7 +57,13 @@ class MainViewModel(
                 )
             )
             .build()
-            .also { workManager.enqueue(it) }
+            .also {
+                workManager.enqueueUniqueWork(
+                    TAG_LOAD,
+                    ExistingWorkPolicy.KEEP,
+                    it,
+                )
+            }
     }
 
     override fun loadPrev() {
