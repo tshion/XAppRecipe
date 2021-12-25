@@ -10,8 +10,6 @@ import XAppRecipe from "../../xapprecipe.plugin";
 })
 export class HomePage {
 
-  public sampleText = "sample";
-
 
   constructor(
     private platform: Platform

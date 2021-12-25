@@ -1,8 +1,7 @@
 {
   "npmClient": "npm",
   "packages": [
-    "mainapp",
-    "webui"
+    "mainapp"
   ],
   "useWorkspaces": true,
   "version": "independent"
