@@ -10,17 +10,15 @@
       "problemMatcher": {
         "background": {
           "activeOnStart": true,
-          "beginsPattern": ".",
-          "endsPattern": ".*Development Server is listening.*"
-        },
-        "pattern": [
-          {
-            "regexp": ".",
-            "file": 1,
-            "location": 2,
-            "message": 3
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
           }
-        ],
+        },
+        "owner": "typescript",
+        "pattern": "$tsc"
       },
       "type": "npm",
       "script": "start"

@@ -11,6 +11,13 @@ clear:
 	@echo finish $@.
 
 
+# WEB リソースを各ネイティブへ配置する
+deploy-web:
+	npx lerna run build --scope=@xapprecipe/mainapp
+	npx cap sync --deployment
+	@echo finish $@.
+
+
 # 開発環境の整備
 setup:
 	@make setup-js

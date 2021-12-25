@@ -1,4 +1,4 @@
-import { registerPlugin } from "@capacitor/core";
+import { registerPlugin } from '@capacitor/core';
 
 
 export interface XAppRecipePlugin {
@@ -6,7 +6,7 @@ export interface XAppRecipePlugin {
 }
 
 
-const XAppRecipe = registerPlugin<XAppRecipePlugin>("XAppRecipe");
+const pluginXAppRecipe = registerPlugin<XAppRecipePlugin>('XAppRecipe');
 
 
-export default XAppRecipe;
+export default pluginXAppRecipe;
