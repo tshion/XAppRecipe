@@ -5,10 +5,9 @@ import work.shion.xapprecipe_core.entities.WebLinkEntity
 /**
  * リンク情報の保存実装(インメモリ)
  */
-class LinkMemory : LinkMemoryContract {
-
-    val store = arrayListOf<WebLinkEntity>()
-
+class LinkMemory(
+    private val store: ArrayList<WebLinkEntity> = arrayListOf(),
+) : LinkMemoryContract {
 
     override fun load() = store.map { it.copy() }
 

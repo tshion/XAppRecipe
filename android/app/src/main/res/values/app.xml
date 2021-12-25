@@ -36,6 +36,7 @@
 
 
     <!-- アクション名 -->
+    <string name="app_action_capture">撮影</string>
     <string name="app_action_close">閉じる</string>
     <string name="app_action_delete">削除</string>
     <string name="app_action_login">ログイン</string>
