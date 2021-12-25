@@ -6,7 +6,7 @@ export interface XAppRecipePlugin {
 }
 
 
-const XAppRecipe = registerPlugin<XAppRecipePlugin>('XAppRecipe');
+const pluginXAppRecipe = registerPlugin<XAppRecipePlugin>('XAppRecipe');
 
 
-export default XAppRecipe;
+export default pluginXAppRecipe;
