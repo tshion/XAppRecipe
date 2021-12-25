@@ -8,11 +8,6 @@
   "workspaces": [
     "mainapp"
   ],
-  "dependencies": {
-    "@capacitor/android": "~3.3",
-    "@capacitor/core": "~3.3",
-    "@capacitor/ios": "~3.3"
-  },
   "devDependencies": {
     "@capacitor/cli": "~3.3",
     "lerna": "^4.0.0"

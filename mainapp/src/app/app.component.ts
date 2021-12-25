@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Plugins } from '@capacitor/core';
+import { SplashScreen } from '@capacitor/splash-screen';
 import { Platform } from '@ionic/angular';
 
-const { SplashScreen } = Plugins;
 
 @Component({
   selector: 'app-root',
