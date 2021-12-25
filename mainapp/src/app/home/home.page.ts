@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
-import XAppRecipe from "../../xapprecipe.plugin";
+import XAppRecipe from '../../xapprecipe.plugin';
 
 @Component({
   selector: 'app-home',
