@@ -4,5 +4,6 @@
     "mainapp",
     "webui"
   ],
+  "useWorkspaces": true,
   "version": "independent"
 }
