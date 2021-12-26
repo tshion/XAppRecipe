@@ -38,7 +38,7 @@ buildscript {
         ver_prep_web = "1.0.1"
         ver_retrofit = '2.9.0'
         ver_zxing = "3.4.1"
-        ver_zxing_embedded = "4.2.0"
+        ver_zxing_embedded = '4.3.0'
 
 
         UnitTestLocal = [
