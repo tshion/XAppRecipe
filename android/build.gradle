@@ -8,7 +8,7 @@ buildscript {
         appver_code = 10000 * appver_major + 100 * appver_minor + appver_revision
         appver_name = "${appver_major}.${appver_minor}.${appver_revision}"
 
-        build_tools_version = "30.0.3"
+        build_tools_version = "32.0.0"
         compile_sdk_version = 30
         min_sdk_version = 21
 
