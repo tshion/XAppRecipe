@@ -32,6 +32,7 @@
         <activity
             android:name="work.shion.xapprecipe.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+            android:exported="true"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.Launch">
 
