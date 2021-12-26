@@ -109,7 +109,7 @@ dependencies {
     implementation "androidx.browser:browser:${ver_droidx_browser}"
     implementation "androidx.camera:camera-camera2:${ver_droidx_camera}"
     implementation "androidx.camera:camera-lifecycle:${ver_droidx_camera}"
-    implementation "androidx.camera:camera-view:1.0.0-alpha28"
+    implementation 'androidx.camera:camera-view:1.0.0-alpha32'
     implementation "androidx.constraintlayout:constraintlayout:${ver_droidx_constraint}"
     implementation "androidx.core:core-ktx:${ver_droidx_core}"
     implementation "androidx.fragment:fragment-ktx:${ver_droidx_fragment}"

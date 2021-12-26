@@ -16,18 +16,18 @@ buildscript {
         ver_auto_service = '1.0.1'
         ver_desugar_jdk = '1.1.5'
         ver_droidx_biometric = "1.1.0"
-        ver_droidx_browser = "1.3.0"
-        ver_droidx_camera = '1.0.1'
-        ver_droidx_constraint = "2.0.4"
-        ver_droidx_core = "1.3.2"
-        ver_droidx_fragment = '1.3.3'
+        ver_droidx_browser = '1.4.0'
+        ver_droidx_camera = '1.0.2'
+        ver_droidx_constraint = '2.1.2'
+        ver_droidx_core = '1.7.0'
+        ver_droidx_fragment = '1.4.0'
         ver_droidx_navigation = '2.3.5'
-        ver_droidx_recyclerview = '1.2.0'
-        ver_droidx_workmanager = '2.6.0'
+        ver_droidx_recyclerview = '1.2.1'
+        ver_droidx_workmanager = '2.7.1'
         ver_hyperion = '0.9.34'
         ver_kotlin = "1.4.32"
         ver_kotlin_coroutines = "1.4.3"
-        ver_material = '1.3.0'
+        ver_material = '1.4.0'
         ver_moshi = '1.11.0'
         ver_okhttp = '4.9.0'
         ver_oss_licenses = "17.0.0"
@@ -42,9 +42,9 @@ buildscript {
 
 
         UnitTestLocal = [
-            "androidx.test:core-ktx:1.3.0",
-            "androidx.test.ext:junit-ktx:1.1.2",
-            "androidx.test.ext:truth:1.3.0",
+            'androidx.test:core-ktx:1.4.0',
+            'androidx.test.ext:junit-ktx:1.1.3',
+            'androidx.test.ext:truth:1.4.0',
         ]
     }
 
