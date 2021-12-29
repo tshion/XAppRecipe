@@ -11,8 +11,16 @@ build-web:
 # 中間ファイル等を一括で削除する
 clear:
 	rm -f -r "webui/loader"
+	sh scripts/clear-directories.sh "ios" "App.xcodeproj"
+	sh scripts/clear-directories.sh "ios" "App.xcworkspace"
+	sh scripts/clear-directories.sh "." "capacitor-cordova-android-plugins"
+	sh scripts/clear-directories.sh "." "capacitor-cordova-ios-plugins"
 	sh scripts/clear-directories.sh "." "dist"
 	sh scripts/clear-directories.sh "." "node_modules"
+	sh scripts/clear-directories.sh "ios" "Pods"
+	sh scripts/clear-directories.sh "android/app/src/main" "public"
+	sh scripts/clear-directories.sh "ios/App" "public"
+	sh scripts/clear-directories.sh "." "vendor"
 	sh scripts/clear-directories.sh "." "www"
 	@echo finish $@.
 
