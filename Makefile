@@ -26,12 +26,8 @@ deploy-android:
 # WEB リソースをiOS 側へ配置する
 deploy-ios:
 	@make build-web
-	npx cap copy ios
-	bundle config set path 'vendor/bundle'
-	bundle install
-	cd ios; $(MAKE) init
-	-npx cap update ios --deployment # エラー無視
-	cd ios/App; bundle exec pod install
+	-npx cap sync ios --deployment # エラー無視
+	cd ios; $(MAKE) setup-xcode
 	@echo finish $@.
 
 
@@ -39,7 +35,20 @@ deploy-ios:
 setup:
 	@make setup-js
 
+# 開発環境の整備(iOS 関連)
+setup-ios:
+	@make setup
+	@make setup-ruby
+	cd ios/App; sh scripts/setup-ios.sh
+	@echo finish $@.
+
 # 開発環境の整備(JS 関連)
 setup-js:
 	npm ci
 	npx lerna bootstrap
+	@echo finish $@.
+
+# 開発環境の整備(Ruby 関連)
+setup-ruby:
+	sh scripts/setup-ruby.sh
+	@echo finish $@.
