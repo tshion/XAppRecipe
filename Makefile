@@ -2,6 +2,12 @@
 default: setup
 
 
+# WEB リソースのビルド
+build-web:
+	npx lerna run build --scope=@xapprecipe/mainapp
+	@echo finish $@.
+
+
 # 中間ファイル等を一括で削除する
 clear:
 	rm -f -r "webui/loader"
@@ -11,10 +17,21 @@ clear:
 	@echo finish $@.
 
 
-# WEB リソースを各ネイティブへ配置する
-deploy-web:
-	npx lerna run build --scope=@xapprecipe/mainapp
-	npx cap sync --deployment
+# WEB リソースをAndroid 側へ配置する
+deploy-android:
+	@make build-web
+	npx cap sync android --deployment
+	@echo finish $@.
+
+# WEB リソースをiOS 側へ配置する
+deploy-ios:
+	@make build-web
+	npx cap copy ios
+	bundle config set path 'vendor/bundle'
+	bundle install
+	cd ios; $(MAKE) init
+	-npx cap update ios --deployment # エラー無視
+	cd ios/App; bundle exec pod install
 	@echo finish $@.
 
 
