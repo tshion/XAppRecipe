@@ -49,11 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         super.touchesBegan(touches, with: event)
 
         let statusBarRect = UIApplication.shared.statusBarFrame
-        guard let touchPoint = event?.allTouches?.first?.location(in: self.window) else { return }
+        guard let touchPoint = event?.allTouches?.first?.location(in: window) else { return }
 
         if statusBarRect.contains(touchPoint) {
             NotificationCenter.default.post(name: .capacitorStatusBarTapped, object: nil)
         }
     }
-
 }
