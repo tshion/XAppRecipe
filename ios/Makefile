@@ -12,6 +12,7 @@ build: $(PATH_XCODE_PROJECT)
 
 # 中間ファイル等の一括削除
 clear:
+	sh ../scripts/clear-directories.sh "." "capacitor-cordova-ios-plugins"
 	sh ../scripts/clear-directories.sh "." "Pods"
 	sh ../scripts/clear-directories.sh "App" "App.xcodeproj"
 	sh ../scripts/clear-directories.sh "App" "App.xcworkspace"

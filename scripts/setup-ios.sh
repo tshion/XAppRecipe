@@ -18,6 +18,13 @@ if ! type "brew" > /dev/null; then
 fi
 
 
+# CocoaPods のセットアップ
+if ! type "pod" > /dev/null; then
+    echo '`pod` not found. Install CocoaPods'
+    brew install cocoapods
+fi
+
+
 # Mint のセットアップ
 if ! type "mint" > /dev/null; then
     echo '`mint` not found. Install Mint'

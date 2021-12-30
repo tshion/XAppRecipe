@@ -30,8 +30,8 @@ deploy-android:
 deploy-ios:
 	@make build-web
 	npx cap copy ios
-	-npx cap update ios --deployment # エラー無視
 	cd ios; $(MAKE) setup-xcode
+	npx cap update ios --deployment
 	@echo finish $@.
 
 

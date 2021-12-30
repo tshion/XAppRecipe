@@ -10,7 +10,7 @@ init:
 setup-xcode:
 	mint run LicensePlist --output-path App/Settings.bundle
 	mint run xcodegen generate
-	bundle exec pod install
+	pod install
 
 # Xcode テストの実行
 tests:
