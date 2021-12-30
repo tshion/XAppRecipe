@@ -3,7 +3,7 @@
   "appName": "XAppRecipe",
   "bundledWebRuntime": true,
   "ios": {
-    "minVersion": "12.0"
+    "minVersion": "13.0"
   },
   "npmClient": "npm",
   "webDir": "mainapp/dist",

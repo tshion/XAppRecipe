@@ -1,21 +1,17 @@
 # XAppRecipe(iOS)
 ## Quick Start(**macOS only**)
 * ```bash``` or ```zsh```
-* ```bundle``` (by [Bundler])
+* ```brew``` (by Homebrew)
 * ```git```
 * [Node.js]
-  * ```ionic``` (by [IonicCLI])
-  * ```yarn```
+  * ```npm```
 * ```make```
+* ```ruby```
 * [Xcode]
 
-If you can use above commands, please run these commands.
+If you can use above commands, please run these commands at project root.
 
-1. ```yarn install```
-2. ```ionic build```
-3. ```ionic capacitor sync```
-4. ```make init```
-5. ```ionic capacitor open ios```
+```make setup-ios```
 
 
 ## Memo

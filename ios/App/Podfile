@@ -1,4 +1,4 @@
-platform :ios, '12.0'
+platform :ios, '13.0'
 use_frameworks!
 
 # workaround to avoid Xcode caching of Pods that requires
@@ -13,11 +13,11 @@ def capacitor_pods
 end
 
 def hyperion
-  pod 'HyperioniOS/Core', '1.1.0', :configurations => ['Debug']
+  pod 'HyperioniOS/Core', '1.2.0', :configurations => ['Debug']
 
-  pod 'HyperioniOS/AttributesInspector', '1.1.0', :configurations => ['Debug']
-  pod 'HyperioniOS/Measurements', '1.1.0', :configurations => ['Debug']
-  pod 'HyperioniOS/SlowAnimations', '1.1.0', :configurations => ['Debug']
+  pod 'HyperioniOS/AttributesInspector', :configurations => ['Debug']
+  pod 'HyperioniOS/Measurements', :configurations => ['Debug']
+  pod 'HyperioniOS/SlowAnimations', :configurations => ['Debug']
 end
 
 def ui
