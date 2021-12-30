@@ -283,6 +283,9 @@ iOSInjectionProject/
 App/public
 DerivedData
 
+# fastlane
+fastlane/README.md
+
 # LicensePlist
 com.mono0926.LicensePlist**
 
