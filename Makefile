@@ -34,7 +34,8 @@ deploy-android:
 # WEB リソースをiOS 側へ配置する
 deploy-ios:
 	@make build-web
-	-npx cap sync ios --deployment # エラー無視
+	npx cap copy ios
+	-npx cap update ios --deployment # エラー無視
 	cd ios; $(MAKE) setup-xcode
 	@echo finish $@.
 
@@ -47,7 +48,9 @@ setup:
 setup-ios:
 	@make setup
 	@make setup-ruby
-	cd ios/App; sh scripts/setup-ios.sh
+	sh scripts/setup-ios.sh
+	cd ios; $(MAKE) init
+	@make deploy-ios
 	@echo finish $@.
 
 # 開発環境の整備(JS 関連)

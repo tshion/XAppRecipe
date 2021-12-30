@@ -11,10 +11,17 @@ else
 fi
 
 
-# Bundler の確認
-if ! type "bundle" > /dev/null; then
-    echo "Require Bundler"
+# gem の確認
+if ! type "gem" > /dev/null; then
+    echo '`gem` not found. Install Ruby'
     exit 1
+fi
+
+
+# Bundler のセットアップ
+if ! type "gem list bundle" > /dev/null; then
+    echo '`bundle` not found. Install bundler'
+    gem install bundler
 fi
 
 

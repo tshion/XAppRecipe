@@ -11,13 +11,15 @@ else
 fi
 
 
+# Homebrew の確認
+if ! type "brew" > /dev/null; then
+    echo '`brew` not found. Install Homebrew'
+    exit 1
+fi
+
+
 # Mint のセットアップ
 if ! type "mint" > /dev/null; then
     echo '`mint` not found. Install Mint'
-    git clone https://github.com/yonaskolb/Mint.git
-    make -C Mint
-    rm -rf Mint
+    brew install mint
 fi
-
-# Mintfile から依存関係を復元
-mint bootstrap
