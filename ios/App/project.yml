@@ -8,6 +8,7 @@ targetTemplates:
   appbase:
     dependencies:
       - sdk: WebKit.framework
+    deploymentTarget: "13.0"
     platform: iOS
     preBuildScripts:
       - path: scripts/format.sh
@@ -37,11 +38,9 @@ targets:
   App:
     templates:
       - appbase
-    deploymentTarget: "12.0"
   AppPreview:
     templates:
       - appbase
-    deploymentTarget: "13.0"
     sources:
       - AppPreview
   AppTests:
