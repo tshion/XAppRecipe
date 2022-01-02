@@ -2,11 +2,16 @@ name: App
 options:
   deploymentLanguage: Japan
   groupSortPosition: top
+packages:
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire.git
+    minorVersion: 5.5.0
 settings:
   PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
 targetTemplates:
   appbase:
     dependencies:
+      - package: Alamofire
       - sdk: WebKit.framework
     deploymentTarget: "13.0"
     platform: iOS
