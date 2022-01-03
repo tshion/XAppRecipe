@@ -1,11 +1,11 @@
 import Alamofire
+import Combine
 
 class Api {
     func getHtml(
         path: String
-    ) {
-        AF.request(path).response { response in
-            debugPrint(response)
-        }
+    ) -> DataResponsePublisher<String> {
+        return AF.request(path)
+            .publishString()
     }
 }
