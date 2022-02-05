@@ -13,6 +13,14 @@ plugins {
 }
 
 android {
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == "release") {
+            variant.outputs.each { output ->
+                output.versionCodeOverride = appver_code
+                output.versionNameOverride = appver_name
+            }
+        }
+    }
     buildFeatures {
         dataBinding true
         viewBinding true
@@ -47,8 +55,8 @@ android {
         applicationId "work.shion.xapprecipe"
         minSdkVersion min_sdk_version
         targetSdkVersion compile_sdk_version
-        versionCode appver_code
-        versionName appver_name
+        versionCode 1
+        versionName '0.0.1'
 
 
         // 地図の基本URL
