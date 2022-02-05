@@ -22,6 +22,9 @@ android {
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
+
+            // Firebase Crashlytics の無効化
+            ext.enableCrashlytics = false
         }
         release {
             minifyEnabled true
