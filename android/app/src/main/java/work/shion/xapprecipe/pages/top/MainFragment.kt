@@ -3,9 +3,7 @@ package work.shion.xapprecipe.pages.top
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings.ACTION_SETTINGS
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -26,7 +24,7 @@ import java.lang.ref.WeakReference
 /**
  * トップ
  */
-class MainFragment : Fragment(), MainViewContract {
+class MainFragment : Fragment(R.layout.pages_top), MainViewContract {
 
     companion object {
         private const val REQUEST_LOGOUT_FINISH = "REQUEST_LOGOUT_FINISH"
@@ -51,17 +49,9 @@ class MainFragment : Fragment(), MainViewContract {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = PagesTopBinding.inflate(inflater, container, false)
-        return binding?.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = PagesTopBinding.bind(view)
 
         // フッター
         binding?.pagesTopFooter?.setOnNavigationItemSelectedListener { menu ->
