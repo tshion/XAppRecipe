@@ -28,7 +28,7 @@ class ShowLogoutFinishDialog : Plugin() {
                 }
 
                 activity.let { Navigation.findNavController(it, R.id.entrypoint) }
-                    .navigate(NavEntrypointDirections.navactShowLogoutFinishDialog())
+                    .navigate(NavEntrypointDirections.navactShowLogoutFinishDialog(""))
             }
         }
 
