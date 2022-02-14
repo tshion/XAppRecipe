@@ -2,18 +2,16 @@ package work.shion.xapprecipe.pages.launcher
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import work.shion.xapprecipe.NavEntrypointDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.atoms.CircleLoadingOverlay
-import work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialogViewModel
 import java.lang.ref.WeakReference
 
 /**
@@ -21,13 +19,24 @@ import java.lang.ref.WeakReference
  */
 class MainFragment : Fragment(), MainViewContract {
 
-    private val launchErrorDialogViewModel by activityViewModels<LaunchErrorDialogViewModel>()
+    companion object {
+        private const val REQUEST_RETRY = "REQUEST_RETRY"
+    }
+
+
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             viewer = WeakReference(this)
         )
     }
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setFragmentResultListener(REQUEST_RETRY) { _, _ ->
+            viewModel.judgePage()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,17 +47,6 @@ class MainFragment : Fragment(), MainViewContract {
             MATCH_PARENT,
             MATCH_PARENT,
         )
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        launchErrorDialogViewModel.isCalledRetry.observe(viewLifecycleOwner) {
-            if (it) {
-                launchErrorDialogViewModel.isCalledRetry.value = false
-                viewModel.judgePage()
-            }
-        }
     }
 
     override fun onStart() {
@@ -83,6 +81,6 @@ class MainFragment : Fragment(), MainViewContract {
      */
     override fun showLaunchErrorDialog() {
         activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-            ?.navigate(NavEntrypointDirections.navactShowLaunchErrorDialog())
+            ?.navigate(NavEntrypointDirections.navactShowLaunchErrorDialog(REQUEST_RETRY))
     }
 }

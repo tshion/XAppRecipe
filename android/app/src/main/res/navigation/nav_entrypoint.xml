@@ -14,7 +14,12 @@
     <!-- 起動失敗ダイアログ -->
     <dialog
         android:id="@+id/launch_error_dialog"
-        android:name="work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialog" />
+        android:name="work.shion.xapprecipe.templates.LaunchErrorDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
+    </dialog>
 
     <!-- リンク詳細ダイアログ -->
     <dialog

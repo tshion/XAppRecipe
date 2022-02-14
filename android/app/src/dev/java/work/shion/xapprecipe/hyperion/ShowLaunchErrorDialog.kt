@@ -28,7 +28,7 @@ class ShowLaunchErrorDialog : Plugin() {
                 }
 
                 activity.let { Navigation.findNavController(it, R.id.entrypoint) }
-                    .navigate(NavEntrypointDirections.navactShowLaunchErrorDialog())
+                    .navigate(NavEntrypointDirections.navactShowLaunchErrorDialog(""))
             }
         }
 
