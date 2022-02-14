@@ -1,10 +1,12 @@
-package work.shion.xapprecipe.templates.logout_finish_dialog
+package work.shion.xapprecipe.templates
 
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import work.shion.xapprecipe.R
 
@@ -15,31 +17,29 @@ import work.shion.xapprecipe.R
  * ### ダイアログの呼び出し
  * ``` kotlin
  * activity.let { Navigation.findNavController(it, R.id.entrypoint) }
- *     .navigate(NavEntrypointDirections.navactShowLogoutFinishDialog())
+ *     .navigate(NavEntrypointDirections.navactShowLogoutFinishDialog("request key"))
  * ```
  *
  * ### ダイアログ選択結果の受け取り
  * ``` kotlin
- * class Xxx : Fragment() {
- *     private val logoutFinishDialogViewModel by activityViewModels<LogoutFinishDialogViewModel>()
+ * class Xyz : Fragment() {
  *
  *     ......
  *
- *     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
- *         super.onViewCreated(view, savedInstanceState)
- *
- *         logoutFinishDialogViewModel.isCalledDismiss.observe(viewLifecycleOwner) {
- *             if (it) {
- *                 logoutFinishDialogViewModel.isCalledRetry.value = false
- *             }
+ *     override fun onCreate(savedInstanceState: Bundle?) {
+ *         super.onCreate(savedInstanceState)
+ *         setFragmentResultListener("request key") { _, _ ->
+ *             // Do something
  *         }
  *     }
+ *
+ *     ......
  * }
  * ```
  */
 class LogoutFinishDialog : DialogFragment() {
 
-    private val viewModel by activityViewModels<LogoutFinishDialogViewModel>()
+    private val args by navArgs<LogoutFinishDialogArgs>()
 
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -52,6 +52,6 @@ class LogoutFinishDialog : DialogFragment() {
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        viewModel.isCalledDismiss.value = true
+        setFragmentResult(args.requestKey, bundleOf())
     }
 }

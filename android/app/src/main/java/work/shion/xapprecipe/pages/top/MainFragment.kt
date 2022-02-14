@@ -3,13 +3,12 @@ package work.shion.xapprecipe.pages.top
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings.ACTION_SETTINGS
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import work.shion.androidpreparation.intentbuilder.OpenBrowserIntentBuilder
@@ -20,17 +19,20 @@ import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesTopBinding
 import work.shion.xapprecipe.getProvider
 import work.shion.xapprecipe.templates.logout_confirm_dialog.LogoutConfirmDialogViewModel
-import work.shion.xapprecipe.templates.logout_finish_dialog.LogoutFinishDialogViewModel
 import java.lang.ref.WeakReference
 
 /**
  * トップ
  */
-class MainFragment : Fragment(), MainViewContract {
+class MainFragment : Fragment(R.layout.pages_top), MainViewContract {
+
+    companion object {
+        private const val REQUEST_LOGOUT_FINISH = "REQUEST_LOGOUT_FINISH"
+    }
+
 
     private var binding: PagesTopBinding? = null
     private val logoutConfirmDialogViewModel by activityViewModels<LogoutConfirmDialogViewModel>()
-    private val logoutFinishDialogViewModel by activityViewModels<LogoutFinishDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             certifyAccountUseCase = activity?.getProvider()!!.certifyAccountUseCase,
@@ -39,17 +41,17 @@ class MainFragment : Fragment(), MainViewContract {
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = PagesTopBinding.inflate(inflater, container, false)
-        return binding?.root
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setFragmentResultListener(REQUEST_LOGOUT_FINISH) { _, _ ->
+            closeMenu()
+            viewModel.loadMenu()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = PagesTopBinding.bind(view)
 
         // フッター
         binding?.pagesTopFooter?.setOnNavigationItemSelectedListener { menu ->
@@ -72,13 +74,6 @@ class MainFragment : Fragment(), MainViewContract {
             if (it) {
                 logoutConfirmDialogViewModel.isCalledDismiss.value = false
                 viewModel.doLogout()
-            }
-        }
-        logoutFinishDialogViewModel.isCalledDismiss.observe(viewLifecycleOwner) {
-            if (it) {
-                logoutFinishDialogViewModel.isCalledDismiss.value = false
-                closeMenu()
-                viewModel.loadMenu()
             }
         }
     }
@@ -187,6 +182,6 @@ class MainFragment : Fragment(), MainViewContract {
      */
     override fun showLogoutFinish() {
         activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-            ?.navigate(NavEntrypointDirections.navactShowLogoutFinishDialog())
+            ?.navigate(NavEntrypointDirections.navactShowLogoutFinishDialog(REQUEST_LOGOUT_FINISH))
     }
 }
