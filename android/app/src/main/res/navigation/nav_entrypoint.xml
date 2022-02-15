@@ -34,7 +34,13 @@
     <!-- リンク登録ダイアログ -->
     <dialog
         android:id="@+id/link_insert_dialog"
-        android:name="work.shion.xapprecipe.templates.link_insert_dialog.LinkInsertDialog" />
+        android:name="work.shion.xapprecipe.templates.LinkInsertDialog">
+
+        <argument
+            android:name="requestKey"
+            android:defaultValue=""
+            app:argType="string" />
+    </dialog>
 
     <!-- ログアウト確認ダイアログ -->
     <dialog
