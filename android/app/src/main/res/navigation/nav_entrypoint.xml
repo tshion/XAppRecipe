@@ -14,7 +14,12 @@
     <!-- 起動失敗ダイアログ -->
     <dialog
         android:id="@+id/launch_error_dialog"
-        android:name="work.shion.xapprecipe.templates.launch_error_dialog.LaunchErrorDialog" />
+        android:name="work.shion.xapprecipe.templates.LaunchErrorDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
+    </dialog>
 
     <!-- リンク詳細ダイアログ -->
     <dialog
@@ -34,7 +39,12 @@
     <!-- ログアウト確認ダイアログ -->
     <dialog
         android:id="@+id/logout_confirm_dialog"
-        android:name="work.shion.xapprecipe.templates.logout_confirm_dialog.LogoutConfirmDialog" />
+        android:name="work.shion.xapprecipe.templates.LogoutConfirmDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
+    </dialog>
 
     <!-- ログアウト完了ダイアログ -->
     <dialog

@@ -7,7 +7,6 @@ import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -18,7 +17,6 @@ import work.shion.xapprecipe.NavTopDirections
 import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesTopBinding
 import work.shion.xapprecipe.getProvider
-import work.shion.xapprecipe.templates.logout_confirm_dialog.LogoutConfirmDialogViewModel
 import java.lang.ref.WeakReference
 
 /**
@@ -27,12 +25,12 @@ import java.lang.ref.WeakReference
 class MainFragment : Fragment(R.layout.pages_top), MainViewContract {
 
     companion object {
+        private const val REQUEST_LOGOUT_CONFIRM = "REQUEST_LOGOUT_CONFIRM"
         private const val REQUEST_LOGOUT_FINISH = "REQUEST_LOGOUT_FINISH"
     }
 
 
     private var binding: PagesTopBinding? = null
-    private val logoutConfirmDialogViewModel by activityViewModels<LogoutConfirmDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             certifyAccountUseCase = activity?.getProvider()!!.certifyAccountUseCase,
@@ -43,6 +41,9 @@ class MainFragment : Fragment(R.layout.pages_top), MainViewContract {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setFragmentResultListener(REQUEST_LOGOUT_CONFIRM) { _, _ ->
+            viewModel.doLogout()
+        }
         setFragmentResultListener(REQUEST_LOGOUT_FINISH) { _, _ ->
             closeMenu()
             viewModel.loadMenu()
@@ -68,14 +69,6 @@ class MainFragment : Fragment(R.layout.pages_top), MainViewContract {
 
         // ドロワーメニュー
         binding?.pagesTopMenu?.tapListener = { viewModel.onTapMenu(it) }
-
-        // 値の監視
-        logoutConfirmDialogViewModel.isCalledDismiss.observe(viewLifecycleOwner) {
-            if (it) {
-                logoutConfirmDialogViewModel.isCalledDismiss.value = false
-                viewModel.doLogout()
-            }
-        }
     }
 
     override fun onStart() {
@@ -174,7 +167,7 @@ class MainFragment : Fragment(R.layout.pages_top), MainViewContract {
      */
     override fun showLogoutConfirm() {
         activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-            ?.navigate(NavEntrypointDirections.navactShowLogoutConfirmDialog())
+            ?.navigate(NavEntrypointDirections.navactShowLogoutConfirmDialog(REQUEST_LOGOUT_CONFIRM))
     }
 
     /**
