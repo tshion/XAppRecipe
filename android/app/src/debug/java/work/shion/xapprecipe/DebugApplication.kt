@@ -1,11 +1,17 @@
 package work.shion.xapprecipe
 
-import work.shion.androidpreparation.debugger.IDebugger
+import com.github.tshion.mktools_android.StrictModeActivator
+import work.shion.androidpreparation.debugger.android.IWebViewAttacher
+import work.shion.androidpreparation.debugger.stetho.IStethoAttacher
 
-class DebugApplication : MainApplication(), IDebugger {
+class DebugApplication : MainApplication(),
+    IStethoAttacher, IWebViewAttacher, StrictModeActivator {
 
     override fun onCreate() {
         super.onCreate()
-        setup(applicationContext)
+
+        activateStrictMode()
+        setupStetho(applicationContext)
+        setupWebDebugger()
     }
 }
