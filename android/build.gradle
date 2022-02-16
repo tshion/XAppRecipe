@@ -35,7 +35,6 @@ buildscript {
         ver_picasso = "2.8"
         ver_prep_debugger = "1.0.4"
         ver_prep_intent = "1.0.3"
-        ver_prep_web = "1.0.1"
         ver_retrofit = '2.9.0'
         ver_zxing = "3.4.1"
         ver_zxing_embedded = '4.3.0'
