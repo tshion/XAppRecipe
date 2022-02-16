@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
+import com.github.tshion.mktools_android.handleLifecycleEvents
 import com.github.tshion.mktools_android.webview_builder.WebViewBuilder
 import permissions.dispatcher.ktx.LocationPermission
 import permissions.dispatcher.ktx.constructLocationPermissionRequest
@@ -80,28 +81,14 @@ class MainFragment : Fragment() {
             }
 
         binding?.pagesMapWebBrowser?.also {
+            it.handleLifecycleEvents(viewLifecycleOwner)
             builder.into(it)
                 .loadUrl(BuildConfig.URL_MAP)
         }
     }
 
-    override fun onResume() {
-        binding?.pagesMapWebBrowser?.onResume()
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        binding?.pagesMapWebBrowser?.onPause()
-    }
-
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        binding?.pagesMapWebBrowser?.destroy()
-        super.onDestroy()
     }
 }
