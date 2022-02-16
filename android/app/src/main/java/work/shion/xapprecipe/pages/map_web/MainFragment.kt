@@ -1,9 +1,7 @@
 package work.shion.xapprecipe.pages.map_web
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -13,28 +11,21 @@ import permissions.dispatcher.ktx.LocationPermission
 import permissions.dispatcher.ktx.constructLocationPermissionRequest
 import work.shion.androidpreparation.intentbuilder.LaunchPhoneIntentBuilder
 import work.shion.xapprecipe.BuildConfig
+import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesMapWebBinding
 import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 
 /**
  * WEB 版地図表示
  */
-class MainFragment : Fragment() {
+class MainFragment : Fragment(R.layout.pages_map_web) {
 
     private var binding: PagesMapWebBinding? = null
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = PagesMapWebBinding.inflate(inflater, container, false)
-        return binding?.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = PagesMapWebBinding.bind(view)
 
         // Header
         binding?.pagesMapWebHeader?.apply {
