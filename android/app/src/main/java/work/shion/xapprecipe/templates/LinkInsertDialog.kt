@@ -1,4 +1,4 @@
-package work.shion.xapprecipe.templates.link_insert_dialog
+package work.shion.xapprecipe.templates
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.navArgs
 import work.shion.xapprecipe.databinding.TemplatesLinkInsertDialogBinding
 
 /**
@@ -17,32 +19,39 @@ import work.shion.xapprecipe.databinding.TemplatesLinkInsertDialogBinding
  * ### ダイアログの呼び出し
  * ``` kotlin
  * activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
- *     ?.navigate(NavEntrypointDirections.navactShowLinkInsertDialog())
+ *     ?.navigate(NavEntrypointDirections.navactShowLinkInsertDialog("request key"))
  * ```
  *
  * ### ダイアログ選択結果の受け取り
  * ``` kotlin
- * class Xxx : Fragment() {
- *     private val linkInsertDialogViewModel by activityViewModels<LinkInsertDialogViewModel>()
+ * class Xyz : Fragment() {
  *
  *     ......
  *
- *     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
- *         super.onViewCreated(view, savedInstanceState)
- *
- *         linkInsertDialogViewModel.input.observe(viewLifecycleOwner) {
- *             if (!it.isNullOrBlank()) {
- *                  linkInsertDialogViewModel.input.value = null
- *             }
+ *     override fun onCreate(savedInstanceState: Bundle?) {
+ *         super.onCreate(savedInstanceState)
+ *         setFragmentResultListener("request key") { _, result ->
+ *             val input = LinkInsertDialog.pickInput(result)
+ *             // Do something.
  *         }
  *     }
+ *
+ *     ......
  * }
  * ```
  */
 class LinkInsertDialog : DialogFragment() {
 
+    companion object {
+        private const val ARGS_INPUT = "ARGS_INPUT"
+
+        @JvmStatic
+        fun pickInput(result: Bundle) = result.getString(ARGS_INPUT)
+    }
+
+
+    private val args by navArgs<LinkInsertDialogArgs>()
     private var binding: TemplatesLinkInsertDialogBinding? = null
-    private val viewModel by activityViewModels<LinkInsertDialogViewModel>()
 
 
     override fun onCreateView(
@@ -64,7 +73,12 @@ class LinkInsertDialog : DialogFragment() {
         binding?.templatesLinkInsertDialogClose?.setOnClickListener { dismiss() }
         binding?.templatesLinkInsertDialogRegister?.setOnClickListener {
             dismiss()
-            viewModel.input.value = binding?.templatesLinkInsertDialogInput?.input
+            setFragmentResult(
+                args.requestKey,
+                bundleOf(
+                    ARGS_INPUT to binding?.templatesLinkInsertDialogInput?.input
+                )
+            )
         }
     }
 
