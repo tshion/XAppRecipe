@@ -2,6 +2,7 @@ package work.shion.xapprecipe.pages.map_web
 
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebView.SCHEME_TEL
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -55,8 +56,8 @@ class MainFragment : Fragment(R.layout.pages_map_web) {
                 }.launch()
             }
             .shouldOverrideUrlLoading { _, request ->
-                if (request.url?.scheme?.equals("tel", true) == true) {
-                    val phoneNumber = request.url.toString().removePrefix("tel:")
+                if (request.url?.scheme?.startsWith(SCHEME_TEL, true) == true) {
+                    val phoneNumber = request.url.toString().removePrefix(SCHEME_TEL)
                     LaunchPhoneIntentBuilder()
                         .phoneNumber(phoneNumber)
                         .build()
