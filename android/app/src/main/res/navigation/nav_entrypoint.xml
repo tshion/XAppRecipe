@@ -21,27 +21,6 @@
             app:argType="string" />
     </dialog>
 
-    <!-- リンク詳細ダイアログ -->
-    <dialog
-        android:id="@+id/link_detail_dialog"
-        android:name="work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialog">
-
-        <argument
-            android:name="uri"
-            app:argType="string" />
-    </dialog>
-
-    <!-- リンク登録ダイアログ -->
-    <dialog
-        android:id="@+id/link_insert_dialog"
-        android:name="work.shion.xapprecipe.templates.LinkInsertDialog">
-
-        <argument
-            android:name="requestKey"
-            android:defaultValue=""
-            app:argType="string" />
-    </dialog>
-
     <!-- ログアウト確認ダイアログ -->
     <dialog
         android:id="@+id/logout_confirm_dialog"
@@ -147,16 +126,6 @@
         android:id="@+id/navact_show_launch_error_dialog"
         app:destination="@id/launch_error_dialog" />
 
-    <!-- リンク詳細ダイアログの表示 -->
-    <action
-        android:id="@+id/navact_show_link_detail_dialog"
-        app:destination="@id/link_detail_dialog" />
-
-    <!-- リンク登録ダイアログの表示 -->
-    <action
-        android:id="@+id/navact_show_link_insert_dialog"
-        app:destination="@id/link_insert_dialog" />
-
     <!-- ログアウト確認ダイアログの表示 -->
     <action
         android:id="@+id/navact_show_logout_confirm_dialog"
@@ -167,45 +136,15 @@
         android:id="@+id/navact_show_logout_finish_dialog"
         app:destination="@id/logout_finish_dialog" />
 
-    <!-- 画像撮影へ遷移 -->
-    <action
-        android:id="@+id/navact_to_capture_image"
-        app:destination="@id/capture_image" />
-
-    <!-- ビデオ撮影へ遷移 -->
-    <action
-        android:id="@+id/navact_to_capture_video"
-        app:destination="@id/capture_video" />
-
     <!-- ログインへ遷移 -->
     <action
         android:id="@+id/navact_to_login"
         app:destination="@id/login" />
 
-    <!-- 生体認証へ遷移 -->
-    <action
-        android:id="@+id/navact_to_login_biometric"
-        app:destination="@id/login_biometric" />
-
-    <!-- メディアコンテンツ一覧へ遷移 -->
-    <action
-        android:id="@+id/navact_to_media_list"
-        app:destination="@id/media_list" />
-
     <!-- 通知一覧へ遷移 -->
     <action
         android:id="@+id/navact_to_notice"
         app:destination="@id/notice" />
-
-    <!-- PDF 表示へ遷移 -->
-    <action
-        android:id="@+id/navact_to_pdf_viewer"
-        app:destination="@id/pdf_viewer" />
-
-  <!-- プロフィール編集へ遷移 -->
-    <action
-        android:id="@+id/navact_to_profile_editor"
-        app:destination="@id/profile_editor" />
 
     <!-- トップへ遷移 -->
     <action

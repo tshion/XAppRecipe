@@ -8,7 +8,7 @@ import androidx.navigation.Navigation
 import com.google.auto.service.AutoService
 import com.willowtreeapps.hyperion.plugin.v1.Plugin
 import com.willowtreeapps.hyperion.plugin.v1.PluginModule
-import work.shion.xapprecipe.NavEntrypointDirections
+import work.shion.xapprecipe.NavEntrypointDevDirections
 import work.shion.xapprecipe.R
 
 @AutoService(Plugin::class)
@@ -28,7 +28,7 @@ class ShowBiometricAuth : Plugin() {
                 }
 
                 activity.let { Navigation.findNavController(it, R.id.entrypoint) }
-                    .navigate(NavEntrypointDirections.navactToLoginBiometric())
+                    .navigate(NavEntrypointDevDirections.navactToLoginBiometric())
             }
         }
 

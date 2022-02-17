@@ -146,8 +146,8 @@ class MainFragment : Fragment(), MainViewContract {
      * リンク詳細の表示
      */
     override fun showLinkDetail(data: WebLinkEntity) {
-        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-            ?.navigate(NavEntrypointDirections.navactShowLinkDetailDialog(data.webPath))
+        findNavController()
+            .navigate(MainFragmentDirections.navactShowLinkDetailDialog(data.webPath))
     }
 
     /**
