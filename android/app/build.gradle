@@ -113,7 +113,6 @@ dependencies {
     // AndroidPreparation
     debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
     implementation "work.shion.androidpreparation:intentbuilder:${ver_prep_intent}"
-    implementation "work.shion.androidpreparation:webviewbuilder:${ver_prep_web}"
 
     // AndroidX
     implementation "androidx.biometric:biometric:${ver_droidx_biometric}"
@@ -143,6 +142,9 @@ dependencies {
 
     // Material Design
     implementation "com.google.android.material:material:${ver_material}"
+
+    // mktools
+    implementation 'com.github.tshion:mktools_lab:2022.02.15'
 
     // PermissionsDispatcher
     implementation "com.github.permissions-dispatcher:ktx:${ver_permissions_dispatcher_ktx}"
