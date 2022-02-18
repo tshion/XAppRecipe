@@ -144,7 +144,7 @@ dependencies {
     implementation "com.google.android.material:material:${ver_material}"
 
     // mktools
-    implementation 'com.github.tshion:mktools_lab:2022.02.16'
+    implementation 'com.github.tshion:mktools_lab:2022.02.17'
 
     // PermissionsDispatcher
     implementation "com.github.permissions-dispatcher:ktx:${ver_permissions_dispatcher_ktx}"
