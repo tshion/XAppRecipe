@@ -1,4 +1,4 @@
-package work.shion.xapprecipe.templates.link_detail_dialog
+package work.shion.xapprecipe.templates
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.navArgs
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
@@ -21,26 +22,25 @@ import work.shion.xapprecipe.databinding.TemplatesLinkDetailDialogBinding
  * ``` kotlin
  * activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
  *     ?.navigate(NavEntrypointDirections.navactShowLinkDetailDialog(
- *         uri = "https://mokumokulog.netlify.app/"
+ *         requestKey = "request key",
+ *         uri = "https://mokumokulog.netlify.app/",
  *     ))
  * ```
  *
  * ### ダイアログ選択結果の受け取り
  * ``` kotlin
  * class Xxx : Fragment() {
- *     private val linkDetailDialogViewModel by activityViewModels<LinkDetailDialogViewModel>()
  *
  *     ......
  *
  *     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
  *         super.onViewCreated(view, savedInstanceState)
- *
- *         linkDetailDialogViewModel.isCalledDelete.observe(viewLifecycleOwner) {
- *             if (it) {
- *                 linkDetailDialogViewModel.isCalledDelete.value = false
- *             }
+ *         setFragmentResultListener("request key") { _, _ ->
+ *             // Do something
  *         }
  *     }
+ *
+ *     ......
  * }
  * ```
  */
@@ -48,10 +48,13 @@ class LinkDetailDialog : DialogFragment() {
 
     private val args by navArgs<LinkDetailDialogArgs>()
     private var binding: TemplatesLinkDetailDialogBinding? = null
-    private val viewModel by activityViewModels<LinkDetailDialogViewModel>()
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = TemplatesLinkDetailDialogBinding.inflate(
             inflater,
             container,
@@ -71,7 +74,7 @@ class LinkDetailDialog : DialogFragment() {
 
             binding?.templatesLinkDetailDialogDelete?.setOnClickListener {
                 dismiss()
-                viewModel.isCalledDelete.value = true
+                setFragmentResult(args.requestKey, bundleOf())
             }
         } catch (ex: Error) {
             dismiss()

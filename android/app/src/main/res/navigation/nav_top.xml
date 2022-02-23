@@ -8,7 +8,11 @@
     <!-- リンク詳細ダイアログ -->
     <dialog
         android:id="@+id/link_detail_dialog"
-        android:name="work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialog">
+        android:name="work.shion.xapprecipe.templates.LinkDetailDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
 
         <argument
             android:name="uri"

@@ -1,12 +1,9 @@
 package work.shion.xapprecipe.pages.link_index
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -17,7 +14,6 @@ import work.shion.xapprecipe.R
 import work.shion.xapprecipe.databinding.PagesLinkIndexBinding
 import work.shion.xapprecipe.getProvider
 import work.shion.xapprecipe.templates.LinkInsertDialog
-import work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialogViewModel
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 import java.lang.ref.WeakReference
 import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
@@ -25,9 +21,11 @@ import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 /**
  * リンク一覧
  */
-class MainFragment : Fragment(), MainViewContract {
+class MainFragment : Fragment(R.layout.pages_link_index), MainViewContract {
 
     companion object {
+        private val REQUEST_LINK_DETAIL =
+            "${MainFragment::class.java.simpleName}.REQUEST_LINK_DETAIL"
         private val REQUEST_LINK_INSERT =
             "${MainFragment::class.java.simpleName}.REQUEST_LINK_INSERT"
     }
@@ -35,7 +33,6 @@ class MainFragment : Fragment(), MainViewContract {
 
     private var adapter: MainAdapter? = null
     private var binding: PagesLinkIndexBinding? = null
-    private val linkDetailViewModel by activityViewModels<LinkDetailDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             bookmarkWebUseCase = activity?.getProvider()!!.bookmarkUseCase,
@@ -46,6 +43,9 @@ class MainFragment : Fragment(), MainViewContract {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setFragmentResultListener(REQUEST_LINK_DETAIL) { _, _ ->
+            viewModel.remove()
+        }
         setFragmentResultListener(REQUEST_LINK_INSERT) { _, result ->
             val input = LinkInsertDialog.pickInput(result)
             if (!input.isNullOrBlank()) {
@@ -54,17 +54,9 @@ class MainFragment : Fragment(), MainViewContract {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = PagesLinkIndexBinding.inflate(inflater, container, false)
-        return binding?.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = PagesLinkIndexBinding.bind(view)
 
         binding?.pagesLinkIndexAdd?.setOnClickListener { showEditor() }
 
@@ -78,14 +70,6 @@ class MainFragment : Fragment(), MainViewContract {
             diffCallback = MainAdapterDiffs(),
         )
         binding?.pagesLinkIndexList?.adapter = adapter
-
-
-        linkDetailViewModel.isCalledDelete.observe(viewLifecycleOwner) {
-            if (it) {
-                viewModel.remove()
-                linkDetailViewModel.isCalledDelete.value = false
-            }
-        }
     }
 
     override fun onStart() {
@@ -146,8 +130,12 @@ class MainFragment : Fragment(), MainViewContract {
      * リンク詳細の表示
      */
     override fun showLinkDetail(data: WebLinkEntity) {
-        findNavController()
-            .navigate(MainFragmentDirections.navactShowLinkDetailDialog(data.webPath))
+        findNavController().navigate(
+            MainFragmentDirections.navactShowLinkDetailDialog(
+                requestKey = REQUEST_LINK_DETAIL,
+                uri = data.webPath
+            )
+        )
     }
 
     /**
