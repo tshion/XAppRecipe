@@ -1,3 +1,4 @@
+import mktools_ios
 import WebKit
 
 /**
@@ -13,9 +14,21 @@ class BrowseWebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        browser.navigationDelegate = self
         if let url = URL(string: "https://www.google.co.jp/maps") {
             let request = URLRequest(url: url)
             browser.load(request)
         }
+    }
+}
+
+extension BrowseWebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError: Error) {
+        let alert = AlertBuilder()
+            .addAction(action: UIAlertAction(title: "OK", style: .default))
+            .message(value: withError.localizedDescription)
+            .title(value: "通信エラー")
+            .create()
+        present(alert, animated: true, completion: nil)
     }
 }

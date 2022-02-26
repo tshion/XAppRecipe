@@ -2,11 +2,16 @@ name: App
 options:
   deploymentLanguage: Japan
   groupSortPosition: top
+packages:
+  mktools_ios:
+    github: tshion/mktools_lab
+    version: 2022.02.23
 settings:
   PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
 targetTemplates:
   appbase:
     dependencies:
+      - package: mktools_ios
       - sdk: WebKit.framework
     deploymentTarget: "13.0"
     platform: iOS

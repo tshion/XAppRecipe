@@ -2,11 +2,12 @@ import MaterialComponents.MaterialButtons
 import UIKit
 
 class NativeRootViewController: UIViewController {
-    @IBOutlet weak var buttonClose: MDCButton!
-
     static func newInstance() -> NativeRootViewController {
         return R.storyboard.nativeRoot.instantiateInitialViewController()!
     }
+
+    @IBOutlet weak var buttonClose: MDCButton!
+    @IBOutlet weak var buttonNext: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,5 +18,12 @@ class NativeRootViewController: UIViewController {
      */
     @IBAction func callClose(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+
+    /// Top 画面へ遷移
+    @IBAction func callTop(_ sender: Any) {
+        let nextPage = TopViewController.newInstance()
+        nextPage.modalPresentationStyle = .fullScreen
+        present(nextPage, animated: true, completion: nil)
     }
 }
