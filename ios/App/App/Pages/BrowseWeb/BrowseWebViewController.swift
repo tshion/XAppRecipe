@@ -25,9 +25,9 @@ class BrowseWebViewController: UIViewController {
 extension BrowseWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError: Error) {
         let alert = AlertBuilder()
-            .addAction(action: UIAlertAction(title: "OK", style: .default))
-            .message(value: withError.localizedDescription)
-            .title(value: "通信エラー")
+            .addAction(UIAlertAction(title: "OK", style: .default))
+            .message(withError.localizedDescription)
+            .title("通信エラー")
             .create()
         present(alert, animated: true, completion: nil)
     }
