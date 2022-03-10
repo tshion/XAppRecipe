@@ -9,7 +9,7 @@
     "mainapp"
   ],
   "devDependencies": {
-    "@capacitor/cli": "~3.3",
+    "@capacitor/cli": "^3.4.3",
     "lerna": "^4.0.0"
   }
 }
