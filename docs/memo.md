@@ -1,3 +1,5 @@
+## RxJava のテストサンプル
+``` kotlin
 package work.shion.baser
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -77,3 +79,4 @@ class RxSampleTest {
         println("after")
     }
 }
+```
