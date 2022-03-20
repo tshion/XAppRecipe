@@ -1,0 +1,11 @@
+{
+    "engines": {
+        "node": ">= 16.0.0",
+        "npm": ">= 8.0.0"
+    },
+    "private": true,
+    "workspaces": [],
+    "devDependencies": {
+        "@ionic/cli": "^6.19.0"
+    }
+}
