@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <dimen name="hyperion_menu_height_min">131dp</dimen>
-    <dimen name="hyperion_menu_space_horizontal">28dp</dimen>
-    <dimen name="hyperion_menu_text">16sp</dimen>
-</resources>

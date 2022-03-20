@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="pages_link_index_header">リンク一覧</string>
-    <string name="pages_link_index_list_empty">まだデータはありません</string>
-</resources>
