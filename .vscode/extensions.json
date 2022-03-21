@@ -1,7 +1,7 @@
 {
-  "recommendations": [
-    "editorconfig.editorconfig",
-    "jebbs.plantuml",
-    "redhat.vscode-yaml"
-  ]
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "jebbs.plantuml",
+        "redhat.vscode-yaml"
+    ]
 }

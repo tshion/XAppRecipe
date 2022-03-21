@@ -4,8 +4,8 @@ info:
   version: 0.0.1
 
 servers:
-    - url: https://connpass.com/api
-      description: Connpass API へ接続
+  - url: https://connpass.com/api
+    description: Connpass API へ接続
 
 paths:
   /v1/event:
@@ -123,9 +123,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEventResponse'
-
-
+                $ref: "#/components/schemas/GetEventResponse"
 
 components:
   schemas:
@@ -186,7 +184,7 @@ components:
         series:
           description: 検索結果のイベントリスト
           oneOf:
-            - $ref: '#/components/schemas/Series'
+            - $ref: "#/components/schemas/Series"
         started_at:
           type: string
           format: date-time
@@ -209,7 +207,7 @@ components:
           description: 検索結果のイベントリスト
           type: array
           items:
-            $ref: '#/components/schemas/Event'
+            $ref: "#/components/schemas/Event"
         results_available:
           type: integer
           description: 検索結果の総件数
