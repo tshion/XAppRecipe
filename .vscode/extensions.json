@@ -1,9 +1,0 @@
-{
-    "recommendations": [
-        "editorconfig.editorconfig",
-        "eg2.vscode-npm-script",
-        "jebbs.plantuml",
-        "redhat.vscode-yaml",
-        "visualstudioexptteam.vscodeintellicode"
-    ]
-}
