@@ -1,0 +1,14 @@
+@startuml architecture
+
+actor User as user
+node "Android Native" as android
+node "Web UI(Ionic) on Capacitor WebView" as base
+node "iOS Native" as ios
+
+
+
+user -> base: Launch the application
+base -up-> android: Call via Capacitor plugin
+base -down-> ios: Call via Capacitor plugin
+
+@enduml

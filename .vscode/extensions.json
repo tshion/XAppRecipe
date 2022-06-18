@@ -3,7 +3,10 @@
         "angular.ng-template",
         "dbaeumer.vscode-eslint",
         "editorconfig.editorconfig",
+        "github.vscode-pull-request-github",
         "ionic.ionic",
+        "jebbs.plantuml",
+        "redhat.vscode-yaml",
         "visualstudioexptteam.vscodeintellicode"
     ]
 }
