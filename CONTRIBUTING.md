@@ -45,7 +45,7 @@
 
 その他のルールは各プラットフォームのREADME をご確認くださいませ。
 * [Android](./android/README.md)
-<!--* [iOS](./ios/README.md)-->
+* [iOS](./ios/README.md)
 * [WEB](./webapp/README.md)
 
 

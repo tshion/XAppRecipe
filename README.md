@@ -12,7 +12,7 @@ I'd be grateful if you could read it necessary for the work.
 
 * Setup web project
 * Setup android capacitor project
-<!--* Setup ios capacitor project-->
+* Setup ios capacitor project
 
 For more development tips, check project's README.
 
@@ -33,7 +33,6 @@ If you can use above and completed "Setup web project", run these commands at pr
 2. ```npx cap sync android```
 3. ```npx cap open android```
 
-<!--
 ### Setup ios capacitor project
 * [Xcode]
 
@@ -42,7 +41,6 @@ If you can use above and completed "Setup web project", run these commands at pr
 1. ```cd webapp```
 2. ```npx cap sync ios```
 3. ```npx cap open ios```
--->
 
 
 
@@ -59,8 +57,8 @@ Path | Description
 --- | ---
 [android/](./android) | android capacitor project root
 [docs/](./docs/) | documents
+[ios/](./ios) | ios capacitor project root
 [webapp/](./webapp) | web project root
-<!--[ios/](./ios) | ios capacitor project root-->
 
 ### Recommended tools
 * [anyenv]

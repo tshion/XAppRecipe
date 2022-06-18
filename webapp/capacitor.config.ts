@@ -8,7 +8,11 @@ const config: CapacitorConfig = {
 
   android: {
     path: '../android',
-  }
+  },
+
+  ios: {
+    path: '../ios',
+  },
 };
 
 export default config;

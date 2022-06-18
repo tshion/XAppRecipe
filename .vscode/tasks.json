@@ -8,6 +8,12 @@
             "path": "./webapp",
             "type": "npm",
             "script": "open.android"
+        },
+        {
+            "label": "Open Xcode",
+            "path": "./webapp",
+            "type": "npm",
+            "script": "open.ios"
         }
     ]
 }
