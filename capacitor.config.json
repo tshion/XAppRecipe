@@ -1,6 +1,0 @@
-{
-    "appId": "com.github.tshion.xapprecipe.webapp",
-    "appName": "webapp",
-    "bundledWebRuntime": false,
-    "webDir": "www"
-}

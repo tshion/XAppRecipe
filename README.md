@@ -11,7 +11,7 @@ This is the table of contents.
 I'd be grateful if you could read it necessary for the work.
 
 * Setup web project
-<!--* Setup android capacitor project-->
+* Setup android capacitor project
 <!--* Setup ios capacitor project-->
 
 For more development tips, check project's README.
@@ -24,7 +24,6 @@ If you can use above, run these commands at project root.
 1. ```cd webapp```
 2. ```npm ci```
 
-<!--
 ### Setup android capacitor project
 * [Android Studio]
 
@@ -33,7 +32,6 @@ If you can use above and completed "Setup web project", run these commands at pr
 1. ```cd webapp```
 2. ```npx cap sync android```
 3. ```npx cap open android```
--->
 
 <!--
 ### Setup ios capacitor project
@@ -59,9 +57,9 @@ If you can use above and completed "Setup web project", run these commands at pr
 ### Project paths
 Path | Description
 --- | ---
+[android/](./android) | android capacitor project root
 [docs/](./docs/) | documents
 [webapp/](./webapp) | web project root
-<!--[android/](./android) | android capacitor project root-->
 <!--[ios/](./ios) | ios capacitor project root-->
 
 ### Recommended tools

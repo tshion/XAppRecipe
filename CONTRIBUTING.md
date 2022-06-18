@@ -29,9 +29,9 @@
     4. 作業が完了したら、Draft 状態を解除し、実装管理者に連絡してください
 
 その他のルールは各プラットフォームのCONTRIBUTING をご確認くださいませ。
-* ~~[Android](./android/docs/CONTRIBUTING.md)~~
-* ~~[iOS](./ios/docs/CONTRIBUTING.md)~~
-* ~~[WEB](./webapp/docs/CONTRIBUTING.md)~~
+<!--* [Android](./android/docs/CONTRIBUTING.md)-->
+<!--* [iOS](./ios/docs/CONTRIBUTING.md)-->
+<!--* [WEB](./webapp/docs/CONTRIBUTING.md)-->
 
 
 
@@ -44,9 +44,9 @@
 → あれもこれもやりすぎると、レビューがしづらいのとどういう効果が出るのかが予測しづらくなるため
 
 その他のルールは各プラットフォームのREADME をご確認くださいませ。
-* ~~[Android](./android/README.md)~~
-* ~~[iOS](./ios/README.md)~~
-* ~~[WEB](./webapp/README.md)~~
+* [Android](./android/README.md)
+<!--* [iOS](./ios/README.md)-->
+* [WEB](./webapp/README.md)
 
 
 
