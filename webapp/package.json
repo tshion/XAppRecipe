@@ -8,8 +8,7 @@
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "open.android": "npx cap open android",
-        "open.ios": "npx cap open ios"
+        "open.android": "npx cap open android"
     },
     "dependencies": {
         "@angular/common": "^14.0.0",

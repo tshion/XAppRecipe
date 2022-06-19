@@ -34,13 +34,17 @@ If you can use above and completed "Setup web project", run these commands at pr
 3. ```npx cap open android```
 
 ### Setup ios capacitor project
+* ```bash ``` or ```zsh```
+* ```make```
+* Ruby (See [ruby-version](././ruby-version) for the version.)
+    * ```bundle``` (by [RubyGems])
 * [Xcode]
 
 If you can use above and completed "Setup web project", run these commands at project root.
 
-1. ```cd webapp```
-2. ```npx cap sync ios```
-3. ```npx cap open ios```
+1. ```make init-ios``` (Setup ios develop environment)
+2. ```make deploy-ios``` (Setup ios project)
+3. ```make open-ios``` (Launch Xcode)
 
 
 
@@ -63,6 +67,7 @@ Path | Description
 ### Recommended tools
 * [anyenv]
     * [nodenv]
+    * [rbenv]
 * [Visual Studio Code]
     * [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
     * [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
@@ -77,6 +82,7 @@ Path | Description
 * [Ionic]
 * [Node.js]
 * [nodenv]
+* [rbenv]
 * [Visual Studio Code]
 * [Xcode]
 
@@ -89,5 +95,7 @@ Path | Description
 [Ionic]: https://ionicframework.com/
 [Node.js]: https://nodejs.org/
 [nodenv]: https://github.com/nodenv/nodenv
+[rbenv]: https://github.com/rbenv/rbenv
+[RubyGems]: https://rubygems.org/
 [Visual Studio Code]: https://code.visualstudio.com/
 [Xcode]: https://developer.apple.com/documentation/xcode-release-notes

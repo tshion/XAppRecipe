@@ -11,9 +11,11 @@
         },
         {
             "label": "Open Xcode",
-            "path": "./webapp",
-            "type": "npm",
-            "script": "open.ios"
+            "command": "echo Don't support.",
+            "type": "shell",
+            "osx": {
+                "command": "make open-ios",
+            }
         }
     ]
 }
