@@ -36,6 +36,7 @@ If you can use above and completed "Setup web project", run these commands at pr
 ### Setup ios capacitor project
 * ```bash ``` or ```zsh```
 * ```make```
+* [Mint]
 * Ruby (See [ruby-version](././ruby-version) for the version.)
     * ```bundle``` (by [RubyGems])
 * [Xcode]
@@ -80,6 +81,7 @@ Path | Description
 * [Capacitor]
 * [EditorConfig]
 * [Ionic]
+* [Mint]
 * [Node.js]
 * [nodenv]
 * [rbenv]
@@ -93,6 +95,7 @@ Path | Description
 [Capacitor]: https://capacitor.ionicframework.com/
 [EditorConfig]: https://editorconfig.org/
 [Ionic]: https://ionicframework.com/
+[Mint]: https://github.com/yonaskolb/Mint
 [Node.js]: https://nodejs.org/
 [nodenv]: https://github.com/nodenv/nodenv
 [rbenv]: https://github.com/rbenv/rbenv

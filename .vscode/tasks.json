@@ -14,7 +14,7 @@
             "command": "echo Don't support.",
             "type": "shell",
             "osx": {
-                "command": "make open-ios",
+                "command": "make open-ios"
             }
         }
     ]

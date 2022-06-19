@@ -1,0 +1,24 @@
+name: App
+options:
+  groupSortPosition: top
+settings:
+  PRODUCT_BUNDLE_IDENTIFIER: com.github.tshion.xapprecipe.webapp
+targetTemplates:
+  appbase:
+    deploymentTarget: "14.0"
+    platform: iOS
+    sources:
+      - path: App
+        excludes:
+          - "public/*"
+      - path: "App/public"
+        type: folder
+        optional: true
+    type: application
+
+
+
+targets:
+  App:
+    templates:
+      - appbase
