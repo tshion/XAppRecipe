@@ -22,3 +22,42 @@ targets:
   App:
     templates:
       - appbase
+    info:
+      path: App/Info.plist
+      properties:
+        # CFBundleDevelopmentRegion: $(DEVELOPMENT_LANGUAGE)
+        CFBundleDevelopmentRegion: "en"
+        CFBundleDisplayName: "webapp"
+        CFBundleExecutable: $(EXECUTABLE_NAME)
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundleName: $(PRODUCT_NAME)
+        # CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundlePackageType: "APPL"
+        CFBundleShortVersionString: "0.0.1"
+        CFBundleVersion: "1"
+        LSRequiresIPhoneOS: true
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        # UIApplicationSceneManifest:
+        #   UIApplicationSupportsMultipleScenes: false
+        #   UISceneConfigurations:
+        #     UIWindowSceneSessionRoleApplication:
+        #       - UISceneConfigurationName: Default Configuration
+        #         UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        #         UISceneStoryboardFile: Main
+        # UIApplicationSupportsIndirectInputEvents: true
+        UILaunchStoryboardName: LaunchScreen
+        UIMainStoryboardFile: Main
+        UIRequiredDeviceCapabilities:
+          - armv7
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIViewControllerBasedStatusBarAppearance: true

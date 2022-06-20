@@ -213,6 +213,7 @@ iOSInjectionProject/
 App/build
 App/App/public
 DerivedData
+Info.plist
 xcuserdata
 
 # Cordova plugins for Capacitor
