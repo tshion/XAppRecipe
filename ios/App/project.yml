@@ -7,6 +7,14 @@ targetTemplates:
   appbase:
     deploymentTarget: "14.0"
     platform: iOS
+    preBuildScripts:
+      - name: Run code formatter
+        script: |
+          scripts/bin/format --configuration .swift-format --in-place --parallel --recursive App
+    postBuildScripts:
+      - name: Run code linter
+        script: |
+          scripts/bin/lint --configuration .swift-format --parallel --recursive App
     sources:
       - path: App
         excludes:

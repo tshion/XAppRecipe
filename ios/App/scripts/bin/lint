@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+mint run swift-format lint $@
