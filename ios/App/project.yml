@@ -69,3 +69,19 @@ targets:
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
         UIViewControllerBasedStatusBarAppearance: true
+  AppPreview:
+    templates:
+      - appbase
+    settings:
+      INFOPLIST_FILE: App/Info.plist
+    sources:
+      - AppPreview
+  AppTests:
+    dependencies:
+      - target: App
+    platform: iOS
+    settings:
+      TEST_HOST: $(BUILT_PRODUCTS_DIR)/App.app/App
+    sources:
+      - AppTests
+    type: bundle.unit-test
