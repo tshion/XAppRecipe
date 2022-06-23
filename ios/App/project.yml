@@ -1,16 +1,30 @@
 name: App
 options:
   groupSortPosition: top
+packages:
+  mktools_ios:
+    github: tshion/mktools_lab
+    version: 2022.02.24
 settings:
   PRODUCT_BUNDLE_IDENTIFIER: com.github.tshion.xapprecipe.webapp
 targetTemplates:
   appbase:
+    dependencies:
+      - package: mktools_ios
+      - sdk: WebKit.framework
     deploymentTarget: "14.0"
     platform: iOS
     preBuildScripts:
       - name: Run code formatter
         script: |
           scripts/bin/format --configuration .swift-format --in-place --parallel --recursive App
+      - name: Generate by R.swift
+        script: |
+          "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/R.generated.swift"
+        inputFiles:
+          - "$TEMP_DIR/rswift-lastrun"
+        outputFiles:
+          - "$SRCROOT/R.generated.swift"
     postBuildScripts:
       - name: Run code linter
         script: |
@@ -21,6 +35,10 @@ targetTemplates:
           - "public/*"
       - path: "App/public"
         type: folder
+        optional: true
+      - path: "App/Settings.bundle"
+        optional: true
+      - path: "R.generated.swift"
         optional: true
     type: application
 

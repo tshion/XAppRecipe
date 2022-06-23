@@ -10,6 +10,117 @@ PODS:
     - Capacitor
   - CapacitorStatusBar (1.0.8):
     - Capacitor
+  - HyperioniOS/AttributesInspector (1.2.0):
+    - HyperioniOS/Core
+  - HyperioniOS/Core (1.2.0)
+  - HyperioniOS/Measurements (1.2.0):
+    - HyperioniOS/Core
+  - HyperioniOS/SlowAnimations (1.2.0):
+    - HyperioniOS/Core
+  - MaterialComponents/AnimationTiming (124.2.0)
+  - MaterialComponents/Availability (124.2.0)
+  - MaterialComponents/BottomNavigation (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/Shadow
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - "MaterialComponents/BottomNavigation+Theming (124.2.0)":
+    - MaterialComponents/BottomNavigation
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/schemes/Container
+    - MaterialComponents/schemes/Typography
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Buttons (124.2.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/Shadow
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - "MaterialComponents/Buttons+ColorThemer (124.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Color
+  - "MaterialComponents/Buttons+ShapeThemer (124.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Shape
+  - "MaterialComponents/Buttons+Theming (124.2.0)":
+    - MaterialComponents/Buttons
+    - "MaterialComponents/Buttons+ColorThemer"
+    - "MaterialComponents/Buttons+ShapeThemer"
+    - "MaterialComponents/Buttons+TypographyThemer"
+    - MaterialComponents/schemes/Container
+    - MaterialComponents/ShadowElevations
+  - "MaterialComponents/Buttons+TypographyThemer (124.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Elevation (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Ink (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Palettes (124.2.0)
+  - MaterialComponents/private/Application (124.2.0)
+  - MaterialComponents/private/Color (124.2.0):
+    - MaterialComponents/Availability
+  - MaterialComponents/private/Math (124.2.0)
+  - MaterialComponents/Ripple (124.2.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/schemes/Color (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+  - MaterialComponents/schemes/Container (124.2.0):
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/schemes/Shape
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/schemes/Shape (124.2.0):
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/schemes/Typography (124.2.0):
+    - "MaterialComponents/schemes/Typography+BasicFontScheme"
+    - "MaterialComponents/schemes/Typography+Scheming"
+    - MaterialComponents/Typography
+  - "MaterialComponents/schemes/Typography+BasicFontScheme (124.2.0)"
+  - "MaterialComponents/schemes/Typography+Scheming (124.2.0)"
+  - MaterialComponents/Shadow (124.2.0):
+    - MaterialComponents/Availability
+  - MaterialComponents/ShadowElevations (124.2.0)
+  - MaterialComponents/ShadowLayer (124.2.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (124.2.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (124.2.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (124.2.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+    - MDFTextAccessibility
+  - MDFInternationalization (3.0.0)
+  - MDFTextAccessibility (2.0.1)
+  - R.swift (6.1.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
 
 DEPENDENCIES:
   - "Capacitor (from `../../webapp/node_modules/@capacitor/ios`)"
@@ -18,6 +129,24 @@ DEPENDENCIES:
   - "CapacitorHaptics (from `../../webapp/node_modules/@capacitor/haptics`)"
   - "CapacitorKeyboard (from `../../webapp/node_modules/@capacitor/keyboard`)"
   - "CapacitorStatusBar (from `../../webapp/node_modules/@capacitor/status-bar`)"
+  - HyperioniOS/AttributesInspector
+  - HyperioniOS/Core (= 1.2.0)
+  - HyperioniOS/Measurements
+  - HyperioniOS/SlowAnimations
+  - MaterialComponents/BottomNavigation
+  - "MaterialComponents/BottomNavigation+Theming"
+  - MaterialComponents/Buttons
+  - "MaterialComponents/Buttons+Theming"
+  - R.swift
+
+SPEC REPOS:
+  trunk:
+    - HyperioniOS
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
+    - R.swift
+    - R.swift.Library
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -40,7 +169,13 @@ SPEC CHECKSUMS:
   CapacitorHaptics: cbf7ea645db90c005c96bedd0034aa7a447fe5cc
   CapacitorKeyboard: 2d8c03dfc9e15c459ec50ecb28c0cc7fe7acddac
   CapacitorStatusBar: 2f4da63c505cfdecdbff4d4345dac24c11e7f699
+  HyperioniOS: 4412ec61a390caadffcaaf3364733b06e103cf63
+  MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+  MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
+  MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
+  R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
 
-PODFILE CHECKSUM: 905982d9dca1fb162bb4cf022c6705fa0c645672
+PODFILE CHECKSUM: 6f2b5b031ee293e1962634fda52f053d68901700
 
 COCOAPODS: 1.11.3

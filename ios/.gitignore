@@ -225,3 +225,9 @@ config.xml
 
 # fastlane
 **/fastlane/README.md
+
+# LicensePlist
+com.mono0926.LicensePlist**
+
+# R.swift
+*.generated.swift
