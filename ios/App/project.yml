@@ -36,8 +36,6 @@ targetTemplates:
       - path: "App/public"
         type: folder
         optional: true
-      - path: "App/Settings.bundle"
-        optional: true
       - path: "R.generated.swift"
         optional: true
     type: application
