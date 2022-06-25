@@ -70,9 +70,7 @@ class TopViewController: UIViewController {
 }
 
 extension TopViewController: MDCBottomNavigationBarDelegate {
-    func bottomNavigationBar(
-        _ bottomNavigationBar: MDCBottomNavigationBar, didSelect item: UITabBarItem
-    ) {
+    func bottomNavigationBar(_ bottomNavigationBar: MDCBottomNavigationBar, didSelect item: UITabBarItem) {
         switch item.tag {
         case 0:
             hideTabContent(content: tabFavorite.vc)

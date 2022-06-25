@@ -1,10 +1,10 @@
 import HyperionCore
 
-/// WEB 表示画面へ遷移するためのHyperion プラグイン
+/**
+ WEB 表示画面へ遷移するためのHyperion プラグイン
+ */
 class GoBrowseWebPlugin: NSObject, HYPPlugin {
-    static func createPluginModule(
-        _ pluginExtension: HYPPluginExtensionProtocol
-    ) -> HYPPluginModuleProtocol {
+    static func createPluginModule(_ pluginExtension: HYPPluginExtensionProtocol) -> HYPPluginModuleProtocol {
         return GoBrowseWebPluginModule(with: pluginExtension)
     }
 

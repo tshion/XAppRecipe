@@ -1,6 +1,8 @@
 import HyperionCore
 
-/// 標準のビデオ撮影機能の呼び出し実装
+/**
+ 標準のビデオ撮影機能の呼び出し実装
+ */
 class LaunchTakeVideoNormalHyperionPluginModule: HYPPluginModule {
     override func pluginMenuItemTitle() -> String {
         return "標準のビデオ撮影機能の呼び出し"
@@ -41,24 +43,15 @@ extension LaunchTakeVideoNormalHyperionPluginModule: HYPPluginMenuItemDelegate {
     }
 }
 
-extension LaunchTakeVideoNormalHyperionPluginModule: UIImagePickerControllerDelegate
-        & UINavigationControllerDelegate
-{
-    func imagePickerController(
-        _ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
-    ) {
+extension LaunchTakeVideoNormalHyperionPluginModule: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let fileUrl = info[.mediaURL] as? URL else {
             return
         }
 
-        let documentsDirectoryURL = FileManager.default.urls(
-            for: .documentDirectory, in: .userDomainMask
-        ).first!
+        let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         do {
-            try FileManager.default.moveItem(
-                at: fileUrl,
-                to: documentsDirectoryURL.appendingPathComponent(fileUrl.lastPathComponent))
+            try FileManager.default.moveItem(at: fileUrl, to: documentsDirectoryURL.appendingPathComponent(fileUrl.lastPathComponent))
             print("動画の保存に成功しました。")
         } catch {
             print("動画の保存に失敗しました。")

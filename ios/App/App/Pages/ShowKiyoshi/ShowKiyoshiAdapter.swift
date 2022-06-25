@@ -1,6 +1,8 @@
 import UIKit
 
-/// 繰り返し表示周りの管理
+/**
+ 繰り返し表示周りの管理
+ */
 class ShowKiyoshiAdapter: NSObject {
     var displayData: [String]? {
         didSet {
@@ -19,12 +21,8 @@ class ShowKiyoshiAdapter: NSObject {
 }
 
 extension ShowKiyoshiAdapter: UICollectionViewDataSource {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: R.reuseIdentifier.kiyoshiViewCell, for: indexPath)!
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.kiyoshiViewCell, for: indexPath)!
 
         if let item = displayData?[indexPath.row] {
             cell.update(data: item)
@@ -39,10 +37,7 @@ extension ShowKiyoshiAdapter: UICollectionViewDataSource {
         return cell
     }
 
-    func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return displayData?.count ?? 0
     }
 
@@ -54,18 +49,13 @@ extension ShowKiyoshiAdapter: UICollectionViewDataSource {
 extension ShowKiyoshiAdapter: UICollectionViewDelegate {}
 
 extension ShowKiyoshiAdapter: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: R.reuseIdentifier.kiyoshiViewCell, for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.kiyoshiViewCell, for: indexPath)
         let item = displayData?[indexPath.row]
 
         switch cell {
         case let target as KiyoshiViewCell:
-            return CGSize(
-                width: collectionView.frame.width, height: target.calculateHeight(data: item ?? ""))
+            return CGSize(width: collectionView.frame.width, height: target.calculateHeight(data: item ?? ""))
 
         default:
             return CGSize(width: 0, height: 0)

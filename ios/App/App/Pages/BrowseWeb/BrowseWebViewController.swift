@@ -1,7 +1,9 @@
-import WebKit
 import mktools_ios
+import WebKit
 
-/// アプリ内WEB 表示
+/**
+ アプリ内WEB 表示
+ */
 class BrowseWebViewController: UIViewController {
     @IBOutlet weak var browser: WKWebView!
 
@@ -21,10 +23,7 @@ class BrowseWebViewController: UIViewController {
 }
 
 extension BrowseWebViewController: WKNavigationDelegate {
-    func webView(
-        _ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!,
-        withError: Error
-    ) {
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError: Error) {
         let alert = AlertBuilder()
             .addAction(UIAlertAction(title: "OK", style: .default))
             .message(withError.localizedDescription)

@@ -1,6 +1,8 @@
 import UIKit
 
-/// UIImagePickerController に設定を追加してからインスタンス生成するためのビルダー
+/**
+ UIImagePickerController に設定を追加してからインスタンス生成するためのビルダー
+ */
 class UIImagePickerControllerBuilder {
     typealias PickDelegate = (UIImagePickerControllerDelegate & UINavigationControllerDelegate)
 
@@ -48,9 +50,7 @@ class UIImagePickerControllerBuilder {
         return self
     }
 
-    func setSourceType(_ value: UIImagePickerController.SourceType?)
-        -> UIImagePickerControllerBuilder
-    {
+    func setSourceType(_ value: UIImagePickerController.SourceType?) -> UIImagePickerControllerBuilder {
         sourceType = value
         return self
     }

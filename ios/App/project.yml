@@ -28,7 +28,7 @@ targetTemplates:
     postBuildScripts:
       - name: Run code linter
         script: |
-          scripts/bin/lint --configuration .swift-format --parallel --recursive App
+          scripts/bin/lint --configuration .swift-format-for-lint --parallel --recursive App
     sources:
       - path: App
         excludes:

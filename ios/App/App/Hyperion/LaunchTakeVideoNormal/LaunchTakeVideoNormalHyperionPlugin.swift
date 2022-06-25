@@ -1,10 +1,10 @@
 import HyperionCore
 
-/// 標準のビデオ撮影機能の呼び出しをするHyperion プラグイン
+/**
+ 標準のビデオ撮影機能の呼び出しをするHyperion プラグイン
+ */
 class LaunchTakeVideoNormalHyperionPlugin: NSObject, HYPPlugin {
-    static func createPluginModule(
-        _ pluginExtension: HYPPluginExtensionProtocol
-    ) -> HYPPluginModuleProtocol {
+    static func createPluginModule(_ pluginExtension: HYPPluginExtensionProtocol) -> HYPPluginModuleProtocol {
         return LaunchTakeVideoNormalHyperionPluginModule(with: pluginExtension)
     }
 

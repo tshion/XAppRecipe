@@ -17,11 +17,9 @@ class KiyoshiViewCell: UICollectionViewCell {
      */
     func calculateHeight(data: String) -> CGFloat {
         let attribute = [NSAttributedString.Key.font: KiyoshiViewCell.fontSize]
-        let maxSize = CGSize(
-            width: message.bounds.size.width, height: CGFloat.greatestFiniteMagnitude)
+        let maxSize = CGSize(width: message.bounds.size.width, height: CGFloat.greatestFiniteMagnitude)
 
-        let rect = (data as NSString).boundingRect(
-            with: maxSize, options: .usesLineFragmentOrigin, attributes: attribute, context: nil)
+        let rect = (data as NSString).boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: attribute, context: nil)
         return ceil(rect.size.height) + 40
     }
 

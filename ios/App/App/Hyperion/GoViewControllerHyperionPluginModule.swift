@@ -1,17 +1,19 @@
 import HyperionCore
 
-/// 任意のViewController に遷移するHyperion Plugin Module
-/// - Note
-///    継承先のイニシャライザーで```init(with:_:)``` を呼び出してください
-///    ``` swift
-///    class Sample: GoViewControllerHyperionPluginModule {
-///        required init(with ext: HYPPluginExtensionProtocol) {
-///            super.init(with: ext) {
-///                code
-///            }
-///        }
-///    }
-///    ```
+/**
+ 任意のViewController に遷移するHyperion Plugin Module
+ - Note
+    継承先のイニシャライザーで```init(with:_:)``` を呼び出してください
+    ``` swift
+    class Sample: GoViewControllerHyperionPluginModule {
+        required init(with ext: HYPPluginExtensionProtocol) {
+            super.init(with: ext) {
+                code
+            }
+        }
+    }
+    ```
+ */
 class GoViewControllerHyperionPluginModule: HYPPluginModule {
     private var displayingViewController: UIViewController?
     private let targetGenerator: () -> UIViewController
@@ -33,8 +35,7 @@ extension GoViewControllerHyperionPluginModule: HYPPluginMenuItemDelegate {
         }
 
         let buttonClose = UIButton(type: UIButton.ButtonType.detailDisclosure)
-        buttonClose.addTarget(
-            self, action: #selector(tappedButtonClose(_:)), for: UIControl.Event.touchUpInside)
+        buttonClose.addTarget(self, action: #selector(tappedButtonClose(_:)), for: UIControl.Event.touchUpInside)
         buttonClose.backgroundColor = UIColor.systemOrange
         buttonClose.sizeToFit()
 

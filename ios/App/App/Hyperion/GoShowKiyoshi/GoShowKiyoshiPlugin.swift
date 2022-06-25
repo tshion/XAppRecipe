@@ -1,10 +1,10 @@
 import HyperionCore
 
-/// ズンドコ節リストへ遷移するためのHyperion プラグイン
+/**
+ ズンドコ節リストへ遷移するためのHyperion プラグイン
+ */
 class GoShowKiyoshiPlugin: NSObject, HYPPlugin {
-    static func createPluginModule(
-        _ pluginExtension: HYPPluginExtensionProtocol
-    ) -> HYPPluginModuleProtocol {
+    static func createPluginModule(_ pluginExtension: HYPPluginExtensionProtocol) -> HYPPluginModuleProtocol {
         return GoShowKiyoshiPluginModule(with: pluginExtension)
     }
 
