@@ -1,0 +1,135 @@
+@startuml ToDo関連フロー
+title ToDo 関連フロー
+
+actor ユーザー as user
+box アプリ
+    participant NativeUI as ui
+    participant Presenter as presenter
+    participant Repository as model
+    participant Storage as db
+end box
+participant WebAPI as api
+
+
+user -> ui : 画面表示要求
+activate ui
+ui -> presenter : 画面表示直前
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    GET /v1/todo
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+...
+
+user -> ui : 別アプリ起動など
+activate ui
+ui -> presenter : 画面非活性後
+activate presenter
+presenter -> presenter : 通信処理のキャンセル
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+==追加==
+user -> ui : 追加要求
+activate ui
+note right of user
+   やること名
+end note
+ui -> presenter
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    POST /v1/todo
+
+    title: やること名
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+==編集==
+user -> ui : 編集要求
+activate ui
+note right of user
+    完了したかどうか
+    やること名
+end note
+ui -> presenter
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    PUT /v1/todo/{id}
+
+    id: 識別番号
+    is_finish: 完了したかどうか
+    title: やること名
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+==削除==
+user -> ui : 削除要求
+activate ui
+note right of user
+    ToDo 識別番号
+end note
+ui -> presenter
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    DELETE /v1/todo/{id}
+
+    id: 識別番号
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+@enduml
