@@ -7,7 +7,7 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
-import work.shion.xapprecipe.databinding.AtomsNewsIconBinding
+import com.github.tshion.xapprecipe.databinding.AtomsNewsIconBinding
 
 /**
  * お知らせアイコン

@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
-import work.shion.xapprecipe.R
+import com.github.tshion.xapprecipe.R
 
 /**
  * ローディング表示

@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import work.shion.xapprecipe.NavEntrypointDirections
-import work.shion.xapprecipe.R
+import com.github.tshion.xapprecipe.NavEntrypointDirections
+import com.github.tshion.xapprecipe.R
 import work.shion.xapprecipe.atoms.CircleLoadingOverlay
 import java.lang.ref.WeakReference
 

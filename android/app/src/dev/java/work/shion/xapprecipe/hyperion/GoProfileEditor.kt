@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
+import com.github.tshion.xapprecipe.NavEntrypointDevDirections
+import com.github.tshion.xapprecipe.R
 import com.google.auto.service.AutoService
 import com.willowtreeapps.hyperion.plugin.v1.Plugin
 import com.willowtreeapps.hyperion.plugin.v1.PluginModule
-import work.shion.xapprecipe.NavEntrypointDevDirections
-import work.shion.xapprecipe.R
 
 @AutoService(Plugin::class)
 class GoProfileEditor : Plugin() {

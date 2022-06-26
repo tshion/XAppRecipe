@@ -10,12 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.github.tshion.xapprecipe.NavEntrypointDirections
+import com.github.tshion.xapprecipe.NavTopDirections
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PagesTopBinding
 import work.shion.androidpreparation.intentbuilder.OpenBrowserIntentBuilder
 import work.shion.androidpreparation.intentbuilder.OpenMailerIntentBuilder
-import work.shion.xapprecipe.NavEntrypointDirections
-import work.shion.xapprecipe.NavTopDirections
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PagesTopBinding
 import work.shion.xapprecipe.getProvider
 import java.lang.ref.WeakReference
 

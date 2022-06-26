@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.github.tshion.mktools_android.handleLifecycleEvents
 import com.github.tshion.mktools_android.webview_builder.WebViewBuilder
+import com.github.tshion.xapprecipe.BuildConfig
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PagesMapWebBinding
 import permissions.dispatcher.ktx.LocationPermission
 import permissions.dispatcher.ktx.constructLocationPermissionRequest
 import work.shion.androidpreparation.intentbuilder.LaunchPhoneIntentBuilder
-import work.shion.xapprecipe.BuildConfig
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PagesMapWebBinding
 import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 
 /**

@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.github.tshion.xapprecipe.databinding.PagesTutorialPageBinding
 import com.squareup.picasso.Picasso
-import work.shion.xapprecipe.databinding.PagesTutorialPageBinding
 
 /**
  * チュートリアルの各ページ

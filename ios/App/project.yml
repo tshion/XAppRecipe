@@ -1,23 +1,23 @@
 name: App
 options:
-  deploymentLanguage: Japan
   groupSortPosition: top
 packages:
   mktools_ios:
     github: tshion/mktools_lab
     version: 2022.02.24
 settings:
-  PRODUCT_BUNDLE_IDENTIFIER: work.shion.xapprecipe
+  PRODUCT_BUNDLE_IDENTIFIER: com.github.tshion.xapprecipe
 targetTemplates:
   appbase:
     dependencies:
       - package: mktools_ios
       - sdk: WebKit.framework
-    deploymentTarget: "13.0"
+    deploymentTarget: "14.0"
     platform: iOS
     preBuildScripts:
-      - path: scripts/format.sh
-        name: Run Format
+      - name: Run code formatter
+        script: |
+          scripts/bin/format --configuration .swift-format --in-place --parallel --recursive App
       - name: Generate by R.swift
         script: |
           "$PODS_ROOT/R.swift/rswift" generate "$SRCROOT/R.generated.swift"
@@ -26,26 +26,70 @@ targetTemplates:
         outputFiles:
           - "$SRCROOT/R.generated.swift"
     postBuildScripts:
-      - path: scripts/lint.sh
-        name: Run Lint
+      - name: Run code linter
+        script: |
+          scripts/bin/lint --configuration .swift-format-for-lint --parallel --recursive App
     sources:
       - path: App
         excludes:
           - "public/*"
       - path: "App/public"
         type: folder
+        optional: true
       - path: "R.generated.swift"
         optional: true
     type: application
+
 
 
 targets:
   App:
     templates:
       - appbase
+    info:
+      path: App/Info.plist
+      properties:
+        # CFBundleDevelopmentRegion: $(DEVELOPMENT_LANGUAGE)
+        CFBundleDevelopmentRegion: "en"
+        CFBundleDisplayName: "webapp"
+        CFBundleExecutable: $(EXECUTABLE_NAME)
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundleName: $(PRODUCT_NAME)
+        # CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundlePackageType: "APPL"
+        CFBundleShortVersionString: "0.0.1"
+        CFBundleVersion: "1"
+        LSRequiresIPhoneOS: true
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        # UIApplicationSceneManifest:
+        #   UIApplicationSupportsMultipleScenes: false
+        #   UISceneConfigurations:
+        #     UIWindowSceneSessionRoleApplication:
+        #       - UISceneConfigurationName: Default Configuration
+        #         UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        #         UISceneStoryboardFile: Main
+        # UIApplicationSupportsIndirectInputEvents: true
+        UILaunchStoryboardName: LaunchScreen
+        UIMainStoryboardFile: Main
+        UIRequiredDeviceCapabilities:
+          - armv7
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIViewControllerBasedStatusBarAppearance: true
   AppPreview:
     templates:
       - appbase
+    settings:
+      INFOPLIST_FILE: App/Info.plist
     sources:
       - AppPreview
   AppTests:
@@ -53,7 +97,6 @@ targets:
       - target: App
     platform: iOS
     settings:
-      INFOPLIST_FILE: AppTests/info.plist
       TEST_HOST: $(BUILT_PRODUCTS_DIR)/App.app/App
     sources:
       - AppTests

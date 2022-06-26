@@ -3,9 +3,9 @@ package work.shion.xapprecipe.pages.login
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.tshion.xapprecipe.R
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
-import work.shion.xapprecipe.R
 import work.shion.xapprecipe_core.entities.LoginEntity
 import work.shion.xapprecipe_core.errors.LoginException
 import work.shion.xapprecipe_core.usecases.CertifyAccountUseCaseContract

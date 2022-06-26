@@ -8,10 +8,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
+import com.github.tshion.xapprecipe.NavEntrypointDirections
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PagesTutorialBinding
 import com.google.android.material.tabs.TabLayoutMediator
-import work.shion.xapprecipe.NavEntrypointDirections
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PagesTutorialBinding
 
 /**
  * チュートリアル

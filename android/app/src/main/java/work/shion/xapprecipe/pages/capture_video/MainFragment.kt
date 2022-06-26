@@ -14,9 +14,9 @@ import androidx.camera.core.VideoCapture
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PageCaptureVideoBinding
 import permissions.dispatcher.ktx.constructPermissionsRequest
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PageCaptureVideoBinding
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*

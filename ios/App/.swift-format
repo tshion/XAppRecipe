@@ -1,0 +1,16 @@
+{
+    "indentation": {
+        "spaces": 4
+    },
+    "lineBreakAroundMultilineExpressionChainComponents": false,
+    "lineBreakBeforeControlFlowKeywords": false,
+    "lineBreakBeforeEachArgument": false,
+    "lineLength": 200,
+    "maximumBlankLines": 2,
+    "respectsExistingLineBreaks": true,
+    "rules": {
+        "NoBlockComments": false
+    },
+    "tabWidth": 4,
+    "version": 1
+}

@@ -1,17 +1,22 @@
+.PHONY: default
+default: generate-project
+
 # iOS ビルド
 build:
 	bundle exec fastlane build
 
-# 開発環境のセットアップ
-init:
-	sh scripts/setup-command.sh
+# Ruby コードの整形
+format-ruby:
+	bundle exec standardrb --fix
 
-# Xcode プロジェクトの生成
-setup-xcode:
-	mint run LicensePlist --output-path App/Settings.bundle
+# プロジェクトファイルの生成
+generate-project:
 	mint run xcodegen generate
-	pod install
+
+# iOS 開発環境の初期セットアップ
+init:
+	sh scripts/bootstrap.sh
 
 # Xcode テストの実行
-tests:
+run-test:
 	bundle exec fastlane tests

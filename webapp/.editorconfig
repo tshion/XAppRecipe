@@ -1,0 +1,9 @@
+# Editor configuration, see https://editorconfig.org
+
+# WEB
+[*.{html,xml}]
+insert_final_newline = false
+
+[*.{js,ts}]
+indent_size = 2
+quote_type = single

@@ -13,7 +13,7 @@ import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import work.shion.xapprecipe.R
+import com.github.tshion.xapprecipe.R
 
 /**
  * 生体認証ログイン

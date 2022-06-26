@@ -9,9 +9,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PageMediaListBinding
 import permissions.dispatcher.ktx.constructPermissionsRequest
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PageMediaListBinding
 import java.lang.ref.WeakReference
 
 /**

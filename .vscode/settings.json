@@ -1,10 +1,11 @@
 {
-  "plantuml.server": "https://www.plantuml.com/plantuml",
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#B32435",
-    "statusBar.foreground": "#FFFFFF",
-    "titleBar.activeBackground": "#B32435",
-    "titleBar.activeForeground": "#FFFFFF"
-  }
+    "lldb.library": "/Applications/Xcode13-4.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "plantuml.server": "https://www.plantuml.com/plantuml",
+    "typescript.tsdk": "webapp/node_modules/typescript/lib",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#B32435",
+        "statusBar.foreground": "#FFFFFF",
+        "titleBar.activeBackground": "#B32435",
+        "titleBar.activeForeground": "#FFFFFF"
+    }
 }

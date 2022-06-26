@@ -8,8 +8,8 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.AtomMediaTileBinding
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.AtomMediaTileBinding
 
 /**
  * メディア表示用タイル

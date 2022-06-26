@@ -8,8 +8,8 @@ import androidx.annotation.AttrRes
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.content.withStyledAttributes
 import androidx.databinding.DataBindingUtil
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.MoleculesEditFormBinding
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.MoleculesEditFormBinding
 
 /**
  * 入力欄

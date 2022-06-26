@@ -10,9 +10,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.navArgs
+import com.github.tshion.xapprecipe.databinding.TemplatesLinkDetailDialogBinding
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
-import work.shion.xapprecipe.databinding.TemplatesLinkDetailDialogBinding
 
 /**
  * リンク詳細ダイアログ

@@ -1,4 +1,4 @@
-# XAppRecipe(Android)
+# (Now Editing)XAppRecipe(Android)
 ## Quick Start
 * [Android Studio]
 * [Node.js]
@@ -23,7 +23,7 @@ The basic structure is MV*(P or VM) and their additions.
 * Data Binding
 * Repository Pattern
 
-![Android Architecture](./docs/architecture.png)
+![Android Architecture](https://www.plantuml.com/plantuml/svg/PLBHJiCm37pFLrXz7n-041eCa92OD87Oa50VJEgr5brQ9HaJGlmxTbgQJSkJuxlpNPtEGqGVzxiMqDk68zcuzsJCZOsTXzT0tfWUxIVM10NsVG4_1k1TOFxY-0r2Ul1OxyZ54Z30ckcWX9Md83tooj3cigkeJPHDWr4fRykdqloUZhUTfz7YtaKnABMK60iCbEerjboXX3lJIXV_uwqU5orh9hqzKzy55iamxKKgqIGzQyGjMfcmeGyGNQ4HiMSZP_I5gvddkecpQvZSZx2gEpY1iiivbZxPP4P6fgIdQ4jRjHkZcecLXIcYBlOedMpKg5LcfUSOMXS9luGxMTCjkufTRQIHkSDZpybLyZly0G00 "architecture")
 
 module | Atomic Design | Clean Architecture | MV(P or VM) | note
 --- | :---: | :---: | --- | ---

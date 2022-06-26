@@ -9,9 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import work.shion.xapprecipe.NavEntrypointDirections
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PagesLinkIndexBinding
+import com.github.tshion.xapprecipe.NavEntrypointDirections
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PagesLinkIndexBinding
 import work.shion.xapprecipe.getProvider
 import work.shion.xapprecipe.templates.LinkInsertDialog
 import work.shion.xapprecipe_core.entities.WebLinkEntity

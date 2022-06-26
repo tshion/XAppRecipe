@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import work.shion.xapprecipe.databinding.PagesProfileEditorBinding
+import com.github.tshion.xapprecipe.databinding.PagesProfileEditorBinding
 
 /**
  * プロフィール編集

@@ -3,6 +3,7 @@ package work.shion.xapprecipe
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import com.github.tshion.xapprecipe.R
 
 /**
  * Native 実装のエントリーポイント

@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import androidx.annotation.AttrRes
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.content.withStyledAttributes
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.MoleculesHeaderForLinkTabBinding
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.MoleculesHeaderForLinkTabBinding
 
 /**
  * リンクタブ用のHeader

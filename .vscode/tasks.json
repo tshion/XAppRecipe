@@ -1,27 +1,21 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Serve",
-      "path": "./mainapp/package.json",
-      "isBackground": true,
-      "problemMatcher": {
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Open Android Studio",
+            "path": "./webapp",
+            "type": "npm",
+            "script": "open.android"
         },
-        "owner": "typescript",
-        "pattern": "$tsc"
-      },
-      "type": "npm",
-      "script": "start"
-    }
-  ]
+        {
+            "label": "Open Xcode",
+            "command": "echo Don't support.",
+            "type": "shell",
+            "osx": {
+                "command": "make open-ios"
+            }
+        }
+    ]
 }

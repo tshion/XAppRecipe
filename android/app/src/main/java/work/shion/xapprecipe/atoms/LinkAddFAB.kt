@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.AttrRes
 import androidx.core.content.ContextCompat
+import com.github.tshion.xapprecipe.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import work.shion.xapprecipe.R
 
 /**
  * リンク追加FAB

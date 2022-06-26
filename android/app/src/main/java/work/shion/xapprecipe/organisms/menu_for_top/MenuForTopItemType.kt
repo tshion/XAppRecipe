@@ -2,7 +2,7 @@ package work.shion.xapprecipe.organisms.menu_for_top
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import work.shion.xapprecipe.R
+import com.github.tshion.xapprecipe.R
 
 enum class MenuForTopItemType(
     @DrawableRes val iconId: Int,

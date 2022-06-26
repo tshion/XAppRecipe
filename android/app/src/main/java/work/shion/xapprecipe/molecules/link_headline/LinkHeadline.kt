@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.MoleculesLinkHeadlineBinding
 import com.squareup.picasso.Picasso
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.MoleculesLinkHeadlineBinding
 
 /**
  * リンク概要表示

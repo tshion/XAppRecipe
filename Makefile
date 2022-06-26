@@ -1,60 +1,25 @@
-.PHONY: default
-default: setup
-
-
-# WEB リソースのビルド
-build-web:
-	npx lerna run build --scope=@xapprecipe/mainapp
-	@echo finish $@.
-
-
-# 中間ファイル等を一括で削除する
-clear:
-	cd ios; $(MAKE) clear
-	sh scripts/clear-directories.sh "." "capacitor-cordova-android-plugins"
-	sh scripts/clear-directories.sh "." "dist"
-	sh scripts/clear-directories.sh "." "node_modules"
-	sh scripts/clear-directories.sh "android/app/src/main" "public"
-	sh scripts/clear-directories.sh "." "vendor"
-	sh scripts/clear-directories.sh "." "www"
-	@echo finish $@.
-
-
-# WEB リソースをAndroid 側へ配置する
+# Android コードの配置
 deploy-android:
-	@make build-web
-	npx cap sync android --deployment
+	cd webapp; npm run build; npx cap sync android
 	@echo finish $@.
 
-# WEB リソースをiOS 側へ配置する
+
+# iOS コードの配置
 deploy-ios:
-	@make build-web
-	npx cap copy ios
-	cd ios; $(MAKE) setup-xcode
-	npx cap update ios --deployment
+	cd ios/App; $(MAKE) generate-project
+	cd webapp; npm run build; export CAPACITOR_COCOAPODS_PATH="$(PWD)/scripts/bin/pod-wrapper"; npx cap sync ios
+	cd ios/App; $(PWD)/scripts/bin/pod-wrapper install # FIXME: cap sync で何故かpod install が行われないので追記した(2022/06/19)
+	cd ios/App; $(MAKE) format-ruby
+	cd ios/App; mint run LicensePlist --output-path App/Settings.bundle
 	@echo finish $@.
 
-
-# 開発環境の整備
-setup:
-	@make setup-js
-
-# 開発環境の整備(iOS 関連)
-setup-ios:
-	@make setup
-	@make setup-ruby
-	sh scripts/setup-ios.sh
-	cd ios; $(MAKE) init
-	@make deploy-ios
-	@echo finish $@.
-
-# 開発環境の整備(JS 関連)
-setup-js:
-	npm ci
-	npx lerna bootstrap
-	@echo finish $@.
-
-# 開発環境の整備(Ruby 関連)
-setup-ruby:
+# iOS 開発環境の初期セットアップ
+init-ios:
 	sh scripts/setup-ruby.sh
+	cd ios/App; $(MAKE) init
+	@echo finish $@.
+
+# iOS コードを対応IDE で開く
+open-ios:
+	cd webapp; npx cap open ios
 	@echo finish $@.

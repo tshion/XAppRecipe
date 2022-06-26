@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import work.shion.xapprecipe.NavEntrypointDirections
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PagesLoginBinding
+import com.github.tshion.xapprecipe.NavEntrypointDirections
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PagesLoginBinding
 import work.shion.xapprecipe.getProvider
 import java.lang.ref.WeakReference
 

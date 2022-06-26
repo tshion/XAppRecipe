@@ -5,7 +5,7 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
-import work.shion.xapprecipe.R
+import com.github.tshion.xapprecipe.R
 import work.shion.xapprecipe.molecules.link_headline.LinkHeadline
 import work.shion.xapprecipe.molecules.link_headline.LinkHeadlineViewHolder
 import work.shion.xapprecipe_core.entities.WebLinkEntity

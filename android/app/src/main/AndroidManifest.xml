@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="work.shion.xapprecipe">
+    package="com.github.tshion.xapprecipe">
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-feature android:name="android.hardware.location.gps" />
@@ -11,9 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- ZXing -->
@@ -21,7 +19,7 @@
 
 
     <application
-        android:name=".MainApplication"
+        android:name="work.shion.xapprecipe.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +28,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="work.shion.xapprecipe.MainActivity"
+            android:name="com.github.tshion.xapprecipe.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:exported="true"
             android:launchMode="singleTask"
@@ -45,7 +43,7 @@
 
         <!-- Native 実装のエントリーポイント -->
         <activity
-            android:name=".EntryPointActivity"
+            android:name="work.shion.xapprecipe.EntryPointActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launch.Native" />

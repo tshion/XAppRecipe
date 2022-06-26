@@ -52,7 +52,7 @@ android {
             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
-        applicationId "work.shion.xapprecipe"
+        applicationId "com.github.tshion.xapprecipe"
         minSdkVersion min_sdk_version
         targetSdkVersion compile_sdk_version
         versionCode 1
@@ -144,7 +144,7 @@ dependencies {
     implementation "com.google.android.material:material:${ver_material}"
 
     // mktools
-    implementation 'com.github.tshion:mktools_lab:2022.02.17'
+    implementation 'com.github.tshion:mktools_lab:2022.06.25'
 
     // PermissionsDispatcher
     implementation "com.github.permissions-dispatcher:ktx:${ver_permissions_dispatcher_ktx}"

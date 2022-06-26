@@ -7,7 +7,7 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
-import work.shion.xapprecipe.databinding.OrganismsMenuForTopItemBinding
+import com.github.tshion.xapprecipe.databinding.OrganismsMenuForTopItemBinding
 
 internal class MenuForTopItem @JvmOverloads constructor(
     context: Context,
