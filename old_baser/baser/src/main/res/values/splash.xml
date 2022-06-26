@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- スプラッシュの背景色 -->
-    <color name="splash_background">#111122</color>
-
-    <!-- スプラッシュアイコン -->
-    <drawable name="splash_icon">@mipmap/ic_launcher</drawable>
-</resources>

@@ -2,9 +2,9 @@ package work.shion.xapprecipe.pages.top
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.tshion.xapprecipe.BuildConfig
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
-import work.shion.xapprecipe.BuildConfig
 import work.shion.xapprecipe.organisms.menu_for_top.MenuForTopItemType
 import work.shion.xapprecipe.organisms.menu_for_top.MenuForTopItemType.*
 import work.shion.xapprecipe_core.usecases.CertifyAccountUseCaseContract

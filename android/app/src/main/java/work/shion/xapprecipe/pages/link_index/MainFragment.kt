@@ -1,21 +1,19 @@
 package work.shion.xapprecipe.pages.link_index
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
-import work.shion.xapprecipe.NavEntrypointDirections
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.PagesLinkIndexBinding
+import androidx.navigation.fragment.findNavController
+import com.github.tshion.xapprecipe.NavEntrypointDirections
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.PagesLinkIndexBinding
 import work.shion.xapprecipe.getProvider
-import work.shion.xapprecipe.templates.link_detail_dialog.LinkDetailDialogViewModel
-import work.shion.xapprecipe.templates.link_insert_dialog.LinkInsertDialogViewModel
+import work.shion.xapprecipe.templates.LinkInsertDialog
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 import java.lang.ref.WeakReference
 import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
@@ -23,12 +21,18 @@ import work.shion.xapprecipe.pages.top.MainFragment as TopFragment
 /**
  * リンク一覧
  */
-class MainFragment : Fragment(), MainViewContract {
+class MainFragment : Fragment(R.layout.pages_link_index), MainViewContract {
+
+    companion object {
+        private val REQUEST_LINK_DETAIL =
+            "${MainFragment::class.java.simpleName}.REQUEST_LINK_DETAIL"
+        private val REQUEST_LINK_INSERT =
+            "${MainFragment::class.java.simpleName}.REQUEST_LINK_INSERT"
+    }
+
 
     private var adapter: MainAdapter? = null
     private var binding: PagesLinkIndexBinding? = null
-    private val linkDetailViewModel by activityViewModels<LinkDetailDialogViewModel>()
-    private val linkInsertViewModel by activityViewModels<LinkInsertDialogViewModel>()
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             bookmarkWebUseCase = activity?.getProvider()!!.bookmarkUseCase,
@@ -37,17 +41,22 @@ class MainFragment : Fragment(), MainViewContract {
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = PagesLinkIndexBinding.inflate(inflater, container, false)
-        return binding?.root
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setFragmentResultListener(REQUEST_LINK_DETAIL) { _, _ ->
+            viewModel.remove()
+        }
+        setFragmentResultListener(REQUEST_LINK_INSERT) { _, result ->
+            val input = LinkInsertDialog.pickInput(result)
+            if (!input.isNullOrBlank()) {
+                viewModel.register(input)
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = PagesLinkIndexBinding.bind(view)
 
         binding?.pagesLinkIndexAdd?.setOnClickListener { showEditor() }
 
@@ -61,21 +70,6 @@ class MainFragment : Fragment(), MainViewContract {
             diffCallback = MainAdapterDiffs(),
         )
         binding?.pagesLinkIndexList?.adapter = adapter
-
-
-        linkDetailViewModel.isCalledDelete.observe(viewLifecycleOwner) {
-            if (it) {
-                viewModel.remove()
-                linkDetailViewModel.isCalledDelete.value = false
-            }
-        }
-
-        linkInsertViewModel.input.observe(viewLifecycleOwner) {
-            if (!it.isNullOrBlank()) {
-                viewModel.register(it)
-                linkInsertViewModel.input.value = null
-            }
-        }
     }
 
     override fun onStart() {
@@ -128,16 +122,20 @@ class MainFragment : Fragment(), MainViewContract {
      * 登録ダイアログの表示
      */
     override fun showEditor() {
-        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-            ?.navigate(NavEntrypointDirections.navactShowLinkInsertDialog())
+        findNavController()
+            .navigate(MainFragmentDirections.navactShowLinkInsertDialog(REQUEST_LINK_INSERT))
     }
 
     /**
      * リンク詳細の表示
      */
     override fun showLinkDetail(data: WebLinkEntity) {
-        activity?.let { Navigation.findNavController(it, R.id.entrypoint) }
-            ?.navigate(NavEntrypointDirections.navactShowLinkDetailDialog(data.webPath))
+        findNavController().navigate(
+            MainFragmentDirections.navactShowLinkDetailDialog(
+                requestKey = REQUEST_LINK_DETAIL,
+                uri = data.webPath
+            )
+        )
     }
 
     /**

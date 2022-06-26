@@ -13,6 +13,14 @@ plugins {
 }
 
 android {
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == "release") {
+            variant.outputs.each { output ->
+                output.versionCodeOverride = appver_code
+                output.versionNameOverride = appver_name
+            }
+        }
+    }
     buildFeatures {
         dataBinding true
         viewBinding true
@@ -22,6 +30,9 @@ android {
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
+
+            // Firebase Crashlytics の無効化
+            ext.enableCrashlytics = false
         }
         release {
             minifyEnabled true
@@ -41,11 +52,11 @@ android {
             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
-        applicationId "work.shion.xapprecipe"
+        applicationId "com.github.tshion.xapprecipe"
         minSdkVersion min_sdk_version
         targetSdkVersion compile_sdk_version
-        versionCode appver_code
-        versionName appver_name
+        versionCode 1
+        versionName '0.0.1'
 
 
         // 地図の基本URL
@@ -102,7 +113,6 @@ dependencies {
     // AndroidPreparation
     debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
     implementation "work.shion.androidpreparation:intentbuilder:${ver_prep_intent}"
-    implementation "work.shion.androidpreparation:webviewbuilder:${ver_prep_web}"
 
     // AndroidX
     implementation "androidx.biometric:biometric:${ver_droidx_biometric}"
@@ -132,6 +142,9 @@ dependencies {
 
     // Material Design
     implementation "com.google.android.material:material:${ver_material}"
+
+    // mktools
+    implementation 'com.github.tshion:mktools_lab:2022.06.25'
 
     // PermissionsDispatcher
     implementation "com.github.permissions-dispatcher:ktx:${ver_permissions_dispatcher_ktx}"

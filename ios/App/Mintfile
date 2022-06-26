@@ -1,4 +1,3 @@
-mono0926/LicensePlist@3.16.0
-nicklockwood/SwiftFormat@0.49.1
-realm/SwiftLint@0.45.1
-yonaskolb/xcodegen@2.25.0
+apple/swift-format@0.50600.1
+mono0926/LicensePlist@3.22.0
+yonaskolb/xcodegen@2.29.0

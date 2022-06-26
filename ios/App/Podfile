@@ -1,42 +1,44 @@
-platform :ios, '13.0'
+platform :ios, "12.0"
 use_frameworks!
 
 # workaround to avoid Xcode caching of Pods that requires
 # Product -> Clean Build Folder after new Cordova plugins installed
 # Requires CocoaPods 1.6 or newer
-install! 'cocoapods', :disable_input_output_paths => true
+install! "cocoapods", disable_input_output_paths: true
 
 def capacitor_pods
-  pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
-  pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
-
+  pod "Capacitor", path: "../../webapp/node_modules/@capacitor/ios"
+  pod "CapacitorCordova", path: "../../webapp/node_modules/@capacitor/ios"
+  pod "CapacitorApp", path: "../../webapp/node_modules/@capacitor/app"
+  pod "CapacitorHaptics", path: "../../webapp/node_modules/@capacitor/haptics"
+  pod "CapacitorKeyboard", path: "../../webapp/node_modules/@capacitor/keyboard"
+  pod "CapacitorStatusBar", path: "../../webapp/node_modules/@capacitor/status-bar"
 end
 
 def hyperion
-  pod 'HyperioniOS/Core', '1.2.0', :configurations => ['Debug']
+  pod "HyperioniOS/Core", "1.2.0", configurations: ["Debug"]
 
-  pod 'HyperioniOS/AttributesInspector', :configurations => ['Debug']
-  pod 'HyperioniOS/Measurements', :configurations => ['Debug']
-  pod 'HyperioniOS/SlowAnimations', :configurations => ['Debug']
+  pod "HyperioniOS/AttributesInspector", configurations: ["Debug"]
+  pod "HyperioniOS/Measurements", configurations: ["Debug"]
+  pod "HyperioniOS/SlowAnimations", configurations: ["Debug"]
 end
 
 def ui
-  pod 'MaterialComponents/BottomNavigation'
-  pod 'MaterialComponents/BottomNavigation+Theming'
-  pod 'MaterialComponents/Buttons'
-  pod 'MaterialComponents/Buttons+Theming'
-  pod 'R.swift'
+  pod "MaterialComponents/BottomNavigation"
+  pod "MaterialComponents/BottomNavigation+Theming"
+  pod "MaterialComponents/Buttons"
+  pod "MaterialComponents/Buttons+Theming"
+  pod "R.swift"
 end
 
-
-target 'App' do
+target "App" do
   capacitor_pods
   # Add your Pods here
   hyperion
   ui
 end
 
-target 'AppPreview' do
+target "AppPreview" do
   capacitor_pods
   # Add your Pods here
   hyperion

@@ -3,7 +3,6 @@ package work.shion.xapprecipe.pages.link_index
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.cancelChildren
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 import work.shion.xapprecipe_core.usecases.BookmarkWebUseCaseContract

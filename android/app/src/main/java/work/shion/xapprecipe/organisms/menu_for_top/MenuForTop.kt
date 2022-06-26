@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.OrganismsMenuForTopBinding
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.OrganismsMenuForTopBinding
 
 class MenuForTop @JvmOverloads constructor(
     context: Context,

@@ -8,8 +8,8 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
-import work.shion.xapprecipe.R
-import work.shion.xapprecipe.databinding.MoleculesHeaderBinding
+import com.github.tshion.xapprecipe.R
+import com.github.tshion.xapprecipe.databinding.MoleculesHeaderBinding
 
 /**
  * Header

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
-import work.shion.xapprecipe.databinding.AtomsDotsIndicatorBinding
+import com.github.tshion.xapprecipe.databinding.AtomsDotsIndicatorBinding
 
 /**
  * 点のインジケーター

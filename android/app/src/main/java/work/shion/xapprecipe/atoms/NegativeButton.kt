@@ -3,8 +3,8 @@ package work.shion.xapprecipe.atoms
 import android.content.Context
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
+import com.github.tshion.xapprecipe.R
 import com.google.android.material.button.MaterialButton
-import work.shion.xapprecipe.R
 
 /**
  * 否定的な用途に使うボタン

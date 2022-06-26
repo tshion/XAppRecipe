@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import work.shion.xapprecipe.databinding.PagesPdfViewerBinding
+import com.github.tshion.xapprecipe.databinding.PagesPdfViewerBinding
 import work.shion.xapprecipe.getProvider
 import java.lang.ref.WeakReference
 import kotlin.math.ceil

@@ -5,11 +5,47 @@
     android:id="@+id/nav_top"
     app:startDestination="@id/top_link_index">
 
+    <!-- リンク詳細ダイアログ -->
+    <dialog
+        android:id="@+id/link_detail_dialog"
+        android:name="work.shion.xapprecipe.templates.LinkDetailDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
+
+        <argument
+            android:name="uri"
+            app:argType="string" />
+    </dialog>
+
+    <!-- リンク登録ダイアログ -->
+    <dialog
+        android:id="@+id/link_insert_dialog"
+        android:name="work.shion.xapprecipe.templates.LinkInsertDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
+    </dialog>
+
+
     <!-- リンク一覧 -->
     <fragment
         android:id="@+id/top_link_index"
         android:name="work.shion.xapprecipe.pages.link_index.MainFragment"
-        tools:layout="@layout/pages_link_index" />
+        tools:layout="@layout/pages_link_index">
+
+        <!-- リンク詳細ダイアログの表示 -->
+        <action
+            android:id="@+id/navact_show_link_detail_dialog"
+            app:destination="@id/link_detail_dialog" />
+
+        <!-- リンク登録ダイアログの表示 -->
+        <action
+            android:id="@+id/navact_show_link_insert_dialog"
+            app:destination="@id/link_insert_dialog" />
+    </fragment>
 
     <!-- 地図(WEB 版) -->
     <fragment
