@@ -2,6 +2,9 @@ name: App
 options:
   groupSortPosition: top
 packages:
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire.git
+    minorVersion: 5.5.0
   mktools_ios:
     github: tshion/mktools_lab
     version: 2022.02.24
@@ -10,6 +13,7 @@ settings:
 targetTemplates:
   appbase:
     dependencies:
+      - package: Alamofire
       - package: mktools_ios
       - sdk: WebKit.framework
     deploymentTarget: "14.0"
