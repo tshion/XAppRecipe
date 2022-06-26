@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pages_login">@string/app_action_login</string>
+    <string name="pages_login_error_empty">入力してください。</string>
+    <string name="pages_login_error_id_invalid">3文字以上の正しいパスワードを入力してください。</string>
+    <string name="pages_login_error_pw_invalid">8文字以上の正しいパスワードを入力してください。</string>
+    <string name="pages_login_id">ID</string>
+    <string name="pages_login_pw">パスワード</string>
+    <string name="pages_login_skip">スキップ</string>
+</resources>

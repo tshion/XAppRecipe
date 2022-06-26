@@ -14,8 +14,8 @@ class XAppPlugin : Plugin() {
     @PluginMethod()
     fun launch(call: PluginCall) {
         bridge?.executeOnMainThread {
-            // bridge?.activity
-            //     ?.also { EntryPointActivity.launch(it) }
+            bridge?.activity
+                ?.also { EntryPointActivity.launch(it) }
             call.success()
         }
     }

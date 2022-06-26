@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="atoms_circle_loading_overlay_background">@color/app_transparent_dark</color>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_top"
+    app:startDestination="@id/top_link_index">
+
+    <!-- リンク詳細ダイアログ -->
+    <dialog
+        android:id="@+id/link_detail_dialog"
+        android:name="com.github.tshion.xapprecipe.webapp.templates.LinkDetailDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
+
+        <argument
+            android:name="uri"
+            app:argType="string" />
+    </dialog>
+
+    <!-- リンク登録ダイアログ -->
+    <dialog
+        android:id="@+id/link_insert_dialog"
+        android:name="com.github.tshion.xapprecipe.webapp.templates.LinkInsertDialog">
+
+        <argument
+            android:name="requestKey"
+            app:argType="string" />
+    </dialog>
+
+
+    <!-- リンク一覧 -->
+    <fragment
+        android:id="@+id/top_link_index"
+        android:name="com.github.tshion.xapprecipe.webapp.pages.link_index.MainFragment"
+        tools:layout="@layout/pages_link_index">
+
+        <!-- リンク詳細ダイアログの表示 -->
+        <action
+            android:id="@+id/navact_show_link_detail_dialog"
+            app:destination="@id/link_detail_dialog" />
+
+        <!-- リンク登録ダイアログの表示 -->
+        <action
+            android:id="@+id/navact_show_link_insert_dialog"
+            app:destination="@id/link_insert_dialog" />
+    </fragment>
+
+    <!-- 地図(WEB 版) -->
+    <fragment
+        android:id="@+id/top_map_web"
+        android:name="com.github.tshion.xapprecipe.webapp.pages.map_web.MainFragment"
+        tools:layout="@layout/pages_map_web" />
+
+
+    <!-- リンク一覧へ遷移 -->
+    <action
+        android:id="@+id/navact_top_to_link_index"
+        app:destination="@id/top_link_index"
+        app:popUpTo="@id/nav_top" />
+
+    <!-- 地図(WEB 版) へ遷移 -->
+    <action
+        android:id="@+id/navact_top_to_map_web"
+        app:destination="@id/top_map_web"
+        app:popUpTo="@id/nav_top" />
+</navigation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="templates_launch_error_dialog_message">少し時間をおいてから、再度お試しくださいませ。</string>
+    <string name="templates_launch_error_dialog_positive">リトライ</string>
+    <string name="templates_launch_error_dialog_title">起動失敗</string>
+
+
+    <style name="TemplatesLaunchErrorDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/TemplatesLaunchErrorDialog.Button</item>
+        <item name="colorOnSurface">@color/app_text</item>
+    </style>
+
+    <style name="TemplatesLaunchErrorDialog.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="materialThemeOverlay">@style/TemplatesLaunchErrorDialog.ButtonOverlay</item>
+    </style>
+
+    <style name="TemplatesLaunchErrorDialog.ButtonOverlay">
+        <item name="colorPrimary">@color/app_text_accent</item>
+    </style>
+</resources>

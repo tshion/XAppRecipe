@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hyperion_show_biometric_auth_title">生体認証の表示</string>
+</resources>

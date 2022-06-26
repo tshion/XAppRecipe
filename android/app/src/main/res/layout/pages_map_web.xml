@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base"
+    android:orientation="vertical">
+
+    <com.github.tshion.xapprecipe.webapp.molecules.HeaderForWebTab
+        android:id="@+id/pages_map_web_header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="@string/pages_map_web_header" />
+
+    <WebView
+        android:id="@+id/pages_map_web_browser"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pages_tutorial_action_next">次へ</string>
+    <string name="pages_tutorial_action_skip">スキップ</string>
+    <string name="pages_tutorial_action_start">はじめる</string>
+</resources>

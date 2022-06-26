@@ -52,9 +52,6 @@ If you can use above and completed "Setup web project", run these commands at pr
 ## Notes
 ### Coding rule
 * CONTRIBUTING ([日本語](./CONTRIBUTING.md))
-    <!--* Android Local Rule ([日本語](./android/docs/CONTRIBUTING.md))-->
-    <!--* iOS Local Rule ([日本語](./ios/docs/CONTRIBUTING.md))-->
-    <!--* WEB Local Rule ([日本語](./webapp/docs/CONTRIBUTING.md))-->
 * [EditorConfig] (See [.editorconfig](./.editorconfig) for the version.)
 
 ### Project paths

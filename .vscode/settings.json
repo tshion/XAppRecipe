@@ -1,3 +1,4 @@
 {
-    "lldb.library": "/Applications/Xcode13-4.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB"
+    "lldb.library": "/Applications/Xcode13-4.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "plantuml.server": "https://www.plantuml.com/plantuml"
 }

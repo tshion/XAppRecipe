@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="input"
+            type="String" />
+
+        <variable
+            name="label"
+            type="String" />
+
+        <variable
+            name="message"
+            type="String" />
+    </data>
+
+
+    <merge
+        tools:orientation="vertical"
+        tools:parentTag="androidx.appcompat.widget.LinearLayoutCompat">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/molecules_edit_form_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{label}"
+            android:textColor="@color/app_text"
+            android:textSize="@dimen/app_text_large"
+            android:textStyle="bold"
+            tools:text="@tools:sample/cities" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/app_space_1"
+            android:paddingBottom="@dimen/app_space_1"
+            android:text="@{message}"
+            android:textColor="@color/app_text_accent"
+            android:textSize="@dimen/app_text_small"
+            android:visibility="@{!TextUtils.isEmpty(message) ? View.VISIBLE : View.GONE}"
+            tools:text="@tools:sample/full_names"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/molecules_edit_form_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@={input}"
+            tools:text="@tools:sample/full_names" />
+    </merge>
+</layout>

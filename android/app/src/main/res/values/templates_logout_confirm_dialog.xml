@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="templates_logout_confirm_dialog_message">ログアウトしますか？</string>
+    <string name="templates_logout_confirm_dialog_negative">@string/app_action_close</string>
+    <string name="templates_logout_confirm_dialog_positive">@string/app_action_logout</string>
+    <string name="templates_logout_confirm_dialog_title">@string/app_action_logout</string>
+
+
+    <style name="TemplatesLogoutConfirmDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/TemplatesLogoutConfirmDialog.Button</item>
+        <item name="colorOnSurface">@color/app_text</item>
+    </style>
+
+    <style name="TemplatesLogoutConfirmDialog.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="materialThemeOverlay">@style/TemplatesLogoutConfirmDialog.ButtonOverlay</item>
+    </style>
+
+    <style name="TemplatesLogoutConfirmDialog.ButtonOverlay">
+        <item name="colorPrimary">@color/app_text_accent</item>
+    </style>
+</resources>

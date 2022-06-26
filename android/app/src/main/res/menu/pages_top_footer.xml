@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pages_top_footer_links"
+        android:icon="@drawable/icon_bookmarks"
+        android:title="@string/pages_top_footer_links" />
+
+    <item
+        android:id="@+id/pages_top_footer_map"
+        android:icon="@drawable/icon_map"
+        android:title="@string/pages_top_footer_map" />
+</menu>

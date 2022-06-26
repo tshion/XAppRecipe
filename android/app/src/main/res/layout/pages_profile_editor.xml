@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_base"
+    android:orientation="vertical">
+
+    <com.github.tshion.xapprecipe.webapp.molecules.Header
+        android:id="@+id/pages_profile_editor_header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="@string/pages_profile_editor_header" />
+
+    <com.github.tshion.xapprecipe.webapp.molecules.EditForm
+        android:id="@+id/pages_profile_editor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/app_space_2"
+        android:layout_marginVertical="@dimen/app_space_1"
+        android:hint="@string/pages_profile_editor_name"
+        android:inputType="textPersonName"
+        android:privateImeOptions="com.google.android.inputmethod.latin.requestPhoneticOutput" />
+
+    <com.github.tshion.xapprecipe.webapp.molecules.EditForm
+        android:id="@+id/pages_profile_editor_name_ruby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/app_space_2"
+        android:layout_marginVertical="@dimen/app_space_1"
+        android:hint="@string/pages_profile_editor_name_ruby"
+        android:inputType="text" />
+</androidx.appcompat.widget.LinearLayoutCompat>

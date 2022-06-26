@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="organisms_menu_for_top_item_icon">24dp</dimen>
+
+
+    <string name="organisms_menu_for_top_item_contact">お問い合わせ</string>
+    <string name="organisms_menu_for_top_item_license">ライセンス</string>
+    <string name="organisms_menu_for_top_item_login">@string/app_action_login</string>
+    <string name="organisms_menu_for_top_item_logout">@string/app_action_logout</string>
+    <string name="organisms_menu_for_top_item_settings">設定確認</string>
+    <string name="organisms_menu_for_top_item_twitter">Twitter</string>
+    <string name="organisms_menu_for_top_item_youtube">YouTube</string>
+
+
+    <style name="organisms_menu_for_top">
+        <item name="android:background">@color/app_base_2</item>
+    </style>
+</resources>

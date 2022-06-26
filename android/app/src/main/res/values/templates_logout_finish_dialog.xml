@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="templates_logout_finish_dialog_message">ログアウト完了しました。</string>
+    <string name="templates_logout_finish_dialog_positive">@string/app_action_close</string>
+    <string name="templates_logout_finish_dialog_title">@string/app_action_logout</string>
+
+
+    <style name="TemplatesLogoutFinishDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/TemplatesLogoutFinishDialog.Button</item>
+        <item name="colorOnSurface">@color/app_text</item>
+    </style>
+
+    <style name="TemplatesLogoutFinishDialog.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="materialThemeOverlay">@style/TemplatesLogoutFinishDialog.ButtonOverlay</item>
+    </style>
+
+    <style name="TemplatesLogoutFinishDialog.ButtonOverlay">
+        <item name="colorPrimary">@color/app_text_accent</item>
+    </style>
+</resources>

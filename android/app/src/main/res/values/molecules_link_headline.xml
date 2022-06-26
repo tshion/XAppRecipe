@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="molecules_link_headline_height">96dp</dimen>
+
+
+    <style name="molecules_link_headline">
+        <item name="android:background">@color/app_base_2</item>
+        <item name="android:paddingBottom">@dimen/app_space_1</item>
+        <item name="android:paddingEnd">@dimen/app_space_2</item>
+        <item name="android:paddingStart">@dimen/app_space_2</item>
+        <item name="android:paddingTop">@dimen/app_space_1</item>
+    </style>
+</resources>
