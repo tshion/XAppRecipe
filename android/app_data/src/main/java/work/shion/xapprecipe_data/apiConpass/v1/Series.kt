@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.apiConpass.v1
+package work.shion.xapprecipe_data.apiConpass.v1
 
 import com.squareup.moshi.JsonClass
 

@@ -21,7 +21,7 @@
         app:layout_constraintWidth_percent="0.6"
         tools:src="@tools:sample/backgrounds/scenic" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.NegativeButton
+    <work.shion.xapprecipe.atoms.NegativeButton
         android:id="@+id/templates_link_detail_dialog_delete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/templates_link_detail_dialog_code" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.PositiveButton
+    <work.shion.xapprecipe.atoms.PositiveButton
         android:id="@+id/templates_link_detail_dialog_close"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

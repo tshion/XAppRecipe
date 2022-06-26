@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_core.errors
+package work.shion.xapprecipe_core.errors
 
 /**
  * ログイン失敗

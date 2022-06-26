@@ -1,6 +1,6 @@
-package com.github.tshion.xapprecipe.webapp_core.usecases
+package work.shion.xapprecipe_core.usecases
 
-import com.github.tshion.xapprecipe.webapp_core.repositories.PdfRepositoryContract
+import work.shion.xapprecipe_core.repositories.PdfRepositoryContract
 import java.io.File
 
 class ShowPdfUseCase(

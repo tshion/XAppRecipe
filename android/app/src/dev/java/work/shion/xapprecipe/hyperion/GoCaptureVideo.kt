@@ -1,15 +1,15 @@
-package com.github.tshion.xapprecipe.webapp.hyperion
+package work.shion.xapprecipe.hyperion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
+import com.github.tshion.xapprecipe.NavEntrypointDevDirections
+import com.github.tshion.xapprecipe.R
 import com.google.auto.service.AutoService
 import com.willowtreeapps.hyperion.plugin.v1.Plugin
 import com.willowtreeapps.hyperion.plugin.v1.PluginModule
-import com.github.tshion.xapprecipe.webapp.NavEntrypointDevDirections
-import com.github.tshion.xapprecipe.webapp.R
 
 @AutoService(Plugin::class)
 class GoCaptureVideo : Plugin() {

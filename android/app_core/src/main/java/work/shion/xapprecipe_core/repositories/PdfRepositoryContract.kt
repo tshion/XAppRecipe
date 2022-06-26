@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_core.repositories
+package work.shion.xapprecipe_core.repositories
 
 import java.io.File
 

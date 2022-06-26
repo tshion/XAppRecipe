@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_core.validators
+package work.shion.xapprecipe_core.validators
 
 /**
  * Web サイトのURL かどうかの検証

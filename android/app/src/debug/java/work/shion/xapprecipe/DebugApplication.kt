@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp
+package work.shion.xapprecipe
 
 import com.github.tshion.mktools_android.StrictModeActivator
 import work.shion.androidpreparation.debugger.android.IWebViewAttacher

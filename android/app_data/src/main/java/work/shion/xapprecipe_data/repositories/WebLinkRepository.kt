@@ -1,9 +1,9 @@
-package com.github.tshion.xapprecipe.webapp_data.repositories
+package work.shion.xapprecipe_data.repositories
 
-import com.github.tshion.xapprecipe.webapp_core.entities.WebLinkEntity
-import com.github.tshion.xapprecipe.webapp_core.repositories.WebLinkRepositoryContract
-import com.github.tshion.xapprecipe.webapp_data.apiWeb.Api
-import com.github.tshion.xapprecipe.webapp_data.inmemory.LinkMemoryContract
+import work.shion.xapprecipe_core.entities.WebLinkEntity
+import work.shion.xapprecipe_core.repositories.WebLinkRepositoryContract
+import work.shion.xapprecipe_data.apiWeb.Api
+import work.shion.xapprecipe_data.inmemory.LinkMemoryContract
 import java.time.LocalDateTime
 import java.util.*
 

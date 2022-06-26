@@ -1,7 +1,7 @@
-package com.github.tshion.xapprecipe.webapp_core.usecases
+package work.shion.xapprecipe_core.usecases
 
 import kotlinx.coroutines.flow.StateFlow
-import com.github.tshion.xapprecipe.webapp_core.entities.WebLinkEntity
+import work.shion.xapprecipe_core.entities.WebLinkEntity
 
 /**
  * WEB ページのブックマーク方法の定義

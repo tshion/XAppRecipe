@@ -1,10 +1,10 @@
-package com.github.tshion.xapprecipe.webapp_data.repositories
+package work.shion.xapprecipe_data.repositories
 
 import kotlinx.coroutines.delay
-import com.github.tshion.xapprecipe.webapp_core.entities.LoginEntity
-import com.github.tshion.xapprecipe.webapp_core.errors.LoginException
-import com.github.tshion.xapprecipe.webapp_core.repositories.AuthenticateRepositoryContract
-import com.github.tshion.xapprecipe.webapp_data.inmemory.TokenMemoryContract
+import work.shion.xapprecipe_core.entities.LoginEntity
+import work.shion.xapprecipe_core.errors.LoginException
+import work.shion.xapprecipe_core.repositories.AuthenticateRepositoryContract
+import work.shion.xapprecipe_data.inmemory.TokenMemoryContract
 import java.util.*
 
 class AuthenticateRepository(

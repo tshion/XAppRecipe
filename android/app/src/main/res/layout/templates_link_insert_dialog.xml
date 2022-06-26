@@ -8,7 +8,7 @@
     android:minWidth="320dp"
     android:padding="@dimen/app_space_2">
 
-    <com.github.tshion.xapprecipe.webapp.molecules.EditForm
+    <work.shion.xapprecipe.molecules.EditForm
         android:id="@+id/templates_link_insert_dialog_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.NegativeButton
+    <work.shion.xapprecipe.atoms.NegativeButton
         android:id="@+id/templates_link_insert_dialog_close"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/templates_link_insert_dialog_input" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.PositiveButton
+    <work.shion.xapprecipe.atoms.PositiveButton
         android:id="@+id/templates_link_insert_dialog_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

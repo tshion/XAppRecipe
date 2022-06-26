@@ -6,7 +6,7 @@ packages:
     github: tshion/mktools_lab
     version: 2022.02.24
 settings:
-  PRODUCT_BUNDLE_IDENTIFIER: com.github.tshion.xapprecipe.webapp
+  PRODUCT_BUNDLE_IDENTIFIER: com.github.tshion.xapprecipe
 targetTemplates:
   appbase:
     dependencies:

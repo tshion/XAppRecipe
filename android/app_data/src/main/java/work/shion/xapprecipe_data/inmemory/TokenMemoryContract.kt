@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.inmemory
+package work.shion.xapprecipe_data.inmemory
 
 interface TokenMemoryContract {
 

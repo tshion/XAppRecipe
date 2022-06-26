@@ -1,10 +1,10 @@
-package com.github.tshion.xapprecipe.webapp_core.usecases
+package work.shion.xapprecipe_core.usecases
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import com.github.tshion.xapprecipe.webapp_core.entities.WebLinkEntity
-import com.github.tshion.xapprecipe.webapp_core.repositories.WebLinkRepositoryContract
-import com.github.tshion.xapprecipe.webapp_core.validators.WebUriValidator
+import work.shion.xapprecipe_core.entities.WebLinkEntity
+import work.shion.xapprecipe_core.repositories.WebLinkRepositoryContract
+import work.shion.xapprecipe_core.validators.WebUriValidator
 
 /**
  * WEB ページのブックマーク方法

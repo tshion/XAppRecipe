@@ -1,6 +1,6 @@
-package com.github.tshion.xapprecipe.webapp_data.inmemory
+package work.shion.xapprecipe_data.inmemory
 
-import com.github.tshion.xapprecipe.webapp_core.entities.WebLinkEntity
+import work.shion.xapprecipe_core.entities.WebLinkEntity
 
 /**
  * リンク情報の保存実装(インメモリ)

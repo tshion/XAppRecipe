@@ -32,7 +32,7 @@
         android:textStyle="bold"
         tools:text="タイトル" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.AtomsNewsIcon
+    <work.shion.xapprecipe.atoms.AtomsNewsIcon
         android:id="@+id/molecules_header_for_link_tab_news"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />

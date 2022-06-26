@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/app_base">
 
-    <com.github.tshion.xapprecipe.webapp.molecules.Header
+    <work.shion.xapprecipe.molecules.Header
         android:id="@+id/pages_login_header"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:text="@string/pages_login"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.github.tshion.xapprecipe.webapp.molecules.EditForm
+    <work.shion.xapprecipe.molecules.EditForm
         android:id="@+id/pages_login_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/pages_login_header" />
 
-    <com.github.tshion.xapprecipe.webapp.molecules.EditForm
+    <work.shion.xapprecipe.molecules.EditForm
         android:id="@+id/pages_login_pw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/pages_login_id" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.NegativeButton
+    <work.shion.xapprecipe.atoms.NegativeButton
         android:id="@+id/pages_login_action_skip"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         app:layout_constraintEnd_toStartOf="@id/pages_login_action_login"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.PositiveButton
+    <work.shion.xapprecipe.atoms.PositiveButton
         android:id="@+id/pages_login_action_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/pages_login_action_skip" />
 
-    <com.github.tshion.xapprecipe.webapp.atoms.CircleLoadingOverlay
+    <work.shion.xapprecipe.atoms.CircleLoadingOverlay
         android:id="@+id/pages_login_loading"
         android:layout_width="match_parent"
         android:layout_height="0dp"

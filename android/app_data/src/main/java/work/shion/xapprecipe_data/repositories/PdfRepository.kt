@@ -1,8 +1,8 @@
-package com.github.tshion.xapprecipe.webapp_data.repositories
+package work.shion.xapprecipe_data.repositories
 
-import com.github.tshion.xapprecipe.webapp_core.repositories.PdfRepositoryContract
-import com.github.tshion.xapprecipe.webapp_data.file.CacheFileContract
-import com.github.tshion.xapprecipe.webapp_data.apiWeb.Api as ApiWeb
+import work.shion.xapprecipe_core.repositories.PdfRepositoryContract
+import work.shion.xapprecipe_data.file.CacheFileContract
+import work.shion.xapprecipe_data.apiWeb.Api as ApiWeb
 
 class PdfRepository(
     private val apiWeb: ApiWeb,

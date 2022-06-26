@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.file
+package work.shion.xapprecipe_data.file
 
 import java.io.File
 import java.io.InputStream

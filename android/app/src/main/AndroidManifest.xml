@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.github.tshion.xapprecipe.webapp">
+    package="com.github.tshion.xapprecipe">
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-feature android:name="android.hardware.location.gps" />
@@ -19,7 +19,7 @@
 
 
     <application
-        android:name=".MainApplication"
+        android:name="work.shion.xapprecipe.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,7 +28,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.github.tshion.xapprecipe.webapp.MainActivity"
+            android:name="com.github.tshion.xapprecipe.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:exported="true"
             android:launchMode="singleTask"
@@ -43,7 +43,7 @@
 
         <!-- Native 実装のエントリーポイント -->
         <activity
-            android:name=".EntryPointActivity"
+            android:name="work.shion.xapprecipe.EntryPointActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launch.Native" />
@@ -69,7 +69,7 @@
 
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <!-- 既存のWorkManager 構成の無効化 -->

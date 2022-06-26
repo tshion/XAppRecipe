@@ -1,7 +1,7 @@
-package com.github.tshion.xapprecipe.webapp_core.usecases
+package work.shion.xapprecipe_core.usecases
 
-import com.github.tshion.xapprecipe.webapp_core.entities.LoginEntity
-import com.github.tshion.xapprecipe.webapp_core.errors.LoginException
+import work.shion.xapprecipe_core.entities.LoginEntity
+import work.shion.xapprecipe_core.errors.LoginException
 
 /**
  * アカウント認証方法の定義

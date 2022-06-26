@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.moshi
+package work.shion.xapprecipe_data.moshi
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson

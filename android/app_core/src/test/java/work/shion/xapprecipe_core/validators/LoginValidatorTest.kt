@@ -1,8 +1,8 @@
-package com.github.tshion.xapprecipe.webapp_core.validators
+package work.shion.xapprecipe_core.validators
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
-import com.github.tshion.xapprecipe.webapp_core.entities.LoginEntity
+import work.shion.xapprecipe_core.entities.LoginEntity
 
 class LoginValidatorTest {
 

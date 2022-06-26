@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.github.tshion.xapprecipe.webapp">
+    package="com.github.tshion.xapprecipe">
 
     <application
-        android:name=".DebugApplication"
+        android:name="work.shion.xapprecipe.DebugApplication"
         tools:replace="android:name" />
 </manifest>

@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.apiWeb
+package work.shion.xapprecipe_data.apiWeb
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

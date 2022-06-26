@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.apiConpass.v1
+package work.shion.xapprecipe_data.apiConpass.v1
 
 import retrofit2.http.GET
 import retrofit2.http.Query

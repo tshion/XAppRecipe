@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.file
+package work.shion.xapprecipe_data.file
 
 import android.content.Context
 import androidx.core.content.ContextCompat

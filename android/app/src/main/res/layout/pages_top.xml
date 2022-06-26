@@ -39,7 +39,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!--ドロワーメニュー -->
-        <com.github.tshion.xapprecipe.webapp.organisms.menu_for_top.MenuForTop
+        <work.shion.xapprecipe.organisms.menu_for_top.MenuForTop
             android:id="@+id/pages_top_menu"
             android:layout_width="240dp"
             android:layout_height="match_parent"
@@ -48,7 +48,7 @@
 
 
     <!-- ローディング -->
-    <com.github.tshion.xapprecipe.webapp.atoms.CircleLoadingOverlay
+    <work.shion.xapprecipe.atoms.CircleLoadingOverlay
         android:id="@+id/pages_top_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

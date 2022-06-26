@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_data.apiWeb
+package work.shion.xapprecipe_data.apiWeb
 
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.runBlocking

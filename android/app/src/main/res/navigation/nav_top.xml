@@ -8,7 +8,7 @@
     <!-- リンク詳細ダイアログ -->
     <dialog
         android:id="@+id/link_detail_dialog"
-        android:name="com.github.tshion.xapprecipe.webapp.templates.LinkDetailDialog">
+        android:name="work.shion.xapprecipe.templates.LinkDetailDialog">
 
         <argument
             android:name="requestKey"
@@ -22,7 +22,7 @@
     <!-- リンク登録ダイアログ -->
     <dialog
         android:id="@+id/link_insert_dialog"
-        android:name="com.github.tshion.xapprecipe.webapp.templates.LinkInsertDialog">
+        android:name="work.shion.xapprecipe.templates.LinkInsertDialog">
 
         <argument
             android:name="requestKey"
@@ -33,7 +33,7 @@
     <!-- リンク一覧 -->
     <fragment
         android:id="@+id/top_link_index"
-        android:name="com.github.tshion.xapprecipe.webapp.pages.link_index.MainFragment"
+        android:name="work.shion.xapprecipe.pages.link_index.MainFragment"
         tools:layout="@layout/pages_link_index">
 
         <!-- リンク詳細ダイアログの表示 -->
@@ -50,7 +50,7 @@
     <!-- 地図(WEB 版) -->
     <fragment
         android:id="@+id/top_map_web"
-        android:name="com.github.tshion.xapprecipe.webapp.pages.map_web.MainFragment"
+        android:name="work.shion.xapprecipe.pages.map_web.MainFragment"
         tools:layout="@layout/pages_map_web" />
 
 

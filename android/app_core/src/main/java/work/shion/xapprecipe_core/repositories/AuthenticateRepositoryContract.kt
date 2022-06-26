@@ -1,7 +1,7 @@
-package com.github.tshion.xapprecipe.webapp_core.repositories
+package work.shion.xapprecipe_core.repositories
 
-import com.github.tshion.xapprecipe.webapp_core.entities.LoginEntity
-import com.github.tshion.xapprecipe.webapp_core.errors.LoginException
+import work.shion.xapprecipe_core.entities.LoginEntity
+import work.shion.xapprecipe_core.errors.LoginException
 
 /**
  * 認証関連のデータ入出力

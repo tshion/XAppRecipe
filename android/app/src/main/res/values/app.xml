@@ -44,7 +44,7 @@
 
     <string name="app_name">XAppRecipe</string>
     <string name="custom_url_scheme">@string/package_name</string>
-    <string name="package_name">com.github.tshion.xapprecipe.webapp</string>
+    <string name="package_name">com.github.tshion.xapprecipe</string>
 
 
     <!-- アプリ基本テーマ -->

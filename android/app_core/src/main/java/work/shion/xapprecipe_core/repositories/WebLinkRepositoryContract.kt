@@ -1,6 +1,6 @@
-package com.github.tshion.xapprecipe.webapp_core.repositories
+package work.shion.xapprecipe_core.repositories
 
-import com.github.tshion.xapprecipe.webapp_core.entities.WebLinkEntity
+import work.shion.xapprecipe_core.entities.WebLinkEntity
 
 /**
  * WEB リンク関連のデータ入出力

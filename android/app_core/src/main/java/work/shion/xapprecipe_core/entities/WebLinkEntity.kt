@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe.webapp_core.entities
+package work.shion.xapprecipe_core.entities
 
 import java.time.LocalDateTime
 
