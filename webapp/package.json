@@ -7,8 +7,7 @@
         "start": "ng serve",
         "build": "ng build",
         "test": "ng test",
-        "lint": "ng lint",
-        "open.android": "npx cap open android"
+        "lint": "ng lint"
     },
     "dependencies": {
         "@angular/common": "^14.0.0",

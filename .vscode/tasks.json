@@ -5,14 +5,13 @@
     "tasks": [
         {
             "label": "Open Android Studio",
-            "path": "./webapp",
-            "type": "npm",
-            "script": "open.android"
+            "type": "shell",
+            "command": "make open-android"
         },
         {
             "label": "Open Xcode",
-            "command": "echo Don't support.",
             "type": "shell",
+            "command": "echo Don't support.",
             "osx": {
                 "command": "make open-ios"
             }

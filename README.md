@@ -24,14 +24,22 @@ If you can use above, run these commands at project root.
 1. ```cd webapp```
 2. ```npm ci```
 
+If you can use ```make```, run ```make init-web``` instead.
+
 ### Setup android capacitor project
 * [Android Studio]
 
 If you can use above and completed "Setup web project", run these commands at project root.
 
 1. ```cd webapp```
-2. ```npx cap sync android```
-3. ```npx cap open android```
+2. ```npx ionic build```
+3. ```npx cap sync android```
+4. ```npx cap open android```
+
+If you can use ```make```, run these instead.
+
+1. ```make deploy-android```
+2. ```make open-android```
 
 ### Setup ios capacitor project
 * ```bash ``` or ```zsh```
