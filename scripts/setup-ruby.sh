@@ -19,7 +19,7 @@ fi
 
 
 # Bundler のセットアップ
-if ! type "gem list bundle" > /dev/null; then
+if ! type "bundle" > /dev/null; then
     echo '`bundle` not found. Install bundler'
     gem install bundler
 fi
