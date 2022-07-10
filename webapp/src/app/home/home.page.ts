@@ -10,14 +10,20 @@ import xApp from 'src/xapp.plugin';
 })
 export class HomePage {
 
+  /** OS ネイティブ実装を呼び出せるかどうか */
+  public canCallNative: boolean;
+
+
   constructor(
-    private readonly platform: Platform,
+    platform: Platform,
   ) {
+    this.canCallNative = platform.is('capacitor');
   }
 
 
   public async callNative() {
-    if (!this.platform.is('capacitor')) {
+    if (!this.canCallNative) {
+      alert('Unsupported.');
       return;
     }
 

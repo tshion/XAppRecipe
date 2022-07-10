@@ -18,6 +18,6 @@
         <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
                 href="https://ionicframework.com/docs/components">UI Components</a></p>
 
-        <ion-button (click)="callNative()">Call Native Page</ion-button>
+        <ion-button (click)="callNative()" *ngIf="this.canCallNative">Call Native Page</ion-button>
     </div>
 </ion-content>
