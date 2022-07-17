@@ -2,13 +2,129 @@ ext {
     minSdkVersion = 21
     compileSdkVersion = 30
     targetSdkVersion = 30
-    androidxActivityVersion = '1.2.0'
-    androidxAppCompatVersion = '1.2.0'
-    androidxCoordinatorLayoutVersion = '1.1.0'
-    androidxCoreVersion = '1.3.2'
-    androidxFragmentVersion = '1.3.0'
-    junitVersion = '4.13.1'
-    androidxJunitVersion = '1.1.2'
-    androidxEspressoCoreVersion = '3.3.0'
-    cordovaAndroidVersion = '7.0.0'
+
+    // ライブラリバージョン
+    libver = [
+        androidPreparation      : [
+            debugger: '1.0.4',
+            intent  : '1.0.3',
+        ],
+        autoService             : '1.0.1',
+        desugarJdk              : '1.1.5',
+        jetpack                 : [
+            biometric   : '1.1.0',
+            browser     : '1.4.0',
+            camera      : '1.0.2',
+            constraint  : '2.1.3',
+            core        : '1.7.0',
+            fragment    : '1.4.1',
+            navigation  : '2.4.1',
+            recyclerview: '1.2.1',
+            test        : [
+                core : '1.4.0',
+                junit: '1.1.3',
+                truth: '1.4.0',
+            ],
+            workmanager : '2.7.1',
+        ],
+        hyperion                : '0.9.34',
+        kotlin                  : '1.6.10',
+        kotlinx                 : [
+            coroutines: '1.6.0',
+        ],
+        material                : '1.5.0',
+        mktools                 : '2022.06.25',
+        moshi                   : '1.13.0',
+        okhttp                  : '4.9.0',
+        ossLicenses             : '17.0.0',
+        permissionsDispatcherKtx: '1.1.3',
+        picasso                 : '2.8',
+        retrofit                : '2.9.0',
+        zxing                   : '3.4.1',
+        zxingEmbedded           : '4.3.0',
+    ]
+
+    // ライブラリ
+    libs = [
+        androidPreparation      : [
+            debugger: "work.shion.androidpreparation:debugger:${libver.androidPreparation.debugger}",
+            intent  : "work.shion.androidpreparation:intentbuilder:${libver.androidPreparation.intent}",
+        ],
+        autoService             : "com.google.auto.service:auto-service:${libver.autoService}",
+        desugarJdk              : "com.android.tools:desugar_jdk_libs:${libver.desugarJdk}",
+        hyperion                : [
+            core  : "com.willowtreeapps.hyperion:hyperion-core:${libver.hyperion}",
+            plugin: "com.willowtreeapps.hyperion:hyperion-plugin:${libver.hyperion}",
+        ],
+        jetpack                 : [
+            biometric       : "androidx.biometric:biometric:${libver.jetpack.biometric}",
+            browser         : "androidx.browser:browser:${libver.jetpack.browser}",
+            camera          : [
+                camera2  : "androidx.camera:camera-camera2:${libver.jetpack.camera}",
+                lifecycle: "androidx.camera:camera-lifecycle:${libver.jetpack.camera}",
+                view     : 'androidx.camera:camera-view:1.0.0-alpha32',
+            ],
+            constraintlayout: "androidx.constraintlayout:constraintlayout:${libver.jetpack.constraint}",
+            core            : "androidx.core:core-ktx:${libver.jetpack.core}",
+            fragment        : "androidx.fragment:fragment-ktx:${libver.jetpack.fragment}",
+            navigation      : [
+                fragment: "androidx.navigation:navigation-fragment-ktx:${libver.jetpack.navigation}",
+                ui      : "androidx.navigation:navigation-ui-ktx:${libver.jetpack.navigation}",
+            ],
+            recyclerview    : "androidx.recyclerview:recyclerview:${libver.jetpack.recyclerview}",
+            test            : [
+                core : "androidx.test:core-ktx:${libver.jetpack.test.core}",
+                junit: "androidx.test.ext:junit-ktx:${libver.jetpack.test.junit}",
+                truth: "androidx.test.ext:truth:${libver.jetpack.test.truth}",
+            ],
+            workmanager     : "androidx.work:work-runtime-ktx:${libver.jetpack.workmanager}",
+        ],
+        kotlinx                 : [
+            coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${libver.kotlinx.coroutines}",
+        ],
+        material                : "com.google.android.material:material:${libver.material}",
+        mktools                 : "com.github.tshion:mktools_lab:${libver.mktools}",
+        moshi                   : [
+            adapters     : "com.squareup.moshi:moshi-adapters:${libver.moshi}",
+            kotlin       : "com.squareup.moshi:moshi-kotlin:${libver.moshi}",
+            kotlinCodegen: "com.squareup.moshi:moshi-kotlin-codegen:${libver.moshi}",
+        ],
+        ossLicenses             : "com.google.android.gms:play-services-oss-licenses:${libver.ossLicenses}",
+        permissionsDispatcherKtx: "com.github.permissions-dispatcher:ktx:${libver.permissionsDispatcherKtx}",
+        picasso                 : "com.squareup.picasso:picasso:${libver.picasso}",
+        retrofit                : [
+            converter: "com.squareup.retrofit2:converter-moshi:${libver.retrofit}",
+            retrofit : "com.squareup.retrofit2:retrofit:${libver.retrofit}",
+        ],
+        zxing                   : "com.google.zxing:core:${libver.zxing}",
+        zxingEmbedded           : "com.journeyapps:zxing-android-embedded:${libver.zxingEmbedded}",
+    ]
+
+    // ライブラリパック
+    libPack = [
+        jetpack      : [
+            camera    : [
+                libs.jetpack.camera.camera2,
+                libs.jetpack.camera.lifecycle,
+                libs.jetpack.camera.view,
+            ],
+            navigation: [
+                libs.jetpack.navigation.fragment,
+                libs.jetpack.navigation.ui,
+            ],
+        ],
+        moshi        : [
+            libs.moshi.adapters,
+            libs.moshi.kotlin,
+        ],
+        retrofit     : [
+            libs.retrofit.converter,
+            libs.retrofit.retrofit,
+        ],
+        unitTestLocal: [
+            libs.jetpack.test.core,
+            libs.jetpack.test.junit,
+            libs.jetpack.test.truth,
+        ],
+    ]
 }

@@ -32,11 +32,11 @@ android {
 
 dependencies {
     // Java 8+
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${ver_desugar_jdk}"
+    coreLibraryDesugaring libs.desugarJdk
 
     // 共通設定
-    testImplementation UnitTestLocal
+    testImplementation libPack.unitTestLocal
 
     // Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
+    implementation libs.kotlinx.coroutines
 }

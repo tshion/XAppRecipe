@@ -101,60 +101,57 @@ dependencies {
     implementation project(':capacitor-cordova-android-plugins')
 
     // Java 8+
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${ver_desugar_jdk}"
+    coreLibraryDesugaring libs.desugarJdk
 
     // Local Project
     implementation project(":app_core")
     implementation project(":app_data")
 
     // 共通設定
-    testImplementation UnitTestLocal
+    testImplementation libPack.unitTestLocal
 
     // AndroidPreparation
-    debugImplementation "work.shion.androidpreparation:debugger:${ver_prep_debugger}"
-    implementation "work.shion.androidpreparation:intentbuilder:${ver_prep_intent}"
+    debugImplementation libs.androidPreparation.debugger
+    implementation libs.androidPreparation.intent
 
     // AndroidX
-    implementation "androidx.biometric:biometric:${ver_droidx_biometric}"
-    implementation "androidx.browser:browser:${ver_droidx_browser}"
-    implementation "androidx.camera:camera-camera2:${ver_droidx_camera}"
-    implementation "androidx.camera:camera-lifecycle:${ver_droidx_camera}"
-    implementation 'androidx.camera:camera-view:1.0.0-alpha32'
-    implementation "androidx.constraintlayout:constraintlayout:${ver_droidx_constraint}"
-    implementation "androidx.core:core-ktx:${ver_droidx_core}"
-    implementation "androidx.fragment:fragment-ktx:${ver_droidx_fragment}"
-    implementation "androidx.navigation:navigation-fragment-ktx:${ver_droidx_navigation}"
-    implementation "androidx.navigation:navigation-ui-ktx:${ver_droidx_navigation}"
-    implementation "androidx.recyclerview:recyclerview:${ver_droidx_recyclerview}"
-    implementation "androidx.work:work-runtime-ktx:${ver_droidx_workmanager}"
+    implementation libs.jetpack.biometric
+    implementation libs.jetpack.browser
+    implementation libPack.jetpack.camera
+    implementation libs.jetpack.constraintlayout
+    implementation libs.jetpack.core
+    implementation libs.jetpack.fragment
+    implementation libPack.jetpack.navigation
+    implementation libs.jetpack.recyclerview
+    implementation libs.jetpack.workmanager
 
     // Hyperion
-    devImplementation "com.willowtreeapps.hyperion:hyperion-core:${ver_hyperion}"
-    debugImplementation "com.willowtreeapps.hyperion:hyperion-plugin:${ver_hyperion}"
-    devImplementation "com.willowtreeapps.hyperion:hyperion-plugin:${ver_hyperion}"
+    devImplementation libs.hyperion.core
+    debugImplementation libs.hyperion.plugin
+    devImplementation libs.hyperion.plugin
 
     // Google
-    implementation "com.google.android.gms:play-services-oss-licenses:${ver_oss_licenses}"
-    kapt "com.google.auto.service:auto-service:${ver_auto_service}"
+    implementation libs.ossLicenses
+    kapt libs.autoService
 
     // Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
+    implementation libs.kotlinx.coroutines
 
     // Material Design
-    implementation "com.google.android.material:material:${ver_material}"
+    implementation libs.material
 
     // mktools
-    implementation 'com.github.tshion:mktools_lab:2022.06.25'
+    implementation libs.mktools
 
     // PermissionsDispatcher
-    implementation "com.github.permissions-dispatcher:ktx:${ver_permissions_dispatcher_ktx}"
+    implementation libs.permissionsDispatcherKtx
 
     // Picasso
-    implementation "com.squareup.picasso:picasso:${ver_picasso}"
+    implementation libs.picasso
 
     // ZXing
-    implementation("com.journeyapps:zxing-android-embedded:${ver_zxing_embedded}") { transitive = false }
-    implementation "com.google.zxing:core:${ver_zxing}"
+    implementation(libs.zxingEmbedded) { transitive = false }
+    implementation libs.zxing
 }
 
 apply from: 'capacitor.build.gradle'

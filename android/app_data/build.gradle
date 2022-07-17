@@ -32,30 +32,28 @@ android {
 
 dependencies {
     // Java 8+
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:${ver_desugar_jdk}"
+    coreLibraryDesugaring libs.desugarJdk
 
     // Local Project
     implementation project(":app_core")
 
     // 共通設定
-    testImplementation UnitTestLocal
+    testImplementation libPack.unitTestLocal
 
     // AndroidX
-    implementation "androidx.core:core-ktx:${ver_droidx_core}"
+    implementation libs.jetpack.core
 
     // Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${ver_kotlin_coroutines}"
+    implementation libs.kotlinx.coroutines
 
     // Moshi
-    implementation "com.squareup.moshi:moshi-adapters:${ver_moshi}"
-    implementation "com.squareup.moshi:moshi-kotlin:${ver_moshi}"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:${ver_moshi}"
+    implementation libPack.moshi
+    kapt libs.moshi.kotlinCodegen
 
     // OkHttp
-    implementation platform("com.squareup.okhttp3:okhttp-bom:${ver_okhttp}")
+    implementation platform("com.squareup.okhttp3:okhttp-bom:${libver.okhttp}")
     implementation "com.squareup.okhttp3:okhttp"
 
     // Retrofit
-    implementation "com.squareup.retrofit2:converter-moshi:${ver_retrofit}"
-    implementation "com.squareup.retrofit2:retrofit:${ver_retrofit}"
+    implementation libPack.retrofit
 }
