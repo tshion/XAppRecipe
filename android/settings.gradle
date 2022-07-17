@@ -1,3 +1,5 @@
+rootProject.name = "XAppRecipe Android"
+
 include ':app'
 include ':app_core'
 include ':app_data'
