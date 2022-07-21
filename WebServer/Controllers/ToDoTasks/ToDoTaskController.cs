@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebServer.Controllers.ToDoTasks
 {
@@ -41,16 +42,16 @@ namespace WebServer.Controllers.ToDoTasks
         };
 
 
-        /// <summary>
-        /// 登録したToDo 一覧の取得
-        /// </summary>
+
         [HttpGet]
-        public GetToDoResponse Get()
+        [SwaggerOperation(Summary = "登録したToDo 一覧の取得")]
+        [SwaggerResponse(StatusCodes.Status200OK, "成功", typeof(GetToDoResponse))]
+        public IActionResult Get()
         {
-            return new()
+            return Ok(new GetToDoResponse()
             {
                 items = _store.ToList(),
-            };
+            });
         }
 
         /// <summary>
