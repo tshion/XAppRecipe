@@ -1,25 +1,22 @@
+using Swashbuckle.AspNetCore.Annotations;
+using System.ComponentModel.DataAnnotations;
+
 namespace WebServer.Controllers.ToDoTasks
 {
-    public class ToDoEntity
+    public class ToDo
     {
-        /// <summary>
-        /// 識別番号
-        /// </summary>
+        [MinLength(1)]
+        [SwaggerSchema("識別番号", Nullable = false)]
         public string id { get; set; }
 
-        /// <summary>
-        /// 完了フラグ
-        /// </summary>
+        [SwaggerSchema("完了フラグ")]
         public bool is_finish { get; set; }
 
-        /// <summary>
-        /// ToDo タイトル
-        /// </summary>
+        [MinLength(1)]
+        [SwaggerSchema("ToDo タイトル", Nullable = false)]
         public string title { get; set; }
 
-        /// <summary>
-        /// 更新日時
-        /// </summary>
+        [SwaggerSchema("更新日時", Format = "date-time")]
         public DateTime update_time { get; set; }
     }
 }

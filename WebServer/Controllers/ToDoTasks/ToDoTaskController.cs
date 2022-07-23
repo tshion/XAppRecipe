@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebServer.Controllers.ToDoTasks
@@ -11,7 +12,7 @@ namespace WebServer.Controllers.ToDoTasks
     public class ToDoTaskController : ControllerBase
     {
         // TODO: HTTP 要求毎にController 生成されるので、Model 側に持っていきたい
-        private readonly List<ToDoEntity> _store = new()
+        private readonly List<ToDo> _store = new()
         {
             new()
             {
@@ -54,38 +55,42 @@ namespace WebServer.Controllers.ToDoTasks
             });
         }
 
-        /// <summary>
-        /// ToDo 新規登録
-        /// </summary>
         [HttpPost]
-        public void Post([FromBody] PostToDoRequest request)
+        [SwaggerOperation(Summary = "ToDo 新規登録")]
+        [SwaggerResponse(StatusCodes.Status200OK, "成功")]
+        [SwaggerResponse(StatusCodes.Status422UnprocessableEntity, "指定パラメータ不備による失敗")]
+        public IActionResult Post(
+            [FromBody, BindRequired] PostToDoRequest request
+        )
         {
-            var title = request.title;
-            if (string.IsNullOrWhiteSpace(title))
+            if (!ModelState.IsValid)
             {
-                return;
+                return UnprocessableEntity(ModelState);
             }
 
-            var candidate = new ToDoEntity
+            var candidate = new ToDo
             {
                 id = (_store.Max(x => int.Parse(x.id)) + 1).ToString(),
                 is_finish = false,
-                title = title,
+                title = request.title,
                 update_time = DateTime.UtcNow,
             };
             _store.Add(candidate);
+            return Ok();
         }
 
-        /// <summary>
-        /// ToDo 編集
-        /// </summary>
-        /// <param name="id">識別番号</param>
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody] PutToDoRequest request)
+        [SwaggerOperation(Summary = "ToDo 編集")]
+        [SwaggerResponse(StatusCodes.Status200OK, "成功")]
+        [SwaggerResponse(StatusCodes.Status422UnprocessableEntity, "指定パラメータ不備による失敗")]
+        public IActionResult Put(
+            [FromRoute, SwaggerParameter("識別番号", Required = true)] string id,
+            [FromBody, BindRequired] PutToDoRequest request
+        )
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                return;
+                return UnprocessableEntity();
             }
 
             var target = _store.SingleOrDefault(x => x.id == id);
@@ -94,18 +99,20 @@ namespace WebServer.Controllers.ToDoTasks
                 target.is_finish = request.is_finish;
                 target.title = request.title;
             }
+            return Ok();
         }
 
-        /// <summary>
-        /// ToDo 削除
-        /// </summary>
-        /// <param name="id">識別番号</param>
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        [SwaggerOperation(Summary = "ToDo 削除")]
+        [SwaggerResponse(StatusCodes.Status200OK, "成功")]
+        [SwaggerResponse(StatusCodes.Status422UnprocessableEntity, "指定パラメータ不備による失敗")]
+        public IActionResult Delete(
+            [FromRoute, SwaggerParameter("識別番号", Required = true)] string id
+        )
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                return;
+                return UnprocessableEntity();
             }
 
             var target = _store.SingleOrDefault(x => x.id == id);
@@ -113,6 +120,7 @@ namespace WebServer.Controllers.ToDoTasks
             {
                 _store.Remove(target);
             }
+            return Ok();
         }
     }
 }

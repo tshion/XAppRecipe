@@ -8,7 +8,8 @@ namespace WebServer.Controllers.ToDoTasks
     [SwaggerSchemaFilter(typeof(GetToDoResponseFilter))]
     public class GetToDoResponse
     {
-        public IEnumerable<ToDoEntity> items { get; set; }
+        [SwaggerSchema(Nullable = false)]
+        public IEnumerable<ToDo> items { get; set; }
     }
 
 
