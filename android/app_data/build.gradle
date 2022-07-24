@@ -23,6 +23,7 @@ android {
         versionName appver_name
     }
     kotlinOptions {
+        freeCompilerArgs += '-Xexplicit-api=warning'
         jvmTarget = '1.8'
     }
     packagingOptions {
