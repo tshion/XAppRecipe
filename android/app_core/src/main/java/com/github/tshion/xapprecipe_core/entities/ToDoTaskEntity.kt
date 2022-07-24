@@ -11,7 +11,7 @@ import java.util.*
  * @param updateDate 更新日
  */
 public data class ToDoTaskEntity(
-    val id: String?,
+    val id: String,
     val isFinish: Boolean,
     val title: String,
     val updateDate: Date,

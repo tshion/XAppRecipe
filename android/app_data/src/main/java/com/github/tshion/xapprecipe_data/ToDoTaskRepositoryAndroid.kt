@@ -1,7 +1,7 @@
 package com.github.tshion.xapprecipe_data
 
 import com.github.tshion.xapprecipe_core.entities.ToDoTaskEntity
-import com.github.tshion.xapprecipe_core.repositories.ToDoTaskRepositoryContract
+import com.github.tshion.xapprecipe_core.repositories.ToDoTaskRepository
 import com.github.tshion.xapprecipe_data.api_xapp_v1.PostToDoRequest
 import com.github.tshion.xapprecipe_data.api_xapp_v1.PutToDoRequest
 import kotlinx.coroutines.CoroutineDispatcher
@@ -12,21 +12,21 @@ import com.github.tshion.xapprecipe_data.api_xapp_v1.APIEndpoint as ApiXAppV1
 /**
  * やること情報のデータ操作
  */
-class ToDoTaskRepository(
+public class ToDoTaskRepositoryAndroid(
     private val apiXAppV1: ApiXAppV1,
     private val dispatchersDefault: CoroutineDispatcher = Dispatchers.Default,
-) : ToDoTaskRepositoryContract {
+) : ToDoTaskRepository {
 
     /** 編集 */
     override suspend fun edit(data: ToDoTaskEntity) {
         PutToDoRequest(
             is_finish = data.isFinish,
             title = data.title,
-        ).also { apiXAppV1.putToDo(data.id!!, it) }
+        ).also { apiXAppV1.putToDo(data.id, it) }
     }
 
     /** 一覧取得 */
-    override suspend fun fetch() = withContext(dispatchersDefault) {
+    override suspend fun fetch(): List<ToDoTaskEntity> = withContext(dispatchersDefault) {
         val response = apiXAppV1.getToDo().items
         response
             .filter { it.id.isNotBlank() }
@@ -40,15 +40,19 @@ class ToDoTaskRepository(
             }
     }
 
-    /** 登録 */
-    override suspend fun register(data: ToDoTaskEntity) {
+    /**
+     * 登録
+     *
+     * @param title やること名
+     */
+    override suspend fun register(title: String) {
         PostToDoRequest(
-            title = data.title,
+            title = title,
         ).also { apiXAppV1.postToDo(it) }
     }
 
     /** 削除 */
     override suspend fun remove(data: ToDoTaskEntity) {
-        apiXAppV1.deleteToDo(data.id!!)
+        apiXAppV1.deleteToDo(data.id)
     }
 }
