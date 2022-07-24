@@ -45,7 +45,7 @@ ui --> user
 deactivate ui
 
 
-==追加==
+==新規作成==
 user -> ui : 追加要求
 activate ui
 note right of user
@@ -77,7 +77,7 @@ deactivate ui
 user -> ui : 編集要求
 activate ui
 note right of user
-    完了したかどうか
+    対象データ
     やること名
 end note
 ui -> presenter
@@ -104,11 +104,47 @@ ui --> user
 deactivate ui
 
 
-==削除==
+==完了==
 user -> ui : 削除要求
 activate ui
 note right of user
-    ToDo 識別番号
+    対象データ
+end note
+ui -> presenter
+activate presenter
+presenter -> model
+activate model
+model -> api
+activate api
+note right of api
+    PUT /v1/todo/{id}
+
+    id: 識別番号
+    is_finish: 完了したかどうか
+    title: やること名
+end note
+...
+note right of api
+    DELETE /v1/todo/{id}
+
+    id: 識別番号
+end note
+...
+api --> model
+deactivate api
+model --> presenter
+deactivate model
+presenter --> ui
+deactivate presenter
+ui --> user
+deactivate ui
+
+
+==諦める==
+user -> ui : 削除要求
+activate ui
+note right of user
+    対象データ
 end note
 ui -> presenter
 activate presenter

@@ -10,7 +10,7 @@ import java.util.*
  * @param title やることの項目名
  * @param updateDate 更新日
  */
-data class ToDoTaskEntity(
+public data class ToDoTaskEntity(
     val id: String?,
     val isFinish: Boolean,
     val title: String,

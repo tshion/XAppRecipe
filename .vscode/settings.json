@@ -3,6 +3,7 @@
         "develop"
     ],
     "lldb.library": "/Applications/Xcode13-4.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "plantuml.render": "PlantUMLServer",
     "plantuml.server": "https://www.plantuml.com/plantuml",
     "typescript.tsdk": "webapp/node_modules/typescript/lib",
     "workbench.colorCustomizations": {
