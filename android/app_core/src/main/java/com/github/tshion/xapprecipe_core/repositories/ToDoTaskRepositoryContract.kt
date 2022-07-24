@@ -1,6 +1,6 @@
-package work.shion.xapprecipe_core.repositories
+package com.github.tshion.xapprecipe_core.repositories
 
-import work.shion.xapprecipe_core.entities.ToDoTaskEntity
+import com.github.tshion.xapprecipe_core.entities.ToDoTaskEntity
 
 /**
  * やること情報のデータ操作の定義

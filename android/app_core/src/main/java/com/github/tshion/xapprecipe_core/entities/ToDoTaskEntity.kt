@@ -1,4 +1,4 @@
-package work.shion.xapprecipe_core.entities
+package com.github.tshion.xapprecipe_core.entities
 
 import java.util.*
 

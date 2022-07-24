@@ -1,12 +1,12 @@
 package com.github.tshion.xapprecipe_data
 
+import com.github.tshion.xapprecipe_core.entities.ToDoTaskEntity
+import com.github.tshion.xapprecipe_core.repositories.ToDoTaskRepositoryContract
 import com.github.tshion.xapprecipe_data.api_xapp_v1.PostToDoRequest
 import com.github.tshion.xapprecipe_data.api_xapp_v1.PutToDoRequest
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import work.shion.xapprecipe_core.entities.ToDoTaskEntity
-import work.shion.xapprecipe_core.repositories.ToDoTaskRepositoryContract
 import com.github.tshion.xapprecipe_data.api_xapp_v1.APIEndpoint as ApiXAppV1
 
 /**
