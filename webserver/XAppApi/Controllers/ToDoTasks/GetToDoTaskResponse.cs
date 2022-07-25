@@ -3,17 +3,17 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace WebServer.Controllers.ToDoTasks
+namespace XAppApi.Controllers.ToDoTasks
 {
-    [SwaggerSchemaFilter(typeof(GetToDoResponseFilter))]
-    public class GetToDoResponse
+    [SwaggerSchemaFilter(typeof(GetToDoTaskResponseFilter))]
+    public class GetToDoTaskResponse
     {
         [SwaggerSchema(Nullable = false)]
-        public IEnumerable<ToDo> items { get; set; }
+        public IEnumerable<ToDoTask> items { get; set; }
     }
 
 
-    public class GetToDoResponseFilter : ISchemaFilter
+    public class GetToDoTaskResponseFilter : ISchemaFilter
     {
         public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {

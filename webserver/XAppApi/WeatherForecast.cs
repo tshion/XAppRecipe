@@ -1,4 +1,4 @@
-namespace WebServer
+namespace XAppApi
 {
     public class WeatherForecast
     {

@@ -1,9 +1,9 @@
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebServer.Controllers.ToDoTasks
+namespace XAppApi.Controllers.ToDoTasks
 {
-    public class ToDo
+    public class ToDoTask
     {
         [MinLength(1)]
         [SwaggerSchema("識別番号", Nullable = false)]
