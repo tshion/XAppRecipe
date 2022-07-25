@@ -58,6 +58,9 @@ android {
         versionCode 1
         versionName '0.0.1'
 
+        // XApp API V1 の基本パス
+        buildConfigField "String", "API_XAPP_V1",
+            "\"undefined\""
 
         // 地図の基本URL
         buildConfigField "String", "URL_MAP",
@@ -82,6 +85,15 @@ android {
         dev {
             dimension "mode"
             versionName "dev-${appver_name}"
+        }
+
+        devlocal {
+            dimension "mode"
+            versionName "devlocal-${appver_name}"
+
+            // XApp API V1 の基本パス
+            buildConfigField "String", "API_XAPP_V1",
+                "\"undefined\""
         }
 
         prd {

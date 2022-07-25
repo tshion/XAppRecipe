@@ -1,8 +1,10 @@
 package com.github.tshion.xapprecipe_data.api_xapp_v1
 
+import com.squareup.moshi.JsonClass
 import java.util.*
 
-data class ToDo(
+@JsonClass(generateAdapter = true)
+internal data class ToDo(
     val id: String,
     val is_finish: Boolean,
     val title: String,

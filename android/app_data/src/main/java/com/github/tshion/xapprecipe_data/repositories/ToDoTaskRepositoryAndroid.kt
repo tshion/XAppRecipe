@@ -1,4 +1,4 @@
-package com.github.tshion.xapprecipe_data
+package com.github.tshion.xapprecipe_data.repositories
 
 import com.github.tshion.xapprecipe_core.entities.ToDoTaskEntity
 import com.github.tshion.xapprecipe_core.repositories.ToDoTaskRepository
@@ -12,7 +12,7 @@ import com.github.tshion.xapprecipe_data.api_xapp_v1.APIEndpoint as ApiXAppV1
 /**
  * やること情報のデータ操作
  */
-public class ToDoTaskRepositoryAndroid(
+public class ToDoTaskRepositoryAndroid internal constructor(
     private val apiXAppV1: ApiXAppV1,
     private val dispatchersDefault: CoroutineDispatcher = Dispatchers.Default,
 ) : ToDoTaskRepository {

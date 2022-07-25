@@ -6,7 +6,7 @@ import retrofit2.http.*
  * API エンドポイント
  * * [Open API](https://{{ api endpoint }}/swagger/index.html)
  */
-interface APIEndpoint {
+internal interface APIEndpoint {
 
     @DELETE("v1/todo/{id}")
     suspend fun deleteToDo(
