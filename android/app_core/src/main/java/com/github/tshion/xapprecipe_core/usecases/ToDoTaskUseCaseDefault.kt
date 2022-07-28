@@ -2,6 +2,7 @@ package com.github.tshion.xapprecipe_core.usecases
 
 import com.github.tshion.xapprecipe_core.entities.ToDoTaskEntity
 import com.github.tshion.xapprecipe_core.repositories.ToDoTaskRepository
+import com.github.tshion.xapprecipe_core.validators.ToDoTaskValidator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -24,12 +25,9 @@ public class ToDoTaskUseCaseDefault(
      * @param todoName やること名
      */
     override suspend fun create(todoName: String?) {
-        // FIXME: 検証ロジック
-        if (todoName.isNullOrBlank()) {
-            throw IllegalArgumentException()
-        }
+        ToDoTaskValidator.preCheckTitle(todoName)?.also { throw it }
 
-        todoTaskRepository.register(todoName)
+        todoTaskRepository.register(todoName!!)
         refreshStream()
     }
 
@@ -48,12 +46,9 @@ public class ToDoTaskUseCaseDefault(
      * @param newToDoName 変更後のやること名
      */
     override suspend fun edit(target: ToDoTaskEntity, newToDoName: String?) {
-        // FIXME: 検証ロジック
-        if (newToDoName.isNullOrBlank()) {
-            throw IllegalArgumentException()
-        }
+        ToDoTaskValidator.preCheckTitle(newToDoName)?.also { throw it }
 
-        val newState = target.copy(title = newToDoName)
+        val newState = target.copy(title = newToDoName!!)
         todoTaskRepository.edit(newState)
         refreshStream()
     }
