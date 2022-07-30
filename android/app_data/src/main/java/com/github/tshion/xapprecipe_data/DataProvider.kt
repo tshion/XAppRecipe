@@ -4,10 +4,12 @@ import com.github.tshion.xapprecipe_core.usecases.ToDoTaskUseCase
 import com.github.tshion.xapprecipe_core.usecases.ToDoTaskUseCaseDefault
 import com.github.tshion.xapprecipe_data.repositories.ToDoTaskRepositoryAndroid
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.*
 import com.github.tshion.xapprecipe_data.api_xapp_v1.APIEndpoint as XAppV1Api
 
 /**
@@ -26,7 +28,8 @@ public class DataProvider(
 
     init {
         val moshiConverterFactory = Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
+            .add(Date::class.java, Rfc3339DateJsonAdapter())
+            .addLast(KotlinJsonAdapterFactory())
             .build()
             .let { MoshiConverterFactory.create(it) }
         val okHttpClient = OkHttpClient.Builder()

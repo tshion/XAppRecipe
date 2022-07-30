@@ -17,6 +17,6 @@ namespace XAppApi.Controllers.ToDoTasks
         public string title { get; set; }
 
         [SwaggerSchema("更新日時", Format = "date-time")]
-        public DateTime update_time { get; set; }
+        public DateTime update_date { get; set; }
     }
 }

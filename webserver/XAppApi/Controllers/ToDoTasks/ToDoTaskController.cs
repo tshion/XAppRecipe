@@ -19,26 +19,14 @@ namespace XAppApi.Controllers.ToDoTasks
                 id = "1",
                 is_finish = false,
                 title = "やることその１",
-                update_time = DateTime.UtcNow,
+                update_date = DateTime.UtcNow,
             },
             new()
             {
                 id = "2",
                 is_finish = true,
                 title = "やることその２",
-                update_time = DateTime.UtcNow,
-            },
-            new()
-            {
-                id = "4",
-                title = "やることその４",
-                update_time = DateTime.UtcNow,
-            },
-            new()
-            {
-                id = "5",
-                is_finish = true,
-                update_time = DateTime.UtcNow,
+                update_date = DateTime.UtcNow,
             },
         };
 
@@ -73,7 +61,7 @@ namespace XAppApi.Controllers.ToDoTasks
                 id = (_store.Max(x => int.Parse(x.id)) + 1).ToString(),
                 is_finish = false,
                 title = request.title,
-                update_time = DateTime.UtcNow,
+                update_date = DateTime.UtcNow,
             };
             _store.Add(candidate);
             return Ok();
