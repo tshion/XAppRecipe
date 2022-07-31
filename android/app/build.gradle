@@ -58,9 +58,13 @@ android {
         versionCode 1
         versionName '0.0.1'
 
+
+        def properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
         // XApp API V1 の基本パス
         buildConfigField "String", "API_XAPP_V1",
-            "\"undefined\""
+            "\"${properties.getProperty('url_api_xapp_v1')}\""
 
         // 地図の基本URL
         buildConfigField "String", "URL_MAP",
@@ -87,17 +91,12 @@ android {
             versionName "dev-${appver_name}"
         }
 
-        devlocal {
+        prd {
             dimension "mode"
-            versionName "devlocal-${appver_name}"
 
             // XApp API V1 の基本パス
             buildConfigField "String", "API_XAPP_V1",
                 "\"undefined\""
-        }
-
-        prd {
-            dimension "mode"
         }
     }
 }
