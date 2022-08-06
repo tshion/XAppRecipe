@@ -47,10 +47,13 @@ dependencies {
     implementation project(":app_core")
 
     // 共通設定
+    androidTestImplementation libPack.unitTestLocal
     testImplementation libPack.unitTestLocal
 
     // AndroidX
     implementation libs.jetpack.core
+    androidTestImplementation libs.jetpack.test.espresso
+    androidTestImplementation libs.jetpack.test.rules
 
     // Kotlin Coroutines
     implementation libs.kotlinx.coroutines
@@ -62,6 +65,7 @@ dependencies {
     // OkHttp
     implementation platform("com.squareup.okhttp3:okhttp-bom:${libver.okhttp}")
     testImplementation "com.squareup.okhttp3:logging-interceptor"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver"
     testImplementation "com.squareup.okhttp3:mockwebserver"
     implementation "com.squareup.okhttp3:okhttp"
 

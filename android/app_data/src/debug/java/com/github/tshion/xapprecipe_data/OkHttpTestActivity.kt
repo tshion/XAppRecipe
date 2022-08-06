@@ -1,33 +1,30 @@
-package work.shion.androidrecipe
+package com.github.tshion.xapprecipe_data
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.ViewGroup.LayoutParams
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.LinearLayout.VERTICAL
 import android.widget.Toast
+import com.github.tshion.xapprecipe_core.repositories.ToDoTaskRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import work.shion.androidrecipe.repositories.ToDoRepository
 
-class OkHttpTestActivity : Activity() {
+internal class OkHttpTestActivity : Activity() {
 
-    companion object {
-        const val testFatal = "can't recover"
-        const val testSuccess = "success"
-    }
-
-    var repository: ToDoRepository? = null
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    var repository: ToDoTaskRepository? = null
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val root = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
+            orientation = VERTICAL
         }
 
         root.addView(Button(this).apply {
@@ -43,7 +40,7 @@ class OkHttpTestActivity : Activity() {
                 }
             }
             text = testSuccess
-        }, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        }, MATCH_PARENT, WRAP_CONTENT)
 
         root.addView(Button(this).apply {
             setOnClickListener {
@@ -58,7 +55,7 @@ class OkHttpTestActivity : Activity() {
                 }
             }
             text = testFatal
-        }, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        }, MATCH_PARENT, WRAP_CONTENT)
 
         setContentView(root)
     }
@@ -66,5 +63,11 @@ class OkHttpTestActivity : Activity() {
 
     private fun showResult(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+
+    companion object {
+        const val testFatal = "can't recover"
+        const val testSuccess = "success"
     }
 }
