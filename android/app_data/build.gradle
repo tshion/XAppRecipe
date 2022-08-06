@@ -21,6 +21,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode appver_code
         versionName appver_name
+
+
+        def properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+        // XApp API V1 の基本パス(TODO: 重複管理の見直し)
+        buildConfigField "String", "API_XAPP_V1",
+            "\"${properties.getProperty('url_api_xapp_v1')}\""
     }
     kotlinOptions {
         freeCompilerArgs += '-Xexplicit-api=warning'
@@ -53,8 +61,13 @@ dependencies {
 
     // OkHttp
     implementation platform("com.squareup.okhttp3:okhttp-bom:${libver.okhttp}")
+    testImplementation "com.squareup.okhttp3:logging-interceptor"
+    testImplementation "com.squareup.okhttp3:mockwebserver"
     implementation "com.squareup.okhttp3:okhttp"
 
     // Retrofit
     implementation libPack.retrofit
+
+    // Robolectric
+    testImplementation libs.robolectric
 }

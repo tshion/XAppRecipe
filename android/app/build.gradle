@@ -62,7 +62,7 @@ android {
         def properties = new Properties()
         properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-        // XApp API V1 の基本パス
+        // XApp API V1 の基本パス(TODO: 重複管理の見直し)
         buildConfigField "String", "API_XAPP_V1",
             "\"${properties.getProperty('url_api_xapp_v1')}\""
 

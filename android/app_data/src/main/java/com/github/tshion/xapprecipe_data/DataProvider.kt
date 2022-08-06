@@ -1,5 +1,6 @@
 package com.github.tshion.xapprecipe_data
 
+import android.net.Uri
 import androidx.core.net.toUri
 import com.github.tshion.xapprecipe_core.usecases.ToDoTaskUseCase
 import com.github.tshion.xapprecipe_core.usecases.ToDoTaskUseCaseDefault
@@ -28,7 +29,6 @@ public class DataProvider(
     baseUrlXAppV1Api: String,
     isDevelopment: Boolean,
 ) {
-    private val baseUrlXAppV1ApiUri = baseUrlXAppV1Api.toUri()
 
     public val todoTaskUseCase: ToDoTaskUseCase
 
@@ -43,7 +43,7 @@ public class DataProvider(
         val okHttpClient = OkHttpClient.Builder()
             .apply {
                 if (isDevelopment) {
-                    setupDevSettings()
+                    setupDevSettings(baseUrlXAppV1Api.toUri())
                 }
             }
             .build()
@@ -68,39 +68,40 @@ public class DataProvider(
     }
 
 
-    /**
-     * ※取り扱いに要注意！
-     */
-    private fun OkHttpClient.Builder.setupDevSettings(): OkHttpClient.Builder {
-        val x509TrustManager = object : X509TrustManager {
-            override fun checkClientTrusted(
-                chain: Array<out X509Certificate>?,
-                authType: String?
-            ) {
+    internal companion object {
+
+        /** ※取り扱いに要注意！ */
+        fun OkHttpClient.Builder.setupDevSettings(baseUrlXAppV1ApiUri: Uri): OkHttpClient.Builder {
+            val x509TrustManager = object : X509TrustManager {
+                override fun checkClientTrusted(
+                    chain: Array<out X509Certificate>?,
+                    authType: String?
+                ) {
+                }
+
+                override fun checkServerTrusted(
+                    chain: Array<out X509Certificate>?,
+                    authType: String?
+                ) {
+                }
+
+                override fun getAcceptedIssuers(): Array<X509Certificate> {
+                    return arrayOf()
+                }
             }
 
-            override fun checkServerTrusted(
-                chain: Array<out X509Certificate>?,
-                authType: String?
-            ) {
-            }
-
-            override fun getAcceptedIssuers(): Array<X509Certificate> {
-                return arrayOf()
-            }
+            return this
+                .sslSocketFactory(
+                    SSLContext.getInstance("SSL").apply {
+                        init(
+                            null,
+                            arrayOf<TrustManager>(x509TrustManager),
+                            SecureRandom()
+                        )
+                    }.socketFactory,
+                    x509TrustManager,
+                )
+                .hostnameVerifier { hostname, _ -> baseUrlXAppV1ApiUri.host == hostname }
         }
-
-        return this
-            .sslSocketFactory(
-                SSLContext.getInstance("SSL").apply {
-                    init(
-                        null,
-                        arrayOf<TrustManager>(x509TrustManager),
-                        SecureRandom()
-                    )
-                }.socketFactory,
-                x509TrustManager,
-            )
-            .hostnameVerifier { hostname, _ -> baseUrlXAppV1ApiUri.host == hostname }
     }
 }
