@@ -1,8 +1,8 @@
 package com.github.tshion.xapprecipe_data.api_xapp_v1
 
-import androidx.core.net.toUri
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.github.tshion.xapprecipe_data.DataProvider.Companion.setupDevSettings
+import com.github.tshion.xapprecipe_data.BuildConfig
+import com.github.tshion.xapprecipe_data.utils.setIgnoreSslError
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -14,7 +14,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import work.shion.xapprecipe_data.BuildConfig
+import java.net.URI
 import java.util.*
 
 /**
@@ -32,7 +32,7 @@ internal class APIEndpointPlayground {
 
     private val api = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor())
-        .setupDevSettings(BuildConfig.API_XAPP_V1.toUri())
+        .setIgnoreSslError(URI(BuildConfig.API_XAPP_V1))
         .build()
         .let {
             Retrofit.Builder()

@@ -1,22 +1,17 @@
 package com.github.tshion.xapprecipe_data
 
-import android.net.Uri
-import androidx.core.net.toUri
 import com.github.tshion.xapprecipe_core.usecases.ToDoTaskUseCase
 import com.github.tshion.xapprecipe_core.usecases.ToDoTaskUseCaseDefault
 import com.github.tshion.xapprecipe_data.repositories.ToDoTaskRepositoryAndroid
+import com.github.tshion.xapprecipe_data.utils.setIgnoreSslError
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import java.security.SecureRandom
-import java.security.cert.X509Certificate
+import java.net.URI
 import java.util.*
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
 import com.github.tshion.xapprecipe_data.api_xapp_v1.APIEndpoint as XAppV1Api
 
 /**
@@ -43,7 +38,7 @@ public class DataProvider(
         val okHttpClient = OkHttpClient.Builder()
             .apply {
                 if (isDevelopment) {
-                    setupDevSettings(baseUrlXAppV1Api.toUri())
+                    setIgnoreSslError(URI(baseUrlXAppV1Api))
                 }
             }
             .build()
@@ -65,43 +60,5 @@ public class DataProvider(
         todoTaskUseCase = ToDoTaskUseCaseDefault(
             todoTaskRepository = todoTaskRepository,
         )
-    }
-
-
-    internal companion object {
-
-        /** ※取り扱いに要注意！ */
-        fun OkHttpClient.Builder.setupDevSettings(baseUrlXAppV1ApiUri: Uri): OkHttpClient.Builder {
-            val x509TrustManager = object : X509TrustManager {
-                override fun checkClientTrusted(
-                    chain: Array<out X509Certificate>?,
-                    authType: String?
-                ) {
-                }
-
-                override fun checkServerTrusted(
-                    chain: Array<out X509Certificate>?,
-                    authType: String?
-                ) {
-                }
-
-                override fun getAcceptedIssuers(): Array<X509Certificate> {
-                    return arrayOf()
-                }
-            }
-
-            return this
-                .sslSocketFactory(
-                    SSLContext.getInstance("SSL").apply {
-                        init(
-                            null,
-                            arrayOf<TrustManager>(x509TrustManager),
-                            SecureRandom()
-                        )
-                    }.socketFactory,
-                    x509TrustManager,
-                )
-                .hostnameVerifier { hostname, _ -> baseUrlXAppV1ApiUri.host == hostname }
-        }
     }
 }
