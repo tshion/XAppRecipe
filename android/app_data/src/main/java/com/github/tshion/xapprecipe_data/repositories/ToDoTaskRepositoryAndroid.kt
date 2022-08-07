@@ -12,32 +12,36 @@ import com.github.tshion.xapprecipe_data.api_xapp_v1.APIEndpoint as ApiXAppV1
 /**
  * やること情報のデータ操作
  */
-public class ToDoTaskRepositoryAndroid internal constructor(
+internal class ToDoTaskRepositoryAndroid(
     private val apiXAppV1: ApiXAppV1,
     private val dispatchersDefault: CoroutineDispatcher = Dispatchers.Default,
 ) : ToDoTaskRepository {
 
     /** 編集 */
     override suspend fun edit(data: ToDoTaskEntity) {
-        PutToDoRequest(
+        val request = PutToDoRequest(
             is_finish = data.isFinish,
             title = data.title,
-        ).also { apiXAppV1.putToDo(data.id, it) }
+        )
+        apiXAppV1.putToDo(data.id, request)
     }
 
     /** 一覧取得 */
-    override suspend fun fetch(): List<ToDoTaskEntity> = withContext(dispatchersDefault) {
-        val response = apiXAppV1.getToDo().items
-        response
-            .filter { it.id.isNotBlank() }
-            .map {
-                ToDoTaskEntity(
-                    id = it.id,
-                    isFinish = it.is_finish,
-                    title = it.title,
-                    updateDate = it.update_date,
-                )
-            }
+    override suspend fun fetch(): List<ToDoTaskEntity> {
+        val response = apiXAppV1.getToDo()
+        val result = withContext(dispatchersDefault) {
+            response.items
+                .filter { it.id.isNotBlank() }
+                .map {
+                    ToDoTaskEntity(
+                        id = it.id,
+                        isFinish = it.is_finish,
+                        title = it.title,
+                        updateDate = it.update_date,
+                    )
+                }
+        }
+        return result
     }
 
     /**
@@ -46,9 +50,10 @@ public class ToDoTaskRepositoryAndroid internal constructor(
      * @param title やること名
      */
     override suspend fun register(title: String) {
-        PostToDoRequest(
+        val request = PostToDoRequest(
             title = title,
-        ).also { apiXAppV1.postToDo(it) }
+        )
+        apiXAppV1.postToDo(request)
     }
 
     /** 削除 */

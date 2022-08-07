@@ -3,7 +3,7 @@ package com.github.tshion.xapprecipe_data.api_xapp_v1
 import retrofit2.http.*
 
 /**
- * API エンドポイント
+ * XApp V1 WebAPI のエンドポイント定義
  * * [Open API](https://{{ api endpoint }}/swagger/index.html)
  */
 internal interface APIEndpoint {
