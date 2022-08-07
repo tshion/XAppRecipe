@@ -1,14 +1,14 @@
 package work.shion.xapprecipe_data.repositories
 
+import com.github.tshion.xapprecipe_data.web.WebAccessor
 import work.shion.xapprecipe_core.entities.WebLinkEntity
 import work.shion.xapprecipe_core.repositories.WebLinkRepositoryContract
-import work.shion.xapprecipe_data.apiWeb.Api
 import work.shion.xapprecipe_data.inmemory.LinkMemoryContract
 import java.time.LocalDateTime
 import java.util.*
 
 class WebLinkRepository(
-    private val api: Api,
+    private val api: WebAccessor,
     private val linkMemory: LinkMemoryContract,
 ) : WebLinkRepositoryContract {
 
@@ -28,7 +28,7 @@ class WebLinkRepository(
      * WEB リンク情報の追加
      */
     override suspend fun append(path: String) {
-        val html = api.getHtml(path)
+        val html = api.getHtmlString(path)
         WebLinkEntity(
             appendDate = LocalDateTime.now(),
             description = html?.let { regexDescription.find(it) }?.destructured?.component1(),

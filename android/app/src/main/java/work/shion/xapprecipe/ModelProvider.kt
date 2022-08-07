@@ -1,6 +1,7 @@
 package work.shion.xapprecipe
 
 import android.content.Context
+import com.github.tshion.xapprecipe_data.web.WebAccessor
 import okhttp3.OkHttpClient
 import work.shion.xapprecipe_core.usecases.*
 import work.shion.xapprecipe_data.file.CacheFile
@@ -10,7 +11,6 @@ import work.shion.xapprecipe_data.repositories.AuthenticateRepository
 import work.shion.xapprecipe_data.repositories.PdfRepository
 import work.shion.xapprecipe_data.repositories.WebLinkRepository
 import java.lang.ref.WeakReference
-import work.shion.xapprecipe_data.apiWeb.Api as ApiWeb
 
 class ModelProvider(
     appContext: WeakReference<Context>,
@@ -29,7 +29,7 @@ class ModelProvider(
             appContext = appContext,
         )
 
-        val apiWeb = ApiWeb(
+        val apiWeb = WebAccessor(
             client = OkHttpClient(),
         )
 
