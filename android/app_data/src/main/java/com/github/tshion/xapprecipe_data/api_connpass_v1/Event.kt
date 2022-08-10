@@ -1,10 +1,11 @@
-package work.shion.xapprecipe_data.apiConpass.v1
+package com.github.tshion.xapprecipe_data.api_connpass_v1
 
 import com.squareup.moshi.JsonClass
 import java.time.LocalDateTime
 
 /**
  * イベント
+ *
  * @param accepted 参加者数
  * @param address 開催場所
  * @param &#x60;catch&#x60; キャッチ
@@ -28,7 +29,7 @@ import java.time.LocalDateTime
  * @param waiting 補欠者数
  */
 @JsonClass(generateAdapter = true)
-data class Event(
+internal data class Event(
     val accepted: Int?,
     val address: String?,
     val `catch`: String?,

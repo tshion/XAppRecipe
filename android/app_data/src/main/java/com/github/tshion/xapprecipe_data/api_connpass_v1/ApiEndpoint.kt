@@ -1,4 +1,4 @@
-package work.shion.xapprecipe_data.apiConpass.v1
+package com.github.tshion.xapprecipe_data.api_connpass_v1
 
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -7,10 +7,11 @@ import retrofit2.http.Query
  * V1 のエンドポイント
  * [connpass API リファレンス](https://connpass.com/about/api/)
  */
-interface ApiEndpoint {
+internal interface ApiEndpoint {
 
     /**
      * イベントサーチ
+     *
      * @param count 取得件数 (optional, default to 10)
      * @param eventId イベントID (optional)
      * @param format レスポンス形式 (optional, default to json)
