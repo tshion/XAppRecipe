@@ -1,5 +1,7 @@
 package work.shion.xapprecipe_data.apiConnpass.v1
 
+import com.github.tshion.xapprecipe_data.utils.LocalDateAdapter
+import com.github.tshion.xapprecipe_data.utils.LocalDateTimeAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -9,8 +11,6 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import work.shion.xapprecipe_data.apiConpass.v1.ApiEndpoint
-import work.shion.xapprecipe_data.moshi.LocalDateAdapter
-import work.shion.xapprecipe_data.moshi.LocalDateTimeAdapter
 import java.util.*
 
 class ApiEndpointSample {
