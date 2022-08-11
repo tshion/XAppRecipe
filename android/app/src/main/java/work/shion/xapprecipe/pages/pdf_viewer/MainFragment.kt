@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.github.tshion.xapprecipe.databinding.PagesPdfViewerBinding
-import work.shion.xapprecipe.getProvider
+import work.shion.xapprecipe.getDataProvider
 import java.lang.ref.WeakReference
 import kotlin.math.ceil
 
@@ -24,7 +24,7 @@ class MainFragment : Fragment(), MainViewContract {
     private val viewModel by viewModels<MainViewModel> {
         MainViewModelFactory(
             application = requireActivity().application,
-            showPdfUseCase = activity?.getProvider()!!.showPdfUseCase,
+            showPdfUseCase = activity?.getDataProvider()!!.showPdfUseCase,
             viewer = WeakReference(this),
         )
     }

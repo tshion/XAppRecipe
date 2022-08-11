@@ -10,16 +10,16 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import com.github.tshion.xapprecipe_core.usecases.ShowPdfUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import work.shion.xapprecipe_core.usecases.ShowPdfUseCaseContract
 import java.lang.ref.WeakReference
 
 class MainViewModel(
     application: Application,
-    private val showPdfUseCase: ShowPdfUseCaseContract,
+    private val showPdfUseCase: ShowPdfUseCase,
     private val viewer: WeakReference<MainViewContract>,
 ) : ViewModel(), MainActionContract {
 

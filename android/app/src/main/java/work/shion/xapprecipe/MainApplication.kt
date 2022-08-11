@@ -1,6 +1,7 @@
 package work.shion.xapprecipe
 
 import android.app.Application
+import androidx.core.content.ContextCompat
 import androidx.work.Configuration
 import androidx.work.DelegatingWorkerFactory
 import com.github.tshion.xapprecipe.BuildConfig
@@ -18,6 +19,8 @@ open class MainApplication : Application(), Configuration.Provider {
 
         dataProvider = DataProvider(
             baseUrlXAppV1Api = BuildConfig.API_XAPP_V1,
+            cacheRoot = ContextCompat.getExternalCacheDirs(applicationContext)
+                .first(),
             isDevelopment = BuildConfig.DEBUG,
         )
         provider = ModelProvider(
@@ -30,7 +33,7 @@ open class MainApplication : Application(), Configuration.Provider {
         val factory = DelegatingWorkerFactory()
         factory.addFactory(
             MainWorkerFactory(
-                showPdfUseCase = provider!!.showPdfUseCase,
+                showPdfUseCase = dataProvider.showPdfUseCase,
             )
         )
 

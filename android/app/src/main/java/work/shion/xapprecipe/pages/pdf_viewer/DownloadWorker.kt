@@ -5,14 +5,14 @@ import androidx.work.CoroutineWorker
 import androidx.work.Data
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
+import com.github.tshion.xapprecipe_core.usecases.ShowPdfUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import work.shion.xapprecipe_core.usecases.ShowPdfUseCaseContract
 
 class DownloadWorker(
     context: Context,
     params: WorkerParameters,
-    private val showPdfUseCase: ShowPdfUseCaseContract,
+    private val showPdfUseCase: ShowPdfUseCase,
 ) : CoroutineWorker(context, params) {
 
     companion object {

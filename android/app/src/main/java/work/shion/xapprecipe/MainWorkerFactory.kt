@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.work.ListenableWorker
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
+import com.github.tshion.xapprecipe_core.usecases.ShowPdfUseCase
 import work.shion.xapprecipe.pages.pdf_viewer.DownloadWorker
-import work.shion.xapprecipe_core.usecases.ShowPdfUseCaseContract
 
 class MainWorkerFactory(
-    private val showPdfUseCase: ShowPdfUseCaseContract,
+    private val showPdfUseCase: ShowPdfUseCase,
 ) : WorkerFactory() {
 
     override fun createWorker(
