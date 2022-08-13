@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 using XAppData.DB.Entities;
+
+[assembly: InternalsVisibleTo("XAppApi")]
 
 namespace XAppData.DB
 {
@@ -9,7 +12,7 @@ namespace XAppData.DB
 
 
 
-        internal XAppDbContext(
+        public XAppDbContext(
             DbContextOptions<XAppDbContext> options
         ) : base(options)
         {

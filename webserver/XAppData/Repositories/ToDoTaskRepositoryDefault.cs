@@ -11,7 +11,7 @@ namespace XAppData.Repositories
 
 
 
-        internal ToDoTaskRepositoryDefault(
+        public ToDoTaskRepositoryDefault(
             XAppDbContext dbXApp
         )
         {

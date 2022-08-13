@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using XAppData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,12 @@ builder.Services.AddSwaggerGen(c =>
         Version = "0.0.1",
     });
 });
+
+// DI
+builder.Services.AddXAppServices(
+    builder.Environment.IsProduction() ? "xapp.db" : "xapp.development.db"
+);
+
 
 var app = builder.Build();
 

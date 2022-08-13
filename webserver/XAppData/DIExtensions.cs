@@ -16,7 +16,10 @@ namespace XAppData
             string sqliteFileName
         )
         {
-            services.AddSqlite<XAppDbContext>($"Data Source=${sqliteFileName}");
+            services.AddSqlite<XAppDbContext>(
+                $"Data Source=${sqliteFileName}",
+                builder => builder.MigrationsAssembly("XAppApi")
+            );
 
             services.AddScoped<ToDoTaskRepository, ToDoTaskRepositoryDefault>();
 
