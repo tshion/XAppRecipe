@@ -8,7 +8,7 @@ namespace XApp.Entities
     /// <param name="Title">やることのタイトル</param>
     /// <param name="UpdateDate">更新日時</param>
     public record class ToDoTaskEntity(
-        string Id,
+        Ulid Id,
         bool IsFinished,
         string Title,
         DateTime UpdateDate

@@ -11,17 +11,17 @@ namespace XApp.Repositories
         /// 削除
         /// </summary>
         /// <param name="target">対象データ</param>
-        public Task Delete(ToDoTaskEntity target);
+        public void Delete(ToDoTaskEntity target);
 
         /// <summary>
         /// 読み込み
         /// </summary>
-        public Task<IEnumerable<ToDoTaskEntity>> Load();
+        public IEnumerable<ToDoTaskEntity> Load();
 
         /// <summary>
         /// 保存
         /// </summary>
         /// <param name="value">保存データ</param>
-        public Task Save(ToDoTaskEntity value);
+        public void Save(ToDoTaskEntity value);
     }
 }
