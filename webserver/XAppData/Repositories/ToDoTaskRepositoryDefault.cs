@@ -22,9 +22,10 @@ namespace XAppData.Repositories
 
         public void Delete(ToDoTaskEntity target)
         {
-            var candidate = _dbXApp.ToDoTasks.Find(target.Id);
+            var candidate = _dbXApp.ToDoTasks.Find(target.Id.ToString());
             if (candidate is not null)
             {
+                _dbXApp.ToDoTasks.Remove(candidate);
                 _dbXApp.SaveChangesAsync();
             }
         }
@@ -42,7 +43,7 @@ namespace XAppData.Repositories
 
         public void Save(ToDoTaskEntity value)
         {
-            var target = _dbXApp.ToDoTasks.Find(value.Id);
+            var target = _dbXApp.ToDoTasks.Find(value.Id.ToString());
             if (target is null)
             {
                 target = new DB.Entities.ToDoTaskDbEntity

@@ -17,7 +17,7 @@ namespace XAppData
         )
         {
             services.AddSqlite<XAppDbContext>(
-                $"Data Source=${sqliteFileName}",
+                $"Data Source={sqliteFileName}",
                 builder => builder.MigrationsAssembly("XAppApi")
             );
 

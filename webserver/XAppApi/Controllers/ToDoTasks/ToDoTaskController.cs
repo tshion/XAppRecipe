@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Swashbuckle.AspNetCore.Annotations;
+using XApp.Entities;
+using XApp.Repositories;
 
 namespace XAppApi.Controllers.ToDoTasks
 {
@@ -11,24 +13,16 @@ namespace XAppApi.Controllers.ToDoTasks
     [Route("v1/todo")]
     public class ToDoTaskController : ControllerBase
     {
-        // TODO: HTTP 要求毎にController 生成されるので、Model 側に持っていきたい
-        private readonly List<ToDoTask> _store = new()
+        private readonly ToDoTaskRepository _repository;
+
+
+
+        public ToDoTaskController(
+            ToDoTaskRepository repository
+        )
         {
-            new()
-            {
-                id = "1",
-                is_finish = false,
-                title = "やることその１",
-                update_date = DateTime.UtcNow,
-            },
-            new()
-            {
-                id = "2",
-                is_finish = true,
-                title = "やることその２",
-                update_date = DateTime.UtcNow,
-            },
-        };
+            _repository = repository;
+        }
 
 
 
@@ -37,9 +31,17 @@ namespace XAppApi.Controllers.ToDoTasks
         [SwaggerResponse(StatusCodes.Status200OK, "成功", typeof(GetToDoTaskResponse))]
         public IActionResult Get()
         {
+            var data = _repository.Load()
+                .Select(item => new ToDoTask
+                {
+                    id = item.Id.ToString(),
+                    is_finish = item.IsFinished,
+                    title = item.Title,
+                    update_date = item.UpdateDate,
+                });
             return Ok(new GetToDoTaskResponse()
             {
-                items = _store.ToList(),
+                items = data,
             });
         }
 
@@ -56,14 +58,13 @@ namespace XAppApi.Controllers.ToDoTasks
                 return UnprocessableEntity(ModelState);
             }
 
-            var candidate = new ToDoTask
-            {
-                id = (_store.Max(x => int.Parse(x.id)) + 1).ToString(),
-                is_finish = false,
-                title = request.title,
-                update_date = DateTime.UtcNow,
-            };
-            _store.Add(candidate);
+            var candidate = new ToDoTaskEntity(
+                Id: Ulid.NewUlid(),
+                IsFinished: false,
+                Title: request.title,
+                UpdateDate: DateTime.UtcNow
+            );
+            _repository.Save(candidate);
             return Ok();
         }
 
@@ -81,12 +82,14 @@ namespace XAppApi.Controllers.ToDoTasks
                 return UnprocessableEntity();
             }
 
-            var target = _store.SingleOrDefault(x => x.id == id);
-            if (target != null)
-            {
-                target.is_finish = request.is_finish;
-                target.title = request.title;
-            }
+
+            var target = new ToDoTaskEntity(
+                Id: Ulid.Parse(id),
+                IsFinished: request.is_finish,
+                Title: request.title,
+                UpdateDate: DateTime.UtcNow
+            );
+            _repository.Save(target);
             return Ok();
         }
 
@@ -103,11 +106,13 @@ namespace XAppApi.Controllers.ToDoTasks
                 return UnprocessableEntity();
             }
 
-            var target = _store.SingleOrDefault(x => x.id == id);
-            if (target != null)
-            {
-                _store.Remove(target);
-            }
+            var target = new ToDoTaskEntity(
+                Id: Ulid.Parse(id),
+                false,
+                "",
+                DateTime.UtcNow
+            );
+            _repository.Delete(target);
             return Ok();
         }
     }

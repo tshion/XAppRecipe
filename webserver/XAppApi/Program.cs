@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen(c =>
 
 // DI
 builder.Services.AddXAppServices(
-    builder.Environment.IsProduction() ? "xapp.db" : "xapp.development.db"
+    $"xapp{(builder.Environment.IsProduction() ? "" : ".development")}.sqlite"
 );
 
 
