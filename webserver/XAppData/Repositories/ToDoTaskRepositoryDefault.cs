@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using XApp.Entities;
 using XApp.Repositories;
+using XApp.Types;
 using XAppData.DB;
 
 namespace XAppData.Repositories
@@ -22,7 +23,7 @@ namespace XAppData.Repositories
 
         public void Delete(ToDoTaskEntity target)
         {
-            var candidate = _dbXApp.ToDoTasks.Find(target.Id.ToString());
+            var candidate = _dbXApp.ToDoTasks.Find(target.Id.Token);
             if (candidate is not null)
             {
                 _dbXApp.ToDoTasks.Remove(candidate);
@@ -33,7 +34,7 @@ namespace XAppData.Repositories
         public IEnumerable<ToDoTaskEntity> Load()
            => _dbXApp.ToDoTasks
             .Select(item => new ToDoTaskEntity(
-                Ulid.Parse(item.id),
+                IdTextType.Parse(item.id),
                 item.finished,
                 item.title,
                 item.update_date
@@ -43,12 +44,12 @@ namespace XAppData.Repositories
 
         public void Save(ToDoTaskEntity value)
         {
-            var target = _dbXApp.ToDoTasks.Find(value.Id.ToString());
+            var target = _dbXApp.ToDoTasks.Find(value.Id.Token);
             if (target is null)
             {
                 target = new DB.Entities.ToDoTaskDbEntity
                 {
-                    id = value.Id.ToString(),
+                    id = value.Id.Token,
                     finished = value.IsFinished,
                     title = value.Title,
                     update_date = value.UpdateDate

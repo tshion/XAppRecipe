@@ -1,3 +1,5 @@
+using XApp.Types;
+
 namespace XApp.Entities
 {
     /// <summary>
@@ -8,7 +10,7 @@ namespace XApp.Entities
     /// <param name="Title">やることのタイトル</param>
     /// <param name="UpdateDate">更新日時</param>
     public record class ToDoTaskEntity(
-        Ulid Id,
+        IdTextType Id,
         bool IsFinished,
         string Title,
         DateTime UpdateDate

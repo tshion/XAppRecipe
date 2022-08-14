@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Swashbuckle.AspNetCore.Annotations;
 using XApp.Entities;
 using XApp.Repositories;
+using XApp.Types;
 
 namespace XAppApi.Controllers.ToDoTasks
 {
@@ -34,7 +35,7 @@ namespace XAppApi.Controllers.ToDoTasks
             var data = _repository.Load()
                 .Select(item => new ToDoTask
                 {
-                    id = item.Id.ToString(),
+                    id = item.Id.Token,
                     is_finish = item.IsFinished,
                     title = item.Title,
                     update_date = item.UpdateDate,
@@ -59,7 +60,7 @@ namespace XAppApi.Controllers.ToDoTasks
             }
 
             var candidate = new ToDoTaskEntity(
-                Id: Ulid.NewUlid(),
+                Id: IdTextType.NewId(),
                 IsFinished: false,
                 Title: request.title,
                 UpdateDate: DateTime.UtcNow
@@ -84,7 +85,7 @@ namespace XAppApi.Controllers.ToDoTasks
 
 
             var target = new ToDoTaskEntity(
-                Id: Ulid.Parse(id),
+                Id: IdTextType.Parse(id),
                 IsFinished: request.is_finish,
                 Title: request.title,
                 UpdateDate: DateTime.UtcNow
@@ -107,7 +108,7 @@ namespace XAppApi.Controllers.ToDoTasks
             }
 
             var target = new ToDoTaskEntity(
-                Id: Ulid.Parse(id),
+                Id: IdTextType.Parse(id),
                 false,
                 "",
                 DateTime.UtcNow
