@@ -11,7 +11,7 @@ class MainViewModelFactory(
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return MainViewModel(
             certifyAccountUseCase = certifyAccountUseCase,
             viewer = viewer,

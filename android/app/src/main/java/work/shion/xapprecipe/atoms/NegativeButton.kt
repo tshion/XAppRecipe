@@ -18,7 +18,7 @@ import com.google.android.material.button.MaterialButton
 class NegativeButton(
     context: Context,
     attrs: AttributeSet?,
-) : MaterialButton(context, attrs, R.attr.materialButtonOutlinedStyle) {
+) : MaterialButton(context, attrs, com.google.android.material.R.attr.materialButtonOutlinedStyle) {
 
     init {
         ContextCompat.getColor(context, R.color.atoms_negative_button_background)

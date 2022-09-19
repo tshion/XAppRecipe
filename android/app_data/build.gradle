@@ -19,8 +19,6 @@ android {
         minSdkVersion min_sdk_version
         targetSdkVersion compile_sdk_version
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        versionCode appver_code
-        versionName appver_name
 
 
         def properties = new Properties()
@@ -34,8 +32,11 @@ android {
         freeCompilerArgs += '-Xexplicit-api=warning'
         jvmTarget = '1.8'
     }
+    namespace 'com.github.tshion.xapprecipe_data'
     packagingOptions {
-        exclude "DebugProbesKt.bin"
+        resources {
+            excludes += ['DebugProbesKt.bin']
+        }
     }
 }
 

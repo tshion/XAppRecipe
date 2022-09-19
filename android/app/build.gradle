@@ -82,8 +82,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.github.tshion.xapprecipe'
     packagingOptions {
-        exclude "DebugProbesKt.bin"
+        resources {
+            excludes += ['DebugProbesKt.bin']
+        }
     }
     productFlavors {
         dev {

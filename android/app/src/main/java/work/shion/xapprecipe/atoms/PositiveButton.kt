@@ -18,7 +18,7 @@ import com.google.android.material.button.MaterialButton
 class PositiveButton(
     context: Context,
     attrs: AttributeSet?,
-) : MaterialButton(context, attrs, R.attr.materialButtonStyle) {
+) : MaterialButton(context, attrs, com.google.android.material.R.attr.materialButtonStyle) {
 
     init {
         ContextCompat.getColor(context, R.color.app_accent)
