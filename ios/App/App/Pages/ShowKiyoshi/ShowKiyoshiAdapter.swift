@@ -4,8 +4,15 @@ import UIKit
  繰り返し表示周りの管理
  */
 class ShowKiyoshiAdapter: NSObject {
+    private var _displayData: [String]? = nil
     var displayData: [String]? {
-        didSet {
+        get { return _displayData }
+        set(value) {
+            if _displayData == nil {
+                _displayData = value
+            } else if let additional = value {
+                _displayData?.append(contentsOf: additional)
+            }
             list?.reloadData()
         }
     }

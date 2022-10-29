@@ -15,9 +15,13 @@ class ShowKiyoshiViewController: UIViewController {
         adapter = ShowKiyoshiAdapter()
         adapter?.with(target: list)
 
-        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+        var groupId = 0
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
+            guard groupId < 3 else { return }
+
             self.adapter?.displayData = [String](repeating: "", count: 30)
-                .map { _ in self.model.generate() }
+                .map { _ in self.model.generate(groupId) }
+            groupId += 1
         }
     }
 }
